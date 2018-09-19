@@ -58,8 +58,16 @@ const IndexPage = () => (
         >
           Is that an &apos;O&apos; or a &apos;0&apos;? An &apos;I&apos; or an
           &apos;l&apos; - or maybe a &apos;1&apos;? Sometimes, it&apos;s hard to
-          tell. Paste your password in the box below for a secure, color-coded
-          revelation.
+          tell. Paste your password in the box below for a{' '}
+          <span
+            title="Your password is never transmitted!"
+            className={css`
+              border-bottom: 2px dashed #b3efff;
+            `}
+          >
+            secure
+          </span>
+          , color-coded revelation.
         </p>
         <LenseInput
           className={css`
