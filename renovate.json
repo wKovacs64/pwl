@@ -1,0 +1,10 @@
+{
+  "extends": ["config:base"],
+  "commitMessageTopic": "{{depName}}",
+  "automergeType": "branch",
+  "automerge": true,
+  "major": { "automerge": false },
+  "node": { "enabled": false },
+  "prConcurrentLimit": 0,
+  "prHourlyLimit": 0
+}

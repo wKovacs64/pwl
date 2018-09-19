@@ -1,0 +1,71 @@
+{
+  "name": "pwl",
+  "version": "0.1.0-dev.0",
+  "description": "Static site to reveal character types in a password",
+  "author": {
+    "name": "Justin Hall",
+    "email": "justin.r.hall@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/wKovacs64/pwl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wKovacs64/pwl/issues"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "rimraf .cache public",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,json,md,yml}\"",
+    "lint": "eslint .",
+    "precommit": "lint-staged",
+    "preserve": "yarn build",
+    "serve": "gatsby serve",
+    "test": "yarn lint"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md,yml}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "private": true,
+  "dependencies": {
+    "emotion": "9.2.9",
+    "emotion-server": "9.2.9",
+    "gatsby": "2.0.3",
+    "gatsby-plugin-emotion": "2.0.5",
+    "gatsby-plugin-manifest": "2.0.2",
+    "gatsby-plugin-netlify": "2.0.0",
+    "gatsby-plugin-offline": "2.0.5",
+    "gatsby-plugin-react-helmet": "3.0.0",
+    "git-current-commit": "1.1.0",
+    "normalize.css": "8.0.0",
+    "prop-types": "15.6.2",
+    "react": "16.5.2",
+    "react-dom": "16.5.2",
+    "react-emotion": "9.2.9",
+    "react-helmet": "5.2.0",
+    "typeface-source-sans-pro": "0.0.54"
+  },
+  "devDependencies": {
+    "babel-eslint": "9.0.0",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-config-prettier": "3.0.1",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.1",
+    "eslint-plugin-react": "7.11.1",
+    "husky": "0.14.3",
+    "lint-staged": "7.2.2",
+    "prettier": "1.14.2",
+    "rimraf": "2.6.2"
+  }
+}
