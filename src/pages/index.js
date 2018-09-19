@@ -23,11 +23,14 @@ const IndexPage = () => (
         <h1
           className={css`
             color: #1c304a;
+            font-size: 2.25rem;
             margin: 0;
             ${mq.md(css`
+              font-size: 3rem;
               margin-top: 4rem;
             `)};
             ${mq.lg(css`
+              font-size: 5rem;
               margin-top: 8rem;
             `)};
           `}
@@ -41,7 +44,11 @@ const IndexPage = () => (
             font-weight: 300;
             margin: 2rem 0;
             ${mq.md(css`
+              font-size: 1.25rem;
               margin: 4rem 0;
+            `)};
+            ${mq.lg(css`
+              font-size: 1.5rem;
             `)};
           `}
         >
