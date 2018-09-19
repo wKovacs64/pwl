@@ -42,13 +42,14 @@ const IndexPage = () => (
             color: #046b99;
             max-width: 45ch;
             font-weight: 300;
+            font-size: 1.25rem;
             margin: 2rem 0;
             ${mq.md(css`
-              font-size: 1.25rem;
+              font-size: 1.5rem;
               margin: 4rem 0;
             `)};
             ${mq.lg(css`
-              font-size: 1.5rem;
+              font-size: 2.25rem;
             `)};
           `}
         >
