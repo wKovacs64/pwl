@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { injectGlobal, css } from 'react-emotion';
 import { StaticQuery, graphql } from 'gatsby';
+import mq from '../utils/mq';
 import Header from './header';
 import Main from './main';
 import Footer from './footer';
@@ -94,7 +95,10 @@ const Layout = ({ children }) => (
         <div
           className={css`
             min-height: 100vh;
-            padding: 0 1rem;
+            padding: 1rem;
+            ${mq.md(css`
+              padding: 0 0 1rem;
+            `)};
           `}
         >
           <Header />
