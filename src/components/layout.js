@@ -1,4 +1,5 @@
 import 'normalize.css';
+import 'typeface-nunito';
 import 'typeface-source-sans-pro';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -11,6 +12,10 @@ import Main from './main';
 import Footer from './footer';
 
 injectGlobal`
+  @font-face {
+    font-family: 'Nunito';
+    src: local('Nunito');
+  }
   @font-face {
     font-family: 'Source Sans Pro';
     src: local('Source Sans Pro');

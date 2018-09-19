@@ -23,7 +23,9 @@ const IndexPage = () => (
         <h1
           className={css`
             color: #1c304a;
+            font-family: 'Nunito', sans-serif;
             font-size: 2.25rem;
+            font-variant: small-caps;
             margin: 0;
             ${mq.md(css`
               font-size: 3rem;
