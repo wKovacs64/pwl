@@ -6,10 +6,10 @@ import mq from '../utils/mq';
 import Legend from './legend';
 
 const colors = {
-  number: '#f1f227', // yellow
-  upperCaseLetter: '#00CFFF', // blue
-  lowerCaseLetter: '#4add8c', // green
-  special: '#ff6347', // red
+  number: { label: 'Number', value: '#f1f227' /* yellow */ },
+  upperCaseLetter: { label: 'Uppercase Letter', value: '#00CFFF' /* blue */ },
+  lowerCaseLetter: { label: 'Lowercase Letter', value: '#4add8c' /* green */ },
+  special: { label: 'Special', value: '#ff6347' /* red */ },
 };
 
 const colorFromChar = memoizeOne(c => {
@@ -26,22 +26,26 @@ const colorFromChar = memoizeOne(c => {
 });
 
 const colorize = password =>
-  password.split('').map((c, i) => (
-    <span
-      className={css`
-        color: ${colorFromChar(c)};
-      `}
-      // N.B. Generally, using an array index as a key is ill advised, but in
-      // this particular case, it is acceptable as we don't have a unique ID for
-      // each character in the string that we are processing, and the order of
-      // the array elements will not change.
-      //
-      // eslint-disable-next-line react/no-array-index-key
-      key={i}
-    >
-      {c}
-    </span>
-  ));
+  password.split('').map((c, i) => {
+    const color = colorFromChar(c);
+    return (
+      <span
+        title={color.label}
+        className={css`
+          color: ${color.value};
+        `}
+        // N.B. Generally, using an array index as a key is ill advised, but in
+        // this particular case, it is acceptable as we don't have a unique ID for
+        // each character in the string that we are processing, and the order of
+        // the array elements will not change.
+        //
+        // eslint-disable-next-line react/no-array-index-key
+        key={i}
+      >
+        {c}
+      </span>
+    );
+  });
 
 const LenseOutput = ({ className, password }) => (
   <section>
