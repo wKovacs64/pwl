@@ -58,6 +58,7 @@ class IndexPage extends Component {
                   font-family: 'Nunito', sans-serif;
                   font-size: 2.25rem;
                   font-variant: small-caps;
+                  text-shadow: 1px 1px 1px #046b99;
                   margin: 0;
                   ${mq.md(css`
                     font-size: 3rem;
