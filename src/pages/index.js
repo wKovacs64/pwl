@@ -91,7 +91,7 @@ class IndexPage extends Component {
                 it&apos;s hard to tell. Paste your password in the box below for
                 a{' '}
                 <span
-                  title="Your password is never transmitted!"
+                  title="Your password never leaves your browser!"
                   className={css`
                     border-bottom: 2px dashed #b3efff;
                   `}
