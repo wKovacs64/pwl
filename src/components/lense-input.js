@@ -11,7 +11,12 @@ const LenseInput = ({ className, password, onChange }) => (
   >
     <input
       aria-label="Password"
+      placeholder="Paste Here"
       type="text"
+      autoCapitalize="off"
+      autoComplete="off"
+      autoCorrect="off"
+      spellCheck={false}
       onChange={onChange}
       value={password}
       className={css`
