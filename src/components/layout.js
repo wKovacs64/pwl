@@ -5,6 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { injectGlobal, css } from 'react-emotion';
+import { IconContext } from 'react-icons';
 import { StaticQuery, graphql } from 'gatsby';
 import mq from '../utils/mq';
 import Header from './header';
@@ -89,7 +90,13 @@ const Layout = ({ children }) => (
     `}
   >
     {({ site: { siteMetadata } }) => (
-      <>
+      <IconContext.Provider
+        value={{
+          className: css`
+            vertical-align: middle;
+          `,
+        }}
+      >
         <Helmet title={siteMetadata.title}>
           <html
             lang="en"
@@ -110,7 +117,7 @@ const Layout = ({ children }) => (
           <Main>{children}</Main>
           <Footer />
         </div>
-      </>
+      </IconContext.Provider>
     )}
   </StaticQuery>
 );

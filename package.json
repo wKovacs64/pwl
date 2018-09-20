@@ -52,6 +52,7 @@
     "react-dom": "16.5.2",
     "react-emotion": "9.2.10",
     "react-helmet": "5.2.0",
+    "react-icons": "3.1.0",
     "typeface-nunito": "0.0.54",
     "typeface-source-sans-pro": "0.0.54"
   },

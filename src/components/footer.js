@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'react-emotion';
-import mq from '../utils/mq';
+import { FaGithub } from 'react-icons/fa';
 
 const Footer = ({ className }) => (
   <footer
     className={css`
       display: flex;
-      ${mq.md(css`
-        justify-content: center;
-      `)};
+      justify-content: center;
       ${className};
     `}
   >
@@ -17,17 +15,16 @@ const Footer = ({ className }) => (
       href="https://github.com/wKovacs64/pwl"
       rel="noopener noreferrer"
       className={css`
-        color: blue;
+        color: #111111;
         padding-bottom: 0.25rem;
         text-decoration: none;
-        border-bottom: 1px solid transparent;
-        transition: border-color 0.3s ease;
+        transition: color 0.3s ease;
         &:hover {
-          border-color: blue;
+          color: #00cfff;
         }
       `}
     >
-      source
+      <FaGithub aria-label="View source on GitHub" size={32} />
     </a>
   </footer>
 );
