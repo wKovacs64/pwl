@@ -11,6 +11,12 @@ class IndexPage extends Component {
     password: '',
   };
 
+  handleInputKeyDown = ({ keyCode }) => {
+    if (keyCode === 27 /* ESC */) {
+      this.setState({ password: '' });
+    }
+  };
+
   handlePasswordChange = event =>
     this.setState({ password: event.target.value });
 
@@ -103,6 +109,7 @@ class IndexPage extends Component {
                 <LenseInput
                   password={password}
                   onChange={this.handlePasswordChange}
+                  onKeyDown={this.handleInputKeyDown}
                 />
                 {password && (
                   <LenseOutput

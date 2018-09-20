@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { css } from 'react-emotion';
 import mq from '../utils/mq';
 
-const LenseInput = ({ className, password, onChange }) => (
+const LenseInput = ({ className, password, onChange, onKeyDown }) => (
   <div
     className={css`
       ${className};
@@ -18,6 +18,7 @@ const LenseInput = ({ className, password, onChange }) => (
       autoCorrect="off"
       spellCheck={false}
       onChange={onChange}
+      onKeyDown={onKeyDown}
       value={password}
       className={css`
         padding: 1rem;
@@ -39,11 +40,13 @@ LenseInput.propTypes = {
   className: PropTypes.string,
   password: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  onKeyDown: PropTypes.func,
 };
 
 LenseInput.defaultProps = {
   className: '',
   password: '',
+  onKeyDown: () => {},
 };
 
 export default LenseInput;
