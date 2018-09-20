@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Link } from 'gatsby';
 import { css } from 'react-emotion';
 import { StaticQuery, graphql } from 'gatsby';
 import mq from '../utils/mq';
