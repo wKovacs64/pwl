@@ -4,7 +4,7 @@ import { css } from 'react-emotion';
 import LegendItem from './legend-item';
 
 const Legend = ({ className, colors }) => (
-  <div
+  <section
     className={css`
       ${className};
     `}
@@ -14,7 +14,7 @@ const Legend = ({ className, colors }) => (
     <LegendItem color={colors.upperCaseLetter} />
     <LegendItem color={colors.lowerCaseLetter} />
     <LegendItem color={colors.special} />
-  </div>
+  </section>
 );
 
 Legend.propTypes = {

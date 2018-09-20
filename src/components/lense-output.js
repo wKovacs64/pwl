@@ -4,6 +4,7 @@ import { css } from 'react-emotion';
 import memoizeOne from 'memoize-one';
 import mq from '../utils/mq';
 import Legend from './legend';
+import PwnedInfo from './pwned-info';
 
 const colors = {
   number: { label: 'Number', value: '#f1f227' /* yellow */ },
@@ -87,12 +88,27 @@ const LenseOutput = ({ className, password }) => (
         {colorize(password)}
       </div>
     </div>
-    <Legend
+    <aside
       className={css`
-        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
       `}
-      colors={colors}
-    />
+    >
+      <Legend
+        className={css`
+          flex: 1;
+          margin-top: 2rem;
+        `}
+        colors={colors}
+      />
+      <PwnedInfo
+        className={css`
+          flex: 1;
+          margin-top: 2rem;
+        `}
+        password={password}
+      />
+    </aside>
   </section>
 );
 
