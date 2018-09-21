@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 import { css } from 'react-emotion';
 import { StaticQuery, graphql } from 'gatsby';
 import mq from '../utils/mq';
@@ -30,6 +31,7 @@ class IndexPage extends Component {
             site {
               siteMetadata {
                 title
+                description
               }
             }
           }
@@ -37,6 +39,11 @@ class IndexPage extends Component {
       >
         {({ site: { siteMetadata } }) => (
           <Layout>
+            <Helmet
+              meta={[
+                { name: 'description', content: siteMetadata.description },
+              ]}
+            />
             <article
               className={css`
                 display: flex;
