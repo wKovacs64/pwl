@@ -33,8 +33,6 @@ class PwnedInfo extends Component {
           numPwns,
         });
       } catch (err) {
-        // eslint-disable-next-line no-console
-        console.error(err);
         this.safeSetState({
           ...PwnedInfo.initialState,
           loading: false,
