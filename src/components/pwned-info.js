@@ -120,7 +120,7 @@ class PwnedInfo extends Component {
       <p>
         <span
           className={css`
-            color: #19a974;
+            color: #20603c;
           `}
         >
           Congratulations!
