@@ -90,10 +90,7 @@ class PwnedInfo extends Component {
     if (error) {
       return this.renderContent(
         <p>
-          <em>
-            Public exposure information for this password is currently
-            unavailable.
-          </em>
+          <em>Public exposure information is currently unavailable.</em>
         </p>,
       );
     }
