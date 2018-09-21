@@ -26,5 +26,23 @@ module.exports = {
     },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: siteConfig.title,
+        short_name: siteConfig.pwaShortName,
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#1c304a',
+        display: 'standalone',
+        icon: 'src/images/icon.png',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        importWorkboxFrom: 'local',
+      },
+    },
   ],
 };
