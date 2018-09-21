@@ -6,6 +6,12 @@
 </div>
 <hr>
 
+## What is this?
+
+Is that an 'O' or a '0'? An 'I' or an 'l' - or maybe a '1'? Sometimes, it's hard
+to tell. Paste your password into Password Lense for a secure, color-coded
+revelation.
+
 ## Features
 
 - Color codes each character in your password with a corresponding legend/key
