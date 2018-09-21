@@ -27,7 +27,7 @@ class PwnedInfo extends Component {
     async () => {
       try {
         const numPwns = await pwnedPassword(this.props.password);
-        this.setState({
+        this.safeSetState({
           ...PwnedInfo.initialState,
           loading: false,
           numPwns,
@@ -35,7 +35,7 @@ class PwnedInfo extends Component {
       } catch (err) {
         // eslint-disable-next-line no-console
         console.error(err);
-        this.setState({
+        this.safeSetState({
           ...PwnedInfo.initialState,
           loading: false,
           error: true,
@@ -47,6 +47,7 @@ class PwnedInfo extends Component {
   );
 
   componentDidMount() {
+    this.mounted = true;
     this.fetchPwnedInfo();
   }
 
@@ -58,10 +59,17 @@ class PwnedInfo extends Component {
 
   componentWillUnmount() {
     this.debouncedFetch.cancel();
+    this.mounted = false;
   }
 
+  safeSetState = (...args) => {
+    if (this.mounted) {
+      this.setState(...args);
+    }
+  };
+
   fetchPwnedInfo = () => {
-    this.setState(
+    this.safeSetState(
       {
         ...PwnedInfo.initialState,
       },
