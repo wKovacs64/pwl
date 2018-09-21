@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { css } from 'react-emotion';
 import { StaticQuery, graphql } from 'gatsby';
+import KeyHandler, { KEYDOWN } from 'react-key-handler';
 import mq from '../utils/mq';
 import Layout from '../components/layout';
 import LenseInput from '../components/lense-input';
@@ -12,9 +13,13 @@ class IndexPage extends Component {
     password: '',
   };
 
+  handleEscape = () => {
+    this.setState({ password: '' });
+  };
+
   handleInputKeyDown = ({ keyCode }) => {
     if (keyCode === 27 /* ESC */) {
-      this.setState({ password: '' });
+      this.handleEscape();
     }
   };
 
@@ -43,6 +48,11 @@ class IndexPage extends Component {
               meta={[
                 { name: 'description', content: siteMetadata.description },
               ]}
+            />
+            <KeyHandler
+              keyEventName={KEYDOWN}
+              keyValue="Escape"
+              onKeyHandle={this.handleEscape}
             />
             <article
               className={css`
