@@ -17,6 +17,10 @@
   breaches
 - Press `ESC` to clear (in case someone walks in and could see your password)
 
+## Run your own
+
+[![Deploy to Netlify][deploy-image]][deploy-link]
+
 ## FAQ
 
 <details>
@@ -28,3 +32,7 @@
   <summary>Isn't Gatsby overkill for this?</summary>
   <p>Completely. But I like using it.</p>
 </details>
+
+[deploy-image]: https://www.netlify.com/img/deploy/button.svg
+[deploy-link]:
+  https://app.netlify.com/start/deploy?repository=https://github.com/wKovacs64/pwl
