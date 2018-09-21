@@ -21,6 +21,7 @@ const LenseInput = ({ className, password, onChange, onKeyDown }) => (
       onKeyDown={onKeyDown}
       value={password}
       className={css`
+        font-family: 'Courier New', Courier, monospace;
         padding: 1rem;
         text-align: center;
         width: 100%;
