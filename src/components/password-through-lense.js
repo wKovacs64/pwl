@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'react-emotion';
 import mq from '../utils/mq';
-import colorize from '../utils/colorize';
+import classifyCharacters from '../utils/classify-characters';
 
-const PasswordThroughLense = ({ className, colors, password }) => (
+const PasswordThroughLense = ({ className, colors, labels, password }) => (
   <div
     data-testid="password-through-lense"
     className={css`
@@ -41,7 +41,25 @@ const PasswordThroughLense = ({ className, colors, password }) => (
         margin: 1rem;
       `}
     >
-      {colorize(password, colors)}
+      {classifyCharacters(password, colors, labels).map(
+        (classifiedCharacter, index) => (
+          <span
+            title={classifiedCharacter.label}
+            className={css`
+              color: ${classifiedCharacter.color};
+            `}
+            // N.B. Generally, using an array index as a key is ill advised, but
+            // in this particular case, it is acceptable as we don't have a
+            // unique ID for each character in the string that we are
+            // processing, and the order of the array elements will not change.
+            //
+            // eslint-disable-next-line react/no-array-index-key
+            key={index}
+          >
+            {classifiedCharacter.character}
+          </span>
+        ),
+      )}
     </div>
   </div>
 );
@@ -49,22 +67,16 @@ const PasswordThroughLense = ({ className, colors, password }) => (
 PasswordThroughLense.propTypes = {
   className: PropTypes.string,
   colors: PropTypes.shape({
-    number: PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }).isRequired,
-    upperCaseLetter: PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }).isRequired,
-    lowerCaseLetter: PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }).isRequired,
-    special: PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }).isRequired,
+    number: PropTypes.string.isRequired,
+    uppercase: PropTypes.string.isRequired,
+    lowercase: PropTypes.string.isRequired,
+    special: PropTypes.string.isRequired,
+  }).isRequired,
+  labels: PropTypes.shape({
+    number: PropTypes.string.isRequired,
+    uppercase: PropTypes.string.isRequired,
+    lowercase: PropTypes.string.isRequired,
+    special: PropTypes.string.isRequired,
   }).isRequired,
   password: PropTypes.string,
 };

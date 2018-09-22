@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { css } from 'react-emotion';
 import LegendItem from './legend-item';
 
-const Legend = ({ className, colors }) => (
+const Legend = ({ className, colors, labels }) => (
   <section
     data-testid="legend"
     className={css`
@@ -11,32 +11,26 @@ const Legend = ({ className, colors }) => (
     `}
   >
     <p>Legend:</p>
-    <LegendItem color={colors.number} />
-    <LegendItem color={colors.upperCaseLetter} />
-    <LegendItem color={colors.lowerCaseLetter} />
-    <LegendItem color={colors.special} />
+    <LegendItem color={colors.number} label={labels.number} />
+    <LegendItem color={colors.uppercase} label={labels.uppercase} />
+    <LegendItem color={colors.lowercase} label={labels.lowercase} />
+    <LegendItem color={colors.special} label={labels.special} />
   </section>
 );
 
 Legend.propTypes = {
   className: PropTypes.string,
   colors: PropTypes.shape({
-    number: PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }).isRequired,
-    upperCaseLetter: PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }).isRequired,
-    lowerCaseLetter: PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }).isRequired,
-    special: PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }).isRequired,
+    number: PropTypes.string.isRequired,
+    uppercase: PropTypes.string.isRequired,
+    lowercase: PropTypes.string.isRequired,
+    special: PropTypes.string.isRequired,
+  }).isRequired,
+  labels: PropTypes.shape({
+    number: PropTypes.string.isRequired,
+    uppercase: PropTypes.string.isRequired,
+    lowercase: PropTypes.string.isRequired,
+    special: PropTypes.string.isRequired,
   }).isRequired,
 };
 

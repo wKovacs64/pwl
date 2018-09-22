@@ -1,3 +1,6 @@
+// import colors from '../../src/utils/colors';
+import labels from '../../src/utils/labels';
+
 describe('Index Page', () => {
   const EXPOSURE_ROUTE = 'https://api.pwnedpasswords.com/range/*';
 
@@ -22,18 +25,26 @@ describe('Index Page', () => {
     cy.getByLabelText(/View source/);
   });
 
+  describe('Password Through Lense', () => {});
+
   describe('Legend', () => {
-    it('exists in results section', () => {
+    beforeEach(() => {
       cy.getByLabelText('Password')
         .click()
-        .type('anything');
+        .type('P4ssw0rd!');
+    });
 
+    it('exists in results section', () => {
+      cy.getByTestId('results').should('exist');
+    });
+
+    it('is accurate', () => {
       cy.getByTestId('results').within(() => {
         cy.getByTestId('legend').within(() => {
-          cy.getByText(/Number/).should('exist');
-          cy.getByText(/Uppercase Letter/).should('exist');
-          cy.getByText(/Lowercase Letter/).should('exist');
-          cy.getByText(/Special/).should('exist');
+          cy.getByText(labels.number).should('exist');
+          cy.getByText(labels.uppercase).should('exist');
+          cy.getByText(labels.lowercase).should('exist');
+          cy.getByText(labels.special).should('exist');
         });
       });
     });
@@ -43,7 +54,7 @@ describe('Index Page', () => {
     it('shows loading state', () => {
       cy.getByLabelText('Password')
         .click()
-        .type('anything');
+        .type('P4ssw0rd!');
 
       cy.getByTestId('results').within(() => {
         cy.getByTestId('pwned-info').within(() => {
@@ -92,7 +103,7 @@ describe('Index Page', () => {
 
       cy.getByLabelText('Password')
         .click()
-        .type('anything');
+        .type('P4ssw0rd!');
 
       cy.getByTestId('results').within(() => {
         cy.getByText(/unavailable/).should('exist');

@@ -4,6 +4,7 @@ import { css } from 'react-emotion';
 import { StaticQuery, graphql } from 'gatsby';
 import KeyHandler, { KEYDOWN } from 'react-key-handler';
 import colors from '../utils/colors';
+import labels from '../utils/labels';
 import mq from '../utils/mq';
 import Layout from '../components/layout';
 import PasswordInput from '../components/password-input';
@@ -133,6 +134,7 @@ class IndexPage extends Component {
                 {password && (
                   <Results
                     colors={colors}
+                    labels={labels}
                     password={password}
                     className={css`
                       margin-top: 2rem;

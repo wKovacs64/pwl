@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'react-emotion';
 
-const LegendRow = ({ color }) => (
+const LegendRow = ({ color, label }) => (
   <div
     className={css`
       display: flex;
@@ -12,21 +12,19 @@ const LegendRow = ({ color }) => (
     <div
       className={css`
         display: inline-block;
-        background-color: ${color.value};
+        background-color: ${color};
         height: 1rem;
         width: 1rem;
         margin-right: 1rem;
       `}
     />
-    <span>{color.label}</span>
+    <span>{label}</span>
   </div>
 );
 
 LegendRow.propTypes = {
-  color: PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-  }).isRequired,
+  color: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
 };
 
 export default LegendRow;

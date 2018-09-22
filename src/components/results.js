@@ -5,9 +5,9 @@ import PasswordThroughLense from './password-through-lense';
 import Legend from './legend';
 import PwnedInfo from './pwned-info';
 
-const Results = ({ className, colors, password }) => (
+const Results = ({ className, colors, labels, password }) => (
   <section data-testid="results" className={className}>
-    <PasswordThroughLense colors={colors} password={password} />
+    <PasswordThroughLense colors={colors} labels={labels} password={password} />
     <aside
       className={css`
         display: flex;
@@ -20,6 +20,7 @@ const Results = ({ className, colors, password }) => (
           margin-top: 2rem;
         `}
         colors={colors}
+        labels={labels}
       />
       <PwnedInfo
         className={css`
@@ -35,22 +36,16 @@ const Results = ({ className, colors, password }) => (
 Results.propTypes = {
   className: PropTypes.string,
   colors: PropTypes.shape({
-    number: PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }).isRequired,
-    upperCaseLetter: PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }).isRequired,
-    lowerCaseLetter: PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }).isRequired,
-    special: PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }).isRequired,
+    number: PropTypes.string.isRequired,
+    uppercase: PropTypes.string.isRequired,
+    lowercase: PropTypes.string.isRequired,
+    special: PropTypes.string.isRequired,
+  }).isRequired,
+  labels: PropTypes.shape({
+    number: PropTypes.string.isRequired,
+    uppercase: PropTypes.string.isRequired,
+    lowercase: PropTypes.string.isRequired,
+    special: PropTypes.string.isRequired,
   }).isRequired,
   password: PropTypes.string,
 };
