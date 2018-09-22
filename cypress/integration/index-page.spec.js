@@ -9,13 +9,13 @@ describe('Index Page', () => {
 
   it('only shows results section with input', () => {
     cy.getByLabelText('Password').should('be.empty');
-    cy.queryByTestId('lense-output').should('not.exist');
+    cy.queryByTestId('results').should('not.exist');
 
     cy.getByLabelText('Password')
       .click()
       .type('password');
 
-    cy.queryByTestId('lense-output').should('exist');
+    cy.queryByTestId('results').should('exist');
   });
 
   it('includes link to source', () => {
@@ -28,7 +28,7 @@ describe('Index Page', () => {
         .click()
         .type('anything');
 
-      cy.getByTestId('lense-output').within(() => {
+      cy.getByTestId('results').within(() => {
         cy.getByTestId('legend').within(() => {
           cy.getByText(/Number/).should('exist');
           cy.getByText(/Uppercase Letter/).should('exist');
@@ -45,7 +45,7 @@ describe('Index Page', () => {
         .click()
         .type('anything');
 
-      cy.getByTestId('lense-output').within(() => {
+      cy.getByTestId('results').within(() => {
         cy.getByTestId('pwned-info').within(() => {
           cy.getByText(/Loading/).should('exist');
         });
@@ -60,7 +60,7 @@ describe('Index Page', () => {
           .click()
           .type(cleanPassword);
 
-        cy.getByTestId('lense-output').within(() => {
+        cy.getByTestId('results').within(() => {
           cy.getByText(/Congratulations/).should('exist');
         });
       });
@@ -79,7 +79,7 @@ describe('Index Page', () => {
             .click()
             .type(exposedPassword);
 
-          cy.getByTestId('lense-output').within(() => {
+          cy.getByTestId('results').within(() => {
             cy.getByText(/Uh-oh/).should('exist');
             cy.getByText(exposedPasswordCount.trim()).should('exist');
           });
@@ -94,7 +94,7 @@ describe('Index Page', () => {
         .click()
         .type('anything');
 
-      cy.getByTestId('lense-output').within(() => {
+      cy.getByTestId('results').within(() => {
         cy.getByText(/unavailable/).should('exist');
       });
     });

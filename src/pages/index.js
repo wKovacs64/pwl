@@ -3,10 +3,11 @@ import Helmet from 'react-helmet';
 import { css } from 'react-emotion';
 import { StaticQuery, graphql } from 'gatsby';
 import KeyHandler, { KEYDOWN } from 'react-key-handler';
+import colors from '../utils/colors';
 import mq from '../utils/mq';
 import Layout from '../components/layout';
-import LenseInput from '../components/lense-input';
-import LenseOutput from '../components/lense-output';
+import PasswordInput from '../components/password-input';
+import Results from '../components/results';
 
 class IndexPage extends Component {
   state = {
@@ -124,13 +125,14 @@ class IndexPage extends Component {
                   max-width: 32rem;
                 `}
               >
-                <LenseInput
+                <PasswordInput
                   password={password}
                   onChange={this.handlePasswordChange}
                   onKeyDown={this.handleInputKeyDown}
                 />
                 {password && (
-                  <LenseOutput
+                  <Results
+                    colors={colors}
                     password={password}
                     className={css`
                       margin-top: 2rem;
