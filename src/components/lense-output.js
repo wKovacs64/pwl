@@ -49,7 +49,7 @@ const colorize = password =>
   });
 
 const LenseOutput = ({ className, password }) => (
-  <section>
+  <section data-testid="lense-output">
     <div
       className={css`
         color: #f4f4f4;

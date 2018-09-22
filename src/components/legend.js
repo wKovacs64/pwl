@@ -5,6 +5,7 @@ import LegendItem from './legend-item';
 
 const Legend = ({ className, colors }) => (
   <section
+    data-testid="legend"
     className={css`
       ${className};
     `}

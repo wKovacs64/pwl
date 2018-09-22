@@ -77,6 +77,7 @@ class PwnedInfo extends Component {
 
   renderContent = content => (
     <section
+      data-testid="pwned-info"
       className={css`
         ${this.props.className};
       `}
