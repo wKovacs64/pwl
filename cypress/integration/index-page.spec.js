@@ -1,5 +1,6 @@
-// import colors from '../../src/utils/colors';
-import labels from '../../src/utils/labels';
+import colorString from 'color-string';
+import colors from '../../src/legend/colors';
+import labels from '../../src/legend/labels';
 
 describe('Index Page', () => {
   const EXPOSURE_ROUTE = 'https://api.pwnedpasswords.com/range/*';
@@ -41,10 +42,42 @@ describe('Index Page', () => {
     it('is accurate', () => {
       cy.getByTestId('results').within(() => {
         cy.getByTestId('legend').within(() => {
-          cy.getByText(labels.number).should('exist');
-          cy.getByText(labels.uppercase).should('exist');
-          cy.getByText(labels.lowercase).should('exist');
-          cy.getByText(labels.special).should('exist');
+          // Number
+          cy.getByTestId(`legend-row--${labels.number}`).within(() => {
+            cy.getByTestId('color').should(
+              'have.css',
+              'background-color',
+              colorString.to.rgb(colorString.get.rgb(colors.number)),
+            );
+            cy.getByText(labels.number).should('exist');
+          });
+          // Uppercase Letter
+          cy.getByTestId(`legend-row--${labels.uppercase}`).within(() => {
+            cy.getByTestId('color').should(
+              'have.css',
+              'background-color',
+              colorString.to.rgb(colorString.get.rgb(colors.uppercase)),
+            );
+            cy.getByText(labels.uppercase).should('exist');
+          });
+          // Lowercase Letter
+          cy.getByTestId(`legend-row--${labels.lowercase}`).within(() => {
+            cy.getByTestId('color').should(
+              'have.css',
+              'background-color',
+              colorString.to.rgb(colorString.get.rgb(colors.lowercase)),
+            );
+            cy.getByText(labels.lowercase).should('exist');
+          });
+          // Special
+          cy.getByTestId(`legend-row--${labels.special}`).within(() => {
+            cy.getByTestId('color').should(
+              'have.css',
+              'background-color',
+              colorString.to.rgb(colorString.get.rgb(colors.special)),
+            );
+            cy.getByText(labels.special).should('exist');
+          });
         });
       });
     });

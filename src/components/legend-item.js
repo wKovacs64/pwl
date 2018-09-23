@@ -4,12 +4,14 @@ import { css } from 'react-emotion';
 
 const LegendRow = ({ color, label }) => (
   <div
+    data-testid={`legend-row--${label}`}
     className={css`
       display: flex;
       align-items: center;
     `}
   >
     <div
+      data-testid="color"
       className={css`
         display: inline-block;
         background-color: ${color};
