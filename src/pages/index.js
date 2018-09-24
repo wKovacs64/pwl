@@ -37,7 +37,6 @@ class IndexPage extends Component {
           {
             site {
               siteMetadata {
-                title
                 description
               }
             }
@@ -60,46 +59,22 @@ class IndexPage extends Component {
               className={css`
                 display: flex;
                 flex-direction: column;
-                margin-bottom: 4rem;
                 ${mq.md(css`
                   align-items: center;
-                  margin-top: 4rem;
-                  margin-bottom: 8rem;
-                `)};
-                ${mq.lg(css`
-                  margin-top: 8rem;
                 `)};
               `}
             >
-              <h1
-                className={css`
-                  color: #1c304a;
-                  font-family: 'Nunito', sans-serif;
-                  font-size: 2.25rem;
-                  font-variant: small-caps;
-                  text-shadow: 1px 1px 1px #046b99;
-                  margin: 0;
-                  ${mq.md(css`
-                    font-size: 3rem;
-                  `)};
-                  ${mq.lg(css`
-                    font-size: 5rem;
-                  `)};
-                `}
-              >
-                {siteMetadata.title}
-              </h1>
               <p
                 className={css`
                   color: #046b99;
                   max-width: 45ch;
                   font-weight: 300;
                   font-size: 1.25rem;
-                  margin: 2rem 0;
+                  margin: 0 0 2rem;
                   ${mq.md(css`
                     text-align: center;
                     font-size: 1.5rem;
-                    margin: 4rem 0;
+                    margin-bottom: 4rem;
                   `)};
                   ${mq.lg(css`
                     font-size: 2.25rem;

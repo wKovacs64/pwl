@@ -14,88 +14,86 @@ const NotFoundPage = () => (
     />
     <article
       className={css`
-        border-left-style: solid;
-        border-color: #1c304a;
-        border-width: 0.5rem;
-        padding-left: 2rem;
-        max-width: 32rem;
-        margin-top: 0;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 4rem;
+        display: flex;
         ${mq.md(css`
-          margin-top: 4rem;
-          margin-bottom: 8rem;
-        `)};
-        ${mq.lg(css`
-          margin-top: 8rem;
-          max-width: 48rem;
+          justify-content: center;
         `)};
       `}
     >
-      <h1
+      <section
         className={css`
-          color: #777777;
-          font-style: italic;
-          margin-top: 0;
-          margin-bottom: 4rem;
-          font-size: 2.25rem;
-          ${mq.lg(css`
-            font-size: 3rem;
-          `)};
+          border-left-style: solid;
+          border-color: #1c304a;
+          border-width: 0.5rem;
+          padding-left: 2rem;
+          width: 48rem;
         `}
       >
-        404
-      </h1>
-      <p
-        className={css`
-          color: #046b99;
-          margin: 4rem 0;
-          font-size: 1.25rem;
-          ${mq.lg(css`
-            font-size: 1.5rem;
-          `)};
-        `}
-      >
-        Sorry, but the page you requested could not be found.
-      </p>
-      <nav
-        className={css`
-          margin-top: 4rem;
-          text-align: right;
-        `}
-      >
-        <Link
-          to="/"
+        <h2
           className={css`
-            display: inline-flex;
-            align-items: center;
-            justify-content: space-between;
-            color: #046b99;
-            text-decoration: none;
-            border-width: 0;
-            background-color: transparent;
-            &:hover {
-              cursor: pointer;
-            }
+            color: #777777;
+            font-style: italic;
+            margin-top: 0;
+            margin-bottom: 4rem;
+            font-size: 2.25rem;
+            ${mq.lg(css`
+              font-size: 3rem;
+            `)};
           `}
         >
-          <FaChevronLeft size={24} />{' '}
-          <span
+          404
+        </h2>
+        <p
+          className={css`
+            color: #046b99;
+            margin: 4rem 0;
+            font-weight: 300;
+            font-size: 1.25rem;
+            ${mq.lg(css`
+              font-size: 1.5rem;
+            `)};
+          `}
+        >
+          Sorry, but the page you requested could not be found.
+        </p>
+        <nav
+          className={css`
+            margin-top: 4rem;
+            text-align: right;
+          `}
+        >
+          <Link
+            to="/"
             className={css`
-              margin-left: 0.5rem;
-              font-family: sans-serif;
-              font-size: 1rem;
-              ${mq.lg(css`
-                margin-left: 1rem;
-                font-size: 1.25rem;
-              `)};
+              display: inline-flex;
+              align-items: center;
+              justify-content: space-between;
+              color: #046b99;
+              text-decoration: none;
+              border-width: 0;
+              background-color: transparent;
+              &:hover {
+                cursor: pointer;
+              }
             `}
           >
-            Back to the Site
-          </span>
-        </Link>
-      </nav>
+            <FaChevronLeft size={24} />{' '}
+            <span
+              className={css`
+                margin-left: 0.5rem;
+                font-family: sans-serif;
+                font-size: 1rem;
+                ${mq.lg(css`
+                  margin-left: 1rem;
+                  font-size: 1.25rem;
+                `)};
+              `}
+            >
+              Back to the Site
+            </span>
+          </Link>
+        </nav>
+      </section>
     </article>
   </Layout>
 );
