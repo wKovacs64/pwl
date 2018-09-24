@@ -1,16 +1,11 @@
-<div align="center">
-  <h1>Password Lense</h1>
-  <p>
-    <em>Static site to reveal character types in a password</em>
-  </p>
-</div>
-<hr>
+![Password Lense Demo][demo-image]
 
 ## What is this?
 
-Is that an 'O' or a '0'? An 'I' or an 'l' - or maybe a '1'? Sometimes, it's hard
-to tell. Paste your password into Password Lense for a secure, color-coded
-revelation.
+Certain characters in passwords ('O' and '0', 'I' and 'l', etc.) can be hard to
+identify when you need to type them in (and copy-paste is unavailable).
+**Password Lense** is a small web application that provides a quick and secure
+way to get a more informative view of your password.
 
 ## Features
 
@@ -18,10 +13,11 @@ revelation.
 - Hover-based tooltip on each character in case the colors are not enough
 - Accessible color palette
 - Monospace font for easy character identification
+- Core functionality works even when offline
 - Secure (your password never leaves your browser)
 - Checks your password against those available in publicly disclosed data
-  breaches
-- Press `ESC` to clear (in case someone walks in and could see your password)
+  breaches _(requires Internet connectivity)_
+- Pressing `ESC` clears the password (in case someone walks in unexpectedly)
 
 ## Run your own
 
@@ -39,6 +35,7 @@ revelation.
   <p>Completely. But I like using it.</p>
 </details>
 
+[demo-image]: ./demo.gif
 [deploy-image]: https://www.netlify.com/img/deploy/button.svg
 [deploy-link]:
   https://app.netlify.com/start/deploy?repository=https://github.com/wKovacs64/pwl
