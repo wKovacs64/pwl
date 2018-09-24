@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'react-emotion';
 
-const LegendRow = ({ color, label }) => (
+const LegendItem = ({ color, label }) => (
   <div
     data-testid={`legend-row--${label}`}
     className={css`
@@ -24,9 +24,9 @@ const LegendRow = ({ color, label }) => (
   </div>
 );
 
-LegendRow.propTypes = {
+LegendItem.propTypes = {
   color: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
 };
 
-export default LegendRow;
+export default LegendItem;
