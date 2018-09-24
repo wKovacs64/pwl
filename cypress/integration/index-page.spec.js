@@ -1,6 +1,10 @@
 import colorString from 'color-string';
+import classifyCharacters from '../../src/utils/classify-characters';
 import colors from '../../src/legend/colors';
 import labels from '../../src/legend/labels';
+
+const colorToRGB = cssColor =>
+  colorString.to.rgb(colorString.get.rgb(cssColor));
 
 describe('Index Page', () => {
   const EXPOSURE_ROUTE = 'https://api.pwnedpasswords.com/range/*';
@@ -26,7 +30,28 @@ describe('Index Page', () => {
     cy.getByLabelText(/View source/);
   });
 
-  describe('Password Through Lense', () => {});
+  describe('Password Through Lense', () => {
+    it('contains classified characters matching the input', () => {
+      const password = 'P4ssw0rd!';
+      const classifiedCharacters = classifyCharacters(password, colors, labels);
+
+      cy.getByLabelText('Password')
+        .click()
+        .type(password);
+
+      cy.getByTestId('password-through-lense')
+        .children()
+        .should('have.length', password.length);
+
+      cy.getByTestId('password-through-lense').within(() => {
+        classifiedCharacters.forEach(({ character, color, label }) => {
+          cy.getByText(character)
+            .should('have.css', 'color', colorToRGB(color))
+            .and('have.attr', 'title', label);
+        });
+      });
+    });
+  });
 
   describe('Legend', () => {
     beforeEach(() => {
@@ -47,7 +72,7 @@ describe('Index Page', () => {
             cy.getByTestId('color').should(
               'have.css',
               'background-color',
-              colorString.to.rgb(colorString.get.rgb(colors.number)),
+              colorToRGB(colors.number),
             );
             cy.getByText(labels.number).should('exist');
           });
@@ -56,7 +81,7 @@ describe('Index Page', () => {
             cy.getByTestId('color').should(
               'have.css',
               'background-color',
-              colorString.to.rgb(colorString.get.rgb(colors.uppercase)),
+              colorToRGB(colors.uppercase),
             );
             cy.getByText(labels.uppercase).should('exist');
           });
@@ -65,7 +90,7 @@ describe('Index Page', () => {
             cy.getByTestId('color').should(
               'have.css',
               'background-color',
-              colorString.to.rgb(colorString.get.rgb(colors.lowercase)),
+              colorToRGB(colors.lowercase),
             );
             cy.getByText(labels.lowercase).should('exist');
           });
@@ -74,7 +99,7 @@ describe('Index Page', () => {
             cy.getByTestId('color').should(
               'have.css',
               'background-color',
-              colorString.to.rgb(colorString.get.rgb(colors.special)),
+              colorToRGB(colors.special),
             );
             cy.getByText(labels.special).should('exist');
           });

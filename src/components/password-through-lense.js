@@ -6,7 +6,6 @@ import classifyCharacters from '../utils/classify-characters';
 
 const PasswordThroughLense = ({ className, colors, labels, password }) => (
   <div
-    data-testid="password-through-lense"
     className={css`
       color: #f4f4f4;
       background-color: #1c304a;
@@ -35,6 +34,7 @@ const PasswordThroughLense = ({ className, colors, labels, password }) => (
     `}
   >
     <div
+      data-testid="password-through-lense"
       className={css`
         font-family: 'Courier New', Courier, monospace;
         display: inline-block;

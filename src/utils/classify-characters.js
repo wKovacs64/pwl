@@ -2,15 +2,15 @@ import memoizeOne from 'memoize-one';
 
 const getCharacterValues = memoizeOne((character, colors, labels) => {
   if (/[0-9]/.test(character)) {
-    return { label: labels.number, color: colors.number };
+    return { color: colors.number, label: labels.number };
   }
   if (/[A-Z]/.test(character)) {
-    return { label: labels.uppercase, color: colors.uppercase };
+    return { color: colors.uppercase, label: labels.uppercase };
   }
   if (/[a-z]/.test(character)) {
-    return { label: labels.lowercase, color: colors.lowercase };
+    return { color: colors.lowercase, label: labels.lowercase };
   }
-  return { label: labels.special, color: colors.special };
+  return { color: colors.special, label: labels.special };
 });
 
 export default (password, colors, labels) =>
@@ -18,7 +18,7 @@ export default (password, colors, labels) =>
     const { label, color } = getCharacterValues(character, colors, labels);
     return {
       character,
-      label,
       color,
+      label,
     };
   });
