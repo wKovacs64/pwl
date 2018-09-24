@@ -4431,9 +4431,9 @@ gatsby-plugin-emotion@2.0.5:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-plugin-manifest@2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.0.2.tgz#a978228dc9c252812f8592d7fc51a92769b3f004"
+gatsby-plugin-manifest@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.0.3.tgz#25b0e5a882ae8f8687da5104776a82eaa4b10623"
   dependencies:
     "@babel/runtime" "^7.0.0"
     bluebird "^3.5.0"
@@ -4485,9 +4485,9 @@ gatsby-react-router-scroll@^2.0.0:
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
 
-gatsby@2.0.7:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.0.7.tgz#a2c2865e0dbe1845e5e0f3d1962af6c5b76fbfab"
+gatsby@2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.0.8.tgz#3cfe58c3f1870c8f9383fbdd90a32b2b00dd1eb5"
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.0.0"

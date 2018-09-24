@@ -44,9 +44,9 @@
   "dependencies": {
     "emotion": "9.2.10",
     "emotion-server": "9.2.10",
-    "gatsby": "2.0.7",
+    "gatsby": "2.0.8",
     "gatsby-plugin-emotion": "2.0.5",
-    "gatsby-plugin-manifest": "2.0.2",
+    "gatsby-plugin-manifest": "2.0.3",
     "gatsby-plugin-netlify": "2.0.0",
     "gatsby-plugin-offline": "2.0.5",
     "gatsby-plugin-react-helmet": "3.0.0",
