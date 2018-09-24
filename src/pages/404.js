@@ -72,7 +72,7 @@ const NotFoundPage = () => (
               text-decoration: none;
               border-width: 0;
               background-color: transparent;
-              &:hover {
+              & :hover {
                 cursor: pointer;
               }
             `}
