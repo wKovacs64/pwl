@@ -11,7 +11,11 @@ describe('Index Page', () => {
 
   beforeEach(() => {
     cy.server();
-    cy.route('GET', EXPOSURE_ROUTE, '');
+    cy.route({
+      method: 'GET',
+      url: EXPOSURE_ROUTE,
+      status: 404,
+    });
     cy.visit('/');
   });
 
@@ -123,7 +127,11 @@ describe('Index Page', () => {
 
     it('shows positive feedback for clean passwords', () => {
       cy.fixture('clean-password.txt').then(cleanPassword => {
-        cy.route('GET', EXPOSURE_ROUTE, 'fixture:clean-password-response.txt');
+        cy.route({
+          method: 'GET',
+          url: EXPOSURE_ROUTE,
+          response: 'fixture:clean-password-response.txt',
+        });
 
         cy.getByLabelText('Password')
           .click()
@@ -138,11 +146,11 @@ describe('Index Page', () => {
     it('shows cautionary feedback for exposed passwords', () => {
       cy.fixture('exposed-password.txt').then(exposedPassword => {
         cy.fixture('exposed-password-count.txt').then(exposedPasswordCount => {
-          cy.route(
-            'GET',
-            EXPOSURE_ROUTE,
-            'fixture:exposed-password-response.txt',
-          );
+          cy.route({
+            method: 'GET',
+            url: EXPOSURE_ROUTE,
+            response: 'fixture:exposed-password-response.txt',
+          });
 
           cy.getByLabelText('Password')
             .click()
@@ -157,7 +165,12 @@ describe('Index Page', () => {
     });
 
     it('indicates when public exposure information is unavailable', () => {
-      cy.route('GET', EXPOSURE_ROUTE, new Error('API Unavailable'));
+      cy.route({
+        method: 'GET',
+        url: EXPOSURE_ROUTE,
+        response: 'API Unavailable',
+        status: 500,
+      });
 
       cy.getByLabelText('Password')
         .click()
