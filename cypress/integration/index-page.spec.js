@@ -32,7 +32,7 @@ describe('Index Page', () => {
 
   describe('Password Through Lense', () => {
     it('contains classified characters matching the input', () => {
-      const password = 'P4ssw0rd!';
+      const password = ' P4ssw0rd! ';
       const classifiedCharacters = classifyCharacters(password, colors, labels);
 
       cy.getByLabelText('Password')
@@ -45,7 +45,7 @@ describe('Index Page', () => {
 
       cy.getByTestId('password-through-lense').within(() => {
         classifiedCharacters.forEach(({ character, color, label }) => {
-          cy.getByText(character)
+          cy.getByText(character, { trim: false, collapseWhitespace: false })
             .should('have.css', 'color', colorToRGB(color))
             .and('have.attr', 'title', label);
         });

@@ -42,11 +42,14 @@ const PasswordThroughLense = ({ className, colors, labels, password }) => (
       `}
     >
       {classifyCharacters(password, colors, labels).map(
-        (classifiedCharacter, index) => (
+        (classifiedCharacter, index, chars) => (
           <span
             title={classifiedCharacter.label}
             className={css`
               color: ${classifiedCharacter.color};
+              border-bottom: thin dotted #f4f4f4;
+              margin-right: ${index < chars.length - 1 ? '0.25rem' : 0};
+              white-space: pre;
             `}
             // N.B. Generally, using an array index as a key is ill advised, but
             // in this particular case, it is acceptable as we don't have a

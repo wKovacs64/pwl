@@ -24,6 +24,9 @@ const PasswordInput = ({ className, password, onChange, onKeyDown }) => (
         font-family: 'Courier New', Courier, monospace;
         padding: 1rem;
         text-align: center;
+        letter-spacing: 0.25rem;
+        white-space: pre;
+        color: #111111;
         width: 100%;
         font-size: 1.25rem;
         ${mq.md(css`
