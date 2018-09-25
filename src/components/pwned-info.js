@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'react-emotion';
 import { pwnedPassword } from 'hibp';
-import NumberFormat from 'react-number-format';
 import debounce from 'lodash.debounce';
 
 class PwnedInfo extends Component {
@@ -113,8 +112,7 @@ class PwnedInfo extends Component {
             Uh-oh!
           </span>{' '}
           This password has been publicly exposed in{' '}
-          <NumberFormat displayType="text" value={numPwns} thousandSeparator />{' '}
-          data breach
+          <span>{Number(numPwns).toLocaleString()}</span> data breach
           {numPwns > 1 && 'es'}. It should NOT be used.
         </p>,
       );
