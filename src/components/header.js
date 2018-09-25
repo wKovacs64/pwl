@@ -11,7 +11,6 @@ const Header = ({ className }) => (
         site {
           siteMetadata {
             title
-            description
           }
         }
       }
