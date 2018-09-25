@@ -6,11 +6,9 @@ import mq from '../utils/mq';
 
 class AutoUpdater extends Component {
   static propTypes = {
-    attribute: PropTypes.string.isRequired,
-    tag: PropTypes.string.isRequired,
-    currentAttrValue: PropTypes.string.isRequired,
     siteTitle: PropTypes.string.isRequired,
     indexUrl: PropTypes.string.isRequired,
+    isNewer: PropTypes.func.isRequired,
     pollingIntervalMs: PropTypes.number.isRequired,
   };
 
@@ -40,7 +38,7 @@ class AutoUpdater extends Component {
   };
 
   checkForUpdates = async () => {
-    const { attribute, tag, currentAttrValue } = this.props;
+    const { isNewer } = this.props;
     const { newCodeAvailable } = this.state;
 
     if (!newCodeAvailable) {
@@ -54,12 +52,8 @@ class AutoUpdater extends Component {
             res.data,
             'text/html',
           );
-          const remoteTags = remoteDocument.getElementsByTagName(tag);
-          if (remoteTags.length === 0) {
-            return;
-          }
-          const remoteAttrValue = remoteTags[0].getAttribute(attribute);
-          if (remoteAttrValue && remoteAttrValue !== currentAttrValue) {
+
+          if (isNewer(remoteDocument)) {
             this.setState({ newCodeAvailable: true });
             this.clearUpdateCheckInterval();
           }

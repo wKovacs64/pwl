@@ -29,11 +29,16 @@ const Header = ({ className }) => (
         `}
       >
         <AutoUpdater
-          tag="html"
-          attribute="data-commit"
-          currentAttrValue={siteMetadata.buildInfo.commit}
           siteTitle={siteMetadata.title}
           indexUrl="/index.html?no-cache=1"
+          isNewer={remoteDocument => {
+            const remoteCommit = remoteDocument.documentElement.getAttribute(
+              'data-commit',
+            );
+            return (
+              remoteCommit && remoteCommit !== siteMetadata.buildInfo.commit
+            );
+          }}
           pollingIntervalMs={
             typeof window !== 'undefined' &&
             isMobile(window.navigator.userAgent)
