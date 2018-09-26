@@ -68,12 +68,16 @@ const UpdateAlert = () => (
                 left: 0;
                 width: 100vw;
                 z-index: 9999;
+                border-color: #1c304a;
+                border-style: solid;
+                border-width: 0;
                 box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
                 ${mq.md(css`
                   top: 1rem;
                   left: unset;
                   right: 1rem;
                   width: auto;
+                  border-width: thin;
                 `)};
               `}
             >
