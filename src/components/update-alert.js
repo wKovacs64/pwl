@@ -74,7 +74,7 @@ const UpdateAlert = () => (
                 box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
                 ${mq.md(css`
                   top: 1rem;
-                  left: unset;
+                  left: auto;
                   right: 1rem;
                   width: auto;
                   border-width: thin;
