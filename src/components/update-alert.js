@@ -96,7 +96,7 @@ const UpdateAlert = () => (
                   padding: 1rem;
                   width: 100%;
                   transition: color 0.3s ease, background-color 0.3s ease;
-                  & :hover {
+                  &:hover {
                     cursor: pointer;
                     color: #1c304a;
                     background-color: #b3efff;

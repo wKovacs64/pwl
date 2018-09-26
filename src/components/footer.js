@@ -20,7 +20,7 @@ const Footer = ({ className }) => (
         padding-bottom: 0.25rem;
         text-decoration: none;
         transition: color 0.3s ease;
-        & :hover {
+        &:hover {
           color: #00cfff;
         }
       `}

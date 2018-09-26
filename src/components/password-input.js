@@ -35,7 +35,7 @@ const PasswordInput = ({ className, password, onChange, onKeyDown }) => (
         ${mq.lg(css`
           font-size: 2.25rem;
         `)};
-        & ::-ms-clear {
+        &::-ms-clear {
           display: none;
         }
       `}
