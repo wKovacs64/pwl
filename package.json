@@ -22,7 +22,6 @@
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,json,md,yml}\"",
     "lint": "eslint .",
-    "precommit": "lint-staged",
     "preserve": "yarn build",
     "serve": "gatsby serve",
     "test": "yarn test:e2e",
