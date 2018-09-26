@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import { css } from 'react-emotion';
-import ms from 'ms';
 import mq from '../utils/mq';
-import isMobile from '../utils/is-mobile';
-import AutoUpdater from './auto-updater';
+import UpdateAlert from './update-alert';
 
 const Header = ({ className }) => (
   <StaticQuery
@@ -14,9 +12,6 @@ const Header = ({ className }) => (
         site {
           siteMetadata {
             title
-            buildInfo {
-              commit
-            }
           }
         }
       }
@@ -28,24 +23,7 @@ const Header = ({ className }) => (
           ${className};
         `}
       >
-        <AutoUpdater
-          siteTitle={siteMetadata.title}
-          indexUrl="/index.html?no-cache=1"
-          isNewer={remoteDocument => {
-            const remoteCommit = remoteDocument.documentElement.getAttribute(
-              'data-commit',
-            );
-            return (
-              remoteCommit && remoteCommit !== siteMetadata.buildInfo.commit
-            );
-          }}
-          pollingIntervalMs={
-            typeof window !== 'undefined' &&
-            isMobile(window.navigator.userAgent)
-              ? ms('1 day')
-              : ms('1 hour')
-          }
-        />
+        <UpdateAlert />
         <section
           className={css`
             display: flex;
