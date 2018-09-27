@@ -44,7 +44,7 @@
     "axios": "0.18.0",
     "emotion": "9.2.10",
     "emotion-server": "9.2.10",
-    "gatsby": "2.0.9",
+    "gatsby": "2.0.10",
     "gatsby-plugin-emotion": "2.0.5",
     "gatsby-plugin-manifest": "2.0.4",
     "gatsby-plugin-netlify": "2.0.0",
