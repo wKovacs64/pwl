@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'react-emotion';
-// TODO: tree-shaking broken? why is this so large?
 import { FaGithub } from 'react-icons/fa';
 
 const Footer = ({ className }) => (
