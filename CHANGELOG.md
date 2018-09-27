@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.2.2 _(2018-09-27)_
+
+- Fixed issue with the 404 page redirecting to append `?no-cache=1`
+
 ## Version 1.2.1 _(2018-09-26)_
 
 - Fixed update alert positioning in IE
