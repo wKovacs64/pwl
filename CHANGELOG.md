@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.2.3 _(2018-09-27)_
+
+- Reduced space above the site title on large screens
+
 ## Version 1.2.2 _(2018-09-27)_
 
 - Fixed issue with the 404 page redirecting to append `?no-cache=1`
