@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 1.2.1 _(2018-09-26)_
+
+- Fixed update alert positioning in IE
+- Added a border to the update alert
+
 ## Version 1.2.0 _(2018-09-25)_
 
 - Added automatic update checks ([#3][#3])
