@@ -46,7 +46,6 @@ const Header = ({ className }) => (
               `)};
               ${mq.lg(css`
                 font-size: 5rem;
-                margin-top: 8rem;
               `)};
             `}
           >
