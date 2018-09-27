@@ -15,9 +15,10 @@ way to get a more informative view of your password.
 - Monospace font for easy character identification
 - Core functionality works even when offline
 - Secure (your password never leaves your browser)
+- Pressing `ESC` clears the password (in case someone walks in unexpectedly)
 - Checks your password against those available in publicly disclosed data
   breaches _(requires Internet connectivity)_
-- Pressing `ESC` clears the password (in case someone walks in unexpectedly)
+- Automatically checks for updates _(requires Internet connectivity)_
 
 ## Run your own
 
@@ -32,7 +33,10 @@ way to get a more informative view of your password.
 
 <details>
   <summary>Isn't Gatsby overkill for this?</summary>
-  <p>Completely. But I like using it.</p>
+  <p>No, it's <a href="https://twitter.com/jlengstorf/status/1043237435675557888">awesome</a>
+    for <a href="https://twitter.com/kylemathews/status/1043226318978998272">building
+      apps</a>.
+  </p>
 </details>
 
 [demo-image]: ./demo.gif
