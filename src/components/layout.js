@@ -1,4 +1,4 @@
-import 'normalize.css';
+import '@wkovacs64/normalize.css';
 import 'typeface-nunito';
 import 'typeface-source-sans-pro';
 import React from 'react';
@@ -25,51 +25,6 @@ injectGlobal`
     font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
       'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto,
       'segoe ui', arial, sans-serif;
-  }
-  html,
-  body,
-  div,
-  article,
-  aside,
-  section,
-  main,
-  nav,
-  footer,
-  header,
-  form,
-  fieldset,
-  legend,
-  pre,
-  code,
-  a,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  ul,
-  ol,
-  li,
-  dl,
-  dt,
-  dd,
-  blockquote,
-  figcaption,
-  figure,
-  textarea,
-  table,
-  td,
-  th,
-  tr,
-  input[type='email'],
-  input[type='number'],
-  input[type='password'],
-  input[type='tel'],
-  input[type='text'],
-  input[type='url'] {
-    box-sizing: border-box;
   }
 `;
 

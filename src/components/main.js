@@ -6,7 +6,6 @@ import mq from '../utils/mq';
 const Main = ({ className, children }) => (
   <main
     className={css`
-      display: block;
       padding-top: 2rem;
       padding-bottom: 4rem;
       ${mq.md(css`

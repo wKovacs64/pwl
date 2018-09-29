@@ -1180,6 +1180,13 @@
     "@webassemblyjs/wast-parser" "1.7.6"
     "@xtuc/long" "4.2.1"
 
+"@wkovacs64/normalize.css@8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@wkovacs64/normalize.css/-/normalize.css-8.0.0.tgz#d01052dfe04078f35ae50d4ddce7385857f9b3d7"
+  integrity sha512-KOW4PIthpwJF8ozUiJwhC1kO0qlfo77nuPhgd8ZSSF4EdfStjVWLli5sWrl9s88/56lgmO2jcSuEYED4HnzmdA==
+  dependencies:
+    normalize.css "8.0.0"
+
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@xtuc/ieee754/-/ieee754-1.2.0.tgz#eef014a3145ae477a1cbc00cd1e552336dceb790"
