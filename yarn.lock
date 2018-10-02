@@ -4373,6 +4373,19 @@ execa@0.10.0, execa@^0.10.0:
     signal-exit "^3.0.0"
     strip-eof "^1.0.0"
 
+execa@0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/execa/-/execa-0.11.0.tgz#0b3c71daf9b9159c252a863cd981af1b4410d97a"
+  integrity sha512-k5AR22vCt1DcfeiRixW46U5tMLtBg44ssdJM9PiXw3D8Bn5qyxFCSnKY/eR22y+ctFDGPqafpaXg2G4Emyua4A==
+  dependencies:
+    cross-spawn "^6.0.0"
+    get-stream "^4.0.0"
+    is-stream "^1.1.0"
+    npm-run-path "^2.0.0"
+    p-finally "^1.0.0"
+    signal-exit "^3.0.0"
+    strip-eof "^1.0.0"
+
 execa@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/execa/-/execa-0.7.0.tgz#944becd34cc41ee32a63a9faf27ad5a65fc59777"
@@ -5257,6 +5270,13 @@ get-stream@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-3.0.0.tgz#8e943d1358dc37555054ecbe2edb05aa174ede14"
   integrity sha1-jpQ9E1jcN1VQVOy+LtsFqhdO3hQ=
+
+get-stream@^4.0.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-4.1.0.tgz#c1b255575f3dc21d59bfc79cd3d2b46b1c3a54b5"
+  integrity sha512-GMat4EJ5161kIy2HevLlr4luNjBgvmj413KaQA7jt4V8B4RDsfpHk7WQ9GVqfYyyx8OS/L66Kox+rJRNklLK7w==
+  dependencies:
+    pump "^3.0.0"
 
 get-value@^2.0.3, get-value@^2.0.6:
   version "2.0.6"
@@ -10098,15 +10118,15 @@ staged-git-files@1.1.1:
   resolved "https://registry.yarnpkg.com/staged-git-files/-/staged-git-files-1.1.1.tgz#37c2218ef0d6d26178b1310719309a16a59f8f7b"
   integrity sha512-H89UNKr1rQJvI1c/PIR3kiAMBV23yvR7LItZiV74HWZwzt7f3YHuujJ9nJZlt58WlFox7XQsOahexwk7nTe69A==
 
-start-server-and-test@1.7.2:
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/start-server-and-test/-/start-server-and-test-1.7.2.tgz#5393ea78cb29fb4fdd19141fa24cef91e9fa997d"
-  integrity sha512-ait4jH7JwuGPFysoAA8IsYsx/1QfRGLJCOFKXjbVyo9R1ThXFiu765z7DBI50q15Ge3L1RpWa7V3cnBiX0dMqA==
+start-server-and-test@1.7.3:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/start-server-and-test/-/start-server-and-test-1.7.3.tgz#995f6036c8f593cbe1e360bd7952d3030d2d117a"
+  integrity sha512-S5j5lO4G8foH2HzpxYHTc7ykz1juanxEiZgxRdp4qsvUSPO006Ss5z2b/Lx/Hm+dWrDuSM/zaIp619AFhVA3Mg==
   dependencies:
     bluebird "3.5.2"
     check-more-types "2.24.0"
     debug "3.1.0"
-    execa "0.10.0"
+    execa "0.11.0"
     lazy-ass "1.6.0"
     ps-tree "1.1.0"
     wait-on "3.0.1"
