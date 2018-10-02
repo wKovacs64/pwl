@@ -3398,12 +3398,12 @@ cyclist@~0.2.2:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
-cypress-testing-library@2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/cypress-testing-library/-/cypress-testing-library-2.2.1.tgz#42a2e192916d3f52a5afe4b6f3a1af80992d6482"
-  integrity sha512-WtBgT5gs7hMEsbMTZNjs/r2Sr7/pWU5TWxvT9Do5cqJYs89UHfCeSHZuf/WtkCaw9f76UkbhrsRYCWp1k4XAgA==
+cypress-testing-library@2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/cypress-testing-library/-/cypress-testing-library-2.2.2.tgz#dcae688239826a9f895ef6a3db4b9215a1602faa"
+  integrity sha512-XiAWlF8QYuvjKB7y9DOxCjUj5NXu8yZUYCMBy4UmOL013gan5UwDf5eq3IgVXNBmRaZeTao8ykPPMeuBcoR8eQ==
   dependencies:
-    dom-testing-library "^3.4.0"
+    dom-testing-library "^3.8.0"
 
 cypress@3.1.0:
   version "3.1.0"
@@ -3767,10 +3767,10 @@ dom-serializer@0, dom-serializer@~0.1.0:
     domelementtype "~1.1.1"
     entities "~1.1.1"
 
-dom-testing-library@^3.4.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/dom-testing-library/-/dom-testing-library-3.6.0.tgz#e5598fae9477f3918e22aee44f2262727203b5bd"
-  integrity sha512-BakKX0AI0QPVHwoncpMCx+DFzQ3zT3u7bIqPmzOm1WFfKVd278WlanGuKNOJz5/h07u2EzZKNkYUro7/21dy0Q==
+dom-testing-library@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/dom-testing-library/-/dom-testing-library-3.8.0.tgz#7e08c64c86074df054f910adcc87890bb40bdc33"
+  integrity sha512-D91dvH9Ai6E/wLwbf0j5BXUGQ9L00F658sn1juetOUJKCGBUI0cC+uw6OlwSC0EZEW0qBGSPv8h+lX6qtWlfGQ==
   dependencies:
     mutationobserver-shim "^0.3.2"
     pretty-format "^22.4.3"
