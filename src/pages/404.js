@@ -66,18 +66,27 @@ const NotFoundPage = () => (
             to="/"
             className={css`
               display: inline-flex;
-              align-items: center;
+              align-items: flex-end;
               justify-content: space-between;
               color: #046b99;
               text-decoration: none;
               border-width: 0;
               background-color: transparent;
+              transition: color 0.3s ease;
               &:hover {
+                color: #00cfff;
                 cursor: pointer;
               }
             `}
           >
-            <FaChevronLeft size={24} />{' '}
+            <FaChevronLeft
+              className={css`
+                font-size: 1.25rem; /* size={20} */
+                ${mq.lg(css`
+                  font-size: 1.625rem; /* size={26} */
+                `)};
+              `}
+            />{' '}
             <span
               className={css`
                 margin-left: 0.5rem;
