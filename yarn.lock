@@ -3492,7 +3492,7 @@ debug@3.1.0, debug@=3.1.0, debug@~3.1.0:
   dependencies:
     ms "2.0.0"
 
-debug@^3.1.0:
+debug@3.2.5, debug@^3.1.0:
   version "3.2.5"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.5.tgz#c2418fbfd7a29f4d4f70ff4cea604d4b64c46407"
   integrity sha512-D61LaDQPQkxJ5AUM2mbSJRbPkNs/TmdmOeLAi1hgDkpDfIfetSrjmWhccwtuResSwMbACjx/xXQofvM9CE/aeg==
@@ -10118,14 +10118,14 @@ staged-git-files@1.1.1:
   resolved "https://registry.yarnpkg.com/staged-git-files/-/staged-git-files-1.1.1.tgz#37c2218ef0d6d26178b1310719309a16a59f8f7b"
   integrity sha512-H89UNKr1rQJvI1c/PIR3kiAMBV23yvR7LItZiV74HWZwzt7f3YHuujJ9nJZlt58WlFox7XQsOahexwk7nTe69A==
 
-start-server-and-test@1.7.3:
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/start-server-and-test/-/start-server-and-test-1.7.3.tgz#995f6036c8f593cbe1e360bd7952d3030d2d117a"
-  integrity sha512-S5j5lO4G8foH2HzpxYHTc7ykz1juanxEiZgxRdp4qsvUSPO006Ss5z2b/Lx/Hm+dWrDuSM/zaIp619AFhVA3Mg==
+start-server-and-test@1.7.4:
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/start-server-and-test/-/start-server-and-test-1.7.4.tgz#0fce5cf5fe388cafab864f7947303f28b6832919"
+  integrity sha512-e2xo541HP+bFovnl8iNpyr3xeiY+MXwUQ/0JjEWgMBRf/4JPygCkK5wCq+Azb7xRfCzpANji1vstHe3ppM87rQ==
   dependencies:
     bluebird "3.5.2"
     check-more-types "2.24.0"
-    debug "3.1.0"
+    debug "3.2.5"
     execa "0.11.0"
     lazy-ass "1.6.0"
     ps-tree "1.1.0"
