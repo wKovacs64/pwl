@@ -1,5 +1,13 @@
 # Change Log
 
+## Version 1.3.0 _(2018-10-03)_
+
+- Added social media sharing metadata ([#7][#7])
+- Changed the back link on the 404 page to a button (to leverage `back()` from
+  the [History API][history-api] instead of a direct link to the site root) and
+  improved its styling
+- Added tests for the 404 page
+
 ## Version 1.2.3 _(2018-09-27)_
 
 - Reduced space above the site title on large screens
@@ -33,3 +41,5 @@
 - Initial release
 
 [#3]: https://github.com/wKovacs64/pwl/pull/3
+[#7]: https://github.com/wKovacs64/pwl/pull/7
+[history-api]: https://developer.mozilla.org/en-US/docs/Web/API/History
