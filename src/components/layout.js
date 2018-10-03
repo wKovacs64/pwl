@@ -43,12 +43,23 @@ const Layout = ({ children }) => (
           }
         }
         file(name: { eq: "social-banner" }) {
-          publicURL
+          childImageSharp {
+            fixed(width: 1439, height: 753) {
+              src
+            }
+          }
         }
       }
     `}
   >
-    {({ site: { siteMetadata }, file: { publicURL: socialImageUrl } }) => (
+    {({
+      site: { siteMetadata },
+      file: {
+        childImageSharp: {
+          fixed: { src: socialImageUrl },
+        },
+      },
+    }) => (
       <IconContext.Provider
         value={{
           className: css`
