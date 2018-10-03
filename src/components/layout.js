@@ -36,30 +36,17 @@ const Layout = ({ children }) => (
           siteMetadata {
             title
             description
+            socialImageUrl
             buildInfo {
               commit
               version
             }
           }
         }
-        file(name: { eq: "social-banner" }) {
-          childImageSharp {
-            fixed(width: 1439, height: 753) {
-              src
-            }
-          }
-        }
       }
     `}
   >
-    {({
-      site: { siteMetadata },
-      file: {
-        childImageSharp: {
-          fixed: { src: socialImageUrl },
-        },
-      },
-    }) => (
+    {({ site: { siteMetadata } }) => (
       <IconContext.Provider
         value={{
           className: css`
@@ -74,12 +61,12 @@ const Layout = ({ children }) => (
             { property: 'og:type', content: 'website' },
             { property: 'og:title', content: siteMetadata.title },
             { property: 'og:description', content: siteMetadata.description },
-            { property: 'og:image', content: socialImageUrl },
+            { property: 'og:image', content: siteMetadata.socialImageUrl },
             { property: 'og:image:alt', content: siteMetadata.title },
             { name: 'twitter:card', content: 'summary_large_image' },
             { name: 'twitter:title', content: siteMetadata.title },
             { name: 'twitter:description', content: siteMetadata.description },
-            { name: 'twitter:image', content: socialImageUrl },
+            { name: 'twitter:image', content: siteMetadata.socialImageUrl },
             { name: 'twitter:image:alt', content: siteMetadata.title },
           ]}
         >
