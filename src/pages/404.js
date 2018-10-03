@@ -1,7 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { css } from 'react-emotion';
-import { Link } from 'gatsby';
 import { FaChevronLeft } from 'react-icons/fa';
 import mq from '../utils/mq';
 import Layout from '../components/layout';
@@ -62,11 +61,10 @@ const NotFoundPage = () => (
             text-align: right;
           `}
         >
-          <Link
-            to="/"
+          <button
             className={css`
               display: inline-flex;
-              align-items: flex-end;
+              align-items: center;
               justify-content: space-between;
               color: #046b99;
               text-decoration: none;
@@ -78,6 +76,8 @@ const NotFoundPage = () => (
                 cursor: pointer;
               }
             `}
+            onClick={() => window.history.back()}
+            type="button"
           >
             <FaChevronLeft
               className={css`
@@ -98,9 +98,9 @@ const NotFoundPage = () => (
                 `)};
               `}
             >
-              Back to the Site
+              Go Back
             </span>
-          </Link>
+          </button>
         </nav>
       </section>
     </article>
