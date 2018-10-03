@@ -35,6 +35,8 @@ const Layout = ({ children }) => (
         site {
           siteMetadata {
             title
+            description
+            socialImageUrl
             buildInfo {
               commit
               version
@@ -52,7 +54,22 @@ const Layout = ({ children }) => (
           `,
         }}
       >
-        <Helmet title={siteMetadata.title}>
+        <Helmet
+          title={siteMetadata.title}
+          meta={[
+            { name: 'description', content: siteMetadata.description },
+            { property: 'og:type', content: 'website' },
+            { property: 'og:title', content: siteMetadata.title },
+            { property: 'og:description', content: siteMetadata.description },
+            { property: 'og:image', content: siteMetadata.socialImageUrl },
+            { property: 'og:image:alt', content: siteMetadata.title },
+            { name: 'twitter:card', content: 'summary_large_image' },
+            { name: 'twitter:title', content: siteMetadata.title },
+            { name: 'twitter:description', content: siteMetadata.description },
+            { name: 'twitter:image', content: siteMetadata.socialImageUrl },
+            { name: 'twitter:image:alt', content: siteMetadata.title },
+          ]}
+        >
           <html
             lang="en"
             data-commit={siteMetadata.buildInfo.commit}

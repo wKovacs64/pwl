@@ -5,6 +5,7 @@ module.exports = {
   siteMetadata: {
     title: siteConfig.title,
     description: siteConfig.description,
+    socialImageUrl: siteConfig.socialImageUrl,
     buildInfo: {
       commit: buildInfo.commit,
       version: buildInfo.version,
