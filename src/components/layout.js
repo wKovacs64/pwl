@@ -35,16 +35,20 @@ const Layout = ({ children }) => (
         site {
           siteMetadata {
             title
+            description
             buildInfo {
               commit
               version
             }
           }
         }
+        file(name: { eq: "social-banner" }) {
+          publicURL
+        }
       }
     `}
   >
-    {({ site: { siteMetadata } }) => (
+    {({ site: { siteMetadata }, file: { publicURL: socialImageUrl } }) => (
       <IconContext.Provider
         value={{
           className: css`
@@ -52,7 +56,22 @@ const Layout = ({ children }) => (
           `,
         }}
       >
-        <Helmet title={siteMetadata.title}>
+        <Helmet
+          title={siteMetadata.title}
+          meta={[
+            { name: 'description', content: siteMetadata.description },
+            { property: 'og:type', content: 'website' },
+            { property: 'og:title', content: siteMetadata.title },
+            { property: 'og:description', content: siteMetadata.description },
+            { property: 'og:image', content: socialImageUrl },
+            { property: 'og:image:alt', content: siteMetadata.title },
+            { name: 'twitter:card', content: 'summary_large_image' },
+            { name: 'twitter:title', content: siteMetadata.title },
+            { name: 'twitter:description', content: siteMetadata.description },
+            { name: 'twitter:image', content: socialImageUrl },
+            { name: 'twitter:image:alt', content: siteMetadata.title },
+          ]}
+        >
           <html
             lang="en"
             data-commit={siteMetadata.buildInfo.commit}
