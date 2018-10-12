@@ -46,7 +46,7 @@
     "dotenv": "6.1.0",
     "emotion": "9.2.12",
     "emotion-server": "9.2.12",
-    "gatsby": "2.0.21",
+    "gatsby": "2.0.22",
     "gatsby-plugin-emotion": "2.0.5",
     "gatsby-plugin-manifest": "2.0.5",
     "gatsby-plugin-netlify": "2.0.1",
