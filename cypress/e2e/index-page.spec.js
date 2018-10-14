@@ -114,6 +114,14 @@ describe('Index Page', () => {
 
   describe('Public Exposure', () => {
     it('shows loading state', () => {
+      cy.route({
+        // delay must be longer than PwnedInfo's delayLoadingMs prop value
+        delay: 1000,
+        method: 'GET',
+        url: EXPOSURE_ROUTE,
+        response: {},
+      });
+
       cy.getByLabelText('Password')
         .click()
         .type('P4ssw0rd!');
