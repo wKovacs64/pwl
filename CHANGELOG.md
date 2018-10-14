@@ -1,5 +1,14 @@
 # Change Log
 
+## Version 1.3.1 _(2018-10-14)_
+
+- Added a delay before showing the loading indicator when retrieving public
+  exposure info to prevent a "flash of loading state" ([#8][#8])
+- Added an explicit border on the password input field to resolve an issue where
+  it was being cut off in Google Chrome on mobile devices
+- Fixed a bug in the E2E tests that was allowing some PwnedPassword API requests
+  to use the actual network when they should have been stubbed out
+
 ## Version 1.3.0 _(2018-10-03)_
 
 - Added social media sharing metadata ([#7][#7])
@@ -43,3 +52,4 @@
 [#3]: https://github.com/wKovacs64/pwl/pull/3
 [#7]: https://github.com/wKovacs64/pwl/pull/7
 [history-api]: https://developer.mozilla.org/en-US/docs/Web/API/History
+[#8]: https://github.com/wKovacs64/pwl/pull/8
