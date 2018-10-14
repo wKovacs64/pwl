@@ -11,15 +11,17 @@ describe('Index Page', () => {
 
   beforeEach(() => {
     cy.server();
-    cy.route({
-      method: 'GET',
-      url: EXPOSURE_ROUTE,
-      status: 404,
-    });
     cy.visit('/');
   });
 
   it('only shows results section with input', () => {
+    cy.route({
+      method: 'GET',
+      url: EXPOSURE_ROUTE,
+      response: {},
+      status: 418,
+    });
+
     cy.getByLabelText('Password').should('be.empty');
     cy.queryByTestId('results').should('not.exist');
 
@@ -36,6 +38,13 @@ describe('Index Page', () => {
 
   describe('Password Through Lense', () => {
     it('contains classified characters matching the input', () => {
+      cy.route({
+        method: 'GET',
+        url: EXPOSURE_ROUTE,
+        response: {},
+        status: 418,
+      });
+
       const password = ' P4ssw0rd! ';
       const classifiedCharacters = classifyCharacters(password, colors, labels);
 
@@ -59,6 +68,13 @@ describe('Index Page', () => {
 
   describe('Legend', () => {
     beforeEach(() => {
+      cy.route({
+        method: 'GET',
+        url: EXPOSURE_ROUTE,
+        response: {},
+        status: 418,
+      });
+
       cy.getByLabelText('Password')
         .click()
         .type('P4ssw0rd!');
@@ -120,6 +136,7 @@ describe('Index Page', () => {
         method: 'GET',
         url: EXPOSURE_ROUTE,
         response: {},
+        status: 418,
       });
 
       cy.getByLabelText('Password')
