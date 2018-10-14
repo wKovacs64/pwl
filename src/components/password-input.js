@@ -22,6 +22,7 @@ const PasswordInput = ({ className, password, onChange, onKeyDown }) => (
       value={password}
       className={css`
         font-family: 'Courier New', Courier, monospace;
+        border: 2px solid rgba(0, 0, 0, 0.3);
         padding: 1rem;
         text-align: center;
         letter-spacing: 0.25rem;
