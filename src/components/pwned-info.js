@@ -3,59 +3,46 @@ import PropTypes from 'prop-types';
 import { css } from 'react-emotion';
 import { pwnedPassword } from 'hibp';
 import debounce from 'lodash.debounce';
+import wait from '../utils/wait';
 
 class PwnedInfo extends Component {
   static propTypes = {
     className: PropTypes.string,
+    delayLoadingMs: PropTypes.number,
     password: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
     className: '',
+    delayLoadingMs: 750,
   };
 
+  static SHOW_LOADING = Symbol('show-loading');
+
   static initialState = {
-    loading: true,
+    loading: false,
     numPwns: -1,
     error: false,
   };
 
   state = PwnedInfo.initialState;
 
-  debouncedFetch = debounce(
-    async () => {
-      try {
-        const numPwns = await pwnedPassword(this.props.password);
-        this.safeSetState({
-          ...PwnedInfo.initialState,
-          loading: false,
-          numPwns,
-        });
-      } catch (err) {
-        this.safeSetState({
-          ...PwnedInfo.initialState,
-          loading: false,
-          error: true,
-        });
-      }
-    },
-    250,
-    { leading: true },
-  );
-
   componentDidMount() {
     this.mounted = true;
-    this.fetchPwnedInfo();
+    this.debouncedFetchPwnedInfo = debounce(this.fetchPwnedInfo, 250, {
+      leading: true,
+    });
+    this.debouncedFetchPwnedInfo();
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.password !== this.props.password) {
-      this.fetchPwnedInfo();
+      this.debouncedFetchPwnedInfo();
     }
   }
 
   componentWillUnmount() {
-    this.debouncedFetch.cancel();
+    this.debouncedFetchPwnedInfo.cancel();
     this.mounted = false;
   }
 
@@ -65,13 +52,33 @@ class PwnedInfo extends Component {
     }
   };
 
-  fetchPwnedInfo = () => {
-    this.safeSetState(
-      {
+  maybeShowLoadingEventually = async getPwnedInfo => {
+    const { delayLoadingMs } = this.props;
+    const showLoading = wait(delayLoadingMs).then(() => PwnedInfo.SHOW_LOADING);
+    const winner = await Promise.race([showLoading, getPwnedInfo]);
+
+    if (winner === PwnedInfo.SHOW_LOADING) {
+      this.safeSetState({ loading: true });
+    }
+  };
+
+  fetchPwnedInfo = async () => {
+    try {
+      const getPwnedInfo = pwnedPassword(this.props.password);
+      this.maybeShowLoadingEventually(getPwnedInfo);
+      const numPwns = await getPwnedInfo;
+      this.safeSetState({
         ...PwnedInfo.initialState,
-      },
-      this.debouncedFetch,
-    );
+        loading: false,
+        numPwns,
+      });
+    } catch (err) {
+      this.safeSetState({
+        ...PwnedInfo.initialState,
+        loading: false,
+        error: true,
+      });
+    }
   };
 
   renderContent = content => (
@@ -101,7 +108,7 @@ class PwnedInfo extends Component {
       );
     }
 
-    if (numPwns) {
+    if (numPwns > 0) {
       return this.renderContent(
         <p>
           <span
@@ -118,18 +125,23 @@ class PwnedInfo extends Component {
       );
     }
 
-    return this.renderContent(
-      <p>
-        <span
-          className={css`
-            color: #20603c;
-          `}
-        >
-          Congratulations!
-        </span>{' '}
-        This password has not been publicly exposed in any data breaches.
-      </p>,
-    );
+    if (numPwns === 0) {
+      return this.renderContent(
+        <p>
+          <span
+            className={css`
+              color: #20603c;
+            `}
+          >
+            Congratulations!
+          </span>{' '}
+          This password has not been publicly exposed in any data breaches.
+        </p>,
+      );
+    }
+
+    // loading, but not time to show it yet (...probably)
+    return this.renderContent(null);
   }
 }
 
