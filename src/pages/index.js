@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import styled, { css } from 'react-emotion';
+import styled, { css, cx } from 'react-emotion';
 import { StaticQuery, graphql } from 'gatsby';
 import KeyHandler, { KEYDOWN } from 'react-key-handler';
 import colors from '../legend/colors';
@@ -31,13 +31,8 @@ const P = styled('p')(
 
 class IndexPage extends Component {
   state = {
-    jsEnabled: false,
     password: '',
   };
-
-  componentDidMount() {
-    this.setState({ jsEnabled: true });
-  }
 
   handleEscape = () => {
     this.setState({ password: '' });
@@ -53,7 +48,7 @@ class IndexPage extends Component {
     this.setState({ password: event.target.value });
 
   render() {
-    const { jsEnabled, password } = this.state;
+    const { password } = this.state;
 
     return (
       <StaticQuery
@@ -79,16 +74,17 @@ class IndexPage extends Component {
               keyValue="Escape"
               onKeyHandle={this.handleEscape}
             />
-            <article
-              className={css`
-                display: flex;
-                flex-direction: column;
-                ${mq.md(css`
-                  align-items: center;
-                `)};
-              `}
-            >
-              <noscript>
+            <noscript>
+              <style>{'.js { display: none; }'}</style>
+              <article
+                className={css`
+                  display: flex;
+                  flex-direction: column;
+                  ${mq.md(css`
+                    align-items: center;
+                  `)};
+                `}
+              >
                 <P>This application requires JavaScript.</P>
                 <P
                   className={css`
@@ -98,48 +94,57 @@ class IndexPage extends Component {
                   You&apos;re either using an incompatible browser or JavaScript
                   is disabled.
                 </P>
-              </noscript>
-              {jsEnabled && (
-                <>
-                  <P>
-                    Is that an &apos;O&apos; or a &apos;0&apos;? An
-                    &apos;I&apos; or an &apos;l&apos; - or maybe a
-                    &apos;1&apos;? Sometimes, it&apos;s hard to tell. Paste your
-                    password in the box below for a{' '}
-                    <span
-                      title="Your password never leaves your browser!"
-                      className={css`
-                        border-bottom: 2px dashed #b3efff;
-                      `}
-                    >
-                      secure
-                    </span>
-                    , color-coded revelation.
-                  </P>
-                  <section
-                    className={css`
-                      width: 100%;
-                      max-width: 32rem;
-                    `}
-                  >
-                    <PasswordInput
-                      password={password}
-                      onChange={this.handlePasswordChange}
-                      onKeyDown={this.handleInputKeyDown}
-                    />
-                    {password && (
-                      <Results
-                        colors={colors}
-                        labels={labels}
-                        password={password}
-                        className={css`
-                          margin-top: 2rem;
-                        `}
-                      />
-                    )}
-                  </section>
-                </>
+              </article>
+            </noscript>
+            <article
+              className={cx(
+                'js',
+                css`
+                  display: flex;
+                  flex-direction: column;
+                  ${mq.md(css`
+                    align-items: center;
+                  `)};
+                `,
               )}
+            >
+              <P>
+                Is that an &apos;O&apos; or a &apos;0&apos;? An &apos;I&apos; or
+                an &apos;l&apos; - or maybe a &apos;1&apos;? Sometimes,
+                it&apos;s hard to tell. Paste your password in the box below for
+                a{' '}
+                <span
+                  title="Your password never leaves your browser!"
+                  className={css`
+                    border-bottom: 2px dashed #b3efff;
+                  `}
+                >
+                  secure
+                </span>
+                , color-coded revelation.
+              </P>
+              <section
+                className={css`
+                  width: 100%;
+                  max-width: 32rem;
+                `}
+              >
+                <PasswordInput
+                  password={password}
+                  onChange={this.handlePasswordChange}
+                  onKeyDown={this.handleInputKeyDown}
+                />
+                {password && (
+                  <Results
+                    colors={colors}
+                    labels={labels}
+                    password={password}
+                    className={css`
+                      margin-top: 2rem;
+                    `}
+                  />
+                )}
+              </section>
             </article>
           </Layout>
         )}
