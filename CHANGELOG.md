@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.3.2 _(2018-10-20)_
+
+- Fixed a "flash of empty content" issue related to `<noscript>` ([#10][#10])
+
 ## Version 1.3.1 _(2018-10-14)_
 
 - Added a delay before showing the loading indicator when retrieving public
@@ -53,3 +57,4 @@
 [#7]: https://github.com/wKovacs64/pwl/pull/7
 [history-api]: https://developer.mozilla.org/en-US/docs/Web/API/History
 [#8]: https://github.com/wKovacs64/pwl/pull/8
+[#10]: https://github.com/wKovacs64/pwl/pull/10
