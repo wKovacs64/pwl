@@ -28,17 +28,6 @@
     "test:e2e": "start-server-and-test develop 8000 cy:open",
     "test:e2e:ci": "start-server-and-test develop 8000 cy:run"
   },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{json,md,yml}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "private": true,
   "dependencies": {
     "@wkovacs64/normalize.css": "8.0.0",
