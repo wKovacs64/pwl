@@ -5,9 +5,19 @@ import PasswordThroughLense from './password-through-lense';
 import Legend from './legend';
 import PwnedInfo from './pwned-info';
 
-const Results = ({ colors, labels, password, ...props }) => (
+const Results = ({
+  colors,
+  labels,
+  passwordInput,
+  passwordToCheck,
+  ...props
+}) => (
   <section data-testid="results" {...props}>
-    <PasswordThroughLense colors={colors} labels={labels} password={password} />
+    <PasswordThroughLense
+      colors={colors}
+      labels={labels}
+      password={passwordInput}
+    />
     <aside
       css={css`
         display: flex;
@@ -27,7 +37,7 @@ const Results = ({ colors, labels, password, ...props }) => (
           flex: 1;
           margin-top: 2rem;
         `}
-        password={password}
+        password={passwordToCheck}
       />
     </aside>
   </section>
@@ -46,11 +56,13 @@ Results.propTypes = {
     lowercase: PropTypes.string.isRequired,
     special: PropTypes.string.isRequired,
   }).isRequired,
-  password: PropTypes.string,
+  passwordInput: PropTypes.string,
+  passwordToCheck: PropTypes.string,
 };
 
 Results.defaultProps = {
-  password: '',
+  passwordInput: '',
+  passwordToCheck: '',
 };
 
 export default Results;

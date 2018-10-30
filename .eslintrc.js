@@ -5,7 +5,7 @@ module.exports = {
   },
   extends: ['airbnb', 'prettier'],
   parser: 'babel-eslint',
-  plugins: ['emotion'],
+  plugins: ['emotion', 'react-hooks'],
   rules: {
     // 'emotion/jsx-import': 'error',
     'emotion/no-vanilla': 'error',
@@ -15,6 +15,7 @@ module.exports = {
     'react/destructuring-assignment': 'off',
     'react/jsx-filename-extension': 'off',
     'react/jsx-one-expression-per-line': 'off',
+    'react-hooks/rules-of-hooks': 'error',
     'no-unused-expressions': ['error', { allowTaggedTemplates: true }],
   },
 };

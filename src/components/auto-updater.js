@@ -1,70 +1,87 @@
-import { Component } from 'react';
+import { useReducer, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-class AutoUpdater extends Component {
-  static propTypes = {
-    children: PropTypes.func,
-    // hasUpdate is a function provided by the consumer to determine whether or
-    // not there is an updated version of the code available. This typically
-    // involves fetching a non-cached version of some data that can be compared
-    // to the current/running version. It should return true if the data is
-    // different or false if it's unchanged.
-    hasUpdate: PropTypes.func.isRequired,
-    pollingIntervalMs: PropTypes.number,
-  };
-
-  static defaultProps = {
-    children: () => null,
-    pollingIntervalMs: 3600000, // 1 hour
-  };
-
-  static initialState = {
+function AutoUpdater({ children, hasUpdate, pollingIntervalMs }) {
+  const initialState = {
     error: '',
     updateAvailable: false,
   };
 
-  state = AutoUpdater.initialState;
+  const intervalRef = useRef(null);
 
-  componentDidMount() {
-    if (typeof window !== 'undefined') {
-      this.checkForUpdates();
-      this.interval = window.setInterval(
-        this.checkForUpdates,
-        this.props.pollingIntervalMs,
-      );
+  function clearUpdateCheckInterval() {
+    if (typeof window !== 'undefined' && intervalRef.current) {
+      window.clearInterval(intervalRef.current);
     }
   }
 
-  componentWillUnmount() {
-    this.clearUpdateCheckInterval();
+  function reducer(state, action) {
+    switch (action.type) {
+      case 'UPDATE_AVAILABLE':
+        clearUpdateCheckInterval();
+        return {
+          error: '',
+          updateAvailable: true,
+        };
+      case 'UPDATE_FAILURE':
+        return {
+          error: action.payload,
+          updateAvailable: false,
+        };
+      default:
+        return state;
+    }
   }
 
-  clearUpdateCheckInterval = () => {
-    if (typeof window !== 'undefined' && this.interval) {
-      window.clearInterval(this.interval);
-    }
-  };
+  const [{ error, updateAvailable }, dispatch] = useReducer(
+    reducer,
+    initialState,
+  );
 
-  checkForUpdates = async () => {
-    const { hasUpdate } = this.props;
-    const { updateAvailable } = this.state;
-
+  async function checkForUpdates() {
     try {
       if (!updateAvailable && (await hasUpdate())) {
-        this.setState({ ...AutoUpdater.initialState, updateAvailable: true });
-        this.clearUpdateCheckInterval();
+        dispatch({ type: 'UPDATE_AVAILABLE' });
       }
     } catch (err) {
-      this.setState({ ...AutoUpdater.initialState, error: err.message });
+      dispatch({ type: 'UPDATE_FAILURE', payload: err.message });
     }
-  };
-
-  render() {
-    const { children } = this.props;
-    const { error, updateAvailable } = this.state;
-
-    return children({ error, updateAvailable });
   }
+
+  useEffect(
+    () => {
+      if (typeof window !== 'undefined') {
+        checkForUpdates();
+        intervalRef.current = window.setInterval(
+          checkForUpdates,
+          pollingIntervalMs,
+        );
+        return () => clearUpdateCheckInterval();
+      }
+      return () => {};
+    },
+    [
+      /* empty inputs array so it doesn't run again on re-renders */
+    ],
+  );
+
+  return children({ error, updateAvailable });
 }
+
+AutoUpdater.propTypes = {
+  children: PropTypes.func,
+  // hasUpdate is a function provided by the consumer to determine whether or
+  // not there is an updated version of the code available. This typically
+  // involves fetching a non-cached version of some data that can be compared
+  // to the current/running version. It should return true if the data is
+  // different or false if it's unchanged.
+  hasUpdate: PropTypes.func.isRequired,
+  pollingIntervalMs: PropTypes.number,
+};
+
+AutoUpdater.defaultProps = {
+  children: () => null,
+  pollingIntervalMs: 3600000, // 1 hour
+};
 
 export default AutoUpdater;
