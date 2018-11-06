@@ -162,3 +162,5 @@ package-lock.json
 # Netlify
 .netlify
 
+# Cypress
+cypress/screenshots
