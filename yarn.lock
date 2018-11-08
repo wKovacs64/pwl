@@ -3461,10 +3461,10 @@ cyclist@~0.2.2:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
-cypress-testing-library@2.3.2:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/cypress-testing-library/-/cypress-testing-library-2.3.2.tgz#27de70e4c73e56fb15753e40ea7dc958218fabdd"
-  integrity sha512-vZrzBRaTqZY1gYwuESppA8e2yUOKHzIiPrkvWps4JWHnLlGXuiiALAtW7h0V3akR5XJggfp7LuPmh2yndCos0A==
+cypress-testing-library@2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/cypress-testing-library/-/cypress-testing-library-2.3.3.tgz#25926c0a431c101fc92c9d386985f75c83b323a0"
+  integrity sha512-0nBpUJdjIecbCtUzoAySy5QhcKB4X2fQMDoTO1hO04hh4Qe7UbKOEF42VN2mI/TQs50KnguaXqXyMA59F6djUg==
   dependencies:
     dom-testing-library "^3.8.0"
 
