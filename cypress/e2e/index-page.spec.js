@@ -11,7 +11,30 @@ describe('Index Page', () => {
 
   beforeEach(() => {
     cy.server();
-    cy.visit('/');
+    cy.visit('/').injectAxe();
+  });
+
+  it('has no detectable a11y violations on load', () => {
+    // wait for the content to ensure the app has been rendered
+    cy.get('html[lang="en"]')
+      .getByLabelText('Password')
+      .checkA11y();
+  });
+
+  it('has no detectable a11y violations when showing results', () => {
+    cy.route({
+      method: 'GET',
+      url: EXPOSURE_ROUTE,
+      response: 'fixture:exposed-password-response.txt',
+    });
+
+    cy.fixture('exposed-password.txt').then(exposedPassword => {
+      cy.getByLabelText('Password')
+        .click()
+        .type(exposedPassword)
+        .getByTestId('results')
+        .checkA11y();
+    });
   });
 
   it('only shows results section with input', () => {
