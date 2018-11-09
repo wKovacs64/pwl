@@ -46,7 +46,7 @@ describe('Index Page', () => {
     });
 
     cy.getByLabelText('Password').should('be.empty');
-    cy.queryByTestId('results').should('not.exist');
+    cy.queryByTestId('results', { timeout: 500 }).should('not.exist');
 
     cy.getByLabelText('Password')
       .click()
