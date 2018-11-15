@@ -38,7 +38,7 @@
     "gatsby": "2.0.50",
     "gatsby-plugin-emotion": "2.0.6",
     "gatsby-plugin-manifest": "2.0.9",
-    "gatsby-plugin-netlify": "2.0.4",
+    "gatsby-plugin-netlify": "2.0.5",
     "gatsby-plugin-offline": "2.0.15",
     "gatsby-plugin-react-helmet": "3.0.2",
     "git-current-commit": "1.1.0",
