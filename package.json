@@ -75,6 +75,6 @@
     "lint-staged": "8.0.5",
     "prettier": "1.15.2",
     "rimraf": "2.6.2",
-    "start-server-and-test": "1.7.9"
+    "start-server-and-test": "1.7.10"
   }
 }
