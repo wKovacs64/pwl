@@ -42,7 +42,7 @@
     "gatsby-plugin-offline": "2.0.17",
     "gatsby-plugin-react-helmet": "3.0.2",
     "git-current-commit": "1.1.0",
-    "hibp": "7.2.1",
+    "hibp": "7.2.2",
     "lodash.debounce": "4.0.8",
     "memoize-one": "4.0.3",
     "mobile-detect": "1.4.3",
