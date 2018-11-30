@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { css } from 'react-emotion';
+import { css } from '@emotion/core';
 import { FaChevronLeft } from 'react-icons/fa';
 import mq from '../utils/mq';
 import Layout from '../components/layout';
@@ -12,7 +12,7 @@ const NotFoundPage = () => (
       meta={[{ name: 'description', content: 'Nothing here.' }]}
     />
     <article
-      className={css`
+      css={css`
         display: flex;
         ${mq.md(css`
           justify-content: center;
@@ -20,7 +20,7 @@ const NotFoundPage = () => (
       `}
     >
       <section
-        className={css`
+        css={css`
           border-left-style: solid;
           border-color: #1c304a;
           border-width: 0.5rem;
@@ -29,7 +29,7 @@ const NotFoundPage = () => (
         `}
       >
         <h2
-          className={css`
+          css={css`
             color: #777777;
             font-style: italic;
             margin-top: 0;
@@ -43,7 +43,7 @@ const NotFoundPage = () => (
           404
         </h2>
         <p
-          className={css`
+          css={css`
             color: #046b99;
             margin: 4rem 0;
             font-weight: 300;
@@ -56,13 +56,13 @@ const NotFoundPage = () => (
           Sorry, but the page you requested could not be found.
         </p>
         <nav
-          className={css`
+          css={css`
             margin-top: 4rem;
             text-align: right;
           `}
         >
           <button
-            className={css`
+            css={css`
               display: inline-flex;
               align-items: center;
               justify-content: space-between;
@@ -80,7 +80,7 @@ const NotFoundPage = () => (
             type="button"
           >
             <FaChevronLeft
-              className={css`
+              css={css`
                 font-size: 1.25rem; /* size={20} */
                 ${mq.lg(css`
                   font-size: 1.625rem; /* size={26} */
@@ -88,7 +88,7 @@ const NotFoundPage = () => (
               `}
             />{' '}
             <span
-              className={css`
+              css={css`
                 margin-left: 0.5rem;
                 font-family: sans-serif;
                 font-size: 1rem;

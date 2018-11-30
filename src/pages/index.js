@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import styled, { css, cx } from 'react-emotion';
+import { css } from '@emotion/core';
+import styled from '@emotion/styled';
 import { StaticQuery, graphql } from 'gatsby';
 import KeyHandler, { KEYDOWN } from 'react-key-handler';
 import colors from '../legend/colors';
@@ -10,8 +11,8 @@ import Layout from '../components/layout';
 import PasswordInput from '../components/password-input';
 import Results from '../components/results';
 
-const P = styled('p')(
-  ({ className }) => css`
+const P = styled('p')(({ css: cssOverrides }) => [
+  css`
     color: #046b99;
     max-width: 45ch;
     font-weight: 300;
@@ -25,9 +26,9 @@ const P = styled('p')(
     ${mq.lg(css`
       font-size: 2.25rem;
     `)};
-    ${className};
   `,
-);
+  cssOverrides,
+]);
 
 class IndexPage extends Component {
   state = {
@@ -77,7 +78,7 @@ class IndexPage extends Component {
             <noscript>
               <style>{'.js { display: none; }'}</style>
               <article
-                className={css`
+                css={css`
                   display: flex;
                   flex-direction: column;
                   ${mq.md(css`
@@ -87,7 +88,7 @@ class IndexPage extends Component {
               >
                 <P>This application requires JavaScript.</P>
                 <P
-                  className={css`
+                  css={css`
                     max-width: 35ch;
                   `}
                 >
@@ -97,16 +98,14 @@ class IndexPage extends Component {
               </article>
             </noscript>
             <article
-              className={cx(
-                'js',
-                css`
-                  display: flex;
-                  flex-direction: column;
-                  ${mq.md(css`
-                    align-items: center;
-                  `)};
-                `,
-              )}
+              className="js"
+              css={css`
+                display: flex;
+                flex-direction: column;
+                ${mq.md(css`
+                  align-items: center;
+                `)};
+              `}
             >
               <P>
                 Is that an &apos;O&apos; or a &apos;0&apos;? An &apos;I&apos; or
@@ -115,7 +114,7 @@ class IndexPage extends Component {
                 a{' '}
                 <span
                   title="Your password never leaves your browser!"
-                  className={css`
+                  css={css`
                     border-bottom: 2px dashed #b3efff;
                   `}
                 >
@@ -124,7 +123,7 @@ class IndexPage extends Component {
                 , color-coded revelation.
               </P>
               <section
-                className={css`
+                css={css`
                   width: 100%;
                   max-width: 32rem;
                 `}
@@ -139,7 +138,7 @@ class IndexPage extends Component {
                     colors={colors}
                     labels={labels}
                     password={password}
-                    className={css`
+                    css={css`
                       margin-top: 2rem;
                     `}
                   />

@@ -1,19 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'react-emotion';
+import { css } from '@emotion/core';
 import mq from '../utils/mq';
 
-const Main = ({ className, children }) => (
+const Main = ({ css: cssOverrides, children }) => (
   <main
-    className={css`
-      padding-top: 2rem;
-      padding-bottom: 4rem;
-      ${mq.md(css`
-        padding-top: 4rem;
-        padding-bottom: 8rem;
-      `)};
-      ${className};
-    `}
+    css={[
+      css`
+        padding-top: 2rem;
+        padding-bottom: 4rem;
+        ${mq.md(css`
+          padding-top: 4rem;
+          padding-bottom: 8rem;
+        `)};
+      `,
+      cssOverrides,
+    ]}
   >
     {children}
   </main>
@@ -21,12 +23,12 @@ const Main = ({ className, children }) => (
 
 Main.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string,
+  css: PropTypes.shape(),
 };
 
 Main.defaultProps = {
   children: null,
-  className: '',
+  css: undefined,
 };
 
 export default Main;

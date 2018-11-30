@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'react-emotion';
+import { css } from '@emotion/core';
 
 const LegendItem = ({ color, label }) => (
   <div
     data-testid={`legend-row--${label}`}
-    className={css`
+    css={css`
       display: flex;
       align-items: center;
     `}
   >
     <div
       data-testid="color"
-      className={css`
+      css={css`
         display: inline-block;
         background-color: ${color};
         height: 1rem;

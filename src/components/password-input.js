@@ -1,14 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'react-emotion';
+import { css } from '@emotion/core';
 import mq from '../utils/mq';
 
-const PasswordInput = ({ className, password, onChange, onKeyDown }) => (
-  <div
-    className={css`
-      ${className};
-    `}
-  >
+const PasswordInput = ({ password, onChange, onKeyDown, ...props }) => (
+  <div {...props}>
     <input
       aria-label="Password"
       placeholder="Paste Here"
@@ -20,7 +16,7 @@ const PasswordInput = ({ className, password, onChange, onKeyDown }) => (
       onChange={onChange}
       onKeyDown={onKeyDown}
       value={password}
-      className={css`
+      css={css`
         font-family: 'Courier New', Courier, monospace;
         border: 2px solid rgba(0, 0, 0, 0.3);
         padding: 1rem;
@@ -45,14 +41,12 @@ const PasswordInput = ({ className, password, onChange, onKeyDown }) => (
 );
 
 PasswordInput.propTypes = {
-  className: PropTypes.string,
   password: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onKeyDown: PropTypes.func,
 };
 
 PasswordInput.defaultProps = {
-  className: '',
   password: '',
   onKeyDown: () => {},
 };
