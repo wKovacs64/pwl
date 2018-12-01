@@ -709,6 +709,13 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
+"@babel/runtime@^7.1.5":
+  version "7.1.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.1.5.tgz#4170907641cf1f61508f563ece3725150cc6fe39"
+  integrity sha512-xKnPpXG/pvK1B90JkwwxSGii90rQGKtzcMt2gI5G6+M0REXaq6rOHsGC2ay6/d0Uje7zzvSzjEzfR3ENhFlrfA==
+  dependencies:
+    regenerator-runtime "^0.12.0"
+
 "@babel/template@7.0.0-beta.44":
   version "7.0.0-beta.44"
   resolved "http://registry.npmjs.org/@babel/template/-/template-7.0.0-beta.44.tgz#f8832f4fdcee5d59bf515e595fc5106c529b394f"
@@ -898,6 +905,11 @@
   integrity sha512-MI4Xx6LHs4Webyvi6EbspgyAb4D2Q2VtnCQ1blOJcoLS6mVa8lNN2rkIy1CVxfTUpoyIbCTkXES1rLXztFD1lg==
   dependencies:
     any-observable "^0.3.0"
+
+"@sheerun/mutationobserver-shim@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.2.tgz#8013f2af54a2b7d735f71560ff360d3a8176a87b"
+  integrity sha512-vTCdPp/T/Q3oSqwHmZ5Kpa9oI7iLtGl3RQaA/NyLHikvcrPxACkkKVr/XzkSPJWXHRhKGzVvb0urJsbMlRxi1Q==
 
 "@types/blob-util@1.3.3":
   version "1.3.3"
@@ -3495,12 +3507,12 @@ cypress-axe@0.3.0:
   resolved "https://registry.yarnpkg.com/cypress-axe/-/cypress-axe-0.3.0.tgz#ce21088b604c7e9d1b57259d07018f6538395802"
   integrity sha512-9HVohr8RNJJLG1RFFJHUY/bCvwlkvhgZXZW/+kqAuXBjexej8gA7QwLY87vBCRprXSwNrdUHKBsqeZzMrO1o9Q==
 
-cypress-testing-library@2.3.3:
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/cypress-testing-library/-/cypress-testing-library-2.3.3.tgz#25926c0a431c101fc92c9d386985f75c83b323a0"
-  integrity sha512-0nBpUJdjIecbCtUzoAySy5QhcKB4X2fQMDoTO1hO04hh4Qe7UbKOEF42VN2mI/TQs50KnguaXqXyMA59F6djUg==
+cypress-testing-library@2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/cypress-testing-library/-/cypress-testing-library-2.3.4.tgz#1cd1567191fd863257cf6bfcf83cfd058e3c7b17"
+  integrity sha512-OlXDfvFIeYjBZbxIiCaSfByyt8Fms7IHX6U7RsLmWKPWwEpt9HrTQ8/FiVhcovlg5E+vkRL0mx9ZU528WBE7vw==
   dependencies:
-    dom-testing-library "^3.8.0"
+    dom-testing-library "^3.12.4"
 
 cypress@3.1.2:
   version "3.1.2"
@@ -3879,14 +3891,15 @@ dom-serializer@0, dom-serializer@~0.1.0:
     domelementtype "~1.1.1"
     entities "~1.1.1"
 
-dom-testing-library@^3.8.0:
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/dom-testing-library/-/dom-testing-library-3.8.0.tgz#7e08c64c86074df054f910adcc87890bb40bdc33"
-  integrity sha512-D91dvH9Ai6E/wLwbf0j5BXUGQ9L00F658sn1juetOUJKCGBUI0cC+uw6OlwSC0EZEW0qBGSPv8h+lX6qtWlfGQ==
+dom-testing-library@^3.12.4:
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/dom-testing-library/-/dom-testing-library-3.13.0.tgz#3d9c48db2bc4629f097571612d138bf2e8c42421"
+  integrity sha512-ImIZQrsEPQkmXNFzYmOsCJBjaBcZJe4vRJfP55DhYySD2LL56ACPaJATbXphLGred5efqGC1Q4H3UuqWCZ9Bqg==
   dependencies:
-    mutationobserver-shim "^0.3.2"
-    pretty-format "^22.4.3"
-    wait-for-expect "^1.0.0"
+    "@babel/runtime" "^7.1.5"
+    "@sheerun/mutationobserver-shim" "^0.3.2"
+    pretty-format "^23.6.0"
+    wait-for-expect "^1.1.0"
 
 dom-walk@^0.1.0:
   version "0.1.1"
@@ -7714,11 +7727,6 @@ multipipe@^1.0.2:
     duplexer2 "^0.1.2"
     object-assign "^4.1.0"
 
-mutationobserver-shim@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/mutationobserver-shim/-/mutationobserver-shim-0.3.2.tgz#f4d5dae7a4971a2207914fb5a90ebd514b65acca"
-  integrity sha1-9NXa56SXGiIHkU+1qQ69UUtlrMo=
-
 mute-stream@0.0.7, mute-stream@~0.0.4:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
@@ -8973,14 +8981,6 @@ pretty-error@^2.1.1:
   dependencies:
     renderkid "^2.0.1"
     utila "~0.4"
-
-pretty-format@^22.4.3:
-  version "22.4.3"
-  resolved "http://registry.npmjs.org/pretty-format/-/pretty-format-22.4.3.tgz#f873d780839a9c02e9664c8a082e9ee79eaac16f"
-  integrity sha512-S4oT9/sT6MN7/3COoOy+ZJeA92VmOnveLHgrwBE3Z1W5N9S2A1QGNYiE1z75DAENbJrXXUb+OWXhpJcg05QKQQ==
-  dependencies:
-    ansi-regex "^3.0.0"
-    ansi-styles "^3.2.0"
 
 pretty-format@^23.6.0:
   version "23.6.0"
@@ -11252,10 +11252,10 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
-wait-for-expect@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/wait-for-expect/-/wait-for-expect-1.0.0.tgz#edf2d5790c36dc67c4e21ac6ccedd7d4b79dc6ac"
-  integrity sha512-I6OlPKnd4qVdKJf1Gjx9M9qQjIk29rALoUkjwIKa9pNDCdzUuJTfaNv1mtsm2QdSvF0ZQogrWJMifTN1lUeXig==
+wait-for-expect@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/wait-for-expect/-/wait-for-expect-1.1.0.tgz#6607375c3f79d32add35cd2c87ce13f351a3d453"
+  integrity sha512-vQDokqxyMyknfX3luCDn16bSaRcOyH6gGuUXMIbxBLeTo6nWuEWYqMTT9a+44FmW8c2m6TRWBdNvBBjA1hwEKg==
 
 wait-on@3.2.0:
   version "3.2.0"

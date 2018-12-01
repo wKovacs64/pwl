@@ -63,7 +63,7 @@
     "color-string": "1.5.3",
     "cypress": "3.1.2",
     "cypress-axe": "0.3.0",
-    "cypress-testing-library": "2.3.3",
+    "cypress-testing-library": "2.3.4",
     "eslint": "5.9.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-prettier": "3.3.0",
