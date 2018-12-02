@@ -821,10 +821,10 @@
     "@emotion/utils" "0.11.1"
     "@emotion/weak-memoize" "0.2.2"
 
-"@emotion/core@10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@emotion/core/-/core-10.0.0.tgz#4ec44fdafce2d111f286862388cbd4c3c7502d40"
-  integrity sha512-VnOWGQ40F2ESyPwEOarUXoG1ts43dQOceXIZZIL4jbjJdzsycOuazODB9RpW/jjY8NnsO8Nb+QnVzHSjz2a9Rg==
+"@emotion/core@10.0.1":
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/@emotion/core/-/core-10.0.1.tgz#5cbd7507e87473c390478120cf16e0e328e4259f"
+  integrity sha512-Fbk+pqwdPCdm7oY6UuaJ9JNT+ig5bRLjlEwH20Uq5brrWvRc+NqI8PhcfK4jZul24etj45pFRSIoteaUD2H2jw==
   dependencies:
     "@emotion/cache" "10.0.0"
     "@emotion/css" "10.0.0"
@@ -874,22 +874,22 @@
   resolved "https://registry.yarnpkg.com/@emotion/sheet/-/sheet-0.9.2.tgz#74e5c6b5e489a1ba30ab246ab5eedd96916487c4"
   integrity sha512-pVBLzIbC/QCHDKJF2E82V2H/W/B004mDFQZiyo/MSR+VC4pV5JLG0TF/zgQDFvP3fZL/5RTPGEmXlYJBMUuJ+A==
 
-"@emotion/styled-base@10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@emotion/styled-base/-/styled-base-10.0.0.tgz#df8bf95d0cdd669dab73ba2bde4eb3223bedf85a"
-  integrity sha512-sTlo13oMhODwEBIv0gOfxu3DLHwiznb1rQGKuVMdjDg9DRPp+sjcmkkYijwu8gmmjN5b+vF3KorEO4ovlmvzEQ==
+"@emotion/styled-base@10.0.1":
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/@emotion/styled-base/-/styled-base-10.0.1.tgz#751b5db7401b159e13f2b69165ff010ea43505cf"
+  integrity sha512-vCWNZ2LGL9aV2QFFOojypGyUFWKwmCYsLJ843QYImsQEMdfDgiTqKdnxDty4di1BftQY+vLiD2woR/mzB8lfZw==
   dependencies:
     "@emotion/is-prop-valid" "0.7.2"
     "@emotion/serialize" "0.11.0"
     "@emotion/utils" "0.11.1"
     object-assign "^4.1.1"
 
-"@emotion/styled@10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@emotion/styled/-/styled-10.0.0.tgz#44b3511b2474e6626a9dde1a266cc5d2eac591a5"
-  integrity sha512-ypRAKZOgds3u/51fjKGBg9V4b9F6YNuANcJgg2glctZRU6zplj3K7Dz7M/GOqbJd0LWT1UqSjrWq7Uuh/fTOkw==
+"@emotion/styled@10.0.1":
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/@emotion/styled/-/styled-10.0.1.tgz#be7c57e69aa87f9e1158dbeb1894ee871de074c4"
+  integrity sha512-j1s4oUxAb8RRr8e3u+ygiZ/54Fb5d8vZl6WhoYRRw7SNxOhSUXs4HsEKSMOpP6MYizPYNIFiVm41RFT9QmXw4Q==
   dependencies:
-    "@emotion/styled-base" "10.0.0"
+    "@emotion/styled-base" "10.0.1"
     babel-plugin-emotion "10.0.0"
 
 "@emotion/stylis@0.8.3":
@@ -4105,17 +4105,17 @@ emojis-list@^2.0.0:
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
   integrity sha1-TapNnbAPmBmIDHn6RXrlsJof04k=
 
-emotion-server@10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/emotion-server/-/emotion-server-10.0.0.tgz#099f4ced6a6bfb071e4a3979328f47c33ea8afd1"
-  integrity sha512-x+pZH5umYgtLObyo1DT1XkfE4+ksxkBE7TZeuIGi4pRcuDGsW5fluC8mNYI6yfMfvjb6WlmXpdTfq43lZ+5i6A==
+emotion-server@10.0.1:
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/emotion-server/-/emotion-server-10.0.1.tgz#3f11e56650daf807404b4f7e944d1c630766fa6f"
+  integrity sha512-D1ocOZsJqlV6YogzqFyl/jUzftTj9HjWuvGS0qWQnt7jLJE7rY0P5sUwLgnu8U9PIksv0eVf8pmIk2Qq/Zl7Ew==
   dependencies:
     create-emotion-server "10.0.0"
 
-emotion@10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/emotion/-/emotion-10.0.0.tgz#2f939cc5c8b6113463a094c13ac4abb478ca766c"
-  integrity sha512-0FOo7z6uVSfcczfvDwXuZ20OPIfj7mIwQ//LYPEKmyakHFTvmqZSDdtCHGjhRDcPtTb9nRS0GgNPrQ8McXiP2Q==
+emotion@10.0.1:
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/emotion/-/emotion-10.0.1.tgz#8b89dd52288a92c0fad829a7d2adea76eddb026f"
+  integrity sha512-8eI6eTvmroxrPZ3U52Wakv8vrG1NW0M1T46a4w9g+pxVPoe/eAV2bz2Pu87/Z5vbuxxE2nJna5PilMNdAu5RwA==
   dependencies:
     babel-plugin-emotion "10.0.0"
     create-emotion "10.0.0"
