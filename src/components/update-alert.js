@@ -1,6 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import { css } from 'react-emotion';
+import { css } from '@emotion/core';
 import axios from 'axios';
 import ms from 'ms';
 import mq from '../utils/mq';
@@ -62,7 +62,7 @@ const UpdateAlert = () => (
             <div
               aria-live="polite"
               role="alert"
-              className={css`
+              css={css`
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -89,7 +89,7 @@ const UpdateAlert = () => (
                     window.location.reload(true);
                   }
                 }}
-                className={css`
+                css={css`
                   color: #b3efff;
                   background-color: #1c304a;
                   border: none;

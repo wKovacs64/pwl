@@ -4,29 +4,13 @@ import 'typeface-source-sans-pro';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { injectGlobal, css } from 'react-emotion';
+import { css, Global } from '@emotion/core';
 import { IconContext } from 'react-icons';
 import { StaticQuery, graphql } from 'gatsby';
 import mq from '../utils/mq';
 import Header from './header';
 import Main from './main';
 import Footer from './footer';
-
-injectGlobal`
-  @font-face {
-    font-family: 'Nunito';
-    src: local('Nunito');
-  }
-  @font-face {
-    font-family: 'Source Sans Pro';
-    src: local('Source Sans Pro');
-  }
-  body {
-    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-      'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto,
-      'segoe ui', arial, sans-serif;
-  }
-`;
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -54,6 +38,23 @@ const Layout = ({ children }) => (
           `,
         }}
       >
+        <Global
+          styles={css`
+            @font-face {
+              font-family: 'Nunito';
+              src: local('Nunito');
+            }
+            @font-face {
+              font-family: 'Source Sans Pro';
+              src: local('Source Sans Pro');
+            }
+            body {
+              font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+                'avenir next', avenir, 'helvetica neue', helvetica, ubuntu,
+                roboto, noto, 'segoe ui', arial, sans-serif;
+            }
+          `}
+        />
         <Helmet
           title={siteMetadata.title}
           meta={[
@@ -77,7 +78,7 @@ const Layout = ({ children }) => (
           />
         </Helmet>
         <div
-          className={css`
+          css={css`
             min-height: 100vh;
             padding: 1rem;
             ${mq.md(css`

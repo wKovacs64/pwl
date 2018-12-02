@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'react-emotion';
+import { css } from '@emotion/core';
 import { pwnedPassword } from 'hibp';
 import debounce from 'lodash.debounce';
 import wait from '../utils/wait';
 
 class PwnedInfo extends Component {
   static propTypes = {
-    className: PropTypes.string,
     delayLoadingMs: PropTypes.number,
     password: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
-    className: '',
     delayLoadingMs: 750,
   };
 
@@ -81,17 +79,15 @@ class PwnedInfo extends Component {
     }
   };
 
-  renderContent = content => (
-    <section
-      data-testid="pwned-info"
-      className={css`
-        ${this.props.className};
-      `}
-    >
-      <p>Public Exposure:</p>
-      {content}
-    </section>
-  );
+  renderContent = content => {
+    const { delayLoadingMs, password, ...rest } = this.props;
+    return (
+      <section data-testid="pwned-info" {...rest}>
+        <p>Public Exposure:</p>
+        {content}
+      </section>
+    );
+  };
 
   render() {
     const { loading, numPwns, error } = this.state;
@@ -112,7 +108,7 @@ class PwnedInfo extends Component {
       return this.renderContent(
         <p>
           <span
-            className={css`
+            css={css`
               color: #e7040f;
             `}
           >
@@ -129,7 +125,7 @@ class PwnedInfo extends Component {
       return this.renderContent(
         <p>
           <span
-            className={css`
+            css={css`
               color: #20603c;
             `}
           >

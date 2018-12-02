@@ -1,20 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'react-emotion';
+import { css } from '@emotion/core';
 import { FaGithub } from 'react-icons/fa';
 
-const Footer = ({ className }) => (
+const Footer = ({ css: cssOverrides }) => (
   <footer
-    className={css`
-      display: flex;
-      justify-content: center;
-      ${className};
-    `}
+    css={[
+      css`
+        display: flex;
+        justify-content: center;
+      `,
+      cssOverrides,
+    ]}
   >
     <a
       href="https://github.com/wKovacs64/pwl"
       rel="noopener noreferrer"
-      className={css`
+      css={css`
         color: #111111;
         padding-bottom: 0.25rem;
         text-decoration: none;
@@ -30,11 +32,11 @@ const Footer = ({ className }) => (
 );
 
 Footer.propTypes = {
-  className: PropTypes.string,
+  css: PropTypes.shape(),
 };
 
 Footer.defaultProps = {
-  className: '',
+  css: undefined,
 };
 
 export default Footer;

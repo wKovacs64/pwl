@@ -1,15 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'react-emotion';
 import LegendItem from './legend-item';
 
-const Legend = ({ className, colors, labels }) => (
-  <section
-    data-testid="legend"
-    className={css`
-      ${className};
-    `}
-  >
+const Legend = ({ colors, labels, ...props }) => (
+  <section data-testid="legend" {...props}>
     <p>Legend:</p>
     <LegendItem color={colors.number} label={labels.number} />
     <LegendItem color={colors.uppercase} label={labels.uppercase} />
@@ -19,7 +13,6 @@ const Legend = ({ className, colors, labels }) => (
 );
 
 Legend.propTypes = {
-  className: PropTypes.string,
   colors: PropTypes.shape({
     number: PropTypes.string.isRequired,
     uppercase: PropTypes.string.isRequired,
@@ -32,10 +25,6 @@ Legend.propTypes = {
     lowercase: PropTypes.string.isRequired,
     special: PropTypes.string.isRequired,
   }).isRequired,
-};
-
-Legend.defaultProps = {
-  className: '',
 };
 
 export default Legend;

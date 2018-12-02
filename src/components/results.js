@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'react-emotion';
+import { css } from '@emotion/core';
 import PasswordThroughLense from './password-through-lense';
 import Legend from './legend';
 import PwnedInfo from './pwned-info';
 
-const Results = ({ className, colors, labels, password }) => (
-  <section data-testid="results" className={className}>
+const Results = ({ colors, labels, password, ...props }) => (
+  <section data-testid="results" {...props}>
     <PasswordThroughLense colors={colors} labels={labels} password={password} />
     <aside
-      className={css`
+      css={css`
         display: flex;
         flex-wrap: wrap;
       `}
     >
       <Legend
-        className={css`
+        css={css`
           flex: 1;
           margin-top: 2rem;
         `}
@@ -23,7 +23,7 @@ const Results = ({ className, colors, labels, password }) => (
         labels={labels}
       />
       <PwnedInfo
-        className={css`
+        css={css`
           flex: 1;
           margin-top: 2rem;
         `}
@@ -34,7 +34,6 @@ const Results = ({ className, colors, labels, password }) => (
 );
 
 Results.propTypes = {
-  className: PropTypes.string,
   colors: PropTypes.shape({
     number: PropTypes.string.isRequired,
     uppercase: PropTypes.string.isRequired,
@@ -51,7 +50,6 @@ Results.propTypes = {
 };
 
 Results.defaultProps = {
-  className: '',
   password: '',
 };
 

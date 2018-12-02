@@ -1,41 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'react-emotion';
+import { css } from '@emotion/core';
 import mq from '../utils/mq';
 import classifyCharacters from '../utils/classify-characters';
 
-const PasswordThroughLense = ({ className, colors, labels, password }) => (
+const PasswordThroughLense = ({
+  css: cssOverrides,
+  colors,
+  labels,
+  password,
+}) => (
   <div
-    className={css`
-      color: #f4f4f4;
-      background-color: #1c304a;
-      &::-webkit-scrollbar {
-        width: 1rem;
-      }
-      &::-webkit-scrollbar-thumb {
-        background: #cdcdcd;
-      }
-      &::-webkit-scrollbar-track {
-        background: #f0f0f0;
-      }
-      overflow-x: scroll;
-      overflow-y: hidden;
-      white-space: nowrap;
-      text-align: center;
-      width: 100%;
-      font-size: 1.25rem;
-      ${mq.md(css`
-        font-size: 1.5rem;
-      `)};
-      ${mq.lg(css`
-        font-size: 2.25rem;
-      `)};
-      ${className};
-    `}
+    css={[
+      css`
+        color: #f4f4f4;
+        background-color: #1c304a;
+        &::-webkit-scrollbar {
+          width: 1rem;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: #cdcdcd;
+        }
+        &::-webkit-scrollbar-track {
+          background: #f0f0f0;
+        }
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        text-align: center;
+        width: 100%;
+        font-size: 1.25rem;
+        ${mq.md(css`
+          font-size: 1.5rem;
+        `)};
+        ${mq.lg(css`
+          font-size: 2.25rem;
+        `)};
+      `,
+      cssOverrides,
+    ]}
   >
     <div
       data-testid="password-through-lense"
-      className={css`
+      css={css`
         font-family: 'Courier New', Courier, monospace;
         display: inline-block;
         margin: 1rem;
@@ -45,7 +52,7 @@ const PasswordThroughLense = ({ className, colors, labels, password }) => (
         (classifiedCharacter, index, chars) => (
           <span
             title={classifiedCharacter.label}
-            className={css`
+            css={css`
               color: ${classifiedCharacter.color};
               border-bottom: thin dotted #f4f4f4;
               margin-right: ${index < chars.length - 1 ? '0.25rem' : 0};
@@ -68,7 +75,7 @@ const PasswordThroughLense = ({ className, colors, labels, password }) => (
 );
 
 PasswordThroughLense.propTypes = {
-  className: PropTypes.string,
+  css: PropTypes.shape(),
   colors: PropTypes.shape({
     number: PropTypes.string.isRequired,
     uppercase: PropTypes.string.isRequired,
@@ -85,7 +92,7 @@ PasswordThroughLense.propTypes = {
 };
 
 PasswordThroughLense.defaultProps = {
-  className: '',
+  css: undefined,
   password: '',
 };
 

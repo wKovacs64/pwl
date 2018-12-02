@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-import { css } from 'react-emotion';
+import { css } from '@emotion/core';
 import mq from '../utils/mq';
 import UpdateAlert from './update-alert';
 
-const Header = ({ className }) => (
+const Header = props => (
   <StaticQuery
     query={graphql`
       {
@@ -18,14 +17,10 @@ const Header = ({ className }) => (
     `}
   >
     {({ site: { siteMetadata } }) => (
-      <header
-        className={css`
-          ${className};
-        `}
-      >
+      <header {...props}>
         <UpdateAlert />
         <section
-          className={css`
+          css={css`
             display: flex;
             ${mq.md(css`
               justify-content: center;
@@ -33,7 +28,7 @@ const Header = ({ className }) => (
           `}
         >
           <h1
-            className={css`
+            css={css`
               color: #1c304a;
               font-family: 'Nunito', sans-serif;
               font-size: 2.25rem;
@@ -56,13 +51,5 @@ const Header = ({ className }) => (
     )}
   </StaticQuery>
 );
-
-Header.propTypes = {
-  className: PropTypes.string,
-};
-
-Header.defaultProps = {
-  className: '',
-};
 
 export default Header;
