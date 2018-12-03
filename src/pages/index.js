@@ -11,24 +11,21 @@ import Layout from '../components/layout';
 import PasswordInput from '../components/password-input';
 import Results from '../components/results';
 
-const P = styled('p')(({ css: cssOverrides }) => [
-  css`
-    color: #046b99;
-    max-width: 45ch;
-    font-weight: 300;
-    font-size: 1.25rem;
-    margin: 0 0 2rem;
-    ${mq.md(css`
-      text-align: center;
-      font-size: 1.5rem;
-      margin-bottom: 4rem;
-    `)};
-    ${mq.lg(css`
-      font-size: 2.25rem;
-    `)};
-  `,
-  cssOverrides,
-]);
+const P = styled('p')`
+  color: #046b99;
+  max-width: 45ch;
+  font-weight: 300;
+  font-size: 1.25rem;
+  margin: 0 0 2rem;
+  ${mq.md(css`
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 4rem;
+  `)};
+  ${mq.lg(css`
+    font-size: 2.25rem;
+  `)};
+`;
 
 class IndexPage extends Component {
   state = {

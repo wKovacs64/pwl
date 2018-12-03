@@ -4,41 +4,33 @@ import { css } from '@emotion/core';
 import mq from '../utils/mq';
 import classifyCharacters from '../utils/classify-characters';
 
-const PasswordThroughLense = ({
-  css: cssOverrides,
-  colors,
-  labels,
-  password,
-}) => (
+const PasswordThroughLense = ({ colors, labels, password }) => (
   <div
-    css={[
-      css`
-        color: #f4f4f4;
-        background-color: #1c304a;
-        &::-webkit-scrollbar {
-          width: 1rem;
-        }
-        &::-webkit-scrollbar-thumb {
-          background: #cdcdcd;
-        }
-        &::-webkit-scrollbar-track {
-          background: #f0f0f0;
-        }
-        overflow-x: scroll;
-        overflow-y: hidden;
-        white-space: nowrap;
-        text-align: center;
-        width: 100%;
-        font-size: 1.25rem;
-        ${mq.md(css`
-          font-size: 1.5rem;
-        `)};
-        ${mq.lg(css`
-          font-size: 2.25rem;
-        `)};
-      `,
-      cssOverrides,
-    ]}
+    css={css`
+      color: #f4f4f4;
+      background-color: #1c304a;
+      &::-webkit-scrollbar {
+        width: 1rem;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #cdcdcd;
+      }
+      &::-webkit-scrollbar-track {
+        background: #f0f0f0;
+      }
+      overflow-x: scroll;
+      overflow-y: hidden;
+      white-space: nowrap;
+      text-align: center;
+      width: 100%;
+      font-size: 1.25rem;
+      ${mq.md(css`
+        font-size: 1.5rem;
+      `)};
+      ${mq.lg(css`
+        font-size: 2.25rem;
+      `)};
+    `}
   >
     <div
       data-testid="password-through-lense"
@@ -75,7 +67,6 @@ const PasswordThroughLense = ({
 );
 
 PasswordThroughLense.propTypes = {
-  css: PropTypes.shape(),
   colors: PropTypes.shape({
     number: PropTypes.string.isRequired,
     uppercase: PropTypes.string.isRequired,
@@ -92,7 +83,6 @@ PasswordThroughLense.propTypes = {
 };
 
 PasswordThroughLense.defaultProps = {
-  css: undefined,
   password: '',
 };
 
