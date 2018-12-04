@@ -25,3 +25,13 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 import 'cypress-testing-library/add-commands';
+
+Cypress.Commands.add('ignoreStubbedApiResponseErrors', statusText => {
+  cy.on('uncaught:exception', (err /* , runnable */) => {
+    // intentially failed API requests will be caught by an ErrorBoundary
+    expect(err.message).to.include(statusText);
+
+    // return false to prevent the error from failing this test
+    return false;
+  });
+});

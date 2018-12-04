@@ -50,7 +50,7 @@ describe('Index Page', () => {
       url: EXPOSURE_ROUTE,
       response: {},
       status: 418,
-    });
+    }).ignoreStubbedApiResponseErrors("I'm a teapot");
 
     cy.getByLabelText('Password').should('be.empty');
     cy.queryByTestId('results', { timeout: 500 }).should('not.exist');
@@ -73,7 +73,7 @@ describe('Index Page', () => {
         url: EXPOSURE_ROUTE,
         response: {},
         status: 418,
-      });
+      }).ignoreStubbedApiResponseErrors("I'm a teapot");
 
       const password = ' P4ssw0rd! ';
       const classifiedCharacters = classifyCharacters(password, colors, labels);
@@ -103,7 +103,7 @@ describe('Index Page', () => {
         url: EXPOSURE_ROUTE,
         response: {},
         status: 418,
-      });
+      }).ignoreStubbedApiResponseErrors("I'm a teapot");
 
       cy.getByLabelText('Password')
         .click()
@@ -167,7 +167,7 @@ describe('Index Page', () => {
         url: EXPOSURE_ROUTE,
         response: {},
         status: 418,
-      });
+      }).ignoreStubbedApiResponseErrors("I'm a teapot");
 
       cy.getByLabelText('Password')
         .click()
@@ -225,7 +225,7 @@ describe('Index Page', () => {
         url: EXPOSURE_ROUTE,
         response: 'API Unavailable',
         status: 500,
-      });
+      }).ignoreStubbedApiResponseErrors('Internal Server Error');
 
       cy.getByLabelText('Password')
         .click()

@@ -9392,6 +9392,11 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-cache@2.0.0-alpha.1:
+  version "2.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/react-cache/-/react-cache-2.0.0-alpha.1.tgz#4c119188248bc988a61268458bc18bd845f2ec19"
+  integrity sha512-dDJVVGvxAlZE/dMxDXaxU5ZfcE4fbaSmJVFrCTi6dYWXDp7YjCsnywkpEYG6IURVW+eJrCydAIDcW0FADw0/5w==
+
 react-dev-utils@^4.2.1:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-4.2.2.tgz#e8f2ffdbf27bfb13ee88ac18e20c83163aac0659"
@@ -9425,6 +9430,11 @@ react-dom@16.7.0-alpha.2:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.12.0-alpha.2"
+
+react-error-boundary@1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/react-error-boundary/-/react-error-boundary-1.2.3.tgz#2b9eb8fbd4b1d90656fe769d9bad9f69a2b7b529"
+  integrity sha512-3naGugvlzwcYjiqPr8o89oYHe2R5QxK6ysCQj/GvyenBvruVHu2hRsuWvjQcNbNiiOkEPYKfcMm7tV/Tfle5rA==
 
 react-error-overlay@^3.0.0:
   version "3.0.0"
@@ -10050,6 +10060,14 @@ sax@^1.2.4, sax@~1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
+
+scheduler@0.12.0-alpha.3:
+  version "0.12.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.12.0-alpha.3.tgz#59afcaba1cb79e3e8bee91de94eb8f42c9152c2b"
+  integrity sha512-KADuBlOWSrT/DCt/oA+NgsNamRCsfz7wj+leaeGjGHipNClsqhjOPogKkJgem6WLAv/QzxW8bE7zlGc9OxiYSQ==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
 
 scheduler@^0.12.0-alpha.2:
   version "0.12.0-alpha.2"

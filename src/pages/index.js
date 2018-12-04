@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import { unstable_scheduleCallback as scheduleCallback } from 'scheduler';
 import { Helmet } from 'react-helmet';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -36,8 +37,8 @@ const Span = styled.span`
 function IndexPage() {
   const [passwordInput, setPasswordInput] = useState('');
   const [passwordToCheck, setPasswordToCheck] = useState('');
-  const setPasswordToCheckDebounced = useCallback(
-    debounce(setPasswordToCheck, 250, { leading: true }),
+  const scheduleCallbackDebounced = useCallback(
+    debounce(scheduleCallback, 250, { leading: true }),
     [],
   );
 
@@ -55,7 +56,7 @@ function IndexPage() {
   function handlePasswordChange({ target: { value } }) {
     setPasswordInput(value);
     setPasswordToCheck('');
-    setPasswordToCheckDebounced(value);
+    scheduleCallbackDebounced(() => setPasswordToCheck(value));
   }
 
   return (
