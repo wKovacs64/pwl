@@ -5329,9 +5329,10 @@ gatsby-link@^2.0.7:
     "@types/reach__router" "^1.0.0"
     prop-types "^15.6.1"
 
-"gatsby-plugin-emotion@https://github.com/wKovacs64/gatsby-plugin-emotion":
-  version "2.0.7"
-  resolved "https://github.com/wKovacs64/gatsby-plugin-emotion#dd02941bef24133e7e428a5b93457e4c63f110b3"
+gatsby-plugin-emotion@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-emotion/-/gatsby-plugin-emotion-3.0.0.tgz#64b703f92597377a94354d15a99616b19625f86f"
+  integrity sha512-Ft84ezE+zoc1CcNVol4DMWtQ7Et3gLKUzEuDtXdb6twWHPA4Ee9cbDzdIqf53XqxKgiNVzX2qllAnpiZBQywmw==
   dependencies:
     "@babel/plugin-transform-react-jsx" "^7.1.6"
     "@babel/runtime" "^7.0.0"
