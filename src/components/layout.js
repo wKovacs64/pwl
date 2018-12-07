@@ -90,9 +90,9 @@ const Layout = ({ children }) => (
               css={css`
                 min-height: 100vh;
                 padding: 1rem;
-                ${mq.md(css`
+                ${mq.md} {
                   padding: 0 0 1rem;
-                `)};
+                }
               `}
             >
               <Header />

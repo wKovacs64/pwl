@@ -72,13 +72,13 @@ const UpdateAlert = () => (
                 border-style: solid;
                 border-width: 0;
                 box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
-                ${mq.md(css`
+                ${mq.md} {
                   top: 1rem;
                   left: auto;
                   right: 1rem;
                   width: auto;
                   border-width: thin;
-                `)};
+                }
               `}
             >
               <button

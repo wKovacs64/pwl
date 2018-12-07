@@ -14,9 +14,9 @@ const NotFoundPage = () => (
     <article
       css={css`
         display: flex;
-        ${mq.md(css`
+        ${mq.md} {
           justify-content: center;
-        `)};
+        }
       `}
     >
       <section
@@ -35,9 +35,9 @@ const NotFoundPage = () => (
             margin-top: 0;
             margin-bottom: 4rem;
             font-size: 2.25rem;
-            ${mq.lg(css`
+            ${mq.lg} {
               font-size: 3rem;
-            `)};
+            }
           `}
         >
           404
@@ -48,9 +48,9 @@ const NotFoundPage = () => (
             margin: 4rem 0;
             font-weight: 300;
             font-size: 1.25rem;
-            ${mq.lg(css`
+            ${mq.lg} {
               font-size: 1.5rem;
-            `)};
+            }
           `}
         >
           Sorry, but the page you requested could not be found.
@@ -82,9 +82,9 @@ const NotFoundPage = () => (
             <FaChevronLeft
               css={css`
                 font-size: 1.25rem; /* size={20} */
-                ${mq.lg(css`
+                ${mq.lg} {
                   font-size: 1.625rem; /* size={26} */
-                `)};
+                }
               `}
             />{' '}
             <span
@@ -92,10 +92,10 @@ const NotFoundPage = () => (
                 margin-left: 0.5rem;
                 font-family: sans-serif;
                 font-size: 1rem;
-                ${mq.lg(css`
+                ${mq.lg} {
                   margin-left: 1rem;
                   font-size: 1.25rem;
-                `)};
+                }
               `}
             >
               Go Back

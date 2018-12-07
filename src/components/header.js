@@ -22,9 +22,9 @@ const Header = props => (
         <section
           css={css`
             display: flex;
-            ${mq.md(css`
+            ${mq.md} {
               justify-content: center;
-            `)};
+            }
           `}
         >
           <h1
@@ -35,13 +35,13 @@ const Header = props => (
               font-variant: small-caps;
               text-shadow: 1px 1px 1px #046b99;
               margin: 0;
-              ${mq.md(css`
+              ${mq.md} {
                 font-size: 3rem;
                 margin-top: 4rem;
-              `)};
-              ${mq.lg(css`
+              }
+              ${mq.lg} {
                 font-size: 5rem;
-              `)};
+              }
             `}
           >
             {siteMetadata.title}

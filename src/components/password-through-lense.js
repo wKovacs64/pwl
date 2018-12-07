@@ -24,12 +24,12 @@ const PasswordThroughLense = ({ colors, labels, password }) => (
       text-align: center;
       width: 100%;
       font-size: 1.25rem;
-      ${mq.md(css`
+      ${mq.md} {
         font-size: 1.5rem;
-      `)};
-      ${mq.lg(css`
+      }
+      ${mq.lg} {
         font-size: 2.25rem;
-      `)};
+      }
     `}
   >
     <div

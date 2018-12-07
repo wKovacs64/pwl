@@ -8,10 +8,10 @@ const Main = ({ children }) => (
     css={css`
       padding-top: 2rem;
       padding-bottom: 4rem;
-      ${mq.md(css`
+      ${mq.md} {
         padding-top: 4rem;
         padding-bottom: 8rem;
-      `)};
+      }
     `}
   >
     {children}

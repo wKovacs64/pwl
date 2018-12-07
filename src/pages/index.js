@@ -17,14 +17,14 @@ const P = styled('p')`
   font-weight: 300;
   font-size: 1.25rem;
   margin: 0 0 2rem;
-  ${mq.md(css`
+  ${mq.md} {
     text-align: center;
     font-size: 1.5rem;
     margin-bottom: 4rem;
-  `)};
-  ${mq.lg(css`
+  }
+  ${mq.lg} {
     font-size: 2.25rem;
-  `)};
+  }
 `;
 
 class IndexPage extends Component {
@@ -78,9 +78,9 @@ class IndexPage extends Component {
                 css={css`
                   display: flex;
                   flex-direction: column;
-                  ${mq.md(css`
+                  ${mq.md} {
                     align-items: center;
-                  `)};
+                  }
                 `}
               >
                 <P>This application requires JavaScript.</P>
@@ -99,9 +99,9 @@ class IndexPage extends Component {
               css={css`
                 display: flex;
                 flex-direction: column;
-                ${mq.md(css`
+                ${mq.md} {
                   align-items: center;
-                `)};
+                }
               `}
             >
               <P>
