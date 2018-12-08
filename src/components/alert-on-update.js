@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import axios from 'axios';
 import ms from 'ms';
@@ -7,6 +7,8 @@ import UpdatePoller from './update-poller';
 import UpdateAlert from './update-alert';
 
 function AlertOnUpdate() {
+  const [userHasDismissed, setUserHasDismissed] = useState(false);
+
   async function checkForUpdate(localCommit) {
     if (typeof window !== 'undefined') {
       try {
@@ -52,7 +54,20 @@ function AlertOnUpdate() {
           hasUpdate={() => checkForUpdate(siteMetadata.buildInfo.commit)}
           pollingIntervalMs={isMobile() ? ms('1 day') : ms('1 hour')}
         >
-          {({ updateAvailable }) => (updateAvailable ? <UpdateAlert /> : null)}
+          {({ updateAvailable }) =>
+            updateAvailable && !userHasDismissed ? (
+              <UpdateAlert
+                onReload={() => {
+                  if (typeof window !== 'undefined') {
+                    window.location.reload(true);
+                  }
+                }}
+                onDismiss={() => {
+                  setUserHasDismissed(true);
+                }}
+              />
+            ) : null
+          }
         </UpdatePoller>
       )}
     </StaticQuery>
