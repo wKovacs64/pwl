@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 1.4.0 _(2018-12-08)_
+
+- Updated emotion to v10 ([#13][#13], [c18d7a81][c18d7a81],
+  [a5071ef2][a5071ef2], [d0f3896f][d0f3896f], etc.)
+- Converted codebase to use React Hooks 🤠 ([#15][#15])
+- Added reload and dismiss buttons to the update alert ([c822d112][c822d112])
+
 ## Version 1.3.2 _(2018-10-20)_
 
 - Fixed a "flash of empty content" issue related to `<noscript>` ([#10][#10])
@@ -58,3 +65,13 @@
 [history-api]: https://developer.mozilla.org/en-US/docs/Web/API/History
 [#8]: https://github.com/wKovacs64/pwl/pull/8
 [#10]: https://github.com/wKovacs64/pwl/pull/10
+[#13]: https://github.com/wKovacs64/pwl/pull/13
+[c18d7a81]:
+  https://github.com/wKovacs64/pwl/commit/c18d7a814f8389d5f7fc9e9fefce9909d1b1a7c5
+[a5071ef2]:
+  https://github.com/wKovacs64/pwl/commit/a5071ef2e457545335b23cd46afc37b90e1794b0
+[d0f3896f]:
+  https://github.com/wKovacs64/pwl/commit/d0f3896ff43dd6a5479c8ce9b1fe6f2826beb632
+[#15]: https://github.com/wKovacs64/pwl/pull/15
+[c822d112]:
+  https://github.com/wKovacs64/pwl/commit/c822d11243748d1e35d1190e8f5cd85d17ed0c73
