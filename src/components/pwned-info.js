@@ -1,111 +1,79 @@
-import React, { Component } from 'react';
+/* eslint-disable no-nested-ternary */
+import React, { useReducer, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
 import { pwnedPassword } from 'hibp';
 import debounce from 'lodash.debounce';
-import wait from '../utils/wait';
 
-class PwnedInfo extends Component {
-  static propTypes = {
-    delayLoadingMs: PropTypes.number,
-    password: PropTypes.string.isRequired,
-  };
-
-  static defaultProps = {
-    delayLoadingMs: 750,
-  };
-
-  static SHOW_LOADING = Symbol('show-loading');
-
-  static initialState = {
+function PwnedInfo({ /* delayLoadingMs, */ password, ...props }) {
+  const initialState = {
     loading: false,
     numPwns: -1,
     error: false,
   };
 
-  state = PwnedInfo.initialState;
-
-  componentDidMount() {
-    this.mounted = true;
-    this.debouncedFetchPwnedInfo = debounce(this.fetchPwnedInfo, 250, {
-      leading: true,
-    });
-    this.debouncedFetchPwnedInfo();
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.password !== this.props.password) {
-      this.debouncedFetchPwnedInfo();
+  function reducer(state, action) {
+    switch (action.type) {
+      case 'PWNED_REQUEST':
+        return {
+          ...initialState,
+          loading: true,
+        };
+      case 'PWNED_SUCCESS':
+        return {
+          ...initialState,
+          loading: false,
+          numPwns: action.payload,
+        };
+      case 'PWNED_FAILURE':
+        return {
+          ...initialState,
+          loading: false,
+          error: true,
+        };
+      default:
+        return state;
     }
   }
 
-  componentWillUnmount() {
-    this.debouncedFetchPwnedInfo.cancel();
-    this.mounted = false;
-  }
+  const [{ loading, numPwns, error }, dispatch] = useReducer(
+    reducer,
+    initialState,
+  );
 
-  safeSetState = (...args) => {
-    if (this.mounted) {
-      this.setState(...args);
-    }
-  };
-
-  maybeShowLoadingEventually = async getPwnedInfo => {
-    const { delayLoadingMs } = this.props;
-    const showLoading = wait(delayLoadingMs).then(() => PwnedInfo.SHOW_LOADING);
-    const winner = await Promise.race([showLoading, getPwnedInfo]);
-
-    if (winner === PwnedInfo.SHOW_LOADING) {
-      this.safeSetState({ loading: true });
-    }
-  };
-
-  fetchPwnedInfo = async () => {
+  async function fetchPwnedInfo() {
+    dispatch({ type: 'PWNED_REQUEST' });
     try {
-      const getPwnedInfo = pwnedPassword(this.props.password);
-      this.maybeShowLoadingEventually(getPwnedInfo);
-      const numPwns = await getPwnedInfo;
-      this.safeSetState({
-        ...PwnedInfo.initialState,
-        loading: false,
-        numPwns,
+      dispatch({
+        type: 'PWNED_SUCCESS',
+        payload: await pwnedPassword(password),
       });
     } catch (err) {
-      this.safeSetState({
-        ...PwnedInfo.initialState,
-        loading: false,
-        error: true,
+      dispatch({ type: 'PWNED_FAILURE' });
+    }
+  }
+
+  useEffect(
+    () => {
+      const debouncedFetchPwnedInfo = debounce(() => fetchPwnedInfo(), 250, {
+        leading: true,
       });
-    }
-  };
+      debouncedFetchPwnedInfo();
+      return () => debouncedFetchPwnedInfo.cancel();
+    },
+    [dispatch, password],
+  );
 
-  renderContent = content => {
-    const { delayLoadingMs, password, ...rest } = this.props;
-    return (
-      <section data-testid="pwned-info" {...rest}>
-        <p>Public Exposure:</p>
-        {content}
-      </section>
-    );
-  };
-
-  render() {
-    const { loading, numPwns, error } = this.state;
-
-    if (loading) {
-      return this.renderContent(<p>Loading...</p>);
-    }
-
-    if (error) {
-      return this.renderContent(
+  return (
+    <section data-testid="pwned-info" {...props}>
+      <p>Public Exposure:</p>
+      {error ? (
         <p>
           <em>Public exposure information is currently unavailable.</em>
-        </p>,
-      );
-    }
-
-    if (numPwns > 0) {
-      return this.renderContent(
+        </p>
+      ) : loading ? (
+        <p>Loading...</p>
+      ) : numPwns > 0 ? (
         <p>
           <span
             css={css`
@@ -117,12 +85,8 @@ class PwnedInfo extends Component {
           This password has been publicly exposed in{' '}
           <span>{Number(numPwns).toLocaleString()}</span> data breach
           {numPwns > 1 && 'es'}. It should NOT be used.
-        </p>,
-      );
-    }
-
-    if (numPwns === 0) {
-      return this.renderContent(
+        </p>
+      ) : (
         <p>
           <span
             css={css`
@@ -132,13 +96,19 @@ class PwnedInfo extends Component {
             Congratulations!
           </span>{' '}
           This password has not been publicly exposed in any data breaches.
-        </p>,
-      );
-    }
-
-    // loading, but not time to show it yet (...probably)
-    return this.renderContent(null);
-  }
+        </p>
+      )}
+    </section>
+  );
 }
+
+PwnedInfo.propTypes = {
+  // delayLoadingMs: PropTypes.number,
+  password: PropTypes.string.isRequired,
+};
+
+// PwnedInfo.defaultProps = {
+//   delayLoadingMs: 750,
+// };
 
 export default PwnedInfo;

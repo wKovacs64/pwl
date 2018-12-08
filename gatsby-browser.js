@@ -4,4 +4,11 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-// You can delete this file if you're not using it
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { setConfig } from 'react-hot-loader';
+
+// TODO: remove once Gatsby and react-hot-loader support hooks
+setConfig({
+  pureSFC: true,
+  pureRender: true,
+});
