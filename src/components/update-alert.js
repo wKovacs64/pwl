@@ -51,11 +51,7 @@ const UpdateAlert = () => (
           }
           return false;
         }}
-        pollingIntervalMs={
-          typeof window !== 'undefined' && isMobile(window.navigator.userAgent)
-            ? ms('1 day')
-            : ms('1 hour')
-        }
+        pollingIntervalMs={isMobile() ? ms('1 day') : ms('1 hour')}
       >
         {({ updateAvailable }) =>
           updateAvailable ? (
