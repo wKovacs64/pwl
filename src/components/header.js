@@ -2,7 +2,7 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { css } from '@emotion/core';
 import mq from '../utils/mq';
-import UpdateAlert from './update-alert';
+import AlertOnUpdate from './alert-on-update';
 
 const Header = props => (
   <StaticQuery
@@ -18,7 +18,7 @@ const Header = props => (
   >
     {({ site: { siteMetadata } }) => (
       <header {...props}>
-        <UpdateAlert />
+        <AlertOnUpdate />
         <section
           css={css`
             display: flex;

@@ -1,7 +1,7 @@
 import { useReducer, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-function AutoUpdater({ children, hasUpdate, pollingIntervalMs }) {
+function UpdatePoller({ children, hasUpdate, pollingIntervalMs }) {
   const initialState = {
     error: '',
     updateAvailable: false,
@@ -68,7 +68,7 @@ function AutoUpdater({ children, hasUpdate, pollingIntervalMs }) {
   return children({ error, updateAvailable });
 }
 
-AutoUpdater.propTypes = {
+UpdatePoller.propTypes = {
   children: PropTypes.func,
   // hasUpdate is a function provided by the consumer to determine whether or
   // not there is an updated version of the code available. This typically
@@ -79,9 +79,9 @@ AutoUpdater.propTypes = {
   pollingIntervalMs: PropTypes.number,
 };
 
-AutoUpdater.defaultProps = {
+UpdatePoller.defaultProps = {
   children: () => null,
   pollingIntervalMs: 3600000, // 1 hour
 };
 
-export default AutoUpdater;
+export default UpdatePoller;
