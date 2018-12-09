@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { StaticQuery, graphql } from 'gatsby';
 import KeyHandler, { KEYDOWN } from 'react-key-handler';
-import debounce from 'lodash.debounce';
+import debounce from 'lodash/debounce';
 import colors from '../legend/colors';
 import labels from '../legend/labels';
 import mq from '../utils/mq';

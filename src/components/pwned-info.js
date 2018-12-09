@@ -3,7 +3,7 @@ import React, { useReducer, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
 import { pwnedPassword } from 'hibp';
-import debounce from 'lodash.debounce';
+import debounce from 'lodash/debounce';
 
 function PwnedInfo({ /* delayLoadingMs, */ password, ...props }) {
   const initialState = {
