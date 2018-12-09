@@ -1,5 +1,5 @@
 const gitCommit = require('git-current-commit');
-const pkg = require('../../package.json');
+const pkg = require('../package.json');
 
 module.exports = {
   commit: gitCommit.sync(),
