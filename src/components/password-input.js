@@ -1,11 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { css } from '@emotion/core';
+import styled from '@emotion/styled';
 import mq from '../utils/mq';
+
+const Input = styled.input`
+  font-family: 'Courier New', Courier, monospace;
+  padding: 1rem;
+  text-align: center;
+  letter-spacing: 0.25rem;
+  white-space: pre;
+  color: ${({ theme }) => theme.colors.pageText};
+  background-color: ${({ theme }) => theme.colors.inputBackground};
+  border: 2px solid ${({ theme }) => theme.colors.inputBorder};
+  width: 100%;
+  font-size: 1.25rem;
+  ${mq.md} {
+    font-size: 1.5rem;
+  }
+  ${mq.lg} {
+    font-size: 2.25rem;
+  }
+  &::-ms-clear {
+    display: none;
+  }
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.dullText};
+  }
+`;
 
 const PasswordInput = ({ password, onChange, onKeyDown, ...props }) => (
   <div {...props}>
-    <input
+    <Input
       aria-label="Password"
       placeholder="Paste Here"
       type="text"
@@ -16,26 +41,6 @@ const PasswordInput = ({ password, onChange, onKeyDown, ...props }) => (
       onChange={onChange}
       onKeyDown={onKeyDown}
       value={password}
-      css={css`
-        font-family: 'Courier New', Courier, monospace;
-        border: 2px solid rgba(0, 0, 0, 0.3);
-        padding: 1rem;
-        text-align: center;
-        letter-spacing: 0.25rem;
-        white-space: pre;
-        color: #111111;
-        width: 100%;
-        font-size: 1.25rem;
-        ${mq.md} {
-          font-size: 1.5rem;
-        }
-        ${mq.lg} {
-          font-size: 2.25rem;
-        }
-        &::-ms-clear {
-          display: none;
-        }
-      `}
     />
   </div>
 );

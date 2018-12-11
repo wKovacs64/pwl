@@ -11,17 +11,17 @@ import UpdateAlert from './update-alert';
 const UpdateAlertContainer = styled.div`
   display: flex;
   justify-content: stretch;
-  border-color: #1c304a;
   border-style: solid;
   border-width: 0 0 1px;
-  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
-  color: #b3efff;
-  background-color: #1c304a;
+  border-color: ${({ theme }) => theme.colors.alertBorder};
+  box-shadow: 4px 4px 8px 0px ${({ theme }) => theme.colors.alertShadow};
+  color: ${({ theme }) => theme.colors.alertText};
+  background-color: ${({ theme }) => theme.colors.alertBackground};
   transition: color 0.3s ease, background-color 0.3s ease;
   &:hover,
   &:focus-within {
-    color: #1c304a;
-    background-color: #b3efff;
+    color: ${({ theme }) => theme.colors.alertBackground};
+    background-color: ${({ theme }) => theme.colors.alertText};
   }
   ${mq.md} {
     justify-content: center;

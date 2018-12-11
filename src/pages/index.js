@@ -12,8 +12,8 @@ import Layout from '../components/layout';
 import PasswordInput from '../components/password-input';
 import Results from '../components/results';
 
-const P = styled('p')`
-  color: #046b99;
+const P = styled.p`
+  color: ${({ theme }) => theme.colors.brandedText};
   max-width: 32rem;
   font-weight: 300;
   font-size: 1.25rem;
@@ -27,6 +27,10 @@ const P = styled('p')`
     font-size: 2.25rem;
     max-width: 48rem;
   }
+`;
+
+const Span = styled.span`
+  border-bottom: 2px dashed ${({ theme }) => theme.colors.pageUnderline};
 `;
 
 function IndexPage() {
@@ -112,14 +116,9 @@ function IndexPage() {
               Is that an &apos;O&apos; or a &apos;0&apos;? An &apos;I&apos; or
               an &apos;l&apos; - or maybe a &apos;1&apos;? Sometimes, it&apos;s
               hard to tell. Paste your password in the box below for a{' '}
-              <span
-                title="Your password never leaves your browser!"
-                css={css`
-                  border-bottom: 2px dashed #b3efff;
-                `}
-              >
+              <Span title="Your password never leaves your browser!">
                 secure
-              </span>
+              </Span>
               , color-coded revelation.
             </P>
             <section

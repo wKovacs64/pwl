@@ -7,6 +7,9 @@ describe('404 Page', () => {
     // wait for the content to ensure the app has been rendered
     cy.get('html[lang="en"]')
       .getByText('404')
+      .checkA11y()
+      .getByLabelText(/toggle dark/i)
+      .click()
       .checkA11y();
   });
 

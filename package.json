@@ -35,6 +35,7 @@
     "@wkovacs64/normalize.css": "8.0.1",
     "axios": "0.18.0",
     "dotenv": "6.2.0",
+    "emotion-theming": "10.0.5",
     "gatsby": "2.0.75",
     "gatsby-plugin-emotion": "4.0.1",
     "gatsby-plugin-manifest": "2.0.12",
@@ -53,6 +54,7 @@
     "react-helmet": "6.0.0-beta",
     "react-icons": "3.2.2",
     "react-key-handler": "1.2.0-beta.3",
+    "react-use": "5.1.1",
     "typeface-nunito": "0.0.54",
     "typeface-source-sans-pro": "0.0.54"
   },
