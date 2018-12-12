@@ -13,10 +13,10 @@ const PasswordThroughLense = ({ colors, labels, password }) => (
         width: 1rem;
       }
       &::-webkit-scrollbar-thumb {
-        background: #cdcdcd;
+        background-color: #cdcdcd;
       }
       &::-webkit-scrollbar-track {
-        background: #f0f0f0;
+        background-color: #f0f0f0;
       }
       overflow-x: scroll;
       overflow-y: hidden;
