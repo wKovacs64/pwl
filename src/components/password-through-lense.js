@@ -9,6 +9,8 @@ const PasswordThroughLense = ({ colors, labels, password }) => (
     css={css`
       color: #f4f4f4;
       background-color: #1c304a;
+      scrollbar-color: #cdcdcd #f0f0f0;
+      /* TODO: remove -webkit-scrollbar once Chrome supports scrollbar-color */
       &::-webkit-scrollbar {
         width: 1rem;
       }
