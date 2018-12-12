@@ -14,7 +14,7 @@ import Results from '../components/results';
 
 const P = styled('p')`
   color: #046b99;
-  max-width: 45ch;
+  max-width: 48rem;
   font-weight: 300;
   font-size: 1.25rem;
   margin: 0 0 2rem;
@@ -89,7 +89,7 @@ function IndexPage() {
               <P>This application requires JavaScript.</P>
               <P
                 css={css`
-                  max-width: 35ch;
+                  max-width: 36rem;
                 `}
               >
                 You&apos;re either using an incompatible browser or JavaScript
