@@ -17,7 +17,8 @@ const Footer = () => (
         padding-bottom: 0.25rem;
         text-decoration: none;
         transition: color 0.3s ease;
-        &:hover {
+        &:hover,
+        &:focus {
           color: #00cfff;
         }
       `}
