@@ -46,7 +46,7 @@
     "git-current-commit": "1.1.0",
     "hibp": "7.2.2",
     "lodash": "4.17.11",
-    "memoize-one": "4.1.0",
+    "memoize-one": "5.0.0",
     "mobile-detect": "1.4.3",
     "ms": "2.1.1",
     "prop-types": "15.6.2",
