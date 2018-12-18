@@ -13,7 +13,7 @@ const UpdateAlertContainer = styled.div`
   justify-content: stretch;
   border-color: #1c304a;
   border-style: solid;
-  border-width: 0;
+  border-width: 0 0 1px;
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
   color: #b3efff;
   background-color: #1c304a;
