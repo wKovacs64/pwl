@@ -48,7 +48,7 @@ const PasswordThroughLense = ({ colors, labels, password }) => (
             title={classifiedCharacter.label}
             css={css`
               color: ${classifiedCharacter.color};
-              border-bottom: thin dotted #f4f4f4;
+              border-bottom: 1px dotted #f4f4f4;
               margin-right: ${index < chars.length - 1 ? '0.25rem' : 0};
               white-space: pre;
             `}

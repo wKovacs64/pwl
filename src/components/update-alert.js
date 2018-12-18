@@ -14,7 +14,7 @@ const AlertButton = styled.button`
 `;
 
 const AlertButtonLabel = styled.span`
-  border-bottom: thin solid;
+  border-bottom: 1px solid;
 `;
 
 function UpdateAlert({ onReload, onDismiss }) {
