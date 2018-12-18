@@ -26,11 +26,7 @@ function UpdateAlert({ onReload, onDismiss }) {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        position: fixed;
-        top: 0;
-        left: 0;
         width: 100vw;
-        z-index: 9999;
         padding: 0.5rem;
         border-color: #1c304a;
         border-style: solid;
@@ -39,16 +35,16 @@ function UpdateAlert({ onReload, onDismiss }) {
         color: #b3efff;
         background-color: #1c304a;
         transition: color 0.3s ease, background-color 0.3s ease;
-        &:hover {
+        &:hover,
+        &:focus-within {
           color: #1c304a;
           background-color: #b3efff;
         }
         ${mq.md} {
-          top: 1rem;
-          left: auto;
-          right: 1rem;
+          position: fixed;
+          z-index: 9999;
           width: auto;
-          border-width: thin;
+          border-width: 0 1px 1px;
         }
       `}
     >
