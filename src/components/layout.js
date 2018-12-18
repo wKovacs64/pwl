@@ -5,21 +5,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { css, Global, ClassNames } from '@emotion/core';
-import styled from '@emotion/styled';
 import { IconContext } from 'react-icons';
 import { StaticQuery, graphql } from 'gatsby';
-import mq from '../utils/mq';
-import AlertOnUpdate from './alert-on-update';
 import Header from './header';
 import Main from './main';
 import Footer from './footer';
-
-const ContentContainer = styled.div`
-  padding: 1rem;
-  ${mq.md} {
-    padding: 0 0 1rem;
-  }
-`;
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -100,12 +90,9 @@ const Layout = ({ children }) => (
                 min-height: 100vh;
               `}
             >
-              <AlertOnUpdate />
-              <ContentContainer>
-                <Header />
-                <Main>{children}</Main>
-                <Footer />
-              </ContentContainer>
+              <Header />
+              <Main>{children}</Main>
+              <Footer />
             </div>
           </IconContext.Provider>
         )}

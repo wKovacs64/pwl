@@ -2,8 +2,9 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { css } from '@emotion/core';
 import mq from '../utils/mq';
+import AlertOnUpdate from './alert-on-update';
 
-const Header = props => (
+const Header = () => (
   <StaticQuery
     query={graphql`
       {
@@ -16,12 +17,15 @@ const Header = props => (
     `}
   >
     {({ site: { siteMetadata } }) => (
-      <header {...props}>
+      <header>
+        <AlertOnUpdate />
         <section
           css={css`
             display: flex;
+            padding: 1rem 1rem 0;
             ${mq.md} {
               justify-content: center;
+              padding: 0;
             }
           `}
         >
