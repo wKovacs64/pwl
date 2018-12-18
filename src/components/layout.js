@@ -14,14 +14,6 @@ import Header from './header';
 import Main from './main';
 import Footer from './footer';
 
-const UpdateAlertContainer = styled.div`
-  display: flex;
-  justify-content: stretch;
-  ${mq.md} {
-    justify-content: center;
-  }
-`;
-
 const ContentContainer = styled.div`
   padding: 1rem;
   ${mq.md} {
@@ -108,9 +100,7 @@ const Layout = ({ children }) => (
                 min-height: 100vh;
               `}
             >
-              <UpdateAlertContainer>
-                <AlertOnUpdate />
-              </UpdateAlertContainer>
+              <AlertOnUpdate />
               <ContentContainer>
                 <Header />
                 <Main>{children}</Main>

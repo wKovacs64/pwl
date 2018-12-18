@@ -28,23 +28,8 @@ function UpdateAlert({ onReload, onDismiss }) {
         justify-content: space-between;
         width: 100vw;
         padding: 0.5rem;
-        border-color: #1c304a;
-        border-style: solid;
-        border-width: 0;
-        box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
-        color: #b3efff;
-        background-color: #1c304a;
-        transition: color 0.3s ease, background-color 0.3s ease;
-        &:hover,
-        &:focus-within {
-          color: #1c304a;
-          background-color: #b3efff;
-        }
         ${mq.md} {
-          position: fixed;
-          z-index: 9999;
           width: auto;
-          border-width: 0 1px 1px;
         }
       `}
     >
