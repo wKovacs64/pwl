@@ -14,7 +14,7 @@ import Results from '../components/results';
 
 const P = styled('p')`
   color: #046b99;
-  max-width: 48rem;
+  max-width: 32rem;
   font-weight: 300;
   font-size: 1.25rem;
   margin: 0 0 2rem;
@@ -25,6 +25,7 @@ const P = styled('p')`
   }
   ${mq.lg} {
     font-size: 2.25rem;
+    max-width: 48rem;
   }
 `;
 
