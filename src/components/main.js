@@ -13,7 +13,6 @@ const Main = ({ children }) => (
       ${mq.md} {
         padding-top: 4rem;
         padding-right: 0;
-        padding-bottom: 8rem;
         padding-left: 0;
       }
     `}

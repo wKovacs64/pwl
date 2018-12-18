@@ -88,6 +88,7 @@ const Layout = ({ children }) => (
             <div
               css={css`
                 min-height: 100vh;
+                padding-bottom: 2rem;
               `}
             >
               <Header />
