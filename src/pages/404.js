@@ -1,5 +1,5 @@
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { css } from '@emotion/core';
 import { FaChevronLeft } from 'react-icons/fa';
 import mq from '../utils/mq';

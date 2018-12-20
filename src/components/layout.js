@@ -3,7 +3,7 @@ import 'typeface-nunito';
 import 'typeface-source-sans-pro';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { css, Global, ClassNames } from '@emotion/core';
 import { IconContext } from 'react-icons';
 import { StaticQuery, graphql } from 'gatsby';
