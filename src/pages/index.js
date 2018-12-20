@@ -77,7 +77,7 @@ function IndexPage() {
             onKeyHandle={handleEscape}
           />
           <noscript>
-            <style>{'.js { display: none; }'}</style>
+            <style>{'.js { display: none !important; }'}</style>
             <article
               css={css`
                 display: flex;
