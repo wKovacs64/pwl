@@ -5392,10 +5392,10 @@ gatsby-plugin-page-creator@^2.0.5:
     parse-filepath "^1.0.1"
     slash "^1.0.0"
 
-gatsby-plugin-react-helmet@3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.0.4.tgz#07811c8ccc626ecfea40554ccc5f946db705409d"
-  integrity sha512-v/7PGY3AKNebvnz0CPVqVbpZhyREqQWGmz75Y0Ru+SbgaeZ8jA1s8wa/hPpYa+ZutvWPeZVE5IlkgrK9vqoNwg==
+gatsby-plugin-react-helmet@3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.0.5.tgz#eaeca7c83c6c273d31454598949dd0d3b4ff5f31"
+  integrity sha512-Xn8d4EckfUkO3xB8qfjn1AcqeA2fYgd6Mbin3RHc/Zu6YRiOQqdJAVBXz+7PbFpTt+6GCluKklEpFUA4RS4oYw==
   dependencies:
     "@babel/runtime" "^7.0.0"
 
@@ -5408,10 +5408,10 @@ gatsby-react-router-scroll@^2.0.2:
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
 
-gatsby@2.0.73:
-  version "2.0.73"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.0.73.tgz#7fd237faa69fdf7ad077f606398337988d4333aa"
-  integrity sha512-TSf0JYhL9/RRb7abMGiPDLq1x4qMaI2Lgyouz5OyMFLqJkfV4tQaJ7d3ltXdpGZPECazEjecXh/NVZEhGEWZzA==
+gatsby@2.0.75:
+  version "2.0.75"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.0.75.tgz#33fdf97d0cd95740b76ccc4e364a06bc0294a72f"
+  integrity sha512-jDsLjXHoczGbmvwqDgGCeAl9R94u0iW2a9nzyRGkJLHufonhahmGVqFBeTDaPq/3KDqqi8lUK/4P0FhJty2qCQ==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.0.0"
