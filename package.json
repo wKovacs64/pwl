@@ -23,7 +23,7 @@
     "format": "prettier --write \"**/*.{js,json,md,yml}\"",
     "lint": "eslint .",
     "preserve": "yarn build",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve --port 8000",
     "test": "yarn test:e2e",
     "test:e2e": "start-server-and-test develop 8000 cy:open",
     "test:e2e:ci": "start-server-and-test develop 8000 cy:run"
