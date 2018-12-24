@@ -1,9 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
+import styled from '@emotion/styled';
 import PasswordThroughLense from './password-through-lense';
 import Legend from './legend';
 import PwnedInfo from './pwned-info';
+
+const LegendContainer = styled.aside`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 const Results = ({
   colors,
@@ -18,12 +24,7 @@ const Results = ({
       labels={labels}
       password={passwordInput}
     />
-    <aside
-      css={css`
-        display: flex;
-        flex-wrap: wrap;
-      `}
-    >
+    <LegendContainer>
       <Legend
         css={css`
           flex: 1;
@@ -39,7 +40,7 @@ const Results = ({
         `}
         password={passwordToCheck}
       />
-    </aside>
+    </LegendContainer>
   </section>
 );
 

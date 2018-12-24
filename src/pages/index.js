@@ -37,8 +37,13 @@ const P = styled.p`
   }
 `;
 
-const Span = styled.span`
+const Hint = styled.span`
   border-bottom: 2px dashed ${({ theme }) => theme.colors.pageUnderline};
+`;
+
+const InputAndResults = styled.section`
+  width: 100%;
+  max-width: 32rem;
 `;
 
 function IndexPage() {
@@ -108,17 +113,12 @@ function IndexPage() {
               Is that an &apos;O&apos; or a &apos;0&apos;? An &apos;I&apos; or
               an &apos;l&apos; - or maybe a &apos;1&apos;? Sometimes, it&apos;s
               hard to tell. Paste your password in the box below for a{' '}
-              <Span title="Your password never leaves your browser!">
+              <Hint title="Your password never leaves your browser!">
                 secure
-              </Span>
+              </Hint>
               , color-coded revelation.
             </P>
-            <section
-              css={css`
-                width: 100%;
-                max-width: 32rem;
-              `}
-            >
+            <InputAndResults>
               <PasswordInput
                 password={passwordInput}
                 onChange={handlePasswordChange}
@@ -135,7 +135,7 @@ function IndexPage() {
                   `}
                 />
               )}
-            </section>
+            </InputAndResults>
           </Content>
         </Layout>
       )}
