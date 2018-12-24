@@ -15,6 +15,7 @@ const ThemeToggleButton = styled.button`
   color: ${({ theme }) => theme.colors.pageText};
   background-color: transparent;
   border: none;
+  padding: 0;
 `;
 
 const ThemeToggleButtonIcon = styled(FiSun)`
