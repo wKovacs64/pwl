@@ -3,14 +3,13 @@ import styled from '@emotion/styled';
 import { StaticQuery, graphql } from 'gatsby';
 import axios from 'axios';
 import ms from 'ms';
-import mq from '../utils/mq';
 import isMobile from '../utils/is-mobile';
 import UpdatePoller from './update-poller';
 import UpdateAlert from './update-alert';
 
 const UpdateAlertContainer = styled.div`
   display: flex;
-  justify-content: stretch;
+  justify-content: center;
   border-style: solid;
   border-width: 0 0 1px;
   border-color: ${({ theme }) => theme.colors.alertBorder};
@@ -22,9 +21,6 @@ const UpdateAlertContainer = styled.div`
   &:focus-within {
     color: ${({ theme }) => theme.colors.alertBackground};
     background-color: ${({ theme }) => theme.colors.alertText};
-  }
-  ${mq.md} {
-    justify-content: center;
   }
 `;
 
@@ -63,6 +59,7 @@ function AlertOnUpdate() {
         {
           site {
             siteMetadata {
+              title
               buildInfo {
                 commit
               }
@@ -80,6 +77,7 @@ function AlertOnUpdate() {
             updateAvailable && !userHasDismissed ? (
               <UpdateAlertContainer>
                 <UpdateAlert
+                  siteTitle={siteMetadata.title}
                   onReload={() => {
                     if (typeof window !== 'undefined') {
                       window.location.reload(true);

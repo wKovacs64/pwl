@@ -1,15 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import mq from '../utils/mq';
 
-const AlertContainer = styled.div`
+const Alert = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  width: 100vw;
+  justify-content: center;
   padding: 0.5rem;
+`;
+
+const AlertMessage = styled.span`
+  padding: 0 0.5rem;
+`;
+
+const AlertButtonContainer = styled.section`
+  display: inline-flex;
+  justify-content: space-around;
+  width: 100%;
   ${mq.md} {
     width: auto;
   }
@@ -28,29 +37,24 @@ const AlertButtonLabel = styled.span`
   border-bottom: 1px solid;
 `;
 
-function UpdateAlert({ onReload, onDismiss }) {
+function UpdateAlert({ siteTitle, onReload, onDismiss }) {
   return (
-    <AlertContainer aria-live="polite" role="alert">
-      <span
-        css={css`
-          padding: 0 0.5rem;
-        `}
-      >
-        A new version is available!
-      </span>
-      <section>
+    <Alert aria-live="polite" role="alert">
+      <AlertMessage>A new version of {siteTitle} is available!</AlertMessage>
+      <AlertButtonContainer>
         <AlertButton type="button" onClick={onReload}>
           <AlertButtonLabel>Reload</AlertButtonLabel>
         </AlertButton>
         <AlertButton type="button" onClick={onDismiss}>
           <AlertButtonLabel>Dismiss</AlertButtonLabel>
         </AlertButton>
-      </section>
-    </AlertContainer>
+      </AlertButtonContainer>
+    </Alert>
   );
 }
 
 UpdateAlert.propTypes = {
+  siteTitle: PropTypes.string.isRequired,
   onReload: PropTypes.func.isRequired,
   onDismiss: PropTypes.func.isRequired,
 };
