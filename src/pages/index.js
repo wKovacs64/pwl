@@ -12,16 +12,24 @@ import Layout from '../components/layout';
 import PasswordInput from '../components/password-input';
 import Results from '../components/results';
 
+const Content = styled.article`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const P = styled.p`
   color: ${({ theme }) => theme.colors.brandedText};
   max-width: 32rem;
   font-weight: 300;
   font-size: 1.25rem;
   margin: 0 0 2rem;
+  max-width: 26rem;
   ${mq.md} {
     text-align: center;
     font-size: 1.5rem;
     margin-bottom: 4rem;
+    max-width: 32rem;
   }
   ${mq.lg} {
     font-size: 2.25rem;
@@ -82,36 +90,20 @@ function IndexPage() {
           />
           <noscript>
             <style>{'.js { display: none !important; }'}</style>
-            <article
-              css={css`
-                display: flex;
-                flex-direction: column;
-                ${mq.md} {
-                  align-items: center;
-                }
-              `}
-            >
+            <Content>
               <P>This application requires JavaScript.</P>
               <P
                 css={css`
-                  max-width: 36rem;
+                  max-width: 20rem;
+                  text-align: center;
                 `}
               >
                 You&apos;re either using an incompatible browser or JavaScript
                 is disabled.
               </P>
-            </article>
+            </Content>
           </noscript>
-          <article
-            className="js"
-            css={css`
-              display: flex;
-              flex-direction: column;
-              ${mq.md} {
-                align-items: center;
-              }
-            `}
-          >
+          <Content className="js">
             <P>
               Is that an &apos;O&apos; or a &apos;0&apos;? An &apos;I&apos; or
               an &apos;l&apos; - or maybe a &apos;1&apos;? Sometimes, it&apos;s
@@ -144,7 +136,7 @@ function IndexPage() {
                 />
               )}
             </section>
-          </article>
+          </Content>
         </Layout>
       )}
     </StaticQuery>
