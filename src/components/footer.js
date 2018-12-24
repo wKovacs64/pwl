@@ -10,8 +10,7 @@ const SourceLink = styled.a`
 
 const SourceLinkIcon = styled(FaGithub)`
   transition: transform 0.5s ease-in-out;
-  a:hover &,
-  a:focus & {
+  a:hover & {
     transform: rotate(360deg);
   }
 `;
