@@ -18,6 +18,9 @@ describe('Index Page', () => {
     // wait for the content to ensure the app has been rendered
     cy.get('html[lang="en"]')
       .getByLabelText('Password')
+      .checkA11y()
+      .getByLabelText(/toggle dark/i)
+      .click()
       .checkA11y();
   });
 
@@ -33,6 +36,10 @@ describe('Index Page', () => {
         .click()
         .type(exposedPassword)
         .getByTestId('results')
+        .getByText(/Uh-oh/i)
+        .checkA11y()
+        .getByLabelText(/toggle dark/i)
+        .click()
         .checkA11y();
     });
   });

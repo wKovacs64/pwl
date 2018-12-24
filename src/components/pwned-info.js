@@ -1,9 +1,17 @@
 /* eslint-disable no-nested-ternary */
 import React, { useReducer, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { css } from '@emotion/core';
+import styled from '@emotion/styled';
 import { pwnedPassword } from 'hibp';
 import debounce from 'lodash/debounce';
+
+const CleanExclamation = styled.span`
+  color: ${({ theme }) => theme.colors.cleanExclamation};
+`;
+
+const PwnedExclamation = styled.span`
+  color: ${({ theme }) => theme.colors.pwnedExclamation};
+`;
 
 function PwnedInfo({ /* delayLoadingMs, */ password, ...props }) {
   const initialState = {
@@ -75,27 +83,15 @@ function PwnedInfo({ /* delayLoadingMs, */ password, ...props }) {
         <p>Loading...</p>
       ) : numPwns > 0 ? (
         <p>
-          <span
-            css={css`
-              color: #e7040f;
-            `}
-          >
-            Uh-oh!
-          </span>{' '}
-          This password has been publicly exposed in{' '}
-          <span>{Number(numPwns).toLocaleString()}</span> data breach
+          <PwnedExclamation>Uh-oh!</PwnedExclamation> This password has been
+          publicly exposed in <span>{Number(numPwns).toLocaleString()}</span>{' '}
+          data breach
           {numPwns > 1 && 'es'}. It should NOT be used.
         </p>
       ) : (
         <p>
-          <span
-            css={css`
-              color: #20603c;
-            `}
-          >
-            Congratulations!
-          </span>{' '}
-          This password has not been publicly exposed in any data breaches.
+          <CleanExclamation>Congratulations!</CleanExclamation> This password
+          has not been publicly exposed in any data breaches.
         </p>
       )}
     </section>

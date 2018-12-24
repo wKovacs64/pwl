@@ -4,6 +4,17 @@ import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import mq from '../utils/mq';
 
+const AlertContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  padding: 0.5rem;
+  ${mq.md} {
+    width: auto;
+  }
+`;
+
 const AlertButton = styled.button`
   cursor: pointer;
   text-transform: uppercase;
@@ -19,20 +30,7 @@ const AlertButtonLabel = styled.span`
 
 function UpdateAlert({ onReload, onDismiss }) {
   return (
-    <div
-      aria-live="polite"
-      role="alert"
-      css={css`
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100vw;
-        padding: 0.5rem;
-        ${mq.md} {
-          width: auto;
-        }
-      `}
-    >
+    <AlertContainer aria-live="polite" role="alert">
       <span
         css={css`
           padding: 0 0.5rem;
@@ -48,7 +46,7 @@ function UpdateAlert({ onReload, onDismiss }) {
           <AlertButtonLabel>Dismiss</AlertButtonLabel>
         </AlertButton>
       </section>
-    </div>
+    </AlertContainer>
   );
 }
 
