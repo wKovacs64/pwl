@@ -6,6 +6,7 @@ import { FaGithub } from 'react-icons/fa';
 const SourceLink = styled.a`
   color: ${({ theme }) => theme.colors.pageText};
   text-decoration: none;
+  padding: 0.5rem;
 `;
 
 const SourceLinkIcon = styled(FaGithub)`
