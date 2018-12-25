@@ -4,7 +4,10 @@ module.exports = {
     jest: true,
   },
   extends: ['airbnb', 'prettier'],
-  parser: 'babel-eslint',
+  parser: 'pluggable-babel-eslint',
+  parserOptions: {
+    plugins: ['typescript'],
+  },
   plugins: ['emotion', 'react-hooks'],
   rules: {
     // 'emotion/jsx-import': 'error',
@@ -18,5 +21,23 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'no-unused-expressions': ['error', { allowTaggedTemplates: true }],
+  },
+  overrides: [
+    {
+      files: ['**/*.ts{,x}'],
+      rules: {
+        'react/prop-types': 'off',
+        'no-undef': 'off',
+        'no-unused-vars': 'off',
+        'no-use-before-define': 'off',
+      },
+    },
+  ],
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.ts', '.tsx'],
+      },
+    },
   },
 };
