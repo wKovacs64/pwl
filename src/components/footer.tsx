@@ -16,7 +16,7 @@ const SourceLinkIcon = styled(FaGithub)`
   }
 `;
 
-const Footer = () => (
+const Footer: React.FunctionComponent = () => (
   <footer
     css={css`
       display: flex;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import mq from '../utils/mq';
 
@@ -37,26 +36,28 @@ const AlertButtonLabel = styled.span`
   border-bottom: 1px solid;
 `;
 
-function UpdateAlert({ siteTitle, onReload, onDismiss }) {
-  return (
-    <Alert aria-live="polite" role="alert">
-      <AlertMessage>A new version of {siteTitle} is available!</AlertMessage>
-      <AlertButtonContainer>
-        <AlertButton type="button" onClick={onReload}>
-          <AlertButtonLabel>Reload</AlertButtonLabel>
-        </AlertButton>
-        <AlertButton type="button" onClick={onDismiss}>
-          <AlertButtonLabel>Dismiss</AlertButtonLabel>
-        </AlertButton>
-      </AlertButtonContainer>
-    </Alert>
-  );
-}
+const UpdateAlert: React.FunctionComponent<UpdateAlertProps> = ({
+  siteTitle,
+  onReload,
+  onDismiss,
+}) => (
+  <Alert aria-live="polite" role="alert">
+    <AlertMessage>A new version of {siteTitle} is available!</AlertMessage>
+    <AlertButtonContainer>
+      <AlertButton type="button" onClick={onReload}>
+        <AlertButtonLabel>Reload</AlertButtonLabel>
+      </AlertButton>
+      <AlertButton type="button" onClick={onDismiss}>
+        <AlertButtonLabel>Dismiss</AlertButtonLabel>
+      </AlertButton>
+    </AlertButtonContainer>
+  </Alert>
+);
 
-UpdateAlert.propTypes = {
-  siteTitle: PropTypes.string.isRequired,
-  onReload: PropTypes.func.isRequired,
-  onDismiss: PropTypes.func.isRequired,
+type UpdateAlertProps = {
+  siteTitle: string;
+  onReload: () => void;
+  onDismiss: () => void;
 };
 
 export default UpdateAlert;

@@ -27,7 +27,7 @@ const UpdateAlertContainer = styled.div`
 function AlertOnUpdate() {
   const [userHasDismissed, setUserHasDismissed] = useState(false);
 
-  async function checkForUpdate(localCommit) {
+  async function checkForUpdate(localCommit: string): Promise<boolean> {
     if (typeof window !== 'undefined') {
       try {
         const res = await axios.get('/index.html?no-cache=1', {
@@ -42,7 +42,7 @@ function AlertOnUpdate() {
           const remoteCommit = remoteDocument.documentElement.getAttribute(
             'data-commit',
           );
-          return remoteCommit && remoteCommit !== localCommit;
+          return Boolean(remoteCommit && remoteCommit !== localCommit);
         }
         return false;
       } catch (err) {
@@ -73,7 +73,7 @@ function AlertOnUpdate() {
           hasUpdate={() => checkForUpdate(siteMetadata.buildInfo.commit)}
           pollingIntervalMs={isMobile() ? ms('1 day') : ms('1 hour')}
         >
-          {({ updateAvailable }) =>
+          {({ updateAvailable }: { updateAvailable: boolean }) =>
             updateAvailable && !userHasDismissed ? (
               <UpdateAlertContainer>
                 <UpdateAlert

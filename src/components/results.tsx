@@ -1,7 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
+import { ColorMap } from '../legend/colors';
+import { LabelMap } from '../legend/labels';
 import PasswordThroughLense from './password-through-lense';
 import Legend from './legend';
 import PwnedInfo from './pwned-info';
@@ -11,7 +12,7 @@ const LegendContainer = styled.aside`
   flex-wrap: wrap;
 `;
 
-const Results = ({
+const Results: React.FunctionComponent<ResultsProps> = ({
   colors,
   labels,
   passwordInput,
@@ -44,26 +45,11 @@ const Results = ({
   </section>
 );
 
-Results.propTypes = {
-  colors: PropTypes.shape({
-    number: PropTypes.string.isRequired,
-    uppercase: PropTypes.string.isRequired,
-    lowercase: PropTypes.string.isRequired,
-    special: PropTypes.string.isRequired,
-  }).isRequired,
-  labels: PropTypes.shape({
-    number: PropTypes.string.isRequired,
-    uppercase: PropTypes.string.isRequired,
-    lowercase: PropTypes.string.isRequired,
-    special: PropTypes.string.isRequired,
-  }).isRequired,
-  passwordInput: PropTypes.string,
-  passwordToCheck: PropTypes.string,
-};
-
-Results.defaultProps = {
-  passwordInput: '',
-  passwordToCheck: '',
+type ResultsProps = {
+  colors: ColorMap;
+  labels: LabelMap;
+  passwordInput: string;
+  passwordToCheck: string;
 };
 
 export default Results;

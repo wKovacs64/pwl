@@ -2,7 +2,6 @@ import '@wkovacs64/normalize.css';
 import 'typeface-nunito';
 import 'typeface-source-sans-pro';
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { css, Global, ClassNames } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -22,7 +21,7 @@ const FullHeightThemedContainer = styled.div`
   padding-bottom: 2rem;
 `;
 
-const Layout = ({ children }) => {
+const Layout: React.FunctionComponent = ({ children }) => {
   const [darkMode, setDarkMode] = useLocalStorageState('pwl:darkMode', false);
 
   return (
@@ -118,14 +117,6 @@ const Layout = ({ children }) => {
       )}
     </StaticQuery>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node,
-};
-
-Layout.defaultProps = {
-  children: null,
 };
 
 export default Layout;

@@ -1,8 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { ColorMap } from '../legend/colors';
+import { LabelMap } from '../legend/labels';
 import LegendItem from './legend-item';
 
-const Legend = ({ colors, labels, ...props }) => (
+const Legend: React.FunctionComponent<LegendProps> = ({
+  colors,
+  labels,
+  ...props
+}) => (
   <section data-testid="legend" {...props}>
     <p>Legend:</p>
     <LegendItem color={colors.number} label={labels.number} />
@@ -12,19 +17,9 @@ const Legend = ({ colors, labels, ...props }) => (
   </section>
 );
 
-Legend.propTypes = {
-  colors: PropTypes.shape({
-    number: PropTypes.string.isRequired,
-    uppercase: PropTypes.string.isRequired,
-    lowercase: PropTypes.string.isRequired,
-    special: PropTypes.string.isRequired,
-  }).isRequired,
-  labels: PropTypes.shape({
-    number: PropTypes.string.isRequired,
-    uppercase: PropTypes.string.isRequired,
-    lowercase: PropTypes.string.isRequired,
-    special: PropTypes.string.isRequired,
-  }).isRequired,
+type LegendProps = {
+  colors: ColorMap;
+  labels: LabelMap;
 };
 
 export default Legend;

@@ -59,17 +59,19 @@ function IndexPage() {
     setPasswordToCheck('');
   }
 
-  function handleInputKeyDown({ keyCode }) {
+  const handleInputKeyDown: React.KeyboardEventHandler = ({ keyCode }) => {
     if (keyCode === 27 /* ESC */) {
       handleEscape();
     }
-  }
+  };
 
-  function handlePasswordChange({ target: { value } }) {
+  const handlePasswordChange: React.ChangeEventHandler<HTMLInputElement> = ({
+    target: { value },
+  }) => {
     setPasswordInput(value);
     setPasswordToCheck('');
     setPasswordToCheckDebounced(value);
-  }
+  };
 
   return (
     <StaticQuery

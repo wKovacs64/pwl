@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 const LegendRow = styled.div`
@@ -15,16 +14,19 @@ const LegendColor = styled.div`
   margin-right: 1rem;
 `;
 
-const LegendItem = ({ color, label }) => (
+const LegendItem: React.FunctionComponent<LegendItemProps> = ({
+  color,
+  label,
+}) => (
   <LegendRow data-testid={`legend-row--${label}`}>
     <LegendColor data-testid="color" color={color} />
     <span>{label}</span>
   </LegendRow>
 );
 
-LegendItem.propTypes = {
-  color: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+type LegendItemProps = {
+  color: string;
+  label: string;
 };
 
 export default LegendItem;

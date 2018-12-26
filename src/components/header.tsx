@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import { FiSun } from 'react-icons/fi';
@@ -50,7 +49,7 @@ const H1 = styled.h1`
   }
 `;
 
-const Header = ({ onThemeToggle }) => (
+const Header: React.FunctionComponent<HeaderProps> = ({ onThemeToggle }) => (
   <StaticQuery
     query={graphql`
       {
@@ -76,8 +75,8 @@ const Header = ({ onThemeToggle }) => (
   </StaticQuery>
 );
 
-Header.propTypes = {
-  onThemeToggle: PropTypes.func.isRequired,
+type HeaderProps = {
+  onThemeToggle: React.EventHandler<any>;
 };
 
 export default Header;

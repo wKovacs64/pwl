@@ -1,6 +1,5 @@
 /* eslint-disable no-nested-ternary */
 import React, { useReducer, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { pwnedPassword } from 'hibp';
 import debounce from 'lodash/debounce';
@@ -13,14 +12,20 @@ const PwnedExclamation = styled.span`
   color: ${({ theme }) => theme.colors.pwnedExclamation};
 `;
 
-function PwnedInfo({ /* delayLoadingMs, */ password, ...props }) {
+const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
+  /* delayLoadingMs, */ password,
+  ...props
+}) => {
   const initialState = {
     loading: false,
     numPwns: -1,
     error: false,
   };
 
-  function reducer(state, action) {
+  function reducer(
+    state: typeof initialState,
+    action: { type: string; payload?: number },
+  ): typeof initialState {
     switch (action.type) {
       case 'PWNED_REQUEST':
         return {
@@ -31,7 +36,7 @@ function PwnedInfo({ /* delayLoadingMs, */ password, ...props }) {
         return {
           ...initialState,
           loading: false,
-          numPwns: action.payload,
+          numPwns: action.payload || initialState.numPwns,
         };
       case 'PWNED_FAILURE':
         return {
@@ -96,11 +101,11 @@ function PwnedInfo({ /* delayLoadingMs, */ password, ...props }) {
       )}
     </section>
   );
-}
+};
 
-PwnedInfo.propTypes = {
-  // delayLoadingMs: PropTypes.number,
-  password: PropTypes.string.isRequired,
+type PwnedInfoProps = {
+  // delayLoadingMs: number;
+  password: string;
 };
 
 // PwnedInfo.defaultProps = {

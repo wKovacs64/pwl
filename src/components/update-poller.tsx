@@ -1,13 +1,16 @@
-import { useReducer, useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { Fragment, useReducer, useRef, useEffect } from 'react';
 
-function UpdatePoller({ children, hasUpdate, pollingIntervalMs }) {
+const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
+  children,
+  hasUpdate,
+  pollingIntervalMs,
+}) => {
   const initialState = {
     error: '',
     updateAvailable: false,
   };
 
-  const intervalRef = useRef(null);
+  const intervalRef = useRef<number | null>(null);
 
   function clearUpdateCheckInterval() {
     if (typeof window !== 'undefined' && intervalRef.current) {
@@ -15,7 +18,10 @@ function UpdatePoller({ children, hasUpdate, pollingIntervalMs }) {
     }
   }
 
-  function reducer(state, action) {
+  function reducer(
+    state: typeof initialState,
+    action: { type: string; payload?: string },
+  ): typeof initialState {
     switch (action.type) {
       case 'UPDATE_AVAILABLE':
         clearUpdateCheckInterval();
@@ -25,7 +31,7 @@ function UpdatePoller({ children, hasUpdate, pollingIntervalMs }) {
         };
       case 'UPDATE_FAILURE':
         return {
-          error: action.payload,
+          error: action.payload || 'Update check failed.',
           updateAvailable: false,
         };
       default:
@@ -65,18 +71,25 @@ function UpdatePoller({ children, hasUpdate, pollingIntervalMs }) {
     ],
   );
 
-  return children({ error, updateAvailable });
-}
+  // wrap in a Fragment to work around DefinitelyTyped/DefinitelyTyped#18051
+  return (
+    <Fragment>
+      {children ? children({ error, updateAvailable }) : null}
+    </Fragment>
+  );
+};
 
-UpdatePoller.propTypes = {
-  children: PropTypes.func,
+type UpdatePollerProps = {
+  children?: (
+    { error, updateAvailable }: { error?: string; updateAvailable: boolean },
+  ) => React.ReactNode;
   // hasUpdate is a function provided by the consumer to determine whether or
   // not there is an updated version of the code available. This typically
   // involves fetching a non-cached version of some data that can be compared
   // to the current/running version. It should return true if the data is
   // different or false if it's unchanged.
-  hasUpdate: PropTypes.func.isRequired,
-  pollingIntervalMs: PropTypes.number,
+  hasUpdate: () => Promise<boolean>;
+  pollingIntervalMs?: number;
 };
 
 UpdatePoller.defaultProps = {
