@@ -1,6 +1,6 @@
 import memoizeOne from 'memoize-one';
 
-const getCharacterValues = memoizeOne((character, colors, labels) => {
+const getCharacterProperties = memoizeOne((character, colors, labels) => {
   if (/[0-9]/.test(character)) {
     return { color: colors.number, label: labels.number };
   }
@@ -15,7 +15,7 @@ const getCharacterValues = memoizeOne((character, colors, labels) => {
 
 export default (password, colors, labels) =>
   password.split('').map(character => {
-    const { label, color } = getCharacterValues(character, colors, labels);
+    const { color, label } = getCharacterProperties(character, colors, labels);
     return {
       character,
       color,
