@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 import { css } from '@emotion/core';
-import styled from '@emotion/styled';
 import { StaticQuery, graphql } from 'gatsby';
 import KeyHandler, { KEYDOWN } from 'react-key-handler';
 import debounce from 'lodash/debounce';
+import styled from '../utils/styled';
 import colors from '../legend/colors';
 import labels from '../legend/labels';
 import mq from '../utils/mq';

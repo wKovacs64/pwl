@@ -1,7 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import styled from '@emotion/styled';
 import { FiSun } from 'react-icons/fi';
+import styled from '../utils/styled';
 import mq from '../utils/mq';
 import AlertOnUpdate from './alert-on-update';
 

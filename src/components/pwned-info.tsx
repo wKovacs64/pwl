@@ -1,8 +1,8 @@
 /* eslint-disable no-nested-ternary */
 import React, { useReducer, useEffect } from 'react';
-import styled from '@emotion/styled';
 import { pwnedPassword } from 'hibp';
 import debounce from 'lodash/debounce';
+import styled from '../utils/styled';
 
 const CleanExclamation = styled.span`
   color: ${({ theme }) => theme.colors.cleanExclamation};

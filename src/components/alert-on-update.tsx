@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import styled from '@emotion/styled';
 import { StaticQuery, graphql } from 'gatsby';
 import axios from 'axios';
 import ms from 'ms';
+import styled from '../utils/styled';
 import isMobile from '../utils/is-mobile';
 import UpdatePoller from './update-poller';
 import UpdateAlert from './update-alert';
