@@ -22,10 +22,10 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
     error: false,
   };
 
-  function reducer(
+  const reducer = (
     state: typeof initialState,
     action: { type: string; payload?: number },
-  ): typeof initialState {
+  ): typeof initialState => {
     switch (action.type) {
       case 'PWNED_REQUEST':
         return {
@@ -47,14 +47,14 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
       default:
         return state;
     }
-  }
+  };
 
   const [{ loading, numPwns, error }, dispatch] = useReducer(
     reducer,
     initialState,
   );
 
-  async function fetchPwnedInfo() {
+  const fetchPwnedInfo = async () => {
     dispatch({ type: 'PWNED_REQUEST' });
     try {
       dispatch({
@@ -64,7 +64,7 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
     } catch (err) {
       dispatch({ type: 'PWNED_FAILURE' });
     }
-  }
+  };
 
   useEffect(
     () => {

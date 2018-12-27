@@ -24,10 +24,10 @@ const UpdateAlertContainer = styled.div`
   }
 `;
 
-function AlertOnUpdate() {
+const AlertOnUpdate: React.FunctionComponent = () => {
   const [userHasDismissed, setUserHasDismissed] = useState(false);
 
-  async function checkForUpdate(localCommit: string): Promise<boolean> {
+  const checkForUpdate = async (localCommit: string): Promise<boolean> => {
     if (typeof window !== 'undefined') {
       try {
         const res = await axios.get('/index.html?no-cache=1', {
@@ -51,7 +51,7 @@ function AlertOnUpdate() {
       }
     }
     return false;
-  }
+  };
 
   return (
     <StaticQuery
@@ -94,6 +94,6 @@ function AlertOnUpdate() {
       )}
     </StaticQuery>
   );
-}
+};
 
 export default AlertOnUpdate;

@@ -17,16 +17,16 @@ const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
 
   const intervalRef = useRef<number | null>(null);
 
-  function clearUpdateCheckInterval() {
+  const clearUpdateCheckInterval = () => {
     if (typeof window !== 'undefined' && intervalRef.current) {
       window.clearInterval(intervalRef.current);
     }
-  }
+  };
 
-  function reducer(
+  const reducer = (
     state: UpdatePollerState,
     action: { type: string; payload?: string },
-  ): UpdatePollerState {
+  ): UpdatePollerState => {
     switch (action.type) {
       case 'UPDATE_AVAILABLE':
         clearUpdateCheckInterval();
@@ -42,14 +42,14 @@ const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
       default:
         return state;
     }
-  }
+  };
 
   const [{ error, updateAvailable }, dispatch] = useReducer(
     reducer,
     initialState,
   );
 
-  async function checkForUpdates() {
+  const checkForUpdates = async () => {
     try {
       if (!updateAvailable && (await hasUpdate())) {
         dispatch({ type: 'UPDATE_AVAILABLE' });
@@ -57,7 +57,7 @@ const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
     } catch (err) {
       dispatch({ type: 'UPDATE_FAILURE', payload: err.message });
     }
-  }
+  };
 
   useEffect(
     () => {

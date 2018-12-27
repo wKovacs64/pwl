@@ -82,7 +82,7 @@ const ButtonText = styled.span`
   }
 `;
 
-const NotFoundPage = () => (
+const NotFoundPage: React.FunctionComponent = () => (
   <Layout>
     <Helmet
       title="Dead Link"

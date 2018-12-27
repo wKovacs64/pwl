@@ -46,7 +46,7 @@ const InputAndResults = styled.section`
   max-width: 32rem;
 `;
 
-function IndexPage() {
+const IndexPage: React.FunctionComponent = () => {
   const [passwordInput, setPasswordInput] = useState('');
   const [passwordToCheck, setPasswordToCheck] = useState('');
   const setPasswordToCheckDebounced = useCallback(
@@ -54,10 +54,10 @@ function IndexPage() {
     [],
   );
 
-  function handleEscape() {
+  const handleEscape = () => {
     setPasswordInput('');
     setPasswordToCheck('');
-  }
+  };
 
   const handleInputKeyDown: React.KeyboardEventHandler = ({ keyCode }) => {
     if (keyCode === 27 /* ESC */) {
@@ -143,6 +143,6 @@ function IndexPage() {
       )}
     </StaticQuery>
   );
-}
+};
 
 export default IndexPage;
