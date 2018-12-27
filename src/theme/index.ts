@@ -1,11 +1,11 @@
 export const palette: {
-  white: string;
-  nearWhite: string;
-  light: string;
-  bright: string;
-  medium: string;
-  dark: string;
-  nearBlack: string;
+  readonly white: string;
+  readonly nearWhite: string;
+  readonly light: string;
+  readonly bright: string;
+  readonly medium: string;
+  readonly dark: string;
+  readonly nearBlack: string;
 } = {
   white: '#ffffff',
   nearWhite: '#f4f4f4',
@@ -17,27 +17,27 @@ export const palette: {
 };
 
 export interface Theme {
-  colors: {
-    pageBackground: string;
-    pageText: string;
-    pageUnderline: string;
-    lenseBackground: string;
-    lenseBorder: string;
-    lenseUnderline: string;
-    lenseScrollThumb: string;
-    lenseScrollTrack: string;
-    inputBackground: string;
-    inputBorder: string;
-    brandedText: string;
-    headline: string;
-    headlineShadow: string;
-    alertText: string;
-    alertBackground: string;
-    alertBorder: string;
-    alertShadow: string;
-    dullText: string;
-    cleanExclamation: string;
-    pwnedExclamation: string;
+  readonly colors: {
+    readonly pageBackground: string;
+    readonly pageText: string;
+    readonly pageUnderline: string;
+    readonly lenseBackground: string;
+    readonly lenseBorder: string;
+    readonly lenseUnderline: string;
+    readonly lenseScrollThumb: string;
+    readonly lenseScrollTrack: string;
+    readonly inputBackground: string;
+    readonly inputBorder: string;
+    readonly brandedText: string;
+    readonly headline: string;
+    readonly headlineShadow: string;
+    readonly alertText: string;
+    readonly alertBackground: string;
+    readonly alertBorder: string;
+    readonly alertShadow: string;
+    readonly dullText: string;
+    readonly cleanExclamation: string;
+    readonly pwnedExclamation: string;
   };
 }
 
