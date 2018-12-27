@@ -5,7 +5,12 @@ const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
   hasUpdate,
   pollingIntervalMs,
 }) => {
-  const initialState = {
+  type UpdatePollerState = {
+    error?: string;
+    updateAvailable: boolean;
+  };
+
+  const initialState: UpdatePollerState = {
     error: '',
     updateAvailable: false,
   };
@@ -19,9 +24,9 @@ const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
   }
 
   function reducer(
-    state: typeof initialState,
+    state: UpdatePollerState,
     action: { type: string; payload?: string },
-  ): typeof initialState {
+  ): UpdatePollerState {
     switch (action.type) {
       case 'UPDATE_AVAILABLE':
         clearUpdateCheckInterval();
@@ -31,7 +36,7 @@ const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
         };
       case 'UPDATE_FAILURE':
         return {
-          error: action.payload || 'Update check failed.',
+          error: action.payload,
           updateAvailable: false,
         };
       default:
@@ -72,16 +77,12 @@ const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
   );
 
   // wrap in a Fragment to work around DefinitelyTyped/DefinitelyTyped#18051
-  return (
-    <Fragment>
-      {children ? children({ error, updateAvailable }) : null}
-    </Fragment>
-  );
+  return <Fragment>{children({ error, updateAvailable })}</Fragment>;
 };
 
 type UpdatePollerProps = {
-  children?: (
-    { error, updateAvailable }: { error?: string; updateAvailable: boolean },
+  children: (
+    { error, updateAvailable }: UpdatePollerChildrenProps,
   ) => React.ReactNode;
   // hasUpdate is a function provided by the consumer to determine whether or
   // not there is an updated version of the code available. This typically
@@ -89,8 +90,10 @@ type UpdatePollerProps = {
   // to the current/running version. It should return true if the data is
   // different or false if it's unchanged.
   hasUpdate: () => Promise<boolean>;
-  pollingIntervalMs?: number;
+  pollingIntervalMs: number;
 };
+
+type UpdatePollerChildrenProps = { error?: string; updateAvailable: boolean };
 
 UpdatePoller.defaultProps = {
   children: () => null,

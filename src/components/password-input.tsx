@@ -50,9 +50,9 @@ const PasswordInput: React.FunctionComponent<PasswordInputProps> = ({
 );
 
 type PasswordInputProps = {
-  password?: string;
+  password: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
-  onKeyDown?: React.KeyboardEventHandler;
+  onKeyDown: React.KeyboardEventHandler;
 };
 
 PasswordInput.defaultProps = {
