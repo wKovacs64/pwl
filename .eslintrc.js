@@ -11,6 +11,7 @@ module.exports = {
     'emotion/no-vanilla': 'error',
     'emotion/import-from-emotion': 'error',
     'emotion/styled-import': 'error',
+    'emotion/syntax-preference': ['error', 'string'],
     'import/prefer-default-export': 'off',
     'react/destructuring-assignment': 'off',
     'react/jsx-filename-extension': 'off',
