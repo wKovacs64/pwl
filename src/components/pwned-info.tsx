@@ -16,16 +16,22 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
   /* delayLoadingMs, */ password,
   ...props
 }) => {
-  const initialState = {
+  type PwnedInfoState = {
+    loading: boolean;
+    numPwns: number;
+    error: boolean;
+  };
+
+  const initialState: PwnedInfoState = {
     loading: false,
     numPwns: -1,
     error: false,
   };
 
   const reducer = (
-    state: typeof initialState,
+    state: PwnedInfoState,
     action: { type: string; payload?: number },
-  ): typeof initialState => {
+  ): PwnedInfoState => {
     switch (action.type) {
       case 'PWNED_REQUEST':
         return {
