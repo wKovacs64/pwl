@@ -18,8 +18,8 @@ const Legend: React.FunctionComponent<LegendProps> = ({
 );
 
 type LegendProps = {
-  colors: ColorMap;
-  labels: LabelMap;
+  readonly colors: ColorMap;
+  readonly labels: LabelMap;
 };
 
 export default Legend;

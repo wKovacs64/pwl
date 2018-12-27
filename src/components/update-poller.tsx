@@ -81,7 +81,7 @@ const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
 };
 
 type UpdatePollerProps = {
-  children: (
+  readonly children: (
     { error, updateAvailable }: UpdatePollerChildrenProps,
   ) => React.ReactNode;
   // hasUpdate is a function provided by the consumer to determine whether or
@@ -89,11 +89,14 @@ type UpdatePollerProps = {
   // involves fetching a non-cached version of some data that can be compared
   // to the current/running version. It should return true if the data is
   // different or false if it's unchanged.
-  hasUpdate: () => Promise<boolean>;
-  pollingIntervalMs: number;
+  readonly hasUpdate: () => Promise<boolean>;
+  readonly pollingIntervalMs: number;
 };
 
-type UpdatePollerChildrenProps = { error?: string; updateAvailable: boolean };
+type UpdatePollerChildrenProps = {
+  readonly error?: string;
+  readonly updateAvailable: boolean;
+};
 
 UpdatePoller.defaultProps = {
   children: () => null,

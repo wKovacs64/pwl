@@ -25,8 +25,8 @@ const LegendItem: React.FunctionComponent<LegendItemProps> = ({
 );
 
 type LegendItemProps = {
-  color: string;
-  label: string;
+  readonly color: string;
+  readonly label: string;
 };
 
 export default LegendItem;

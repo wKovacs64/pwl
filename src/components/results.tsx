@@ -46,10 +46,10 @@ const Results: React.FunctionComponent<ResultsProps> = ({
 );
 
 type ResultsProps = {
-  colors: ColorMap;
-  labels: LabelMap;
-  passwordInput: string;
-  passwordToCheck: string;
+  readonly colors: ColorMap;
+  readonly labels: LabelMap;
+  readonly passwordInput: string;
+  readonly passwordToCheck: string;
 };
 
 export default Results;

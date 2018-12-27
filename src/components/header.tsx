@@ -76,7 +76,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({ onThemeToggle }) => (
 );
 
 type HeaderProps = {
-  onThemeToggle: () => void;
+  readonly onThemeToggle: () => void;
 };
 
 export default Header;
