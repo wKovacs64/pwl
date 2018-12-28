@@ -55,9 +55,9 @@ const UpdateAlert: React.FunctionComponent<UpdateAlertProps> = ({
 );
 
 type UpdateAlertProps = {
-  readonly siteTitle: string;
-  readonly onReload: () => void;
-  readonly onDismiss: () => void;
+  siteTitle: string;
+  onReload: () => void;
+  onDismiss: () => void;
 };
 
 export default UpdateAlert;

@@ -83,9 +83,9 @@ const PasswordThroughLense: React.FunctionComponent<
 );
 
 type PasswordThroughLenseProps = {
-  readonly colors: ColorMap;
-  readonly labels: LabelMap;
-  readonly password: string;
+  colors: ColorMap;
+  labels: LabelMap;
+  password: string;
 };
 
 export default PasswordThroughLense;

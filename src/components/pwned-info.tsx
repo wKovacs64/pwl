@@ -110,8 +110,8 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
 };
 
 type PwnedInfoProps = {
-  // readonly delayLoadingMs: number;
-  readonly password: string;
+  // delayLoadingMs: number;
+  password: string;
 };
 
 // PwnedInfo.defaultProps = {
