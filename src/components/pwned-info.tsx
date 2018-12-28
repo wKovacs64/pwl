@@ -22,6 +22,24 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
     PWNED_FAILURE,
   }
 
+  interface PwnedInfoRequestAction {
+    type: PwnedInfoActionType.PWNED_REQUEST;
+  }
+
+  interface PwnedInfoSuccessAction {
+    type: PwnedInfoActionType.PWNED_SUCCESS;
+    payload: number;
+  }
+
+  interface PwnedInfoFailureAction {
+    type: PwnedInfoActionType.PWNED_FAILURE;
+  }
+
+  type PwnedInfoAction =
+    | PwnedInfoRequestAction
+    | PwnedInfoSuccessAction
+    | PwnedInfoFailureAction;
+
   type PwnedInfoState = {
     loading: boolean;
     numPwns: number;
@@ -36,7 +54,7 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
 
   const reducer = (
     state: PwnedInfoState,
-    action: { type: PwnedInfoActionType; payload?: number },
+    action: PwnedInfoAction,
   ): PwnedInfoState => {
     switch (action.type) {
       case PwnedInfoActionType.PWNED_REQUEST:
@@ -48,7 +66,7 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
         return {
           ...initialState,
           loading: false,
-          numPwns: action.payload || initialState.numPwns,
+          numPwns: action.payload,
         };
       case PwnedInfoActionType.PWNED_FAILURE:
         return {

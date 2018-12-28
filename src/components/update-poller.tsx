@@ -10,8 +10,21 @@ const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
     UPDATE_FAILURE,
   }
 
+  interface UpdatePollerAvailableAction {
+    type: UpdatePollerActionType.UPDATE_AVAILABLE;
+  }
+
+  interface UpdatePollerFailureAction {
+    type: UpdatePollerActionType.UPDATE_FAILURE;
+    payload: string;
+  }
+
+  type UpdatePollerAction =
+    | UpdatePollerAvailableAction
+    | UpdatePollerFailureAction;
+
   type UpdatePollerState = {
-    error?: string;
+    error: string;
     updateAvailable: boolean;
   };
 
@@ -30,7 +43,7 @@ const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
 
   const reducer = (
     state: UpdatePollerState,
-    action: { type: UpdatePollerActionType; payload?: string },
+    action: UpdatePollerAction,
   ): UpdatePollerState => {
     switch (action.type) {
       case UpdatePollerActionType.UPDATE_AVAILABLE:
