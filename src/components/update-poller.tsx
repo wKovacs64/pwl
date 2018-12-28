@@ -5,30 +5,28 @@ const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
   hasUpdate,
   pollingIntervalMs,
 }) => {
-  enum UpdatePollerActionType {
+  enum ActionType {
     UPDATE_AVAILABLE,
     UPDATE_FAILURE,
   }
 
-  interface UpdatePollerAvailableAction {
-    type: UpdatePollerActionType.UPDATE_AVAILABLE;
+  interface UpdateAvailable {
+    type: ActionType.UPDATE_AVAILABLE;
   }
 
-  interface UpdatePollerFailureAction {
-    type: UpdatePollerActionType.UPDATE_FAILURE;
+  interface UpdateFailure {
+    type: ActionType.UPDATE_FAILURE;
     payload: string;
   }
 
-  type UpdatePollerAction =
-    | UpdatePollerAvailableAction
-    | UpdatePollerFailureAction;
+  type Action = UpdateAvailable | UpdateFailure;
 
-  type UpdatePollerState = {
+  type State = {
     error: string;
     updateAvailable: boolean;
   };
 
-  const initialState: UpdatePollerState = {
+  const initialState: State = {
     error: '',
     updateAvailable: false,
   };
@@ -41,18 +39,15 @@ const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
     }
   };
 
-  const reducer = (
-    state: UpdatePollerState,
-    action: UpdatePollerAction,
-  ): UpdatePollerState => {
+  const reducer = (state: State, action: Action): State => {
     switch (action.type) {
-      case UpdatePollerActionType.UPDATE_AVAILABLE:
+      case ActionType.UPDATE_AVAILABLE:
         clearUpdateCheckInterval();
         return {
           error: '',
           updateAvailable: true,
         };
-      case UpdatePollerActionType.UPDATE_FAILURE:
+      case ActionType.UPDATE_FAILURE:
         return {
           error: action.payload,
           updateAvailable: false,
@@ -70,11 +65,11 @@ const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
   const checkForUpdates = async () => {
     try {
       if (!updateAvailable && (await hasUpdate())) {
-        dispatch({ type: UpdatePollerActionType.UPDATE_AVAILABLE });
+        dispatch({ type: ActionType.UPDATE_AVAILABLE });
       }
     } catch (err) {
       dispatch({
-        type: UpdatePollerActionType.UPDATE_FAILURE,
+        type: ActionType.UPDATE_FAILURE,
         payload: err.message,
       });
     }
@@ -102,9 +97,7 @@ const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
 };
 
 type UpdatePollerProps = {
-  children: (
-    { error, updateAvailable }: UpdatePollerChildrenProps,
-  ) => React.ReactNode;
+  children: (props: ChildrenProps) => React.ReactNode;
   // hasUpdate is a function provided by the consumer to determine whether or
   // not there is an updated version of the code available. This typically
   // involves fetching a non-cached version of some data that can be compared
@@ -114,7 +107,7 @@ type UpdatePollerProps = {
   pollingIntervalMs: number;
 };
 
-type UpdatePollerChildrenProps = { error?: string; updateAvailable: boolean };
+type ChildrenProps = { error: string; updateAvailable: boolean };
 
 UpdatePoller.defaultProps = {
   children: () => null,

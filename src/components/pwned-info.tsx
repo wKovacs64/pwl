@@ -16,59 +16,53 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
   /* delayLoadingMs, */ password,
   ...props
 }) => {
-  enum PwnedInfoActionType {
+  enum ActionType {
     PWNED_REQUEST,
     PWNED_SUCCESS,
     PWNED_FAILURE,
   }
 
-  interface PwnedInfoRequestAction {
-    type: PwnedInfoActionType.PWNED_REQUEST;
+  interface Request {
+    type: ActionType.PWNED_REQUEST;
   }
 
-  interface PwnedInfoSuccessAction {
-    type: PwnedInfoActionType.PWNED_SUCCESS;
+  interface Success {
+    type: ActionType.PWNED_SUCCESS;
     payload: number;
   }
 
-  interface PwnedInfoFailureAction {
-    type: PwnedInfoActionType.PWNED_FAILURE;
+  interface Failure {
+    type: ActionType.PWNED_FAILURE;
   }
 
-  type PwnedInfoAction =
-    | PwnedInfoRequestAction
-    | PwnedInfoSuccessAction
-    | PwnedInfoFailureAction;
+  type Action = Request | Success | Failure;
 
-  type PwnedInfoState = {
+  type State = {
     loading: boolean;
     numPwns: number;
     error: boolean;
   };
 
-  const initialState: PwnedInfoState = {
+  const initialState: State = {
     loading: false,
     numPwns: -1,
     error: false,
   };
 
-  const reducer = (
-    state: PwnedInfoState,
-    action: PwnedInfoAction,
-  ): PwnedInfoState => {
+  const reducer = (state: State, action: Action): State => {
     switch (action.type) {
-      case PwnedInfoActionType.PWNED_REQUEST:
+      case ActionType.PWNED_REQUEST:
         return {
           ...initialState,
           loading: true,
         };
-      case PwnedInfoActionType.PWNED_SUCCESS:
+      case ActionType.PWNED_SUCCESS:
         return {
           ...initialState,
           loading: false,
           numPwns: action.payload,
         };
-      case PwnedInfoActionType.PWNED_FAILURE:
+      case ActionType.PWNED_FAILURE:
         return {
           ...initialState,
           loading: false,
@@ -85,14 +79,14 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
   );
 
   const fetchPwnedInfo = async () => {
-    dispatch({ type: PwnedInfoActionType.PWNED_REQUEST });
+    dispatch({ type: ActionType.PWNED_REQUEST });
     try {
       dispatch({
-        type: PwnedInfoActionType.PWNED_SUCCESS,
+        type: ActionType.PWNED_SUCCESS,
         payload: await pwnedPassword(password),
       });
     } catch (err) {
-      dispatch({ type: PwnedInfoActionType.PWNED_FAILURE });
+      dispatch({ type: ActionType.PWNED_FAILURE });
     }
   };
 
