@@ -5,6 +5,11 @@ const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
   hasUpdate,
   pollingIntervalMs,
 }) => {
+  enum UpdatePollerActionType {
+    UPDATE_AVAILABLE,
+    UPDATE_FAILURE,
+  }
+
   type UpdatePollerState = {
     error?: string;
     updateAvailable: boolean;
@@ -25,16 +30,16 @@ const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
 
   const reducer = (
     state: UpdatePollerState,
-    action: { type: string; payload?: string },
+    action: { type: UpdatePollerActionType; payload?: string },
   ): UpdatePollerState => {
     switch (action.type) {
-      case 'UPDATE_AVAILABLE':
+      case UpdatePollerActionType.UPDATE_AVAILABLE:
         clearUpdateCheckInterval();
         return {
           error: '',
           updateAvailable: true,
         };
-      case 'UPDATE_FAILURE':
+      case UpdatePollerActionType.UPDATE_FAILURE:
         return {
           error: action.payload,
           updateAvailable: false,
@@ -52,10 +57,13 @@ const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
   const checkForUpdates = async () => {
     try {
       if (!updateAvailable && (await hasUpdate())) {
-        dispatch({ type: 'UPDATE_AVAILABLE' });
+        dispatch({ type: UpdatePollerActionType.UPDATE_AVAILABLE });
       }
     } catch (err) {
-      dispatch({ type: 'UPDATE_FAILURE', payload: err.message });
+      dispatch({
+        type: UpdatePollerActionType.UPDATE_FAILURE,
+        payload: err.message,
+      });
     }
   };
 

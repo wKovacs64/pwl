@@ -16,6 +16,12 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
   /* delayLoadingMs, */ password,
   ...props
 }) => {
+  enum PwnedInfoActionType {
+    PWNED_REQUEST,
+    PWNED_SUCCESS,
+    PWNED_FAILURE,
+  }
+
   type PwnedInfoState = {
     loading: boolean;
     numPwns: number;
@@ -30,21 +36,21 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
 
   const reducer = (
     state: PwnedInfoState,
-    action: { type: string; payload?: number },
+    action: { type: PwnedInfoActionType; payload?: number },
   ): PwnedInfoState => {
     switch (action.type) {
-      case 'PWNED_REQUEST':
+      case PwnedInfoActionType.PWNED_REQUEST:
         return {
           ...initialState,
           loading: true,
         };
-      case 'PWNED_SUCCESS':
+      case PwnedInfoActionType.PWNED_SUCCESS:
         return {
           ...initialState,
           loading: false,
           numPwns: action.payload || initialState.numPwns,
         };
-      case 'PWNED_FAILURE':
+      case PwnedInfoActionType.PWNED_FAILURE:
         return {
           ...initialState,
           loading: false,
@@ -61,14 +67,14 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
   );
 
   const fetchPwnedInfo = async () => {
-    dispatch({ type: 'PWNED_REQUEST' });
+    dispatch({ type: PwnedInfoActionType.PWNED_REQUEST });
     try {
       dispatch({
-        type: 'PWNED_SUCCESS',
+        type: PwnedInfoActionType.PWNED_SUCCESS,
         payload: await pwnedPassword(password),
       });
     } catch (err) {
-      dispatch({ type: 'PWNED_FAILURE' });
+      dispatch({ type: PwnedInfoActionType.PWNED_FAILURE });
     }
   };
 
