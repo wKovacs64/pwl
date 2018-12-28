@@ -27,6 +27,12 @@ const Input = styled.input`
   }
 `;
 
+type PasswordInputProps = {
+  password: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onKeyDown: React.KeyboardEventHandler;
+};
+
 const PasswordInput: React.FunctionComponent<PasswordInputProps> = ({
   password,
   onChange,
@@ -48,12 +54,6 @@ const PasswordInput: React.FunctionComponent<PasswordInputProps> = ({
     />
   </div>
 );
-
-type PasswordInputProps = {
-  password: string;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
-  onKeyDown: React.KeyboardEventHandler;
-};
 
 PasswordInput.defaultProps = {
   password: '',

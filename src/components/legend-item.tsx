@@ -14,6 +14,11 @@ const LegendColor = styled.div`
   margin-right: 1rem;
 `;
 
+type LegendItemProps = {
+  color: string;
+  label: string;
+};
+
 const LegendItem: React.FunctionComponent<LegendItemProps> = ({
   color,
   label,
@@ -23,10 +28,5 @@ const LegendItem: React.FunctionComponent<LegendItemProps> = ({
     <span>{label}</span>
   </LegendRow>
 );
-
-type LegendItemProps = {
-  color: string;
-  label: string;
-};
 
 export default LegendItem;

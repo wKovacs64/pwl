@@ -49,6 +49,10 @@ const H1 = styled.h1`
   }
 `;
 
+type HeaderProps = {
+  onThemeToggle: () => void;
+};
+
 const Header: React.FunctionComponent<HeaderProps> = ({ onThemeToggle }) => (
   <StaticQuery
     query={graphql`
@@ -74,9 +78,5 @@ const Header: React.FunctionComponent<HeaderProps> = ({ onThemeToggle }) => (
     )}
   </StaticQuery>
 );
-
-type HeaderProps = {
-  onThemeToggle: () => void;
-};
 
 export default Header;

@@ -36,6 +36,12 @@ const AlertButtonLabel = styled.span`
   border-bottom: 1px solid;
 `;
 
+type UpdateAlertProps = {
+  siteTitle: string;
+  onReload: () => void;
+  onDismiss: () => void;
+};
+
 const UpdateAlert: React.FunctionComponent<UpdateAlertProps> = ({
   siteTitle,
   onReload,
@@ -53,11 +59,5 @@ const UpdateAlert: React.FunctionComponent<UpdateAlertProps> = ({
     </AlertButtonContainer>
   </Alert>
 );
-
-type UpdateAlertProps = {
-  siteTitle: string;
-  onReload: () => void;
-  onDismiss: () => void;
-};
 
 export default UpdateAlert;

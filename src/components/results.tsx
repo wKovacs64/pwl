@@ -12,6 +12,13 @@ const LegendContainer = styled.aside`
   flex-wrap: wrap;
 `;
 
+type ResultsProps = {
+  colors: ColorMap;
+  labels: LabelMap;
+  passwordInput: string;
+  passwordToCheck: string;
+};
+
 const Results: React.FunctionComponent<ResultsProps> = ({
   colors,
   labels,
@@ -44,12 +51,5 @@ const Results: React.FunctionComponent<ResultsProps> = ({
     </LegendContainer>
   </section>
 );
-
-type ResultsProps = {
-  colors: ColorMap;
-  labels: LabelMap;
-  passwordInput: string;
-  passwordToCheck: string;
-};
 
 export default Results;

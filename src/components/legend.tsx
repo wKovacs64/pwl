@@ -3,6 +3,11 @@ import { ColorMap } from '../legend/colors';
 import { LabelMap } from '../legend/labels';
 import LegendItem from './legend-item';
 
+type LegendProps = {
+  colors: ColorMap;
+  labels: LabelMap;
+};
+
 const Legend: React.FunctionComponent<LegendProps> = ({
   colors,
   labels,
@@ -16,10 +21,5 @@ const Legend: React.FunctionComponent<LegendProps> = ({
     <LegendItem color={colors.special} label={labels.special} />
   </section>
 );
-
-type LegendProps = {
-  colors: ColorMap;
-  labels: LabelMap;
-};
 
 export default Legend;
