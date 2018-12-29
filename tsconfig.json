@@ -6,15 +6,7 @@
     "esModuleInterop": true,
     "noEmit": true,
     "strict": true,
-    "types": [
-      "hibp",
-      "memoize-one",
-      "ms",
-      "node",
-      "react",
-      "react-dom",
-      "react-helmet"
-    ]
+    "types": []
   },
   "exclude": [".cache", "public", "cypress"]
 }
