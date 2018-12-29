@@ -16,5 +16,5 @@
       "react-helmet"
     ]
   },
-  "exclude": ["node_modules", ".cache", "public", "cypress"]
+  "exclude": [".cache", "public", "cypress"]
 }
