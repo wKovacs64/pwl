@@ -9960,10 +9960,10 @@ react-side-effect@^1.1.0:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
 
-react-use@5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/react-use/-/react-use-5.1.1.tgz#c019b99aa86a39e3ed9fbe8663484ceebd964a93"
-  integrity sha512-ZKrXycJUqx8Xv4ZzYqOj/CkqfoPMbYO7oXx/2EfbxFftk99vzhJ2oxq161gAEL9eJmbCgL5Hw4NzsYOyWD4/0w==
+react-use@5.1.2:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/react-use/-/react-use-5.1.2.tgz#184c183dedc2bf3cee246fb07bd5fb65ec8aa914"
+  integrity sha512-gv4dO/j+O2jB0aYNILTUdPS+c1Yf92b5yA/X2eGSLlAZioE+Xrf7cZ8EJZu8OESfXT3IHiq0uKnbVJMZKQdoRQ==
   dependencies:
     "@types/react" "^16.7.13"
     nano-css "^3.4.0"
