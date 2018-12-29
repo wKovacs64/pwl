@@ -7,7 +7,7 @@ import PasswordThroughLense from './password-through-lense';
 import Legend from './legend';
 import PwnedInfo from './pwned-info';
 
-const LegendContainer = styled.aside`
+const AdditionalInfo = styled.aside`
   display: flex;
   flex-wrap: wrap;
 `;
@@ -32,7 +32,7 @@ const Results: React.FunctionComponent<ResultsProps> = ({
       labels={labels}
       password={passwordInput}
     />
-    <LegendContainer>
+    <AdditionalInfo>
       <Legend
         css={css`
           flex: 1;
@@ -48,7 +48,7 @@ const Results: React.FunctionComponent<ResultsProps> = ({
         `}
         password={passwordToCheck}
       />
-    </LegendContainer>
+    </AdditionalInfo>
   </section>
 );
 
