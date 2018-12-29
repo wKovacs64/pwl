@@ -1,9 +1,8 @@
 /* eslint-disable no-nested-ternary */
 import React, { useReducer, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import { pwnedPassword } from 'hibp';
 import debounce from 'lodash/debounce';
+import styled from '../utils/styled';
 
 const CleanExclamation = styled.span`
   color: ${({ theme }) => theme.colors.cleanExclamation};
@@ -13,53 +12,88 @@ const PwnedExclamation = styled.span`
   color: ${({ theme }) => theme.colors.pwnedExclamation};
 `;
 
-function PwnedInfo({ /* delayLoadingMs, */ password, ...props }) {
-  const initialState = {
-    loading: false,
-    numPwns: -1,
-    error: false,
-  };
+enum ActionType {
+  PWNED_REQUEST,
+  PWNED_SUCCESS,
+  PWNED_FAILURE,
+}
 
-  function reducer(state, action) {
-    switch (action.type) {
-      case 'PWNED_REQUEST':
-        return {
-          ...initialState,
-          loading: true,
-        };
-      case 'PWNED_SUCCESS':
-        return {
-          ...initialState,
-          loading: false,
-          numPwns: action.payload,
-        };
-      case 'PWNED_FAILURE':
-        return {
-          ...initialState,
-          loading: false,
-          error: true,
-        };
-      default:
-        return state;
-    }
+interface Request {
+  type: ActionType.PWNED_REQUEST;
+}
+
+interface Success {
+  type: ActionType.PWNED_SUCCESS;
+  payload: number;
+}
+
+interface Failure {
+  type: ActionType.PWNED_FAILURE;
+}
+
+type Action = Request | Success | Failure;
+
+const reducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case ActionType.PWNED_REQUEST:
+      return {
+        ...initialState,
+        loading: true,
+      };
+    case ActionType.PWNED_SUCCESS:
+      return {
+        ...initialState,
+        loading: false,
+        numPwns: action.payload,
+      };
+    case ActionType.PWNED_FAILURE:
+      return {
+        ...initialState,
+        loading: false,
+        error: true,
+      };
+    default:
+      return state;
   }
+};
 
+type State = {
+  loading: boolean;
+  numPwns: number;
+  error: boolean;
+};
+
+const initialState: State = {
+  loading: false,
+  numPwns: -1,
+  error: false,
+};
+
+type PwnedInfoProps = {
+  // delayLoadingMs: number;
+  password: string;
+};
+
+const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
+  /* delayLoadingMs, */ password,
+  ...props
+}) => {
   const [{ loading, numPwns, error }, dispatch] = useReducer(
     reducer,
     initialState,
   );
 
-  async function fetchPwnedInfo() {
-    dispatch({ type: 'PWNED_REQUEST' });
+  const fetchPwnedInfo = async () => {
+    dispatch({ type: ActionType.PWNED_REQUEST });
     try {
       dispatch({
-        type: 'PWNED_SUCCESS',
+        type: ActionType.PWNED_SUCCESS,
         payload: await pwnedPassword(password),
       });
     } catch (err) {
-      dispatch({ type: 'PWNED_FAILURE' });
+      dispatch({ type: ActionType.PWNED_FAILURE });
     }
-  }
+  };
 
   useEffect(
     () => {
@@ -96,11 +130,6 @@ function PwnedInfo({ /* delayLoadingMs, */ password, ...props }) {
       )}
     </section>
   );
-}
-
-PwnedInfo.propTypes = {
-  // delayLoadingMs: PropTypes.number,
-  password: PropTypes.string.isRequired,
 };
 
 // PwnedInfo.defaultProps = {

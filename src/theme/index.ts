@@ -1,4 +1,12 @@
-export const palette = {
+export const palette: {
+  readonly white: string;
+  readonly nearWhite: string;
+  readonly light: string;
+  readonly bright: string;
+  readonly medium: string;
+  readonly dark: string;
+  readonly nearBlack: string;
+} = {
   white: '#ffffff',
   nearWhite: '#f4f4f4',
   light: '#b3efff',
@@ -8,7 +16,32 @@ export const palette = {
   nearBlack: '#111111',
 };
 
-export const light = {
+export interface Theme {
+  readonly colors: {
+    readonly pageBackground: string;
+    readonly pageText: string;
+    readonly pageUnderline: string;
+    readonly lenseBackground: string;
+    readonly lenseBorder: string;
+    readonly lenseUnderline: string;
+    readonly lenseScrollThumb: string;
+    readonly lenseScrollTrack: string;
+    readonly inputBackground: string;
+    readonly inputBorder: string;
+    readonly brandedText: string;
+    readonly headline: string;
+    readonly headlineShadow: string;
+    readonly alertText: string;
+    readonly alertBackground: string;
+    readonly alertBorder: string;
+    readonly alertShadow: string;
+    readonly dullText: string;
+    readonly cleanExclamation: string;
+    readonly pwnedExclamation: string;
+  };
+}
+
+export const light: Theme = {
   colors: {
     pageBackground: palette.white,
     pageText: palette.nearBlack,
@@ -33,7 +66,7 @@ export const light = {
   },
 };
 
-export const dark = {
+export const dark: Theme = {
   colors: {
     pageBackground: palette.dark,
     pageText: palette.nearWhite,

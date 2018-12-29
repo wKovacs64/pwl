@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 import { css } from '@emotion/core';
-import styled from '@emotion/styled';
 import { StaticQuery, graphql } from 'gatsby';
 import KeyHandler, { KEYDOWN } from 'react-key-handler';
 import debounce from 'lodash/debounce';
+import styled from '../utils/styled';
 import colors from '../legend/colors';
 import labels from '../legend/labels';
 import mq from '../utils/mq';
@@ -46,7 +46,7 @@ const InputAndResults = styled.section`
   max-width: 32rem;
 `;
 
-function IndexPage() {
+const IndexPage: React.FunctionComponent = () => {
   const [passwordInput, setPasswordInput] = useState('');
   const [passwordToCheck, setPasswordToCheck] = useState('');
   const setPasswordToCheckDebounced = useCallback(
@@ -54,22 +54,24 @@ function IndexPage() {
     [],
   );
 
-  function handleEscape() {
+  const handleEscape = () => {
     setPasswordInput('');
     setPasswordToCheck('');
-  }
+  };
 
-  function handleInputKeyDown({ keyCode }) {
+  const handleInputKeyDown: React.KeyboardEventHandler = ({ keyCode }) => {
     if (keyCode === 27 /* ESC */) {
       handleEscape();
     }
-  }
+  };
 
-  function handlePasswordChange({ target: { value } }) {
+  const handlePasswordChange: React.ChangeEventHandler<HTMLInputElement> = ({
+    target: { value },
+  }) => {
     setPasswordInput(value);
     setPasswordToCheck('');
     setPasswordToCheckDebounced(value);
-  }
+  };
 
   return (
     <StaticQuery
@@ -141,6 +143,6 @@ function IndexPage() {
       )}
     </StaticQuery>
   );
-}
+};
 
 export default IndexPage;

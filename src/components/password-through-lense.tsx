@@ -1,9 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
-import styled from '@emotion/styled';
+import styled from '../utils/styled';
+import { ColorMap } from '../legend/colors';
+import { LabelMap } from '../legend/labels';
+import classifyCharacters, {
+  ClassifiedCharacter,
+} from '../utils/classify-characters';
 import mq from '../utils/mq';
-import classifyCharacters from '../utils/classify-characters';
 
 const Lense = styled.div`
   background-color: ${({ theme }) => theme.colors.lenseBackground};
@@ -39,7 +42,9 @@ const Character = styled.span`
   white-space: pre;
 `;
 
-const PasswordThroughLense = ({ colors, labels, password }) => (
+const PasswordThroughLense: React.FunctionComponent<
+  PasswordThroughLenseProps
+> = ({ colors, labels, password }) => (
   <Lense>
     <div
       data-testid="password-through-lense"
@@ -50,7 +55,11 @@ const PasswordThroughLense = ({ colors, labels, password }) => (
       `}
     >
       {classifyCharacters(password, colors, labels).map(
-        (classifiedCharacter, index, chars) => (
+        (
+          classifiedCharacter: ClassifiedCharacter,
+          index: number,
+          chars: ClassifiedCharacter[],
+        ) => (
           <Character
             title={classifiedCharacter.label}
             css={css`
@@ -73,24 +82,10 @@ const PasswordThroughLense = ({ colors, labels, password }) => (
   </Lense>
 );
 
-PasswordThroughLense.propTypes = {
-  colors: PropTypes.shape({
-    number: PropTypes.string.isRequired,
-    uppercase: PropTypes.string.isRequired,
-    lowercase: PropTypes.string.isRequired,
-    special: PropTypes.string.isRequired,
-  }).isRequired,
-  labels: PropTypes.shape({
-    number: PropTypes.string.isRequired,
-    uppercase: PropTypes.string.isRequired,
-    lowercase: PropTypes.string.isRequired,
-    special: PropTypes.string.isRequired,
-  }).isRequired,
-  password: PropTypes.string,
-};
-
-PasswordThroughLense.defaultProps = {
-  password: '',
+type PasswordThroughLenseProps = {
+  colors: ColorMap;
+  labels: LabelMap;
+  password: string;
 };
 
 export default PasswordThroughLense;

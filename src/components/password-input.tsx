@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import styled from '../utils/styled';
 import mq from '../utils/mq';
 
 const Input = styled.input`
@@ -28,7 +27,18 @@ const Input = styled.input`
   }
 `;
 
-const PasswordInput = ({ password, onChange, onKeyDown, ...props }) => (
+type PasswordInputProps = {
+  password: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onKeyDown: React.KeyboardEventHandler;
+};
+
+const PasswordInput: React.FunctionComponent<PasswordInputProps> = ({
+  password,
+  onChange,
+  onKeyDown,
+  ...props
+}) => (
   <div {...props}>
     <Input
       aria-label="Password"
@@ -44,12 +54,6 @@ const PasswordInput = ({ password, onChange, onKeyDown, ...props }) => (
     />
   </div>
 );
-
-PasswordInput.propTypes = {
-  password: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  onKeyDown: PropTypes.func,
-};
 
 PasswordInput.defaultProps = {
   password: '',

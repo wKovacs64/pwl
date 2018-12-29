@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
 import mq from '../utils/mq';
 
-const Main = ({ children }) => (
+const Main: React.FunctionComponent = ({ children }) => (
   <main
     css={css`
       padding-top: 2rem;
@@ -20,13 +19,5 @@ const Main = ({ children }) => (
     {children}
   </main>
 );
-
-Main.propTypes = {
-  children: PropTypes.node,
-};
-
-Main.defaultProps = {
-  children: null,
-};
 
 export default Main;

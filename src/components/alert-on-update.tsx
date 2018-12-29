@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import styled from '@emotion/styled';
 import { StaticQuery, graphql } from 'gatsby';
 import axios from 'axios';
 import ms from 'ms';
+import styled from '../utils/styled';
 import isMobile from '../utils/is-mobile';
 import UpdatePoller from './update-poller';
 import UpdateAlert from './update-alert';
@@ -24,10 +24,10 @@ const UpdateAlertContainer = styled.div`
   }
 `;
 
-function AlertOnUpdate() {
+const AlertOnUpdate: React.FunctionComponent = () => {
   const [userHasDismissed, setUserHasDismissed] = useState(false);
 
-  async function checkForUpdate(localCommit) {
+  const checkForUpdate = async (localCommit: string): Promise<boolean> => {
     if (typeof window !== 'undefined') {
       try {
         const res = await axios.get('/index.html?no-cache=1', {
@@ -42,7 +42,7 @@ function AlertOnUpdate() {
           const remoteCommit = remoteDocument.documentElement.getAttribute(
             'data-commit',
           );
-          return remoteCommit && remoteCommit !== localCommit;
+          return Boolean(remoteCommit && remoteCommit !== localCommit);
         }
         return false;
       } catch (err) {
@@ -51,7 +51,7 @@ function AlertOnUpdate() {
       }
     }
     return false;
-  }
+  };
 
   return (
     <StaticQuery
@@ -73,7 +73,7 @@ function AlertOnUpdate() {
           hasUpdate={() => checkForUpdate(siteMetadata.buildInfo.commit)}
           pollingIntervalMs={isMobile() ? ms('1 day') : ms('1 hour')}
         >
-          {({ updateAvailable }) =>
+          {({ updateAvailable }: { updateAvailable: boolean }) =>
             updateAvailable && !userHasDismissed ? (
               <UpdateAlertContainer>
                 <UpdateAlert
@@ -94,6 +94,6 @@ function AlertOnUpdate() {
       )}
     </StaticQuery>
   );
-}
+};
 
 export default AlertOnUpdate;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import styled from '@emotion/styled';
 import { FaGithub } from 'react-icons/fa';
+import styled from '../utils/styled';
 
 const SourceLink = styled.a`
   color: ${({ theme }) => theme.colors.pageText};
@@ -16,7 +16,7 @@ const SourceLinkIcon = styled(FaGithub)`
   }
 `;
 
-const Footer = () => (
+const Footer: React.FunctionComponent = () => (
   <footer
     css={css`
       display: flex;

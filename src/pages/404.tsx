@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import styled from '@emotion/styled';
 import { FaChevronLeft } from 'react-icons/fa';
+import styled from '../utils/styled';
 import mq from '../utils/mq';
 import Layout from '../components/layout';
 
@@ -82,7 +82,7 @@ const ButtonText = styled.span`
   }
 `;
 
-const NotFoundPage = () => (
+const NotFoundPage: React.FunctionComponent = () => (
   <Layout>
     <Helmet
       title="Dead Link"
