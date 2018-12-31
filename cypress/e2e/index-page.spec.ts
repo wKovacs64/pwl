@@ -3,8 +3,8 @@ import classifyCharacters from '../../src/utils/classify-characters';
 import colors from '../../src/legend/colors';
 import labels from '../../src/legend/labels';
 
-const colorToRGB = cssColor =>
-  colorString.to.rgb(colorString.get.rgb(cssColor));
+const colorToRGB = (cssColor: string) =>
+  colorString.to.rgb(colorString.get.rgb(cssColor)!);
 
 describe('Index Page', () => {
   const EXPOSURE_ROUTE = 'https://api.pwnedpasswords.com/range/*';
@@ -53,6 +53,7 @@ describe('Index Page', () => {
     });
 
     cy.getByLabelText('Password').should('be.empty');
+    // @ts-ignore: timeout is not in dom-testing-library's MatcherOptions
     cy.queryByTestId('results', { timeout: 500 }).should('not.exist');
 
     cy.getByLabelText('Password')
