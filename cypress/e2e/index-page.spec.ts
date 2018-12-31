@@ -53,7 +53,6 @@ describe('Index Page', () => {
     });
 
     cy.getByLabelText('Password').should('be.empty');
-    // @ts-ignore: timeout is not in dom-testing-library's MatcherOptions
     cy.queryByTestId('results', { timeout: 500 }).should('not.exist');
 
     cy.getByLabelText('Password')
