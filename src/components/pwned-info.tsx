@@ -12,7 +12,7 @@ const PwnedExclamation = styled.span`
   color: ${({ theme }) => theme.colors.pwnedExclamation};
 `;
 
-const enum ActionType {
+enum ActionType {
   PWNED_REQUEST,
   PWNED_SUCCESS,
   PWNED_FAILURE,

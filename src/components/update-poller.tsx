@@ -8,7 +8,7 @@ const clearIntervalSafely = (interval: Interval): void => {
   }
 };
 
-const enum ActionType {
+enum ActionType {
   UPDATE_AVAILABLE,
   UPDATE_FAILURE,
 }
