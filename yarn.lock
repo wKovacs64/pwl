@@ -3993,10 +3993,10 @@ cypress-axe@0.3.0:
   resolved "https://registry.yarnpkg.com/cypress-axe/-/cypress-axe-0.3.0.tgz#ce21088b604c7e9d1b57259d07018f6538395802"
   integrity sha512-9HVohr8RNJJLG1RFFJHUY/bCvwlkvhgZXZW/+kqAuXBjexej8gA7QwLY87vBCRprXSwNrdUHKBsqeZzMrO1o9Q==
 
-cypress-testing-library@2.3.4:
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/cypress-testing-library/-/cypress-testing-library-2.3.4.tgz#1cd1567191fd863257cf6bfcf83cfd058e3c7b17"
-  integrity sha512-OlXDfvFIeYjBZbxIiCaSfByyt8Fms7IHX6U7RsLmWKPWwEpt9HrTQ8/FiVhcovlg5E+vkRL0mx9ZU528WBE7vw==
+cypress-testing-library@2.3.5:
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/cypress-testing-library/-/cypress-testing-library-2.3.5.tgz#2df56f6282b8d171c9674f4cec4ede10ff0edf0b"
+  integrity sha512-gKbMYyz/l+4qp1w2RI/FJvEryHbEULDBN1pyotST6FCBM0mitf9Q0nOwyENo69a8C1dSPI7VnD951jCfM4gMug==
   dependencies:
     dom-testing-library "^3.12.4"
 
