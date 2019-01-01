@@ -21,7 +21,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,json,md,yml}\"",
+    "format": "prettier --write \"**/*.{js,ts,tsx,json,md,yml}\"",
     "lint": "eslint --ext \".js,.ts,.tsx\" .",
     "preserve": "yarn build",
     "serve": "gatsby serve --port 8000",
