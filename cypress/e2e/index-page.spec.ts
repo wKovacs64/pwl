@@ -4,7 +4,7 @@ import colors from '../../src/legend/colors';
 import labels from '../../src/legend/labels';
 
 const colorToRGB = (cssColor: string) =>
-  colorString.to.rgb(colorString.get.rgb(cssColor)!);
+  colorString.to.rgb(colorString.get.rgb(cssColor) || []);
 
 describe('Index Page', () => {
   const EXPOSURE_ROUTE = 'https://api.pwnedpasswords.com/range/*';
