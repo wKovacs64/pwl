@@ -91,7 +91,7 @@
     "lint-staged": "8.1.0",
     "pluggable-babel-eslint": "0.3.0",
     "prettier": "1.15.3",
-    "rimraf": "2.6.2",
+    "rimraf": "2.6.3",
     "start-server-and-test": "1.7.11",
     "tsify": "4.0.1",
     "typescript": "3.2.2"
