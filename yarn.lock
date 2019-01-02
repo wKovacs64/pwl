@@ -7513,6 +7513,11 @@ kebab-hash@^0.1.2:
   dependencies:
     lodash.kebabcase "^4.1.1"
 
+keyboardjs@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/keyboardjs/-/keyboardjs-2.5.1.tgz#2eb5d96bd1028e07136cd71919f607579edca716"
+  integrity sha512-mRf7MQMiFcudADEpPn3vTtl/rtFELo5MAiKA6yH4ShsFsnwwjMrVfaNt6bpYhBDeODs/T5NXwltz4+ktRQyP7A==
+
 killable@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/killable/-/killable-1.0.1.tgz#4c8ce441187a061c7474fb87ca08e2a638194892"
@@ -9982,12 +9987,13 @@ react-side-effect@^1.1.0:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
 
-react-use@5.1.2:
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/react-use/-/react-use-5.1.2.tgz#184c183dedc2bf3cee246fb07bd5fb65ec8aa914"
-  integrity sha512-gv4dO/j+O2jB0aYNILTUdPS+c1Yf92b5yA/X2eGSLlAZioE+Xrf7cZ8EJZu8OESfXT3IHiq0uKnbVJMZKQdoRQ==
+react-use@5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/react-use/-/react-use-5.2.0.tgz#94776114e0a64c334c1bdf8172b2124a9ec1a968"
+  integrity sha512-4Gm7c+wEKFUtpvlCBoq1cFtA3aIONPaESssPcPGxpbF+Xtg7iWakjuGijZUGoP+hMQL/MHxCD6kysPu8M/agPw==
   dependencies:
     "@types/react" "^16.7.13"
+    keyboardjs "^2.5.1"
     nano-css "^3.4.0"
     react-wait "^0.3.0"
     rebound "^0.1.0"
