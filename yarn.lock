@@ -9806,10 +9806,10 @@ react-side-effect@^1.1.0:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
 
-react-use@5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/react-use/-/react-use-5.2.0.tgz#94776114e0a64c334c1bdf8172b2124a9ec1a968"
-  integrity sha512-4Gm7c+wEKFUtpvlCBoq1cFtA3aIONPaESssPcPGxpbF+Xtg7iWakjuGijZUGoP+hMQL/MHxCD6kysPu8M/agPw==
+react-use@5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/react-use/-/react-use-5.2.1.tgz#a1e12472789c19930f37eacb0371c89d192c54a3"
+  integrity sha512-E1l64CUjm1gnxqJvL7Lvnnc9ykoN4CvQIzuIuSrI9gM4jubugxAzJhv1OzONTs74pM9WtczIyYbXvipWKJxi1w==
   dependencies:
     "@types/react" "^16.7.13"
     keyboardjs "^2.5.1"
