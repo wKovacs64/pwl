@@ -1,6 +1,6 @@
 {
   "name": "pwl",
-  "version": "1.4.1-dev.0",
+  "version": "1.5.0",
   "description": "Static web application to reveal character types in a password",
   "author": {
     "name": "Justin Hall",

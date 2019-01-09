@@ -1,5 +1,13 @@
 # Change Log
 
+## Version 1.5.0 _(2019-01-08)_
+
+- Added a dark mode theme 🌚 ([#20][#20])
+- Converted codebase to TypeScript ([#21][#21])
+- Added a `<noscript>` SSR hack to appease Lighthouse ([d354eccf][d354eccf])
+- Fixed max paragraph width in IE11
+- Tweaked update alert visuals
+
 ## Version 1.4.0 _(2018-12-08)_
 
 - Updated emotion to v10 ([#13][#13], [c18d7a81][c18d7a81],
@@ -75,3 +83,7 @@
 [#15]: https://github.com/wKovacs64/pwl/pull/15
 [c822d112]:
   https://github.com/wKovacs64/pwl/commit/c822d11243748d1e35d1190e8f5cd85d17ed0c73
+[d354eccf]:
+  https://github.com/wKovacs64/pwl/commit/d354eccf9f469e890397609f8c93731c3bca0737
+[#20]: https://github.com/wKovacs64/pwl/pull/20
+[#21]: https://github.com/wKovacs64/pwl/pull/21
