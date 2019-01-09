@@ -29,7 +29,7 @@ const ThemeToggleButton = styled.button`
 const ThemeToggleButtonIcon = styled(FiSun)`
   transition: transform 0.5s ease-in-out;
   button:hover & {
-    transform: rotate(180deg);
+    transform: rotate(0.5turn);
   }
 `;
 
