@@ -69,7 +69,6 @@ const IndexPage: React.FunctionComponent = () => {
     target: { value },
   }) => {
     setPasswordInput(value);
-    setPasswordToCheck('');
     setPasswordToCheckDebounced(value);
   };
 
