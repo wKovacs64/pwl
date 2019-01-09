@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 1.5.1 _(2019-01-09)_
+
+- Fixed an issue where the pubic exposure would indicate your password had not
+  been exposed in a breach while you were typing (even if it had been)
+- Removed redundant debounce logic delaying password exposure queries
+
 ## Version 1.5.0 _(2019-01-08)_
 
 - Added a dark mode theme 🌚 ([#20][#20])
