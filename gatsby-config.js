@@ -18,7 +18,7 @@ module.exports = {
       options: {
         headers: {
           '/*': [
-            "Content-Security-Policy: default-src 'self'; connect-src 'self' https://api.pwnedpasswords.com; img-src data: https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; worker-src 'self'",
+            "Content-Security-Policy: default-src 'self'; connect-src 'self' https://api.pwnedpasswords.com; img-src data: https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; worker-src 'self'; object-src 'none'",
             "Feature-Policy: geolocation 'none'; camera 'none'; microphone 'none'; speaker 'none'; payment 'none'; usb 'none'",
             'Referrer-Policy: no-referrer-when-downgrade',
             'Expect-CT: enforce, max-age=3600',
