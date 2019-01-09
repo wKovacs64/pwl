@@ -41,17 +41,17 @@ const reducer = (state: State, action: Action): State => {
   }
 };
 
-type State = {
+interface State {
   error: string;
   updateAvailable: boolean;
-};
+}
 
 const initialState: State = {
   error: '',
   updateAvailable: false,
 };
 
-type UpdatePollerProps = {
+interface UpdatePollerProps {
   children: (props: ChildrenProps) => React.ReactNode;
   // hasUpdate is a function provided by the consumer to determine whether or
   // not there is an updated version of the code available. This typically
@@ -60,9 +60,12 @@ type UpdatePollerProps = {
   // different or false if it's unchanged.
   hasUpdate: () => Promise<boolean>;
   pollingIntervalMs: number;
-};
+}
 
-type ChildrenProps = { error: string; updateAvailable: boolean };
+interface ChildrenProps {
+  error: string;
+  updateAvailable: boolean;
+}
 
 const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
   children,

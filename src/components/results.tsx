@@ -12,12 +12,12 @@ const AdditionalInfo = styled.aside`
   flex-wrap: wrap;
 `;
 
-type ResultsProps = {
+interface ResultsProps {
   colors: ColorMap;
   labels: LabelMap;
   passwordInput: string;
   passwordToCheck: string;
-};
+}
 
 const Results: React.FunctionComponent<ResultsProps> = ({
   colors,

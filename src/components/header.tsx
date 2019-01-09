@@ -49,9 +49,9 @@ const H1 = styled.h1`
   }
 `;
 
-type HeaderProps = {
+interface HeaderProps {
   onThemeToggle: () => void;
-};
+}
 
 const Header: React.FunctionComponent<HeaderProps> = ({ onThemeToggle }) => (
   <StaticQuery

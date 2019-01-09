@@ -3,10 +3,10 @@ import { ColorMap } from '../legend/colors';
 import { LabelMap } from '../legend/labels';
 import LegendItem from './legend-item';
 
-type LegendProps = {
+interface LegendProps {
   colors: ColorMap;
   labels: LabelMap;
-};
+}
 
 const Legend: React.FunctionComponent<LegendProps> = ({
   colors,

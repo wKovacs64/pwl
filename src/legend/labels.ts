@@ -5,9 +5,11 @@ export interface LabelMap {
   special: string;
 }
 
-export default {
+const labels: LabelMap = {
   number: 'Number',
   uppercase: 'Uppercase Letter',
   lowercase: 'Lowercase Letter',
   special: 'Special',
-} as LabelMap;
+};
+
+export default labels;

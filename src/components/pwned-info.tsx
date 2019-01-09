@@ -56,11 +56,11 @@ const reducer = (state: State, action: Action): State => {
   }
 };
 
-type State = {
+interface State {
   loading: boolean;
   numPwns: number;
   error: boolean;
-};
+}
 
 const initialState: State = {
   loading: false,
@@ -68,10 +68,10 @@ const initialState: State = {
   error: false,
 };
 
-type PwnedInfoProps = {
+interface PwnedInfoProps {
   // delayLoadingMs: number;
   password: string;
-};
+}
 
 const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
   /* delayLoadingMs, */ password,

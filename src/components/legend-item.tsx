@@ -14,10 +14,10 @@ const LegendColor = styled.div`
   margin-right: 1rem;
 `;
 
-type LegendItemProps = {
+interface LegendItemProps {
   color: string;
   label: string;
-};
+}
 
 const LegendItem: React.FunctionComponent<LegendItemProps> = ({
   color,

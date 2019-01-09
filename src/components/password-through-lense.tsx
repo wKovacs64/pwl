@@ -82,10 +82,10 @@ const PasswordThroughLense: React.FunctionComponent<
   </Lense>
 );
 
-type PasswordThroughLenseProps = {
+interface PasswordThroughLenseProps {
   colors: ColorMap;
   labels: LabelMap;
   password: string;
-};
+}
 
 export default PasswordThroughLense;

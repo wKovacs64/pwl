@@ -36,11 +36,11 @@ const AlertButtonLabel = styled.span`
   border-bottom: 1px solid;
 `;
 
-type UpdateAlertProps = {
+interface UpdateAlertProps {
   siteTitle: string;
   onReload: () => void;
   onDismiss: () => void;
-};
+}
 
 const UpdateAlert: React.FunctionComponent<UpdateAlertProps> = ({
   siteTitle,
