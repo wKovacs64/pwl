@@ -68,6 +68,9 @@ const Layout: React.FunctionComponent = ({ children }) => {
                       'helvetica neue', helvetica, ubuntu, roboto, noto,
                       'segoe ui', arial, sans-serif;
                   }
+                  #gatsby-noscript {
+                    display: none;
+                  }
                 `}
               />
               <Helmet
