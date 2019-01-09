@@ -4,9 +4,9 @@ module.exports = {
     jest: true,
   },
   extends: ['airbnb', 'prettier'],
-  parser: 'pluggable-babel-eslint',
+  parser: 'eslint-plugin-typescript/parser',
   parserOptions: {
-    plugins: ['typescript'],
+    jsx: true, // for gatsby-ssr.js
   },
   plugins: ['emotion', 'react-hooks', 'typescript'],
   rules: {
@@ -27,8 +27,6 @@ module.exports = {
       files: ['**/*.ts{,x}'],
       rules: {
         'react/prop-types': 'off',
-        'no-undef': 'off',
-        'no-unused-vars': 'off',
         'no-use-before-define': 'off',
         'typescript/class-name-casing': 'error',
         'typescript/explicit-function-return-type': 'off',
@@ -41,12 +39,14 @@ module.exports = {
         ],
         'typescript/no-namespace': 'error',
         'typescript/no-non-null-assertion': 'error',
+        'typescript/no-object-literal-type-assertion': 'error',
         'typescript/no-parameter-properties': 'error',
         'typescript/no-triple-slash-reference': 'error',
+        'no-unused-vars': 'off',
         'typescript/no-unused-vars': 'error',
         'typescript/no-var-requires': 'error',
-        // This rule is desirable but seems incompatible with our other plugins.
-        // 'typescript/prefer-namespace-keyword': 'error',
+        'typescript/prefer-interface': 'error',
+        'typescript/prefer-namespace-keyword': 'error',
         'typescript/type-annotation-spacing': 'error',
       },
     },
