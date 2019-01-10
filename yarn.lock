@@ -1098,13 +1098,6 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
-"@types/hibp@7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@types/hibp/-/hibp-7.2.0.tgz#65fa3c4f929cb869ffb1e7d7d3438338dd517d06"
-  integrity sha512-hvXihqyeLpM85XuarIftBREACUTvCsW88tEb8rIT+KwURe1sCLIF/wmTGr3rHKWk5YdpZi/R7iBlMp+DZqeBXw==
-  dependencies:
-    "@types/node" "*"
-
 "@types/history@*":
   version "4.7.2"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.2.tgz#0e670ea254d559241b6eeb3894f8754991e73220"
