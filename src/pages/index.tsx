@@ -20,7 +20,6 @@ const Content = styled.article`
 
 const P = styled.p`
   color: ${({ theme }) => theme.colors.brandedText};
-  max-width: 32rem;
   font-weight: 300;
   font-size: 1.25rem;
   margin: 0 0 2rem;
