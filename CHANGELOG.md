@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.5.3 _(2019-01-11)_
+
+- Fixed a "flash of unstyled content" issue ([d7033193][d7033193])
+
 ## Version 1.5.2 _(2019-01-11)_
 
 - Fixed style loss on page reload ([28aa86e1][28aa86e1])
@@ -101,3 +105,5 @@
 [#21]: https://github.com/wKovacs64/pwl/pull/21
 [28aa86e1]:
   https://github.com/wKovacs64/pwl/commit/28aa86e17b3915e7858119e358c4b75d51f7c050
+[d7033193]:
+  https://github.com/wKovacs64/pwl/commit/d70331936d0edb710f35a88b555fddaa8de20c7a
