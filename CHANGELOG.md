@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 1.5.2 _(2019-01-11)_
+
+- Fixed style loss on page reload ([28aa86e1][28aa86e1])
+- Removed custom `<noscript>` hack for appeasing Lighthouse as Gatsby includes
+  it now
+
 ## Version 1.5.1 _(2019-01-09)_
 
 - Fixed an issue where the pubic exposure would indicate your password had not
@@ -93,3 +99,5 @@
   https://github.com/wKovacs64/pwl/commit/d354eccf9f469e890397609f8c93731c3bca0737
 [#20]: https://github.com/wKovacs64/pwl/pull/20
 [#21]: https://github.com/wKovacs64/pwl/pull/21
+[28aa86e1]:
+  https://github.com/wKovacs64/pwl/commit/28aa86e17b3915e7858119e358c4b75d51f7c050
