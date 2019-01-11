@@ -7,7 +7,7 @@ import { css, Global, ClassNames } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { IconContext } from 'react-icons';
 import { StaticQuery, graphql } from 'gatsby';
-import { useLocalStorage as useLocalStorageState } from 'react-use';
+import useLocalStorageState from '../utils/use-local-storage-state';
 import styled from '../utils/styled';
 import { light, dark } from '../theme';
 import Header from './header';
