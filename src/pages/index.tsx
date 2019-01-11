@@ -8,6 +8,7 @@ import styled from '../utils/styled';
 import colors from '../legend/colors';
 import labels from '../legend/labels';
 import mq from '../utils/mq';
+import NoScriptMessage from '../components/noscript-message';
 import Layout from '../components/layout';
 import PasswordInput from '../components/password-input';
 import Results from '../components/results';
@@ -95,18 +96,7 @@ const IndexPage: React.FunctionComponent = () => {
           />
           <noscript>
             <style>{'.js { display: none !important; }'}</style>
-            <Content>
-              <P>This application requires JavaScript.</P>
-              <P
-                css={css`
-                  max-width: 20rem;
-                  text-align: center;
-                `}
-              >
-                You&apos;re either using an incompatible browser or JavaScript
-                is disabled.
-              </P>
-            </Content>
+            <NoScriptMessage />
           </noscript>
           <Content className="js">
             <P>
