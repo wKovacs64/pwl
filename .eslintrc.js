@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     jest: true,
   },
-  extends: ['airbnb', 'prettier', 'prettier/react'],
+  extends: ['airbnb', 'prettier', 'prettier/react', 'prettier/typescript'],
   parser: 'eslint-plugin-typescript/parser',
   parserOptions: {
     jsx: true, // for gatsby-ssr.js
@@ -46,7 +46,6 @@ module.exports = {
         'typescript/no-var-requires': 'error',
         'typescript/prefer-interface': 'error',
         'typescript/prefer-namespace-keyword': 'error',
-        'typescript/type-annotation-spacing': 'error',
       },
     },
   ],
