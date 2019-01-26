@@ -3,7 +3,12 @@ module.exports = {
     browser: true,
     jest: true,
   },
-  extends: ['airbnb', 'prettier', 'prettier/react', 'prettier/typescript'],
+  extends: [
+    'airbnb',
+    'prettier',
+    'prettier/react',
+    'prettier/@typescript-eslint',
+  ],
   parser: '@typescript-eslint/parser',
   plugins: ['emotion', 'react-hooks', '@typescript-eslint'],
   rules: {
