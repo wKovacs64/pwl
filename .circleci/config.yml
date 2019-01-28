@@ -21,7 +21,5 @@ jobs:
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache
-      - run: yarn lint
-      - run: yarn check-types
+      - run: yarn validate
       - run: yarn test:e2e:ci
-      - run: yarn build
