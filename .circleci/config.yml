@@ -13,5 +13,5 @@ workflows:
           requires:
             - cypress/install
           yarn: true
-          start: yarn serve
+          start: yarn develop
           wait-on: 'http://localhost:8000'
