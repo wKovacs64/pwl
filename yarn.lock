@@ -5660,14 +5660,14 @@ gatsby-plugin-emotion@4.0.1:
     "@babel/runtime" "^7.0.0"
     "@emotion/babel-preset-css-prop" "10.0.5"
 
-gatsby-plugin-manifest@2.0.14:
-  version "2.0.14"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.0.14.tgz#01627d943243e6cd457c1ad1a69dfcf0495e30d3"
-  integrity sha512-u1FBqWvQfl5AgFvqAx8cwrp49xLpwWP5x3OGQ5zu5EUYwmd8U2OIyEuTcM6knCLegqlD2DPYrTcmZdLSNVfxSA==
+gatsby-plugin-manifest@2.0.15:
+  version "2.0.15"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.0.15.tgz#59a1f3fac9d5a38bf3895d4055311b07075c8fc7"
+  integrity sha512-AhK5NGTgu6/YBTQbN/TF6rXCLmmIky9OerHhfC/Dn0QFnoF0W+erpY3j1PxOZpsOuozIkclosQTNRK7Sle4UDg==
   dependencies:
     "@babel/runtime" "^7.0.0"
     bluebird "^3.5.0"
-    sharp "^0.21.0"
+    sharp "^0.21.3"
 
 gatsby-plugin-netlify@2.0.7:
   version "2.0.7"
@@ -5732,10 +5732,10 @@ gatsby-react-router-scroll@^2.0.3:
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
 
-gatsby@2.0.104:
-  version "2.0.104"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.0.104.tgz#17c9a1e220cea1205f26ac46c9f749179b06a371"
-  integrity sha512-T1uoK4nwGfLl1hmJ4tuAAStyRYHADlK2cJN2e+zBAQRmrYdwH1+zzmEv/uL1x+FrpwfThuiAimZB5yz+XyRKEQ==
+gatsby@2.0.105:
+  version "2.0.105"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.0.105.tgz#7f236d104fe20f5eccd4ecccc11cdad3527aeba6"
+  integrity sha512-Uq5KQM647QA6Xv7XlwdMJQs2ZXcyMVP4NelrnSbU12z2xzLZcAM1PqasmsTgwxRLC6Fb3fHF3+BgoPg/602mzA==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.0.0"
@@ -10667,7 +10667,7 @@ shallowequal@^1.0.1, shallowequal@^1.0.2:
   resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8"
   integrity sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==
 
-sharp@^0.21.0:
+sharp@^0.21.3:
   version "0.21.3"
   resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.21.3.tgz#381937de66c123687f2ac7186f85921c6bb19cdd"
   integrity sha512-5qZk8r+YgfyztLEKkNez20Wynq/Uh1oNyP5T/3gTYwt2lBYGs9iDs5m0yVsZEPm8eVBbAJhS08J1wp/g+Ai1Qw==
