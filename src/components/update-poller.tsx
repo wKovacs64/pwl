@@ -93,22 +93,19 @@ const UpdatePoller: React.FunctionComponent<UpdatePollerProps> = ({
     }
   };
 
-  useEffect(
-    () => {
-      if (typeof window !== 'undefined') {
-        checkForUpdates();
-        intervalRef.current = window.setInterval(
-          checkForUpdates,
-          pollingIntervalMs,
-        );
-        return () => clearIntervalSafely(intervalRef.current);
-      }
-      return () => {};
-    },
-    [
-      /* empty inputs array so it doesn't run again on re-renders */
-    ],
-  );
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      checkForUpdates();
+      intervalRef.current = window.setInterval(
+        checkForUpdates,
+        pollingIntervalMs,
+      );
+      return () => clearIntervalSafely(intervalRef.current);
+    }
+    return () => {};
+  }, [
+    /* empty inputs array so it doesn't run again on re-renders */
+  ]);
 
   // wrap in a Fragment to work around DefinitelyTyped/DefinitelyTyped#18051
   return <Fragment>{children({ error, updateAvailable })}</Fragment>;
