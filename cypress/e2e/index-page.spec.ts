@@ -3,7 +3,7 @@ import classifyCharacters from '../../src/utils/classify-characters';
 import colors from '../../src/legend/colors';
 import labels from '../../src/legend/labels';
 
-const colorToRGB = (cssColor: string) =>
+const colorToRGB = (cssColor: string): string =>
   colorString.to.rgb(colorString.get.rgb(cssColor) || []);
 
 describe('Index Page', () => {
