@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import React, { useReducer, useEffect } from 'react';
 import { pwnedPassword } from 'hibp';
 import styled from '../utils/styled';
@@ -32,30 +31,6 @@ interface Failure {
 
 type Action = Request | Success | Failure;
 
-const reducer = (state: State, action: Action): State => {
-  switch (action.type) {
-    case ActionType.PWNED_REQUEST:
-      return {
-        ...initialState,
-        loading: true,
-      };
-    case ActionType.PWNED_SUCCESS:
-      return {
-        ...initialState,
-        loading: false,
-        numPwns: action.payload,
-      };
-    case ActionType.PWNED_FAILURE:
-      return {
-        ...initialState,
-        loading: false,
-        error: true,
-      };
-    default:
-      return state;
-  }
-};
-
 interface State {
   loading: boolean;
   numPwns: number;
@@ -77,6 +52,30 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
   /* delayLoadingMs, */ password,
   ...props
 }) => {
+  const reducer = (state: State, action: Action): State => {
+    switch (action.type) {
+      case ActionType.PWNED_REQUEST:
+        return {
+          ...initialState,
+          loading: true,
+        };
+      case ActionType.PWNED_SUCCESS:
+        return {
+          ...initialState,
+          loading: false,
+          numPwns: action.payload,
+        };
+      case ActionType.PWNED_FAILURE:
+        return {
+          ...initialState,
+          loading: false,
+          error: true,
+        };
+      default:
+        return state;
+    }
+  };
+
   const [{ loading, numPwns, error }, dispatch] = useReducer(
     reducer,
     initialState,
@@ -94,12 +93,9 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
     }
   };
 
-  useEffect(
-    () => {
-      fetchPwnedInfo();
-    },
-    [dispatch, password],
-  );
+  useEffect(() => {
+    fetchPwnedInfo();
+  }, [dispatch, password]);
 
   return (
     <section data-testid="pwned-info" {...props}>
