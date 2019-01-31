@@ -69,7 +69,7 @@
     "@types/memoize-one": "4.1.0",
     "@types/ms": "0.7.30",
     "@types/node": "10.12.20",
-    "@types/react": "16.7.22",
+    "@types/react": "16.8.0",
     "@types/react-dom": "16.0.11",
     "@types/react-helmet": "5.0.8",
     "@typescript-eslint/eslint-plugin": "1.1.1",
