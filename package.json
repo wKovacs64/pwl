@@ -72,9 +72,11 @@
     "@types/react": "16.8.0",
     "@types/react-dom": "16.0.11",
     "@types/react-helmet": "5.0.8",
-    "@typescript-eslint/eslint-plugin": "1.1.1",
+    "@typescript-eslint/eslint-plugin": "1.1.0",
     "@typescript-eslint/parser": "1.1.0",
+    "@wkovacs64/eslint-config": "2.0.0",
     "axe-core": "3.1.2",
+    "babel-eslint": "10.0.1",
     "color-string": "1.5.3",
     "cypress": "3.1.5",
     "cypress-axe": "0.3.0",
@@ -84,7 +86,8 @@
     "eslint-config-prettier": "4.0.0",
     "eslint-plugin-cypress": "2.2.0",
     "eslint-plugin-emotion": "10.0.6",
-    "eslint-plugin-import": "2.16.0",
+    "eslint-plugin-import": "2.15.0",
+    "eslint-plugin-jest": "22.2.1",
     "eslint-plugin-jsx-a11y": "6.2.0",
     "eslint-plugin-react": "7.12.4",
     "eslint-plugin-react-hooks": "0.0.0",
@@ -96,6 +99,6 @@
     "rimraf": "2.6.3",
     "start-server-and-test": "1.7.11",
     "tsify": "4.0.1",
-    "typescript": "3.2.4"
+    "typescript": "~3.2.1"
   }
 }
