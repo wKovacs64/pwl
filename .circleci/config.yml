@@ -14,4 +14,4 @@ workflows:
             - cypress/install
           yarn: true
           start: yarn develop
-          wait-on: 'http://localhost:8000'
+          wait-on: '--timeout 20000 http://localhost:8000'
