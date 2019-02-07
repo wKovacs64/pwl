@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['@wkovacs64/eslint-config/ts/react'],
+  extends: ['@wkovacs64/eslint-config-ts-react'],
   plugins: ['emotion'],
   rules: {
     // 'emotion/jsx-import': 'error',
