@@ -1441,19 +1441,19 @@
     "@webassemblyjs/wast-parser" "1.7.11"
     "@xtuc/long" "4.2.1"
 
-"@wkovacs64/eslint-config-react@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-react/-/eslint-config-react-1.0.2.tgz#3dc72742d26b414aa1abec136098f0a2e5712773"
-  integrity sha512-jxYDimFXyetRThpn8fZMiDDBbeh5CUw0nve0s9Pane4iQtYVYBqKSUo2riGvTkGUQdoMuszQXuCLyh0yUi4VGg==
-  dependencies:
-    "@wkovacs64/eslint-config" "3.0.0"
-
-"@wkovacs64/eslint-config-ts-react@1.0.3":
+"@wkovacs64/eslint-config-react@1.0.3":
   version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-ts-react/-/eslint-config-ts-react-1.0.3.tgz#f4ee236db10c0ee425d118a1253c0808f0ced7b3"
-  integrity sha512-7mJu8sla6E3BCEPNDT/0rfLtz1+LoMGa123biR80xMP7D70sHbgALVsuH69L8XTOxx9ZEjKVMecwF7hSy3kcAg==
+  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-react/-/eslint-config-react-1.0.3.tgz#b428e5d45905519758e259e9026ce4e20d0aa139"
+  integrity sha512-maBCsL6yy+CZiQ08c3MeNaD/XVj82Q/oMdexdcQ1/xqgCUish5sH0vCA31a57AzMCRH2AJOMrmCL05dvuvU5Qw==
   dependencies:
-    "@wkovacs64/eslint-config-react" "1.0.2"
+    "@wkovacs64/eslint-config" "3.0.1"
+
+"@wkovacs64/eslint-config-ts-react@1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-ts-react/-/eslint-config-ts-react-1.0.4.tgz#7fbe71db0abae557b35a7cffe5f4c69d8814323c"
+  integrity sha512-yUrKZLSEDXaQrp58CjGEqQXQTKDx6EXWKzGTOjYMIYki3HEwxWJkSUqWsJjNEdKnmZLgTtX4gRE/zsRKRbXm5w==
+  dependencies:
+    "@wkovacs64/eslint-config-react" "1.0.3"
     "@wkovacs64/eslint-config-ts" "1.0.0"
 
 "@wkovacs64/eslint-config-ts@1.0.0":
@@ -1467,6 +1467,11 @@
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config/-/eslint-config-3.0.0.tgz#64bd336984a6034f050d7a91fafc04243b5cc12b"
   integrity sha512-CPPaYW5qG5Iqsk24VKp1SAKUKvL4oFtUM3OKn0JYdAURibmQ+44RRPellMhjxLWNU/lAiw7HCK+UxmkdmKkZ1g==
+
+"@wkovacs64/eslint-config@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config/-/eslint-config-3.0.1.tgz#ca02f9a4e5fc6bf2a9914e65fccb25e988e9d987"
+  integrity sha512-p/foRthdwaQEkFGdPbMnX/k108CGBg+v+/sm5w3wNtRcz79qL1vAvuMyS6rFuayuvKN8Lb44iBmWg8GbrWecNQ==
 
 "@wkovacs64/normalize.css@8.0.1":
   version "8.0.1"
