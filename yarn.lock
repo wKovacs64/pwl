@@ -1448,25 +1448,20 @@
   dependencies:
     "@wkovacs64/eslint-config" "3.0.1"
 
-"@wkovacs64/eslint-config-ts-react@1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-ts-react/-/eslint-config-ts-react-1.0.4.tgz#7fbe71db0abae557b35a7cffe5f4c69d8814323c"
-  integrity sha512-yUrKZLSEDXaQrp58CjGEqQXQTKDx6EXWKzGTOjYMIYki3HEwxWJkSUqWsJjNEdKnmZLgTtX4gRE/zsRKRbXm5w==
+"@wkovacs64/eslint-config-ts-react@1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-ts-react/-/eslint-config-ts-react-1.0.5.tgz#268f0f6c13b18ba98586e075a862edcd3c67b6d8"
+  integrity sha512-eLMwkbFFE1HDCgamNno0eiaP+f56igCOP4DyLY4c8hMZXNuiZwK7CEEv5SEDOLwZdWP0GFqwmjEmqvDNq6FGqQ==
   dependencies:
     "@wkovacs64/eslint-config-react" "1.0.3"
-    "@wkovacs64/eslint-config-ts" "1.0.0"
+    "@wkovacs64/eslint-config-ts" "1.0.2"
 
-"@wkovacs64/eslint-config-ts@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-ts/-/eslint-config-ts-1.0.0.tgz#68b2feb62ba21b5bbde851ff61bf9384f83c0586"
-  integrity sha512-Rg9tOT0ee8zEgcCOz36P/owhQMUBm0LaPmuO3mqY+c99i2e7G2QXpM3hUgN7WJ4G8gt8eA9/MUyPXB+HOseCdA==
+"@wkovacs64/eslint-config-ts@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-ts/-/eslint-config-ts-1.0.2.tgz#264f50266c12a41dfa527efffc6657f031531c88"
+  integrity sha512-8yhn3Q4eMMwo+bik+GQWJQ7SgPJs/gdU22w+GNMc8EitHPyUzcF2FmY8+LVpLV9x3T1H8XPS+156fgSweQ9AXA==
   dependencies:
-    "@wkovacs64/eslint-config" "3.0.0"
-
-"@wkovacs64/eslint-config@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config/-/eslint-config-3.0.0.tgz#64bd336984a6034f050d7a91fafc04243b5cc12b"
-  integrity sha512-CPPaYW5qG5Iqsk24VKp1SAKUKvL4oFtUM3OKn0JYdAURibmQ+44RRPellMhjxLWNU/lAiw7HCK+UxmkdmKkZ1g==
+    "@wkovacs64/eslint-config" "3.0.1"
 
 "@wkovacs64/eslint-config@3.0.1":
   version "3.0.1"
