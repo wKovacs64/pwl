@@ -1441,19 +1441,19 @@
     "@webassemblyjs/wast-parser" "1.7.11"
     "@xtuc/long" "4.2.1"
 
-"@wkovacs64/eslint-config-react@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-react/-/eslint-config-react-1.0.1.tgz#c52188b9d6ad84944ffd338378b74370c426dbfc"
-  integrity sha512-rvMhJMn3btG3Rq38JxBHB6aO7hHV2Z2trG37Y8AqhDo+iHjiK4WNrRPGS326KZEDsKKadGY0NNU4InI59bKPXw==
+"@wkovacs64/eslint-config-react@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-react/-/eslint-config-react-1.0.2.tgz#3dc72742d26b414aa1abec136098f0a2e5712773"
+  integrity sha512-jxYDimFXyetRThpn8fZMiDDBbeh5CUw0nve0s9Pane4iQtYVYBqKSUo2riGvTkGUQdoMuszQXuCLyh0yUi4VGg==
   dependencies:
     "@wkovacs64/eslint-config" "3.0.0"
 
-"@wkovacs64/eslint-config-ts-react@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-ts-react/-/eslint-config-ts-react-1.0.1.tgz#299f0440d049153001451627eb0e3e3bfc8c13d7"
-  integrity sha512-GXDzgjbzvHxg/HyZKI+SVeD42jdh5cGf+2meDGaGBxJBU7yZSnOyHE+/UH4v76HLAXx7j9b3gZoU0R4B2jupAw==
+"@wkovacs64/eslint-config-ts-react@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-ts-react/-/eslint-config-ts-react-1.0.3.tgz#f4ee236db10c0ee425d118a1253c0808f0ced7b3"
+  integrity sha512-7mJu8sla6E3BCEPNDT/0rfLtz1+LoMGa123biR80xMP7D70sHbgALVsuH69L8XTOxx9ZEjKVMecwF7hSy3kcAg==
   dependencies:
-    "@wkovacs64/eslint-config-react" "1.0.1"
+    "@wkovacs64/eslint-config-react" "1.0.2"
     "@wkovacs64/eslint-config-ts" "1.0.0"
 
 "@wkovacs64/eslint-config-ts@1.0.0":
