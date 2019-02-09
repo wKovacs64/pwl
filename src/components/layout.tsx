@@ -7,7 +7,7 @@ import { css, Global, ClassNames } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { IconContext } from 'react-icons';
 import { StaticQuery, graphql } from 'gatsby';
-import useLocalStorageState from '../utils/use-local-storage-state';
+import useDarkMode from 'use-dark-mode';
 import styled from '../utils/styled';
 import { light, dark } from '../theme';
 import Header from './header';
@@ -22,7 +22,7 @@ const FullHeightThemedContainer = styled.div`
 `;
 
 const Layout: React.FunctionComponent = ({ children }) => {
-  const [darkMode, setDarkMode] = useLocalStorageState('pwl:darkMode', false);
+  const darkMode = useDarkMode(false);
 
   return (
     <StaticQuery
@@ -107,9 +107,9 @@ const Layout: React.FunctionComponent = ({ children }) => {
                   data-version={siteMetadata.buildInfo.version}
                 />
               </Helmet>
-              <ThemeProvider theme={darkMode ? dark : light}>
+              <ThemeProvider theme={darkMode.value ? dark : light}>
                 <FullHeightThemedContainer>
-                  <Header onThemeToggle={() => setDarkMode(!darkMode)} />
+                  <Header onThemeToggle={darkMode.toggle} />
                   <Main>{children}</Main>
                   <Footer />
                 </FullHeightThemedContainer>
