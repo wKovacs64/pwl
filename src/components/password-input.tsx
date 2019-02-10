@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from '../utils/styled';
+import styled from '@emotion/styled';
 import mq from '../utils/mq';
+import { light, dark } from '../theme';
 
 const Input = styled.input`
   font-family: 'Courier New', Courier, monospace;
@@ -8,9 +9,6 @@ const Input = styled.input`
   text-align: center;
   letter-spacing: 0.25rem;
   white-space: pre;
-  color: ${({ theme }) => theme.colors.pageText};
-  background-color: ${({ theme }) => theme.colors.inputBackground};
-  border: 2px solid ${({ theme }) => theme.colors.inputBorder};
   width: 100%;
   font-size: 1.25rem;
   ${mq.md} {
@@ -22,8 +20,21 @@ const Input = styled.input`
   &::-ms-clear {
     display: none;
   }
-  &::placeholder {
-    color: ${({ theme }) => theme.colors.dullText};
+  body.light-mode & {
+    color: ${light.colors.pageText};
+    background-color: ${light.colors.inputBackground};
+    border: 2px solid ${light.colors.inputBorder};
+    &::placeholder {
+      color: ${light.colors.dullText};
+    }
+  }
+  body.dark-mode & {
+    color: ${dark.colors.pageText};
+    background-color: ${dark.colors.inputBackground};
+    border: 2px solid ${dark.colors.inputBorder};
+    &::placeholder {
+      color: ${dark.colors.dullText};
+    }
   }
 `;
 

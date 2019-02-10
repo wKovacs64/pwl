@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import styled from '../utils/styled';
+import styled from '@emotion/styled';
 import { ColorMap } from '../legend/colors';
 import { LabelMap } from '../legend/labels';
 import PasswordThroughLense from './password-through-lense';

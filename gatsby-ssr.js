@@ -3,5 +3,9 @@
  *
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
+import React from 'react';
+import HydrateTheme from './src/components/hydrate-theme';
 
-// You can delete this file if you're not using it
+export const onRenderBody = ({ setPreBodyComponents }) => {
+  setPreBodyComponents([<HydrateTheme key="hydrate-theme" />]);
+};

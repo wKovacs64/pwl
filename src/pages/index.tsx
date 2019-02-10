@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 import { css } from '@emotion/core';
+import styled from '@emotion/styled';
 import { StaticQuery, graphql } from 'gatsby';
 import KeyHandler, { KEYDOWN } from 'react-key-handler';
 import debounce from 'lodash/debounce';
-import styled from '../utils/styled';
 import colors from '../legend/colors';
 import labels from '../legend/labels';
 import mq from '../utils/mq';
@@ -12,6 +12,7 @@ import NoScriptMessage from '../components/noscript-message';
 import Layout from '../components/layout';
 import PasswordInput from '../components/password-input';
 import Results from '../components/results';
+import { light, dark } from '../theme';
 
 const Content = styled.article`
   display: flex;
@@ -20,7 +21,6 @@ const Content = styled.article`
 `;
 
 const P = styled.p`
-  color: ${({ theme }) => theme.colors.brandedText};
   font-weight: 300;
   font-size: 1.25rem;
   margin: 0 0 2rem;
@@ -35,10 +35,23 @@ const P = styled.p`
     font-size: 2.25rem;
     max-width: 48rem;
   }
+  body.light-mode & {
+    color: ${light.colors.brandedText};
+  }
+  body.dark-mode & {
+    color: ${dark.colors.brandedText};
+  }
 `;
 
 const Hint = styled.span`
-  border-bottom: 2px dashed ${({ theme }) => theme.colors.pageUnderline};
+  border-bottom-width: 2px;
+  border-bottom-style: dashed;
+  body.light-mode & {
+    border-bottom-color: ${light.colors.pageUnderline};
+  }
+  body.dark-mode & {
+    border-bottom-color: ${dark.colors.pageUnderline};
+  }
 `;
 
 const InputAndResults = styled.section`

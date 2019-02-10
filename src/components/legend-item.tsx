@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '../utils/styled';
+import styled from '@emotion/styled';
 
 const LegendRow = styled.div`
   display: flex;

@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import axios from 'axios';
 import ms from 'ms';
-import styled from '../utils/styled';
+import styled from '@emotion/styled';
 import isMobile from '../utils/is-mobile';
+import { light, dark } from '../theme';
 import UpdatePoller from './update-poller';
 import UpdateAlert from './update-alert';
 
@@ -12,15 +13,28 @@ const UpdateAlertContainer = styled.div`
   justify-content: center;
   border-style: solid;
   border-width: 0 0 1px;
-  border-color: ${({ theme }) => theme.colors.alertBorder};
-  box-shadow: 4px 4px 8px 0px ${({ theme }) => theme.colors.alertShadow};
-  color: ${({ theme }) => theme.colors.alertText};
-  background-color: ${({ theme }) => theme.colors.alertBackground};
   transition: color 0.3s ease, background-color 0.3s ease;
-  &:hover,
-  &:focus-within {
-    color: ${({ theme }) => theme.colors.alertBackground};
-    background-color: ${({ theme }) => theme.colors.alertText};
+  body.light-mode & {
+    border-color: ${light.colors.alertBorder};
+    box-shadow: 4px 4px 8px 0px ${light.colors.alertShadow};
+    color: ${light.colors.alertText};
+    background-color: ${light.colors.alertBackground};
+    &:hover,
+    &:focus-within {
+      color: ${light.colors.alertBackground};
+      background-color: ${light.colors.alertText};
+    }
+  }
+  body.dark-mode & {
+    border-color: ${dark.colors.alertBorder};
+    box-shadow: 4px 4px 8px 0px ${dark.colors.alertShadow};
+    color: ${dark.colors.alertText};
+    background-color: ${dark.colors.alertBackground};
+    &:hover,
+    &:focus-within {
+      color: ${dark.colors.alertBackground};
+      background-color: ${dark.colors.alertText};
+    }
   }
 `;
 

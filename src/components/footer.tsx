@@ -1,12 +1,18 @@
 import React from 'react';
 import { css } from '@emotion/core';
+import styled from '@emotion/styled';
 import { FaGithub } from 'react-icons/fa';
-import styled from '../utils/styled';
+import { light, dark } from '../theme';
 
 const SourceLink = styled.a`
-  color: ${({ theme }) => theme.colors.pageText};
   text-decoration: none;
   padding: 0.5rem;
+  body.light-mode & {
+    color: ${light.colors.pageText};
+  }
+  body.dark-mode & {
+    color: ${dark.colors.pageText};
+  }
 `;
 
 const SourceLinkIcon = styled(FaGithub)`

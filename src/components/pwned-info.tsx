@@ -1,13 +1,24 @@
 import React, { useReducer, useEffect } from 'react';
+import styled from '@emotion/styled';
 import { pwnedPassword } from 'hibp';
-import styled from '../utils/styled';
+import { light, dark } from '../theme';
 
 const CleanExclamation = styled.span`
-  color: ${({ theme }) => theme.colors.cleanExclamation};
+  body.light-mode & {
+    color: ${light.colors.cleanExclamation};
+  }
+  body.dark-mode & {
+    color: ${dark.colors.cleanExclamation};
+  }
 `;
 
 const PwnedExclamation = styled.span`
-  color: ${({ theme }) => theme.colors.pwnedExclamation};
+  body.light-mode & {
+    color: ${light.colors.pwnedExclamation};
+  }
+  body.dark-mode & {
+    color: ${dark.colors.pwnedExclamation};
+  }
 `;
 
 enum ActionType {

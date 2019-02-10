@@ -37,7 +37,6 @@
     "@wkovacs64/normalize.css": "8.0.1",
     "axios": "0.18.0",
     "dotenv": "6.2.0",
-    "emotion-theming": "10.0.7",
     "gatsby": "2.0.118",
     "gatsby-plugin-emotion": "4.0.3",
     "gatsby-plugin-manifest": "2.0.17",
@@ -56,9 +55,9 @@
     "react-helmet": "6.0.0-beta",
     "react-icons": "3.3.0",
     "react-key-handler": "1.2.0-beta.3",
-    "react-use": "5.3.0",
     "typeface-nunito": "0.0.54",
-    "typeface-source-sans-pro": "0.0.54"
+    "typeface-source-sans-pro": "0.0.54",
+    "use-dark-mode": "2.2.2"
   },
   "devDependencies": {
     "@babel/core": "7.2.2",
