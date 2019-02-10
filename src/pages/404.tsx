@@ -1,9 +1,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { FaChevronLeft } from 'react-icons/fa';
-import styled from '../utils/styled';
+import styled from '@emotion/styled';
 import mq from '../utils/mq';
 import Layout from '../components/layout';
+import { light, dark } from '../theme';
 
 const Content = styled.article`
   display: flex;
@@ -15,13 +16,17 @@ const Content = styled.article`
 const Section = styled.section`
   border-left-style: solid;
   border-width: 0.5rem;
-  border-color: ${({ theme }) => theme.colors.headline};
   padding-left: 2rem;
   width: 48rem;
+  body.light-mode & {
+    border-color: ${light.colors.headline};
+  }
+  body.dark-mode & {
+    border-color: ${dark.colors.headline};
+  }
 `;
 
 const H2 = styled.h2`
-  color: ${({ theme }) => theme.colors.dullText};
   font-style: italic;
   margin-top: 0;
   margin-bottom: 4rem;
@@ -29,15 +34,26 @@ const H2 = styled.h2`
   ${mq.lg} {
     font-size: 3rem;
   }
+  body.light-mode & {
+    color: ${light.colors.dullText};
+  }
+  body.dark-mode & {
+    color: ${dark.colors.dullText};
+  }
 `;
 
 const P = styled.p`
-  color: ${({ theme }) => theme.colors.brandedText};
   margin: 4rem 0;
   font-weight: 300;
   font-size: 1.25rem;
   ${mq.lg} {
     font-size: 1.5rem;
+  }
+  body.light-mode & {
+    color: ${light.colors.brandedText};
+  }
+  body.dark-mode & {
+    color: ${dark.colors.brandedText};
   }
 `;
 
@@ -53,8 +69,13 @@ const Button = styled.button`
   text-decoration: none;
   cursor: pointer;
   border: none;
-  color: ${({ theme }) => theme.colors.headline};
   background-color: transparent;
+  body.light-mode & {
+    color: ${light.colors.headline};
+  }
+  body.dark-mode & {
+    color: ${dark.colors.headline};
+  }
 `;
 
 const ButtonIcon = styled(FaChevronLeft)`
@@ -74,11 +95,20 @@ const ButtonText = styled.span`
   }
   border-width: 0 0 1px;
   border-style: solid;
-  border-color: ${({ theme }) => theme.colors.headline};
   transition: box-shadow 0.3s ease;
-  button:hover &, /* inside a focused <button> */
-  button:focus & /* inside a hovered <button> */ {
-    box-shadow: inset 0 -2px 0 0 ${({ theme }) => theme.colors.headline};
+  body.light-mode & {
+    border-color: ${light.colors.headline};
+    button:hover &, /* inside a focused <button> */
+    button:focus & /* inside a hovered <button> */ {
+      box-shadow: inset 0 -2px 0 0 ${light.colors.headline};
+    }
+  }
+  body.dark-mode & {
+    border-color: ${dark.colors.headline};
+    button:hover &, /* inside a focused <button> */
+    button:focus & /* inside a hovered <button> */ {
+      box-shadow: inset 0 -2px 0 0 ${dark.colors.headline};
+    }
   }
 `;
 

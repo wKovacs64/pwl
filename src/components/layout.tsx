@@ -4,21 +4,26 @@ import 'typeface-source-sans-pro';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { css, Global, ClassNames } from '@emotion/core';
-import { ThemeProvider } from 'emotion-theming';
+import styled from '@emotion/styled';
 import { IconContext } from 'react-icons';
 import { StaticQuery, graphql } from 'gatsby';
 import useDarkMode from 'use-dark-mode';
-import styled from '../utils/styled';
 import { light, dark } from '../theme';
 import Header from './header';
 import Main from './main';
 import Footer from './footer';
 
 const FullHeightThemedContainer = styled.div`
-  color: ${({ theme }) => theme.colors.pageText};
-  background-color: ${({ theme }) => theme.colors.pageBackground};
   min-height: 100vh;
   padding-bottom: 2rem;
+  body.light-mode & {
+    color: ${light.colors.pageText};
+    background-color: ${light.colors.pageBackground};
+  }
+  body.dark-mode & {
+    color: ${dark.colors.pageText};
+    background-color: ${dark.colors.pageBackground};
+  }
 `;
 
 const Layout: React.FunctionComponent = ({ children }) => {
@@ -107,13 +112,11 @@ const Layout: React.FunctionComponent = ({ children }) => {
                   data-version={siteMetadata.buildInfo.version}
                 />
               </Helmet>
-              <ThemeProvider theme={darkMode.value ? dark : light}>
-                <FullHeightThemedContainer>
-                  <Header onThemeToggle={darkMode.toggle} />
-                  <Main>{children}</Main>
-                  <Footer />
-                </FullHeightThemedContainer>
-              </ThemeProvider>
+              <FullHeightThemedContainer>
+                <Header onThemeToggle={darkMode.toggle} />
+                <Main>{children}</Main>
+                <Footer />
+              </FullHeightThemedContainer>
             </IconContext.Provider>
           )}
         </ClassNames>

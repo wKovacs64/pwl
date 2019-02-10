@@ -1,8 +1,9 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { FiSun } from 'react-icons/fi';
-import styled from '../utils/styled';
+import styled from '@emotion/styled';
 import mq from '../utils/mq';
+import { light, dark } from '../theme';
 import AlertOnUpdate from './alert-on-update';
 
 const HeaderContent = styled.section`
@@ -20,10 +21,15 @@ const ThemeToggleButton = styled.button`
   top: 1rem;
   right: 1rem;
   cursor: pointer;
-  color: ${({ theme }) => theme.colors.pageText};
   background-color: transparent;
   border: none;
   padding: 0.5rem;
+  body.light-mode & {
+    color: ${light.colors.pageText};
+  }
+  body.dark-mode & {
+    color: ${dark.colors.pageText};
+  }
 `;
 
 const ThemeToggleButtonIcon = styled(FiSun)`
@@ -37,8 +43,6 @@ const H1 = styled.h1`
   font-family: 'Nunito', sans-serif;
   font-size: 2.25rem;
   font-variant: small-caps;
-  color: ${({ theme }) => theme.colors.headline};
-  text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.headlineShadow};
   margin: 0;
   ${mq.md} {
     font-size: 3rem;
@@ -46,6 +50,14 @@ const H1 = styled.h1`
   }
   ${mq.lg} {
     font-size: 5rem;
+  }
+  body.light-mode & {
+    color: ${light.colors.headline};
+    text-shadow: 1px 1px 1px ${light.colors.headlineShadow};
+  }
+  body.dark-mode & {
+    color: ${dark.colors.headline};
+    text-shadow: 1px 1px 1px ${dark.colors.headlineShadow};
   }
 `;
 

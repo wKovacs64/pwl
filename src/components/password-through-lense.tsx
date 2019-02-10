@@ -1,28 +1,17 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import styled from '../utils/styled';
+import styled from '@emotion/styled';
 import { ColorMap } from '../legend/colors';
 import { LabelMap } from '../legend/labels';
 import classifyCharacters, {
   ClassifiedCharacter,
 } from '../utils/classify-characters';
 import mq from '../utils/mq';
+import { light, dark } from '../theme';
 
 const Lense = styled.div`
-  background-color: ${({ theme }) => theme.colors.lenseBackground};
-  border: 2px solid ${({ theme }) => theme.colors.lenseBorder};
-  scrollbar-color: ${({ theme }) =>
-    `${theme.colors.lenseScrollThumb} ${theme.colors.lenseScrollTrack}}`};
-  /* TODO: remove -webkit-scrollbar once Chrome supports scrollbar-color */
-  &::-webkit-scrollbar {
-    width: 1rem;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.colors.lenseScrollThumb};
-  }
-  &::-webkit-scrollbar-track {
-    background-color: ${({ theme }) => theme.colors.lenseScrollTrack};
-  }
+  border-width: 2px;
+  border-style: solid;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
@@ -35,11 +24,48 @@ const Lense = styled.div`
   ${mq.lg} {
     font-size: 2.25rem;
   }
+  /* TODO: remove -webkit-scrollbar once Chrome supports scrollbar-color */
+  &::-webkit-scrollbar {
+    width: 1rem;
+  }
+  body.light-mode & {
+    background-color: ${light.colors.lenseBackground};
+    border-color: ${light.colors.lenseBorder};
+    scrollbar-color: ${`${light.colors.lenseScrollThumb} ${
+      light.colors.lenseScrollTrack
+    }}`};
+    &::-webkit-scrollbar-thumb {
+      background-color: ${light.colors.lenseScrollThumb};
+    }
+    &::-webkit-scrollbar-track {
+      background-color: ${light.colors.lenseScrollTrack};
+    }
+  }
+  body.dark-mode & {
+    background-color: ${dark.colors.lenseBackground};
+    border-color: ${dark.colors.lenseBorder};
+    scrollbar-color: ${`${dark.colors.lenseScrollThumb} ${
+      dark.colors.lenseScrollTrack
+    }}`};
+    &::-webkit-scrollbar-thumb {
+      background-color: ${dark.colors.lenseScrollThumb};
+    }
+    &::-webkit-scrollbar-track {
+      background-color: ${dark.colors.lenseScrollTrack};
+    }
+  }
 `;
 
 const Character = styled.span`
-  border-bottom: 1px dotted ${({ theme }) => theme.colors.lenseUnderline};
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
   white-space: pre;
+  body.light-mode & {
+    border-bottom-color: ${light.colors.lenseUnderline};
+  }
+  body.dark-mode & {
+    border-bottom-color: ${dark.colors.lenseUnderline};
+  }
 `;
 
 const PasswordThroughLense: React.FunctionComponent<
