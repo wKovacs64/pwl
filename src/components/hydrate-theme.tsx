@@ -1,8 +1,11 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import Terser from 'terser';
+import { light, dark } from '../theme';
 
 // https://raw.githubusercontent.com/donavon/use-dark-mode/develop/noflash.js.txt
-const hydrateThemeScript = `
+const hydrateThemeScript =
+  Terser.minify(`
   (function() {
     // Change these if you use something different in your hook.
     var storageKey = 'darkMode';
@@ -40,13 +43,17 @@ const hydrateThemeScript = `
       localStorage.setItem(storageKey, JSON.stringify(isDarkMode));
     }
   })();
-`;
+`).code || '';
 
-const minifiedHydrationCode = Terser.minify(hydrateThemeScript).code || '';
+const hydrateThemeCss = `
+  body.light-mode { background-color: ${light.colors.pageBackground}; }
+  body.dark-mode { background-color: ${dark.colors.pageBackground}; }
+`.replace(/\s+/g, '');
 
-const HydrateTheme: React.FunctionComponent = () => (
-  // eslint-disable-next-line react/no-danger
-  <script dangerouslySetInnerHTML={{ __html: minifiedHydrationCode }} />
+export const Style: React.FunctionComponent = () => (
+  <style dangerouslySetInnerHTML={{ __html: hydrateThemeCss }} />
 );
 
-export default HydrateTheme;
+export const Script: React.FunctionComponent = () => (
+  <script dangerouslySetInnerHTML={{ __html: hydrateThemeScript }} />
+);

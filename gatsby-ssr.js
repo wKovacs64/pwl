@@ -4,8 +4,18 @@
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 import React from 'react';
-import HydrateTheme from './src/components/hydrate-theme';
+import { Style, Script } from './src/components/hydrate-theme';
+
+export const onPreRenderHTML = ({
+  getHeadComponents,
+  replaceHeadComponents,
+}) => {
+  replaceHeadComponents([
+    ...getHeadComponents(),
+    <Style key="hydrate-theme-style" />,
+  ]);
+};
 
 export const onRenderBody = ({ setPreBodyComponents }) => {
-  setPreBodyComponents([<HydrateTheme key="hydrate-theme" />]);
+  setPreBodyComponents([<Script key="hydrate-theme-script" />]);
 };
