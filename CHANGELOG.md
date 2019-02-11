@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 1.5.5 _(2019-02-10)_
+
+- Fixed another "flash of unstyled content" issue when using the dark mode theme
+  ([f14a36f0][f14a36f0])
+
 ## Version 1.5.4 _(2019-02-10)_
 
 - Fixed a "flash of unstyled content" issue when using the dark mode theme
@@ -113,3 +118,5 @@
 [d7033193]:
   https://github.com/wKovacs64/pwl/commit/d70331936d0edb710f35a88b555fddaa8de20c7a
 [#39]: https://github.com/wKovacs64/pwl/pull/39
+[f14a36f0]:
+  https://github.com/wKovacs64/pwl/commit/f14a36f088c84d4eab71f75b2373077a2fcd4e92
