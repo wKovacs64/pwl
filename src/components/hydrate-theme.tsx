@@ -1,4 +1,5 @@
 import React from 'react';
+import Terser from 'terser';
 
 // https://raw.githubusercontent.com/donavon/use-dark-mode/develop/noflash.js.txt
 const hydrateThemeScript = `
@@ -41,9 +42,11 @@ const hydrateThemeScript = `
   })();
 `;
 
+const minifiedHydrationCode = Terser.minify(hydrateThemeScript).code || '';
+
 const HydrateTheme: React.FunctionComponent = () => (
   // eslint-disable-next-line react/no-danger
-  <script dangerouslySetInnerHTML={{ __html: hydrateThemeScript }} />
+  <script dangerouslySetInnerHTML={{ __html: minifiedHydrationCode }} />
 );
 
 export default HydrateTheme;
