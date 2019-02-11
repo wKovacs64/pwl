@@ -18,11 +18,9 @@ const FullHeightThemedContainer = styled.div`
   padding-bottom: 2rem;
   body.light-mode & {
     color: ${light.colors.pageText};
-    background-color: ${light.colors.pageBackground};
   }
   body.dark-mode & {
     color: ${dark.colors.pageText};
-    background-color: ${dark.colors.pageBackground};
   }
 `;
 
