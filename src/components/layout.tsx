@@ -8,20 +8,13 @@ import styled from '@emotion/styled';
 import { IconContext } from 'react-icons';
 import { StaticQuery, graphql } from 'gatsby';
 import useDarkMode from 'use-dark-mode';
-import { light, dark } from '../theme';
 import Header from './header';
 import Main from './main';
 import Footer from './footer';
 
-const FullHeightThemedContainer = styled.div`
+const FullHeightContainer = styled.div`
   min-height: 100vh;
   padding-bottom: 2rem;
-  body.light-mode & {
-    color: ${light.colors.pageText};
-  }
-  body.dark-mode & {
-    color: ${dark.colors.pageText};
-  }
 `;
 
 const Layout: React.FunctionComponent = ({ children }) => {
@@ -110,11 +103,11 @@ const Layout: React.FunctionComponent = ({ children }) => {
                   data-version={siteMetadata.buildInfo.version}
                 />
               </Helmet>
-              <FullHeightThemedContainer>
+              <FullHeightContainer>
                 <Header onThemeToggle={darkMode.toggle} />
                 <Main>{children}</Main>
                 <Footer />
-              </FullHeightThemedContainer>
+              </FullHeightContainer>
             </IconContext.Provider>
           )}
         </ClassNames>

@@ -46,8 +46,14 @@ const hydrateThemeScript =
 `).code || '';
 
 const hydrateThemeCss = `
-  body.light-mode { background-color: ${light.colors.pageBackground}; }
-  body.dark-mode { background-color: ${dark.colors.pageBackground}; }
+  body.light-mode {
+    color: ${light.colors.pageText};
+    background-color: ${light.colors.pageBackground};
+  }
+  body.dark-mode {
+    color: ${dark.colors.pageText};
+    background-color: ${dark.colors.pageBackground};
+  }
 `.replace(/\s+/g, '');
 
 export const Style: React.FunctionComponent = () => (
