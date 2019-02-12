@@ -5,7 +5,7 @@ import ms from 'ms';
 import styled from '@emotion/styled';
 import isMobile from '../utils/is-mobile';
 import { light, dark } from '../theme';
-import UpdatePoller from './update-poller';
+import useUpdatePoller from '../utils/use-update-poller';
 import UpdateAlert from './update-alert';
 
 const UpdateAlertContainer = styled.div`
@@ -82,30 +82,32 @@ const AlertOnUpdate: React.FunctionComponent = () => {
         }
       `}
     >
-      {({ site: { siteMetadata } }) => (
-        <UpdatePoller
-          hasUpdate={() => checkForUpdate(siteMetadata.buildInfo.commit)}
-          pollingIntervalMs={isMobile() ? ms('1 day') : ms('1 hour')}
-        >
-          {({ updateAvailable }: { updateAvailable: boolean }) =>
-            updateAvailable && !userHasDismissed ? (
-              <UpdateAlertContainer>
-                <UpdateAlert
-                  siteTitle={siteMetadata.title}
-                  onReload={() => {
-                    if (typeof window !== 'undefined') {
-                      window.location.reload(true);
-                    }
-                  }}
-                  onDismiss={() => {
-                    setUserHasDismissed(true);
-                  }}
-                />
-              </UpdateAlertContainer>
-            ) : null
-          }
-        </UpdatePoller>
-      )}
+      {({ site: { siteMetadata } }) => {
+        const [updateAvailable] = useUpdatePoller(
+          () => checkForUpdate(siteMetadata.buildInfo.commit),
+          isMobile() ? ms('1 day') : ms('1 hour'),
+        );
+
+        if (updateAvailable && !userHasDismissed) {
+          return (
+            <UpdateAlertContainer>
+              <UpdateAlert
+                siteTitle={siteMetadata.title}
+                onReload={() => {
+                  if (typeof window !== 'undefined') {
+                    window.location.reload(true);
+                  }
+                }}
+                onDismiss={() => {
+                  setUserHasDismissed(true);
+                }}
+              />
+            </UpdateAlertContainer>
+          );
+        }
+
+        return null;
+      }}
     </StaticQuery>
   );
 };
