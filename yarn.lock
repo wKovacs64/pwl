@@ -1303,6 +1303,11 @@
     lodash.unescape "4.0.1"
     semver "5.5.0"
 
+"@use-it/event-listener@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@use-it/event-listener/-/event-listener-0.1.2.tgz#709ae43c97bcb891ca072c9e653f26d39940f4d2"
+  integrity sha512-SWNrncwto6JKE7b+I+MI07bf1GYSKFOhVNAiu7/uVMRqfnjcMty7YtUnk7nS3+lD3m/5YpyIn0NalcV5ODWxEQ==
+
 "@webassemblyjs/ast@1.7.11":
   version "1.7.11"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.7.11.tgz#b988582cafbb2b095e8b556526f30c90d057cace"
@@ -11634,17 +11639,20 @@ url@0.11.0, url@^0.11.0, url@~0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
-use-dark-mode@2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/use-dark-mode/-/use-dark-mode-2.2.2.tgz#6d31c2a597ad1391097a76b8b89b6f3a755884e7"
-  integrity sha512-t/LAwBBxxtFIJd0VUax0inDYqC7OzgxXVn2qmdLPS2xqsarl8fuZyoAfZh4Dw9UagLDZffwD+7K12qBTgcIigA==
+use-dark-mode@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/use-dark-mode/-/use-dark-mode-2.3.0.tgz#82076d769b032bdb68854ee4c53cb7c7eccd2106"
+  integrity sha512-n+sNF8X8w4L+LvLok2hWYrhqMfFoC0dcHIFtnLtjb86a/uXKfBZyrDv63lhOn/+ClzaHoyvHglXjrei6JaH69w==
   dependencies:
-    use-persisted-state "^0.2.0"
+    "@use-it/event-listener" "^0.1.2"
+    use-persisted-state "^0.3.0"
 
-use-persisted-state@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/use-persisted-state/-/use-persisted-state-0.2.0.tgz#d232654827dcf9f74c48efe6806ae1bb76e418d8"
-  integrity sha512-vigqypMifZNpaWp8zl5i1+RP2su3Wlwr7G/dCMVRTBgJqvEMxffFZFjTAlLw7W5417Gw82WtBAonErTeYYDkRQ==
+use-persisted-state@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/use-persisted-state/-/use-persisted-state-0.3.0.tgz#f8e3d2fd8eee67e0c86fd596c3ea3e8121c07402"
+  integrity sha512-UlWEq0JYg7NbvcRBZ1g6Bwe4SEbYfr1wr/D5mrmfCzSxXSwsPRYygGLlsxHcW58Rf7gGwRPBT23sNVvyVn4WYg==
+  dependencies:
+    "@use-it/event-listener" "^0.1.2"
 
 use@^3.1.0:
   version "3.1.1"
