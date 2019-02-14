@@ -23,6 +23,12 @@ interface State {
   updateAvailable: boolean;
 }
 
+const clearIntervalSafely = (interval: Interval): void => {
+  if (typeof window !== 'undefined' && interval) {
+    window.clearInterval(interval);
+  }
+};
+
 const useUpdatePoller = (
   hasUpdate: () => Promise<boolean>,
   pollingIntervalMs: number,
@@ -37,6 +43,7 @@ const useUpdatePoller = (
   const reducer = (state: State, action: Action): State => {
     switch (action.type) {
       case ActionType.UPDATE_AVAILABLE:
+        clearIntervalSafely(intervalRef.current);
         return {
           error: '',
           updateAvailable: true,
@@ -56,16 +63,9 @@ const useUpdatePoller = (
     initialState,
   );
 
-  const clearIntervalSafely = (interval: Interval): void => {
-    if (typeof window !== 'undefined' && interval) {
-      window.clearInterval(interval);
-    }
-  };
-
   const checkForUpdates = async (): Promise<void> => {
     try {
       if (!updateAvailable && (await hasUpdate())) {
-        clearIntervalSafely(intervalRef.current);
         dispatch({ type: ActionType.UPDATE_AVAILABLE });
       }
     } catch (err) {
