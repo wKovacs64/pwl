@@ -68,6 +68,11 @@ const Layout: React.FunctionComponent = ({ children }) => {
             `}
           />
           <Helmet
+            htmlAttributes={{
+              lang: 'en',
+              'data-commit': siteMetadata.buildInfo.commit,
+              'data-version': siteMetadata.buildInfo.version,
+            }}
             title={siteMetadata.title}
             meta={[
               { name: 'description', content: siteMetadata.description },
@@ -94,13 +99,7 @@ const Layout: React.FunctionComponent = ({ children }) => {
               },
               { name: 'twitter:image:alt', content: siteMetadata.title },
             ]}
-          >
-            <html
-              lang="en"
-              data-commit={siteMetadata.buildInfo.commit}
-              data-version={siteMetadata.buildInfo.version}
-            />
-          </Helmet>
+          />
           <FullHeightContainer>
             <Header onThemeToggle={darkMode.toggle} />
             <Main>{children}</Main>
