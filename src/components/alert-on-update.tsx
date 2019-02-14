@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import axios from 'axios';
 import ms from 'ms';
 import styled from '@emotion/styled';
@@ -38,78 +38,72 @@ const UpdateAlertContainer = styled.div`
   }
 `;
 
-const AlertOnUpdate: React.FunctionComponent = () => {
-  const [userHasDismissed, setUserHasDismissed] = useState(false);
+const checkForUpdate = async (localCommit: string): Promise<boolean> => {
+  if (typeof window !== 'undefined') {
+    try {
+      const res = await axios.get('/index.html?no-cache=1', {
+        headers: { Pragma: 'no-cache' },
+      });
 
-  const checkForUpdate = async (localCommit: string): Promise<boolean> => {
-    if (typeof window !== 'undefined') {
-      try {
-        const res = await axios.get('/index.html?no-cache=1', {
-          headers: { Pragma: 'no-cache' },
-        });
-
-        if (res.data) {
-          const remoteDocument = new DOMParser().parseFromString(
-            res.data,
-            'text/html',
-          );
-          const remoteCommit = remoteDocument.documentElement.getAttribute(
-            'data-commit',
-          );
-          return Boolean(remoteCommit && remoteCommit !== localCommit);
-        }
-        return false;
-      } catch (err) {
-        // no-op: we don't really care if the update checks fail
-        return false;
+      if (res.data) {
+        const remoteDocument = new DOMParser().parseFromString(
+          res.data,
+          'text/html',
+        );
+        const remoteCommit = remoteDocument.documentElement.getAttribute(
+          'data-commit',
+        );
+        return Boolean(remoteCommit && remoteCommit !== localCommit);
       }
+      return false;
+    } catch (err) {
+      // no-op: we don't really care if the update checks fail
+      return false;
     }
-    return false;
-  };
+  }
+  return false;
+};
 
-  return (
-    <StaticQuery
-      query={graphql`
-        {
-          site {
-            siteMetadata {
-              title
-              buildInfo {
-                commit
-              }
-            }
+const AlertOnUpdate: React.FunctionComponent = () => {
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          title
+          buildInfo {
+            commit
           }
         }
-      `}
-    >
-      {({ site: { siteMetadata } }) => {
-        const [updateAvailable] = useUpdatePoller(
-          () => checkForUpdate(siteMetadata.buildInfo.commit),
-          isMobile() ? ms('1 day') : ms('1 hour'),
-        );
-
-        if (updateAvailable && !userHasDismissed) {
-          return (
-            <UpdateAlertContainer>
-              <UpdateAlert
-                siteTitle={siteMetadata.title}
-                onReload={() => {
-                  if (typeof window !== 'undefined') {
-                    window.location.reload(true);
-                  }
-                }}
-                onDismiss={() => {
-                  setUserHasDismissed(true);
-                }}
-              />
-            </UpdateAlertContainer>
-          );
-        }
-
-        return null;
-      }}
-    </StaticQuery>
+      }
+    }
+  `);
+  const [userHasDismissed, setUserHasDismissed] = useState(false);
+  const [updateAvailable] = useUpdatePoller(
+    () => checkForUpdate(siteMetadata.buildInfo.commit),
+    isMobile() ? ms('1 day') : ms('1 hour'),
   );
+
+  if (updateAvailable && !userHasDismissed) {
+    return (
+      <UpdateAlertContainer>
+        <UpdateAlert
+          siteTitle={siteMetadata.title}
+          onReload={() => {
+            if (typeof window !== 'undefined') {
+              window.location.reload(true);
+            }
+          }}
+          onDismiss={() => {
+            setUserHasDismissed(true);
+          }}
+        />
+      </UpdateAlertContainer>
+    );
+  }
+
+  return null;
 };
 
 export default AlertOnUpdate;
