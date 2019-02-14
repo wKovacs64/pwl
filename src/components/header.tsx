@@ -1,5 +1,5 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import { FiSun } from 'react-icons/fi';
 import styled from '@emotion/styled';
 import mq from '../utils/mq';
@@ -65,30 +65,30 @@ interface HeaderProps {
   onThemeToggle: () => void;
 }
 
-const Header: React.FunctionComponent<HeaderProps> = ({ onThemeToggle }) => (
-  <StaticQuery
-    query={graphql`
-      {
-        site {
-          siteMetadata {
-            title
-          }
+const Header: React.FunctionComponent<HeaderProps> = ({ onThemeToggle }) => {
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          title
         }
       }
-    `}
-  >
-    {({ site: { siteMetadata } }) => (
-      <header>
-        <AlertOnUpdate />
-        <HeaderContent>
-          <H1>{siteMetadata.title}</H1>
-          <ThemeToggleButton onClick={onThemeToggle}>
-            <ThemeToggleButtonIcon aria-label="Toggle Dark Theme" size={32} />
-          </ThemeToggleButton>
-        </HeaderContent>
-      </header>
-    )}
-  </StaticQuery>
-);
+    }
+  `);
+
+  return (
+    <header>
+      <AlertOnUpdate />
+      <HeaderContent>
+        <H1>{siteMetadata.title}</H1>
+        <ThemeToggleButton onClick={onThemeToggle}>
+          <ThemeToggleButtonIcon aria-label="Toggle Dark Theme" size={32} />
+        </ThemeToggleButton>
+      </HeaderContent>
+    </header>
+  );
+};
 
 export default Header;

@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { StaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import KeyHandler, { KEYDOWN } from 'react-key-handler';
 import debounce from 'lodash/debounce';
 import colors from '../legend/colors';
@@ -60,6 +60,17 @@ const InputAndResults = styled.section`
 `;
 
 const IndexPage: React.FunctionComponent = () => {
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          description
+        }
+      }
+    }
+  `);
   const [passwordInput, setPasswordInput] = useState('');
   const [passwordToCheck, setPasswordToCheck] = useState('');
   const setPasswordToCheckDebounced = useCallback(
@@ -86,63 +97,47 @@ const IndexPage: React.FunctionComponent = () => {
   };
 
   return (
-    <StaticQuery
-      query={graphql`
-        {
-          site {
-            siteMetadata {
-              description
-            }
-          }
-        }
-      `}
-    >
-      {({ site: { siteMetadata } }) => (
-        <Layout>
-          <Helmet
-            meta={[{ name: 'description', content: siteMetadata.description }]}
+    <Layout>
+      <Helmet
+        meta={[{ name: 'description', content: siteMetadata.description }]}
+      />
+      <KeyHandler
+        keyEventName={KEYDOWN}
+        keyValue="Escape"
+        onKeyHandle={handleEscape}
+      />
+      <noscript>
+        <style>{'.js { display: none !important; }'}</style>
+        <NoScriptMessage />
+      </noscript>
+      <Content className="js">
+        <P>
+          Is that an &apos;O&apos; or a &apos;0&apos;? An &apos;I&apos; or an
+          &apos;l&apos; - or maybe a &apos;1&apos;? Sometimes, it&apos;s hard to
+          tell. Paste your password in the box below for a{' '}
+          <Hint title="Your password never leaves your browser!">secure</Hint>,
+          color-coded revelation.
+        </P>
+        <InputAndResults>
+          <PasswordInput
+            password={passwordInput}
+            onChange={handlePasswordChange}
+            onKeyDown={handleInputKeyDown}
           />
-          <KeyHandler
-            keyEventName={KEYDOWN}
-            keyValue="Escape"
-            onKeyHandle={handleEscape}
-          />
-          <noscript>
-            <style>{'.js { display: none !important; }'}</style>
-            <NoScriptMessage />
-          </noscript>
-          <Content className="js">
-            <P>
-              Is that an &apos;O&apos; or a &apos;0&apos;? An &apos;I&apos; or
-              an &apos;l&apos; - or maybe a &apos;1&apos;? Sometimes, it&apos;s
-              hard to tell. Paste your password in the box below for a{' '}
-              <Hint title="Your password never leaves your browser!">
-                secure
-              </Hint>
-              , color-coded revelation.
-            </P>
-            <InputAndResults>
-              <PasswordInput
-                password={passwordInput}
-                onChange={handlePasswordChange}
-                onKeyDown={handleInputKeyDown}
-              />
-              {passwordInput && (
-                <Results
-                  colors={colors}
-                  labels={labels}
-                  passwordInput={passwordInput}
-                  passwordToCheck={passwordToCheck}
-                  css={css`
-                    margin-top: 2rem;
-                  `}
-                />
-              )}
-            </InputAndResults>
-          </Content>
-        </Layout>
-      )}
-    </StaticQuery>
+          {passwordInput && (
+            <Results
+              colors={colors}
+              labels={labels}
+              passwordInput={passwordInput}
+              passwordToCheck={passwordToCheck}
+              css={css`
+                margin-top: 2rem;
+              `}
+            />
+          )}
+        </InputAndResults>
+      </Content>
+    </Layout>
   );
 };
 
