@@ -11548,10 +11548,10 @@ url@0.11.0, url@^0.11.0, url@~0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
-use-dark-mode@2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/use-dark-mode/-/use-dark-mode-2.3.0.tgz#82076d769b032bdb68854ee4c53cb7c7eccd2106"
-  integrity sha512-n+sNF8X8w4L+LvLok2hWYrhqMfFoC0dcHIFtnLtjb86a/uXKfBZyrDv63lhOn/+ClzaHoyvHglXjrei6JaH69w==
+use-dark-mode@2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/use-dark-mode/-/use-dark-mode-2.3.1.tgz#d506349c7b7e09e9977cb8a6ab4470896aa3779a"
+  integrity sha512-hmcdJR96tTustRQdaQwe6jMrZHnmPqXBxgy4jaQ4gsfhwajsCpjECuq9prgDe9XxMx/f9r96o2/md6O4Lwhwjg==
   dependencies:
     "@use-it/event-listener" "^0.1.2"
     use-persisted-state "^0.3.0"
