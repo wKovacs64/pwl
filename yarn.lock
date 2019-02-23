@@ -1439,21 +1439,21 @@
     "@webassemblyjs/wast-parser" "1.7.11"
     "@xtuc/long" "4.2.1"
 
-"@wkovacs64/eslint-config-react@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-react/-/eslint-config-react-2.0.1.tgz#dc8fdb481733d770fae660e36bf1ce4b87c741b6"
-  integrity sha512-sl24y+WYD90w9qB9ELzew1Illu+Bt6TKuv/oUoELi3h2mu/KmUkJYQWxIj3nJ6rFfV3DP6/Qufigm//Y96G0Gg==
+"@wkovacs64/eslint-config-react@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-react/-/eslint-config-react-2.1.0.tgz#411a16d8053a8e59515d5b1dc83164ab86359b23"
+  integrity sha512-FFA9aJX8jDKwwm/kHHF5R4ETAesEavIYqtiIKHr1KXyMVJnRRAH+tEcSgof+j1AT5b8fVtVOk2yppFNKDr99Rg==
   dependencies:
     "@wkovacs64/eslint-config" "^4.0.0"
     eslint-config-airbnb "^17.1.0"
     eslint-config-prettier "^4.0.0"
 
-"@wkovacs64/eslint-config-ts-react@2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-ts-react/-/eslint-config-ts-react-2.0.1.tgz#d714673331d8bee0d92d08a16b89e35c9fd5909d"
-  integrity sha512-qJTvLYvhbswbT2tfJ9+yQHk4ZmEaDE36XnABr0Pw+41Fz/E57tfc/mGvGAduS0mnZMCzWOLe7F151JFRb5NgtQ==
+"@wkovacs64/eslint-config-ts-react@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-ts-react/-/eslint-config-ts-react-2.1.0.tgz#306f20ffdfc259695f92129cae40d66b79bffa34"
+  integrity sha512-M9h2vl3RDEw0SOwKry526UCD6QWW4sDvRVo4IYWDQk7EHuh/T/5yxUz7nMDLRYL3wh1vaq50MaTAXGfSvMMFtA==
   dependencies:
-    "@wkovacs64/eslint-config-react" "^2.0.1"
+    "@wkovacs64/eslint-config-react" "^2.1.0"
     "@wkovacs64/eslint-config-ts" "^2.0.0"
 
 "@wkovacs64/eslint-config-ts@^2.0.0":
