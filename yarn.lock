@@ -5440,10 +5440,10 @@ gatsby-plugin-page-creator@^2.0.8:
     parse-filepath "^1.0.1"
     slash "^1.0.0"
 
-gatsby-plugin-react-helmet@3.0.6:
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.0.6.tgz#552d04e4e3a99562bae950a8cdfab672987158fb"
-  integrity sha512-y8YRZ660HOsplv9LN/RVxXJquRukvgcoMhGba40NzeocIKcVjkHdk0lrpWKGdxReuLlFQEn4KrX7EbbKN1/ylg==
+gatsby-plugin-react-helmet@3.0.7:
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.0.7.tgz#e2fb41232c98ef7a7e7366edcde219c4bfa69392"
+  integrity sha512-GnLzt7umVtQ9OKWdfzwMIpFF77PIZ0m8ksLtuDtxnuqIUkJsj+uiCEVCzVrWIE+P6VhMVOSTTiTht9dnCobyiw==
   dependencies:
     "@babel/runtime" "^7.0.0"
 
@@ -5465,10 +5465,10 @@ gatsby-react-router-scroll@^2.0.4:
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
 
-gatsby@2.1.17:
-  version "2.1.17"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.1.17.tgz#c33692fca683b891703c912f27ca88902077c400"
-  integrity sha512-bipZkhXyDstYqTDJ8Sym1s6DIx2ffaz2IFM6cYcI2tTl4dQswkQSqzteulqN1ApAWSfAkEZoP5eFt8cCqvv1dw==
+gatsby@2.1.18:
+  version "2.1.18"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.1.18.tgz#ce047ae55f43a7bbe2aab01e1d617fd3e3cf5ba9"
+  integrity sha512-4PRaM9VEtAJ7MFwu6RuMdcWcewSL97NFp5CrIyNotZ/84HPDc7JXAxyldtQIb3Nme3u+1D2gWNiXvYdJkkWvWw==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.0.0"
@@ -5577,6 +5577,7 @@ gatsby@2.1.17:
     string-similarity "^1.2.0"
     style-loader "^0.21.0"
     terser-webpack-plugin "^1.2.2"
+    "true-case-path" "^1.0.3"
     type-of "^2.0.1"
     url-loader "^1.0.1"
     uuid "^3.1.0"
@@ -11293,6 +11294,13 @@ trim-right@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
   integrity sha1-yy4SAwZ+DI3h9hQJS5/kVwTqYAM=
+
+"true-case-path@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/true-case-path/-/true-case-path-1.0.3.tgz#f813b5a8c86b40da59606722b144e3225799f47d"
+  integrity sha512-m6s2OdQe5wgpFMC+pAJ+q9djG82O2jcHPOI6RNg1yy9rCYR+WD6Nbpl32fDpfC56nirdRy+opFa/Vk7HYhqaew==
+  dependencies:
+    glob "^7.1.2"
 
 tsconfig@^5.0.3:
   version "5.0.3"
