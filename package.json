@@ -56,7 +56,7 @@
     "react-icons": "3.4.0",
     "react-key-handler": "1.2.0-beta.3",
     "terser": "3.16.1",
-    "typeface-nunito": "0.0.54",
+    "typeface-nunito": "0.0.72",
     "typeface-source-sans-pro": "0.0.54",
     "use-dark-mode": "2.3.1"
   },

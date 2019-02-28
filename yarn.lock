@@ -11398,10 +11398,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typeface-nunito@0.0.54:
-  version "0.0.54"
-  resolved "https://registry.yarnpkg.com/typeface-nunito/-/typeface-nunito-0.0.54.tgz#5046f24d8d1492ca8fd823896d6e1cdefbe63203"
-  integrity sha512-hxC+o6vc0vkXPDNGRWZ26ghXPTzVC2gJbUGSJEmoMByb02yM94PiVOLoBa0ChC+HgNbAGbHeQh7k6ok+59gjZw==
+typeface-nunito@0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-nunito/-/typeface-nunito-0.0.72.tgz#152e7b8fc35452bacffc1313f322cbbd8034fc30"
+  integrity sha512-id43vYQiM9emQ6sbysLDRp8fb39Dk5yW/q6uSPHJnE1XVDSfrxYWFg/YiSoiaK+kO7wbuWb2HSjCAfH96Mabvg==
 
 typeface-source-sans-pro@0.0.54:
   version "0.0.54"
