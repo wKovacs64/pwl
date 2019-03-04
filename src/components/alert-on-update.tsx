@@ -81,7 +81,9 @@ const AlertOnUpdate: React.FunctionComponent = () => {
   `);
   const [userHasDismissed, setUserHasDismissed] = useState(false);
   const [updateAvailable] = useUpdatePoller(
-    () => checkForUpdate(siteMetadata.buildInfo.commit),
+    React.useCallback(() => checkForUpdate(siteMetadata.buildInfo.commit), [
+      siteMetadata.buildInfo.commit,
+    ]),
     isMobile() ? ms('1 day') : ms('1 hour'),
   );
 

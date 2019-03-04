@@ -1,4 +1,4 @@
-import { useReducer, useRef, useEffect } from 'react';
+import React, { useReducer, useRef, useEffect } from 'react';
 
 type Interval = number | null;
 
@@ -63,7 +63,7 @@ const useUpdatePoller = (
     initialState,
   );
 
-  const checkForUpdates = async (): Promise<void> => {
+  const checkForUpdates = React.useCallback(async (): Promise<void> => {
     try {
       if (!updateAvailable && (await hasUpdate())) {
         dispatch({ type: ActionType.UPDATE_AVAILABLE });
@@ -74,7 +74,7 @@ const useUpdatePoller = (
         payload: err.message,
       });
     }
-  };
+  }, [hasUpdate, updateAvailable]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -86,7 +86,7 @@ const useUpdatePoller = (
       return () => clearIntervalSafely(intervalRef.current);
     }
     return () => {};
-  }, []);
+  }, [checkForUpdates, pollingIntervalMs]);
 
   return [updateAvailable, error];
 };

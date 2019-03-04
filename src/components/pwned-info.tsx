@@ -92,7 +92,7 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
     initialState,
   );
 
-  const fetchPwnedInfo = async () => {
+  const fetchPwnedInfo = React.useCallback(async () => {
     dispatch({ type: ActionType.PWNED_REQUEST });
     try {
       dispatch({
@@ -102,11 +102,11 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
     } catch (err) {
       dispatch({ type: ActionType.PWNED_FAILURE });
     }
-  };
+  }, [password]);
 
   useEffect(() => {
     fetchPwnedInfo();
-  }, [dispatch, password]);
+  }, [fetchPwnedInfo]);
 
   return (
     <section data-testid="pwned-info" {...props}>
