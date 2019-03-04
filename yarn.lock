@@ -1089,10 +1089,12 @@
   resolved "https://registry.yarnpkg.com/@types/configstore/-/configstore-2.1.1.tgz#cd1e8553633ad3185c3f2f239ecff5d2643e92b6"
   integrity sha1-zR6FU2M60xhcPy8jns/10mQ+krY=
 
-"@types/cypress-axe@0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@types/cypress-axe/-/cypress-axe-0.3.0.tgz#5a0f6ff62fc5585194f8ed05dec9611b3d8a82df"
-  integrity sha512-6qA+JpAiGocPJEJ7JzlRX8ZDYFxmjwMg1PfEwGn9fjjQVjwjWySH3oDnF6yKLNgx2yZr79Mkm9uqQYaDQhJGqA==
+"@types/cypress-axe@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@types/cypress-axe/-/cypress-axe-0.4.0.tgz#670bc90f9f0000c97c6111ebdd55c6268456f28f"
+  integrity sha512-YIVaZxl/Dg2RElmcrm2UkSZKeFWeIRE13gDcg9V6cxkI5rVx5Ic365aBumixoIygXygL49kAUDyo4WH7/Wj/JQ==
+  dependencies:
+    axe-core "^3.1.2"
 
 "@types/debug@^0.0.29":
   version "0.0.29"
@@ -1937,6 +1939,11 @@ axe-core@3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-3.1.2.tgz#ca0aff897ebefca7552f97859dc1217c06c4f9e6"
   integrity sha512-e1WVs0SQu3tM29J9a/mISGvlo2kdCStE+yffIAJF6eb42FS+eUFEVz9j4rgDeV2TAfPJmuOZdRetWYycIbK7Vg==
+
+axe-core@^3.1.2:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-3.2.0.tgz#063827424279db54c35cfbd59b6f8079821bc627"
+  integrity sha512-g7MguJCPvWgEvdJHDnWG+xDbDqiiy7t+KvryGUc8y8Pv4ElLpCnpa6CWMvqRozpojRgXR/ubCIsoVljhDEk2lA==
 
 axios@0.18.0, axios@^0.18.0:
   version "0.18.0"
