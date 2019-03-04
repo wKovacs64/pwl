@@ -1294,7 +1294,7 @@
     lodash.unescape "4.0.1"
     semver "5.5.0"
 
-"@use-it/event-listener@^0.1.2":
+"@use-it/event-listener@0.1.2", "@use-it/event-listener@^0.1.2":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@use-it/event-listener/-/event-listener-0.1.2.tgz#709ae43c97bcb891ca072c9e653f26d39940f4d2"
   integrity sha512-SWNrncwto6JKE7b+I+MI07bf1GYSKFOhVNAiu7/uVMRqfnjcMty7YtUnk7nS3+lD3m/5YpyIn0NalcV5ODWxEQ==
@@ -4352,7 +4352,7 @@ eslint-plugin-emotion@10.0.7:
   resolved "https://registry.yarnpkg.com/eslint-plugin-emotion/-/eslint-plugin-emotion-10.0.7.tgz#e14d54a2f23c9701d66851a87a5eb35adb10c2a7"
   integrity sha512-4uasPp7SDt/iYnu+icSq1ZTjGSnk4ZTrHSGXCE790gUfGFZ+Br/VpUfklb5oHeSFVUoRjoTulaEbIrp2Mfo3vA==
 
-eslint-plugin-flowtype@^2.46.1, eslint-plugin-flowtype@^2.50.0:
+eslint-plugin-flowtype@^2.46.1:
   version "2.50.3"
   resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-2.50.3.tgz#61379d6dce1d010370acd6681740fd913d68175f"
   integrity sha512-X+AoKVOr7Re0ko/yEXyM5SSZ0tazc6ffdIOocp2fFUlWoDt7DV0Bz99mngOkAFLOAWjqRA5jPwqUCbrx13XoxQ==
@@ -4737,7 +4737,7 @@ executable@4.1.1:
   dependencies:
     pify "^2.2.0"
 
-exenv@^1.2.0, exenv@^1.2.1:
+exenv@^1.2.1:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
   integrity sha1-KueOhdmJQVhnCwPUe+wfA72Ru50=
@@ -9637,15 +9637,6 @@ react-is@^16.8.1:
   version "16.8.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.1.tgz#a80141e246eb894824fb4f2901c0c50ef31d4cdb"
   integrity sha512-ioMCzVDWvCvKD8eeT+iukyWrBGrA3DiFYkXfBsVYIRdaREZuBjENG+KjrikavCLasozqRWTwFUagU/O4vPpRMA==
-
-react-key-handler@1.2.0-beta.3:
-  version "1.2.0-beta.3"
-  resolved "https://registry.yarnpkg.com/react-key-handler/-/react-key-handler-1.2.0-beta.3.tgz#64d3457bded6974cc44c508c2be90c233ce3d20c"
-  integrity sha512-Isd5O3JKDbPNCERVThPyJ0tTUDkeuTrGHE4+7lNT+6isXlLykroOaGuJ8A22hq6SpbSUKaPmGhxGAFtkag7Bgg==
-  dependencies:
-    eslint-plugin-flowtype "^2.50.0"
-    exenv "^1.2.0"
-    prop-types "^15.6.2"
 
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"

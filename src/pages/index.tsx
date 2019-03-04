@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { useStaticQuery, graphql } from 'gatsby';
-import KeyHandler, { KEYDOWN } from 'react-key-handler';
+import useEventListener from '@use-it/event-listener';
 import debounce from 'lodash/debounce';
 import colors from '../legend/colors';
 import labels from '../legend/labels';
@@ -96,15 +96,16 @@ const IndexPage: React.FunctionComponent = () => {
     setPasswordToCheckDebounced(value);
   };
 
+  useEventListener('keydown', ({ key }: { key: string }) => {
+    if (key === 'Esc') {
+      handleEscape();
+    }
+  });
+
   return (
     <Layout>
       <Helmet
         meta={[{ name: 'description', content: siteMetadata.description }]}
-      />
-      <KeyHandler
-        keyEventName={KEYDOWN}
-        keyValue="Escape"
-        onKeyHandle={handleEscape}
       />
       <noscript>
         <style>{'.js { display: none !important; }'}</style>
