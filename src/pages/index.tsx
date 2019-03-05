@@ -96,7 +96,7 @@ const IndexPage: React.FunctionComponent = () => {
     setPasswordToCheckDebounced(value);
   };
 
-  useEventListener('keydown', ({ key }: { key: string }) => {
+  useEventListener<React.KeyboardEvent>('keydown', ({ key }) => {
     if (key === 'Esc') {
       handleEscape();
     }
