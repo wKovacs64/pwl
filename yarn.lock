@@ -6033,10 +6033,10 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
-hibp@7.5.0:
-  version "7.5.0"
-  resolved "https://registry.yarnpkg.com/hibp/-/hibp-7.5.0.tgz#7215142c897de54eb6db8b261b400d28d7e46cd8"
-  integrity sha512-THviAzVcu45GB7QJD371tm8MGmRtg2/14FWwvZIYgs/osGeTgdQ6gZ0sfpxZUiLz0x+LymNvVzu8w/ZwXh6ohQ==
+hibp@7.5.1:
+  version "7.5.1"
+  resolved "https://registry.yarnpkg.com/hibp/-/hibp-7.5.1.tgz#00cb24e92d6a4d32769d069a98a2559f2e583a2f"
+  integrity sha512-klECyqH3RpmZTbqP28hc1RLIBNlQC8cr1MLxZZolZroQAJaknS3GnbjAcXDg1dnBBSOMUkNqCAiK32pbdnL5iA==
   dependencies:
     axios "^0.18.0"
     jssha "^2.3.1"
