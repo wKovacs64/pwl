@@ -40,7 +40,7 @@
     "dotenv": "6.2.0",
     "gatsby": "2.1.23",
     "gatsby-plugin-emotion": "4.0.4",
-    "gatsby-plugin-manifest": "2.0.21",
+    "gatsby-plugin-manifest": "2.0.22",
     "gatsby-plugin-netlify": "2.0.11",
     "gatsby-plugin-offline": "2.0.24",
     "gatsby-plugin-react-helmet": "3.0.8",
