@@ -7,7 +7,7 @@ import PasswordThroughLense from './password-through-lense';
 import Legend from './legend';
 import PwnedInfo from './pwned-info';
 
-const AdditionalInfo = styled.aside`
+const AdditionalInfo = styled.section`
   display: flex;
   flex-wrap: wrap;
 `;
