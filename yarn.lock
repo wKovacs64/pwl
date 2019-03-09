@@ -5478,6 +5478,14 @@ gatsby-plugin-typescript@2.0.10:
     "@babel/runtime" "^7.0.0"
     babel-plugin-remove-graphql-queries "^2.6.1"
 
+gatsby-plugin-use-dark-mode@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-use-dark-mode/-/gatsby-plugin-use-dark-mode-1.0.0.tgz#6d0ba25c51f08f1eae33b292f13fb320a2109af9"
+  integrity sha512-gMaq0sRpyrhvJJA4g5B2t/td2mjLLkZ+fB1pbeAWzMx8uqd3rSOwCf85nFdydgIcC7R851t/huIaE6+/SJJq6w==
+  dependencies:
+    prop-types "^15.7.2"
+    terser "^3.16.1"
+
 gatsby-react-router-scroll@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/gatsby-react-router-scroll/-/gatsby-react-router-scroll-2.0.4.tgz#d13d8b2a6c076338f17e331c52075d78b059e9bc"
@@ -9375,7 +9383,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@15.7.2:
+prop-types@15.7.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
