@@ -28,6 +28,7 @@ module.exports = {
     },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
+    'gatsby-plugin-use-dark-mode',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
