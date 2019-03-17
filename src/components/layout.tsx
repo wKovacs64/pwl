@@ -29,7 +29,6 @@ const Layout: React.FunctionComponent = ({ children }) => {
           socialImageUrl
           buildInfo {
             commit
-            version
           }
         }
       }
@@ -71,7 +70,6 @@ const Layout: React.FunctionComponent = ({ children }) => {
             htmlAttributes={{
               lang: 'en',
               'data-commit': siteMetadata.buildInfo.commit,
-              'data-version': siteMetadata.buildInfo.version,
             }}
             title={siteMetadata.title}
             meta={[
