@@ -8,7 +8,6 @@ module.exports = {
     socialImageUrl: siteConfig.socialImageUrl,
     buildInfo: {
       commit: buildInfo.commit,
-      version: buildInfo.version,
     },
   },
   plugins: [
