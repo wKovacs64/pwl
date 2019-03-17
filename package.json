@@ -1,6 +1,6 @@
 {
   "name": "pwl",
-  "version": "1.5.6-dev.0",
+  "version": "0.0.0-semantically-released",
   "description": "Static web application to reveal character types in a password",
   "author": {
     "name": "Justin Hall",
@@ -18,10 +18,11 @@
     "build": "gatsby build",
     "check-types": "tsc",
     "clean": "gatsby clean",
+    "cm": "git-cz",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,ts,tsx,json,md,yml}\"",
+    "format": "prettier --write \"**/*.{js,ts,tsx,html,json,md,yml,yaml}\"",
     "lint": "eslint --ext \".js,.ts,.tsx\" .",
     "preserve": "yarn build",
     "serve": "gatsby serve --port 8000",
@@ -29,6 +30,11 @@
     "test:e2e": "start-server-and-test develop 8000 cy:open",
     "test:e2e:ci": "start-server-and-test develop 8000 cy:run",
     "validate": "npm-run-all --silent --parallel lint check-types build"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "private": true,
   "dependencies": {
@@ -63,6 +69,8 @@
   "devDependencies": {
     "@babel/core": "7.3.4",
     "@babel/parser": "7.3.4",
+    "@commitlint/cli": "7.5.2",
+    "@commitlint/config-conventional": "7.5.0",
     "@cypress/browserify-preprocessor": "2.0.0",
     "@types/color-string": "1.5.0",
     "@types/cypress-axe": "0.4.0",
@@ -78,9 +86,11 @@
     "axe-core": "3.2.2",
     "babel-eslint": "10.0.1",
     "color-string": "1.5.3",
+    "commitizen": "3.0.7",
     "cypress": "3.2.0",
     "cypress-axe": "0.4.0",
     "cypress-testing-library": "2.3.6",
+    "cz-conventional-changelog": "2.1.0",
     "eslint": "5.15.2",
     "eslint-plugin-cypress": "2.2.1",
     "eslint-plugin-emotion": "10.0.7",
@@ -94,6 +104,7 @@
     "lint-staged": "8.1.5",
     "npm-run-all": "4.1.5",
     "prettier": "1.16.4",
+    "semantic-release": "15.13.3",
     "start-server-and-test": "1.7.12",
     "tsify": "4.0.1",
     "typescript": "3.3.3333"
