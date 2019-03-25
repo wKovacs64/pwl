@@ -5,10 +5,23 @@ orbs:
 
 jobs:
   release:
-    executor: cypress/base-10
+    docker:
+      - image: circleci/node:lts
+    working_directory: ~/repo
     steps:
-      - attach_workspace:
-          at: ~/
+      - checkout
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache
       - run: yarn semantic-release
 
 workflows:
