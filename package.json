@@ -81,7 +81,7 @@
     "@types/react": "16.8.10",
     "@types/react-dom": "16.8.3",
     "@types/react-helmet": "5.0.8",
-    "@typescript-eslint/eslint-plugin": "1.5.0",
+    "@typescript-eslint/eslint-plugin": "1.6.0",
     "@wkovacs64/eslint-config-ts-react": "2.1.0",
     "axe-core": "3.2.2",
     "babel-eslint": "10.0.1",
