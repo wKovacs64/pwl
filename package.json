@@ -49,7 +49,7 @@
     "gatsby-plugin-manifest": "2.0.26",
     "gatsby-plugin-netlify": "2.0.13",
     "gatsby-plugin-offline": "2.0.25",
-    "gatsby-plugin-react-helmet": "3.0.11",
+    "gatsby-plugin-react-helmet": "3.0.12",
     "gatsby-plugin-use-dark-mode": "1.1.0",
     "git-current-commit": "1.1.0",
     "hibp": "7.5.1",
