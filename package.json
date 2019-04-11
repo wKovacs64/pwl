@@ -79,7 +79,7 @@
     "@types/ms": "0.7.30",
     "@types/node": "10.14.4",
     "@types/react": "16.8.13",
-    "@types/react-dom": "16.8.3",
+    "@types/react-dom": "16.8.4",
     "@types/react-helmet": "5.0.8",
     "@typescript-eslint/eslint-plugin": "1.6.0",
     "@wkovacs64/eslint-config-ts-react": "2.1.0",
