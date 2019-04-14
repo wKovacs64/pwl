@@ -1,6 +1,11 @@
-import React, { useReducer, useRef, useEffect } from 'react';
+import React from 'react';
 
 type Interval = number | null;
+
+interface UpdatePollerOptions {
+  // whether or not to poll immediately (in addition to the interval)
+  checkImmediately: boolean;
+}
 
 enum ActionType {
   UPDATE_AVAILABLE,
@@ -32,8 +37,9 @@ const clearIntervalSafely = (interval: Interval): void => {
 const useUpdatePoller = (
   hasUpdate: () => Promise<boolean>,
   pollingIntervalMs: number,
+  { checkImmediately }: UpdatePollerOptions = { checkImmediately: false },
 ): [boolean, string] => {
-  const intervalRef = useRef<Interval>(null);
+  const intervalRef = React.useRef<Interval>(null);
 
   const initialState: State = {
     error: '',
@@ -58,7 +64,7 @@ const useUpdatePoller = (
     }
   };
 
-  const [{ error, updateAvailable }, dispatch] = useReducer(
+  const [{ error, updateAvailable }, dispatch] = React.useReducer(
     reducer,
     initialState,
   );
@@ -76,9 +82,11 @@ const useUpdatePoller = (
     }
   }, [hasUpdate, updateAvailable]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (typeof window !== 'undefined') {
-      checkForUpdates();
+      if (checkImmediately) {
+        checkForUpdates();
+      }
       intervalRef.current = window.setInterval(
         checkForUpdates,
         pollingIntervalMs,
@@ -86,7 +94,7 @@ const useUpdatePoller = (
       return () => clearIntervalSafely(intervalRef.current);
     }
     return () => {};
-  }, [checkForUpdates, pollingIntervalMs]);
+  }, [checkForUpdates, pollingIntervalMs, checkImmediately]);
 
   return [updateAvailable, error];
 };
