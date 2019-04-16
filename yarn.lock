@@ -11573,10 +11573,10 @@ react-hot-loader@^4.6.2:
     shallowequal "^1.0.2"
     source-map "^0.7.3"
 
-react-icons@3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.5.0.tgz#a6135480e3bcbc63f5dd045193ef2a814263d8d1"
-  integrity sha512-LuKUcavgPWjPrRkIdNbsGw8LqcnhfNN0AGCtU4Td1UkOenJSIWbYppSJrD6zi/TDZOHtTs9opu6ZKB/NFWk21g==
+react-icons@3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.6.0.tgz#229ba896ea110c431c9f6dd811babdd31866390f"
+  integrity sha512-oburoiCTdEZm7SSph9qnvqneCRF9+hv7UqbsWASnZeIne4ztiGFPzOdM5py1hq0q84gk5M2cZjqgOs8Dvfrvgg==
 
 react-is@^16.8.1:
   version "16.8.1"
