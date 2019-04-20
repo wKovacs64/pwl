@@ -88,7 +88,7 @@
     "color-string": "1.5.3",
     "commitizen": "3.1.1",
     "cypress": "3.2.0",
-    "cypress-axe": "0.4.0",
+    "cypress-axe": "0.4.1",
     "cypress-testing-library": "2.4.0",
     "cz-conventional-changelog": "2.1.0",
     "eslint": "5.16.0",
