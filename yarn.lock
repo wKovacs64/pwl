@@ -6475,10 +6475,10 @@ gatsby-plugin-manifest@2.0.29:
     "@babel/runtime" "^7.0.0"
     sharp "^0.21.3"
 
-gatsby-plugin-netlify@2.0.14:
-  version "2.0.14"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.0.14.tgz#72a2cee8ef64462789cc380208c541b42e418f83"
-  integrity sha512-6nAR0pvqXo0xYs/bwHbJkHPGzy/tGGhMIkA/QVYSjB+/sd+A8QyEST2p63IDpMvOtLTNcOTskdzGNnFocBEzjQ==
+gatsby-plugin-netlify@2.0.15:
+  version "2.0.15"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.0.15.tgz#d84b9c18ebd7ed0f74e92675c35fc7a8f15142ee"
+  integrity sha512-/AnDRb7KcYb/MUbuffhsGKuHiZqMC+XQKnKpe8edfxVV2lqMgaPoCYRAKaKZDi9qVebLhXQ6cQwdddSwxXg3OQ==
   dependencies:
     "@babel/runtime" "^7.0.0"
     fs-extra "^4.0.2"
@@ -6519,10 +6519,10 @@ gatsby-plugin-react-helmet@3.0.12:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-plugin-typescript@2.0.12:
-  version "2.0.12"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.0.12.tgz#4e3f137b9b003d50dc87dedc15dff55ca74a6197"
-  integrity sha512-Ep84eukNwAM1zZTEhRuegAAENHtzFKc1He9L89eh/tgvcgfzoJRaA2CaI3Dwdgd6/xvd42KsJLD/vOt31y/IFQ==
+gatsby-plugin-typescript@2.0.13:
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.0.13.tgz#8e30d5a4e00078204dd1ebb779e1c260588dcdb7"
+  integrity sha512-qUIgWv3ouseo7peZgl5q7sTlAOcav+hQmouBWO1vC8n1YuNHnZTpijStEJa9Q56gNObY7Zm+Rv7KJIxmB5T/3Q==
   dependencies:
     "@babel/preset-typescript" "^7.0.0"
     "@babel/runtime" "^7.0.0"
@@ -6565,10 +6565,10 @@ gatsby-telemetry@^1.0.7:
     stack-utils "1.0.2"
     uuid "3.3.2"
 
-gatsby@2.3.25:
-  version "2.3.25"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.3.25.tgz#1b430090c322c8ac71bfc01be750ed87ed16ff8e"
-  integrity sha512-c14iiiGB84pYWwW4TTN8SVm7ffYaUtqEeN65pzMy345y6OJoQEUOkk7Cx2tpG4beRd6DwVfsgKAg4YQEnszcGg==
+gatsby@2.3.26:
+  version "2.3.26"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.3.26.tgz#002785f7edca2949e548959d086309e7570a5dc4"
+  integrity sha512-0GfeOxpVJ134QmM/rmlPbJ6YhB1M3BH+zxsH1pYu6UU11jgeANo8c+2U0WD8IcQBbNmKoDwmfUp+ZGBvOZboAg==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.0.0"
