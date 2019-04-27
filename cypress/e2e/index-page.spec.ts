@@ -88,7 +88,7 @@ describe('Index Page', () => {
 
       cy.getByTestId('password-through-lense').within(() => {
         classifiedCharacters.forEach(({ character, color, label }) => {
-          cy.getByText(character, { trim: false, collapseWhitespace: false })
+          cy.getAllByText(character, { trim: false, collapseWhitespace: false })
             .should('have.css', 'color', colorToRGB(color))
             .and('have.attr', 'title', label);
         });
