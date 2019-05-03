@@ -1,5 +1,9 @@
 {
-  "extends": ["config:base", ":semanticCommits"],
+  "extends": [
+    "config:base",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(chore)"
+  ],
   "commitMessageTopic": "{{depName}}",
   "automergeType": "branch",
   "automerge": true,
