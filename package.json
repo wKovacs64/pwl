@@ -78,7 +78,7 @@
     "@types/memoize-one": "4.1.1",
     "@types/ms": "0.7.30",
     "@types/node": "10.14.6",
-    "@types/react": "16.8.16",
+    "@types/react": "16.8.17",
     "@types/react-dom": "16.8.4",
     "@types/react-helmet": "5.0.8",
     "@typescript-eslint/eslint-plugin": "1.7.0",
@@ -110,7 +110,7 @@
     "typescript": "3.4.5"
   },
   "resolutions": {
-    "**/@types/react": "16.8.16",
+    "**/@types/react": "16.8.17",
     "sharp": "0.22.1"
   }
 }
