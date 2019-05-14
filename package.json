@@ -74,7 +74,7 @@
     "@cypress/browserify-preprocessor": "2.0.0",
     "@types/color-string": "1.5.0",
     "@types/cypress-axe": "0.4.0",
-    "@types/lodash": "4.14.126",
+    "@types/lodash": "4.14.127",
     "@types/memoize-one": "4.1.1",
     "@types/ms": "0.7.30",
     "@types/node": "10.14.6",
