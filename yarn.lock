@@ -1233,10 +1233,10 @@
   dependencies:
     find-up "^2.1.0"
 
-"@cypress/browserify-preprocessor@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@cypress/browserify-preprocessor/-/browserify-preprocessor-2.0.0.tgz#6ff9b9adef29186d986439d49be061b256bd3251"
-  integrity sha512-iyKaAaiR771lQZJqndoL6NjwyvPxSlX6z3KHUAsZdumSeXGDblQFpha2/CZeuWL+TMUgoWQHoP7pkq+l/DOyzg==
+"@cypress/browserify-preprocessor@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@cypress/browserify-preprocessor/-/browserify-preprocessor-2.1.0.tgz#2f483c282fc2102f31826f61781ebb286334ed41"
+  integrity sha512-1/8egckLZ8qDlxCp9zybuDyB5S63SI3B+iB6NQ6XA4L4mCoTFVsLENy1r3cVY9qN/0HaGIUA4HNPE0TESixnEg==
   dependencies:
     "@babel/core" "7.2.2"
     "@babel/plugin-proposal-class-properties" "7.3.0"
@@ -1253,6 +1253,7 @@
     coffeescript "1.12.7"
     debug "4.1.1"
     fs-extra "7.0.1"
+    lodash.clonedeep "4.5.0"
     watchify "3.11.0"
 
 "@cypress/listr-verbose-renderer@0.4.1":
@@ -8944,7 +8945,7 @@ lodash.capitalize@^4.2.1:
   resolved "https://registry.yarnpkg.com/lodash.capitalize/-/lodash.capitalize-4.2.1.tgz#f826c9b4e2a8511d84e3aca29db05e1a4f3b72a9"
   integrity sha1-+CbJtOKoUR2E46yinbBeGk87cqk=
 
-lodash.clonedeep@~4.5.0:
+lodash.clonedeep@4.5.0, lodash.clonedeep@~4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
   integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=

@@ -71,7 +71,7 @@
     "@babel/parser": "7.4.4",
     "@commitlint/cli": "7.6.1",
     "@commitlint/config-conventional": "7.6.0",
-    "@cypress/browserify-preprocessor": "2.0.0",
+    "@cypress/browserify-preprocessor": "2.1.0",
     "@types/color-string": "1.5.0",
     "@types/cypress-axe": "0.4.0",
     "@types/lodash": "4.14.129",
