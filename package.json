@@ -72,7 +72,7 @@
     "@commitlint/cli": "8.0.0",
     "@commitlint/config-conventional": "8.0.0",
     "@cypress/browserify-preprocessor": "2.1.0",
-    "@testing-library/cypress": "4.0.1",
+    "@testing-library/cypress": "4.0.2",
     "@types/color-string": "1.5.0",
     "@types/cypress-axe": "0.4.0",
     "@types/lodash": "4.14.133",
