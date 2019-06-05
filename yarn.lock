@@ -6763,10 +6763,10 @@ gatsby-plugin-typescript@2.0.15:
     "@babel/runtime" "^7.0.0"
     babel-plugin-remove-graphql-queries "^2.6.3"
 
-gatsby-plugin-use-dark-mode@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-use-dark-mode/-/gatsby-plugin-use-dark-mode-1.1.1.tgz#e0332d861ab5c2bc862a0486862cfd0d65af7d10"
-  integrity sha512-CgP884sDYtIOYnWj+7p1MTzhCyDGCiHlQO6+M4hQkmcf2sffJp5S637niy7DMQiZHqraYYC0cCE/IG9K+KiRUA==
+gatsby-plugin-use-dark-mode@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-use-dark-mode/-/gatsby-plugin-use-dark-mode-1.1.2.tgz#d012c5d493ca61404ef302fe2e485c61069632dc"
+  integrity sha512-qZEg4XmCgeq4M7ojxMUTFFj951QMGb95pWnxsSvb4nsTWTYSb0qeRE+hR/4rE5GIFnh/w9GrwuyMwStM7o7R6Q==
   dependencies:
     prop-types "^15.7.2"
     terser "^4.0.0"
