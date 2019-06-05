@@ -111,7 +111,6 @@
     "typescript": "3.5.1"
   },
   "resolutions": {
-    "**/@types/react": "16.8.19",
-    "sharp": "0.22.1"
+    "**/@types/react": "16.8.19"
   }
 }
