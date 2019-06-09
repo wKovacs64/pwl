@@ -4835,10 +4835,10 @@ cyclist@~0.2.2:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
-cypress-axe@0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/cypress-axe/-/cypress-axe-0.4.1.tgz#18ba5844d9d97693ef6ff6d2bb0fd2b32681a5ee"
-  integrity sha512-qgemqMDbT2fwrANormAuVLn/qzX1ytZ6zUHHLfzsd8NizK6YV0zLvo+oU4k850hj3+AiQ9LSbSitPIPLnvPmPg==
+cypress-axe@0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/cypress-axe/-/cypress-axe-0.5.1.tgz#bc45e042ed9ba8f556bceb2157e5015d082829d4"
+  integrity sha512-oj+diADUnnjmiT7635kQuaDx7MG4nMk64oWCuDEIbWpe7Q3v+FzBE3ou8pg346LagGyqDFv8r7GYt6JWve6+Vg==
 
 cypress-testing-library@4.0.0:
   version "4.0.0"
