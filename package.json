@@ -105,7 +105,7 @@
     "lint-staged": "8.2.1",
     "npm-run-all": "4.1.5",
     "prettier": "1.18.2",
-    "semantic-release": "15.13.17",
+    "semantic-release": "15.13.18",
     "start-server-and-test": "1.9.1",
     "tsify": "4.0.1",
     "typescript": "3.5.2"
