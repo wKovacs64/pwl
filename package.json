@@ -68,7 +68,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.5.0",
-    "@babel/parser": "7.4.5",
+    "@babel/parser": "7.5.0",
     "@commitlint/cli": "8.0.0",
     "@commitlint/config-conventional": "8.0.0",
     "@cypress/browserify-preprocessor": "2.1.1",
