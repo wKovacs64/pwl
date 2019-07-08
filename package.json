@@ -108,7 +108,7 @@
     "semantic-release": "15.13.18",
     "start-server-and-test": "1.9.1",
     "tsify": "4.0.1",
-    "typescript": "3.5.2"
+    "typescript": "3.5.3"
   },
   "resolutions": {
     "**/@types/react": "16.8.23"
