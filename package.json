@@ -53,7 +53,7 @@
     "gatsby-plugin-use-dark-mode": "1.1.2",
     "git-current-commit": "1.1.0",
     "hibp": "7.5.2",
-    "lodash": "4.17.11",
+    "lodash": "4.17.13",
     "memoize-one": "5.0.5",
     "mobile-detect": "1.4.3",
     "ms": "2.1.2",
