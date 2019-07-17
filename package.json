@@ -63,7 +63,7 @@
     "react-helmet": "6.0.0-beta",
     "react-icons": "3.7.0",
     "typeface-nunito": "0.0.72",
-    "typeface-source-sans-pro": "0.0.54",
+    "typeface-source-sans-pro": "0.0.75",
     "use-dark-mode": "2.3.1"
   },
   "devDependencies": {
