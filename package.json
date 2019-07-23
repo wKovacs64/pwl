@@ -80,7 +80,7 @@
     "@types/ms": "0.7.30",
     "@types/node": "10.14.13",
     "@types/react": "16.8.23",
-    "@types/react-dom": "16.8.4",
+    "@types/react-dom": "16.8.5",
     "@types/react-helmet": "5.0.8",
     "axe-core": "3.3.0",
     "color-string": "1.5.3",
