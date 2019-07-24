@@ -82,7 +82,7 @@
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.5",
     "@types/react-helmet": "5.0.8",
-    "axe-core": "3.3.0",
+    "axe-core": "3.3.1",
     "color-string": "1.5.3",
     "commitizen": "4.0.3",
     "cypress": "3.4.0",
