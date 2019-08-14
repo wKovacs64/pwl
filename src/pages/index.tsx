@@ -78,7 +78,7 @@ const IndexPage: React.FunctionComponent = () => {
     [],
   );
 
-  const handleEscape = () => {
+  const handleEscape = (): void => {
     setPasswordInput('');
     setPasswordToCheck('');
   };
