@@ -23,7 +23,7 @@ workflows:
       - cypress/run:
           yarn: true
           start: yarn develop
-          wait-on: '--timeout 20000 http://localhost:8000'
+          wait-on: '--timeout 40000 http://localhost:8000'
       - validate:
           requires:
             - cypress/run
