@@ -89,7 +89,7 @@
     "cypress-axe": "0.5.1",
     "cypress-testing-library": "4.0.0",
     "cz-conventional-changelog": "3.0.2",
-    "eslint": "6.2.1",
+    "eslint": "6.2.2",
     "eslint-plugin-cypress": "2.6.1",
     "eslint-plugin-emotion": "10.0.14",
     "eslint-plugin-wkovacs64": "2.0.2",
