@@ -17,9 +17,9 @@ describe('Index Page', () => {
   it('has no detectable a11y violations on load', () => {
     // wait for the content to ensure the app has been rendered
     cy.get('html[lang="en"]')
-      .getByLabelText('Password')
+      .findByLabelText('Password')
       .checkA11y();
-    cy.getByLabelText(/toggle dark/i)
+    cy.findByLabelText(/toggle dark/i)
       .click()
       .checkA11y();
   });
@@ -32,13 +32,13 @@ describe('Index Page', () => {
     });
 
     cy.fixture('exposed-password.txt').then(exposedPassword => {
-      cy.getByLabelText('Password')
+      cy.findByLabelText('Password')
         .click()
         .type(exposedPassword)
-        .getByTestId('results')
-        .getByText(/Uh-oh/i)
+        .findByTestId('results')
+        .findByText(/Uh-oh/i)
         .checkA11y();
-      cy.getByLabelText(/toggle dark/i)
+      cy.findByLabelText(/toggle dark/i)
         .click()
         .checkA11y();
     });
@@ -52,10 +52,10 @@ describe('Index Page', () => {
       status: 418,
     });
 
-    cy.getByLabelText('Password').should('be.empty');
+    cy.findByLabelText('Password').should('be.empty');
     cy.queryByTestId('results', { timeout: 500 }).should('not.exist');
 
-    cy.getByLabelText('Password')
+    cy.findByLabelText('Password')
       .click()
       .type('password');
 
@@ -63,7 +63,7 @@ describe('Index Page', () => {
   });
 
   it('includes link to source', () => {
-    cy.getByLabelText(/View source/);
+    cy.findByLabelText(/View source/);
   });
 
   describe('Password Through Lense', () => {
@@ -78,17 +78,20 @@ describe('Index Page', () => {
       const password = ' P4ssw0rd! ';
       const classifiedCharacters = classifyCharacters(password, colors, labels);
 
-      cy.getByLabelText('Password')
+      cy.findByLabelText('Password')
         .click()
         .type(password);
 
-      cy.getByTestId('password-through-lense')
+      cy.findByTestId('password-through-lense')
         .children()
         .should('have.length', password.length);
 
-      cy.getByTestId('password-through-lense').within(() => {
+      cy.findByTestId('password-through-lense').within(() => {
         classifiedCharacters.forEach(({ character, color, label }) => {
-          cy.getAllByText(character, { trim: false, collapseWhitespace: false })
+          cy.findAllByText(character, {
+            trim: false,
+            collapseWhitespace: false,
+          })
             .should('have.css', 'color', colorToRGB(color))
             .and('have.attr', 'title', label);
         });
@@ -105,53 +108,53 @@ describe('Index Page', () => {
         status: 418,
       });
 
-      cy.getByLabelText('Password')
+      cy.findByLabelText('Password')
         .click()
         .type('P4ssw0rd!');
     });
 
     it('exists in results section', () => {
-      cy.getByTestId('results').should('exist');
+      cy.findByTestId('results').should('exist');
     });
 
     it('is accurate', () => {
-      cy.getByTestId('results').within(() => {
-        cy.getByTestId('legend').within(() => {
+      cy.findByTestId('results').within(() => {
+        cy.findByTestId('legend').within(() => {
           // Number
-          cy.getByTestId(`legend-row--${labels.number}`).within(() => {
-            cy.getByTestId('color').should(
+          cy.findByTestId(`legend-row--${labels.number}`).within(() => {
+            cy.findByTestId('color').should(
               'have.css',
               'background-color',
               colorToRGB(colors.number),
             );
-            cy.getByText(labels.number).should('exist');
+            cy.findByText(labels.number).should('exist');
           });
           // Uppercase Letter
-          cy.getByTestId(`legend-row--${labels.uppercase}`).within(() => {
-            cy.getByTestId('color').should(
+          cy.findByTestId(`legend-row--${labels.uppercase}`).within(() => {
+            cy.findByTestId('color').should(
               'have.css',
               'background-color',
               colorToRGB(colors.uppercase),
             );
-            cy.getByText(labels.uppercase).should('exist');
+            cy.findByText(labels.uppercase).should('exist');
           });
           // Lowercase Letter
-          cy.getByTestId(`legend-row--${labels.lowercase}`).within(() => {
-            cy.getByTestId('color').should(
+          cy.findByTestId(`legend-row--${labels.lowercase}`).within(() => {
+            cy.findByTestId('color').should(
               'have.css',
               'background-color',
               colorToRGB(colors.lowercase),
             );
-            cy.getByText(labels.lowercase).should('exist');
+            cy.findByText(labels.lowercase).should('exist');
           });
           // Special
-          cy.getByTestId(`legend-row--${labels.special}`).within(() => {
-            cy.getByTestId('color').should(
+          cy.findByTestId(`legend-row--${labels.special}`).within(() => {
+            cy.findByTestId('color').should(
               'have.css',
               'background-color',
               colorToRGB(colors.special),
             );
-            cy.getByText(labels.special).should('exist');
+            cy.findByText(labels.special).should('exist');
           });
         });
       });
@@ -169,13 +172,13 @@ describe('Index Page', () => {
         status: 418,
       });
 
-      cy.getByLabelText('Password')
+      cy.findByLabelText('Password')
         .click()
         .type('P4ssw0rd!');
 
-      cy.getByTestId('results').within(() => {
-        cy.getByTestId('pwned-info').within(() => {
-          cy.getByText(/Loading/).should('exist');
+      cy.findByTestId('results').within(() => {
+        cy.findByTestId('pwned-info').within(() => {
+          cy.findByText(/Loading/).should('exist');
         });
       });
     });
@@ -188,12 +191,12 @@ describe('Index Page', () => {
           response: 'fixture:clean-password-response.txt',
         });
 
-        cy.getByLabelText('Password')
+        cy.findByLabelText('Password')
           .click()
           .type(cleanPassword);
 
-        cy.getByTestId('results').within(() => {
-          cy.getByText(/Congratulations/).should('exist');
+        cy.findByTestId('results').within(() => {
+          cy.findByText(/Congratulations/).should('exist');
         });
       });
     });
@@ -207,13 +210,13 @@ describe('Index Page', () => {
             response: 'fixture:exposed-password-response.txt',
           });
 
-          cy.getByLabelText('Password')
+          cy.findByLabelText('Password')
             .click()
             .type(exposedPassword);
 
-          cy.getByTestId('results').within(() => {
-            cy.getByText(/Uh-oh/).should('exist');
-            cy.getByText(exposedPasswordCount.trim()).should('exist');
+          cy.findByTestId('results').within(() => {
+            cy.findByText(/Uh-oh/).should('exist');
+            cy.findByText(exposedPasswordCount.trim()).should('exist');
           });
         });
       });
@@ -227,12 +230,12 @@ describe('Index Page', () => {
         status: 500,
       });
 
-      cy.getByLabelText('Password')
+      cy.findByLabelText('Password')
         .click()
         .type('P4ssw0rd!');
 
-      cy.getByTestId('results').within(() => {
-        cy.getByText(/unavailable/).should('exist');
+      cy.findByTestId('results').within(() => {
+        cy.findByText(/unavailable/).should('exist');
       });
     });
   });
