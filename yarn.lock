@@ -6828,10 +6828,10 @@ gatsby-plugin-manifest@2.2.20:
     semver "^5.7.1"
     sharp "^0.23.1"
 
-gatsby-plugin-netlify@2.1.17:
-  version "2.1.17"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.1.17.tgz#6e4baf7accf158da017e9526595823946b36fb6e"
-  integrity sha512-ioxf2njL+8690UInlejGH6jsrG/3Gt+2jZ4+wUFQBaKPJlzKZ7PmiMyzcI9a3ugKdt5GedDXnYHaUE8a+DdEiA==
+gatsby-plugin-netlify@2.1.18:
+  version "2.1.18"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.1.18.tgz#a9ce7c1cdba32badaa14b6b5090ecbf1c5266b62"
+  integrity sha512-5/Ltqj0bwC/W123Bxc1v1vEoc+W0vKzFkinK3MaTQIs4OtM4E+/+QpXHgy3i3r7EZs1cFiTyMOKC2QHHq+8fhQ==
   dependencies:
     "@babel/runtime" "^7.6.2"
     fs-extra "^8.1.0"
@@ -6921,10 +6921,10 @@ gatsby-telemetry@^1.1.29:
     stack-utils "1.0.2"
     uuid "3.3.3"
 
-gatsby@2.15.32:
-  version "2.15.32"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.15.32.tgz#85eb426d1db9720451bec92a4aef215466656c21"
-  integrity sha512-es8ulSkdrfJzsecKuBVW4ljRoZXXt8fC1PP2cMIPc2q/FVx+5Kp+sZ0fW5PZ8fbbdXmqty7YFQe4vYNiLoDUUQ==
+gatsby@2.15.33:
+  version "2.15.33"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.15.33.tgz#ff32aea93fadeb4734fdafc329e005fc8c2d3317"
+  integrity sha512-VPaEY6xZaKURTg2tFGxhRngfV84kCyCmgRwH1Hwyd4P7l7zl5BuADHyJxnJYvBWMYdF4/7QLbwbvzVnrwWCOKA==
   dependencies:
     "@babel/code-frame" "^7.5.5"
     "@babel/core" "^7.6.2"
