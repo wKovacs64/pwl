@@ -93,7 +93,7 @@
     "eslint": "6.6.0",
     "eslint-plugin-cypress": "2.7.0",
     "eslint-plugin-emotion": "10.0.14",
-    "eslint-plugin-wkovacs64": "2.0.3",
+    "eslint-plugin-wkovacs64": "2.1.1",
     "gatsby-plugin-typescript": "2.1.15",
     "husky": "3.0.9",
     "lint-staged": "9.4.2",
