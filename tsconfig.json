@@ -7,9 +7,7 @@
     "noEmit": true,
     "strict": true,
     "types": ["cypress", "@testing-library/cypress", "cypress-axe"],
-    "typeRoots": ["node_modules/@types", "./src/@types"],
-    // TODO: remove once Cypress types are sorted out
-    "skipLibCheck": true
+    "typeRoots": ["node_modules/@types", "./src/@types"]
   },
   "exclude": [".cache", "public"]
 }
