@@ -1,32 +1,105 @@
 import React from 'react';
+import { Machine, assign } from 'xstate';
+import { useMachine } from '@xstate/react';
 
-type Interval = number | null;
-
-interface UpdatePollerOptions {
-  // whether or not to poll immediately (in addition to the interval)
-  checkImmediately: boolean;
+interface UpdatePollerSchema {
+  states: {
+    idle: {};
+    checkingForUpdate: {};
+    success: {};
+    failure: {};
+    updateAvailable: {};
+  };
 }
 
-enum ActionType {
-  UPDATE_AVAILABLE,
-  UPDATE_FAILURE,
+interface UpdatePollerCheckEvent {
+  type: 'CHECK_FOR_UPDATE';
+  checkForUpdate: () => Promise<boolean>;
 }
 
-interface UpdateAvailable {
-  type: ActionType.UPDATE_AVAILABLE;
-}
-
-interface UpdateFailure {
-  type: ActionType.UPDATE_FAILURE;
-  payload: string;
-}
-
-type Action = UpdateAvailable | UpdateFailure;
-
-interface State {
+interface UpdatePollerContext {
   error: string;
   updateAvailable: boolean;
 }
+
+const initialContext: UpdatePollerContext = {
+  error: '',
+  updateAvailable: false,
+};
+
+const updatePollerMachine = Machine<
+  UpdatePollerContext,
+  UpdatePollerSchema,
+  UpdatePollerCheckEvent
+>(
+  {
+    id: 'Update Poller',
+    initial: 'idle',
+    context: initialContext,
+    states: {
+      idle: {
+        on: {
+          CHECK_FOR_UPDATE: 'checkingForUpdate',
+        },
+      },
+      checkingForUpdate: {
+        entry: 'resetContext',
+        invoke: {
+          src: (_, event) => event.checkForUpdate(),
+          onDone: {
+            target: 'success',
+            actions: 'setUpdateAvailable',
+          },
+          onError: {
+            target: 'failure',
+            actions: 'setErrorMessage',
+          },
+        },
+      },
+      success: {
+        on: {
+          '': [
+            {
+              cond: 'updateAvailable',
+              target: 'updateAvailable',
+            },
+            {
+              cond: 'updateNotAvailable',
+              target: 'idle',
+            },
+          ],
+        },
+      },
+      failure: {
+        on: {
+          CHECK_FOR_UPDATE: 'checkingForUpdate',
+        },
+      },
+      updateAvailable: {
+        type: 'final',
+      },
+    },
+  },
+  {
+    actions: {
+      resetContext: assign<UpdatePollerContext>(initialContext),
+      setUpdateAvailable: assign<UpdatePollerContext>({
+        ...initialContext,
+        updateAvailable: (_, event) => event.data,
+      }),
+      setErrorMessage: assign<UpdatePollerContext>({
+        ...initialContext,
+        error: (_, event) => event.data.message,
+      }),
+    },
+    guards: {
+      updateAvailable: context => context.updateAvailable,
+      updateNotAvailable: context => !context.updateAvailable,
+    },
+  },
+);
+
+type Interval = number | null;
 
 const clearIntervalSafely = (interval: Interval): void => {
   if (typeof window !== 'undefined' && interval) {
@@ -34,67 +107,37 @@ const clearIntervalSafely = (interval: Interval): void => {
   }
 };
 
+interface UpdatePollerOptions {
+  // whether or not to poll immediately (in addition to the interval)
+  checkImmediately: boolean;
+}
+
 const useUpdatePoller = (
   hasUpdate: () => Promise<boolean>,
   pollingIntervalMs: number,
   { checkImmediately }: UpdatePollerOptions = { checkImmediately: false },
 ): [boolean, string] => {
   const intervalRef = React.useRef<Interval>(null);
+  const [current, send] = useMachine(updatePollerMachine);
+  const { updateAvailable, error } = current.context;
 
-  const initialState: State = {
-    error: '',
-    updateAvailable: false,
-  };
-
-  const reducer = (state: State, action: Action): State => {
-    switch (action.type) {
-      case ActionType.UPDATE_AVAILABLE:
-        clearIntervalSafely(intervalRef.current);
-        return {
-          error: '',
-          updateAvailable: true,
-        };
-      case ActionType.UPDATE_FAILURE:
-        return {
-          error: action.payload,
-          updateAvailable: false,
-        };
-      default:
-        return state;
-    }
-  };
-
-  const [{ error, updateAvailable }, dispatch] = React.useReducer(
-    reducer,
-    initialState,
-  );
-
-  const checkForUpdates = React.useCallback(async (): Promise<void> => {
-    try {
-      if (!updateAvailable && (await hasUpdate())) {
-        dispatch({ type: ActionType.UPDATE_AVAILABLE });
-      }
-    } catch (err) {
-      dispatch({
-        type: ActionType.UPDATE_FAILURE,
-        payload: err.message,
-      });
-    }
-  }, [hasUpdate, updateAvailable]);
+  const checkForUpdate = React.useCallback(() => {
+    send({ type: 'CHECK_FOR_UPDATE', checkForUpdate: hasUpdate });
+  }, [hasUpdate, send]);
 
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
       if (checkImmediately) {
-        checkForUpdates();
+        checkForUpdate();
       }
       intervalRef.current = window.setInterval(
-        checkForUpdates,
+        checkForUpdate,
         pollingIntervalMs,
       );
       return () => clearIntervalSafely(intervalRef.current);
     }
     return () => {};
-  }, [checkForUpdates, pollingIntervalMs, checkImmediately]);
+  }, [checkForUpdate, pollingIntervalMs, checkImmediately]);
 
   return [updateAvailable, error];
 };
