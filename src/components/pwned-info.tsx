@@ -1,5 +1,7 @@
-import React, { useReducer, useEffect } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
+import { Machine, assign } from 'xstate';
+import { useMachine } from '@xstate/react';
 import { pwnedPassword } from 'hibp';
 import { light, dark } from '../theme';
 
@@ -21,38 +23,80 @@ const PwnedExclamation = styled.span`
   }
 `;
 
-enum ActionType {
-  PWNED_REQUEST,
-  PWNED_SUCCESS,
-  PWNED_FAILURE,
+interface PwnedInfoSchema {
+  states: {
+    idle: {};
+    loading: {};
+    success: {};
+    failure: {};
+  };
 }
 
-interface Request {
-  type: ActionType.PWNED_REQUEST;
+interface PwnedInfoRequestEvent {
+  type: 'REQUEST';
+  payload: string;
 }
 
-interface Success {
-  type: ActionType.PWNED_SUCCESS;
-  payload: number;
-}
-
-interface Failure {
-  type: ActionType.PWNED_FAILURE;
-}
-
-type Action = Request | Success | Failure;
-
-interface State {
-  loading: boolean;
+interface PwnedInfoContext {
   numPwns: number;
   error: boolean;
 }
 
-const initialState: State = {
-  loading: false,
+const initialContext: PwnedInfoContext = {
   numPwns: -1,
   error: false,
 };
+
+const pwnedInfoMachine = Machine<
+  PwnedInfoContext,
+  PwnedInfoSchema,
+  PwnedInfoRequestEvent
+>(
+  {
+    id: 'Check Password Exposure',
+    initial: 'idle',
+    context: initialContext,
+    states: {
+      idle: {
+        on: { REQUEST: 'loading' },
+      },
+      loading: {
+        entry: 'resetContext',
+        invoke: {
+          src: (_, event) => pwnedPassword(event.payload),
+          onDone: {
+            target: 'success',
+            actions: 'setNumPwns',
+          },
+          onError: {
+            target: 'failure',
+            actions: 'setError',
+          },
+        },
+        on: { REQUEST: 'loading' },
+      },
+      success: {
+        on: { REQUEST: 'loading' },
+      },
+      failure: {
+        on: { REQUEST: 'loading' },
+      },
+    },
+  },
+  {
+    actions: {
+      resetContext: assign<PwnedInfoContext>(initialContext),
+      setNumPwns: assign<PwnedInfoContext>({
+        ...initialContext,
+        numPwns: (_, event) => event.data,
+      }),
+      setError: assign<PwnedInfoContext>({
+        ...initialContext,
+        error: true,
+      }),
+    },
+  },
+);
 
 interface PwnedInfoProps {
   // delayLoadingMs: number;
@@ -63,50 +107,12 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
   /* delayLoadingMs, */ password,
   ...props
 }) => {
-  const reducer = (state: State, action: Action): State => {
-    switch (action.type) {
-      case ActionType.PWNED_REQUEST:
-        return {
-          ...initialState,
-          loading: true,
-        };
-      case ActionType.PWNED_SUCCESS:
-        return {
-          ...initialState,
-          loading: false,
-          numPwns: action.payload,
-        };
-      case ActionType.PWNED_FAILURE:
-        return {
-          ...initialState,
-          loading: false,
-          error: true,
-        };
-      default:
-        return state;
-    }
-  };
+  const [current, send] = useMachine(pwnedInfoMachine);
+  const { numPwns, error } = current.context;
 
-  const [{ loading, numPwns, error }, dispatch] = useReducer(
-    reducer,
-    initialState,
-  );
-
-  const fetchPwnedInfo = React.useCallback(async () => {
-    dispatch({ type: ActionType.PWNED_REQUEST });
-    try {
-      dispatch({
-        type: ActionType.PWNED_SUCCESS,
-        payload: await pwnedPassword(password),
-      });
-    } catch (err) {
-      dispatch({ type: ActionType.PWNED_FAILURE });
-    }
-  }, [password]);
-
-  useEffect(() => {
-    fetchPwnedInfo();
-  }, [fetchPwnedInfo]);
+  React.useEffect(() => {
+    send({ type: 'REQUEST', payload: password });
+  }, [send, password]);
 
   return (
     <section data-testid="pwned-info" {...props}>
@@ -115,7 +121,7 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
         <p>
           <em>Public exposure information is currently unavailable.</em>
         </p>
-      ) : loading ? (
+      ) : current.matches('loading') ? (
         <p>Loading...</p>
       ) : numPwns > 0 ? (
         <p>
