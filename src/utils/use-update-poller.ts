@@ -5,21 +5,17 @@ import { useMachine } from '@xstate/react';
 interface UpdatePollerSchema {
   states: {
     idle: {};
+    checkingForUpdate: {};
+    success: {};
+    failure: {};
     updateAvailable: {};
-    error: {};
   };
 }
 
-interface UpdateAvailableEvent {
-  type: 'UPDATE_AVAILABLE';
+interface UpdatePollerCheckEvent {
+  type: 'CHECK_FOR_UPDATE';
+  checkForUpdate: () => Promise<boolean>;
 }
-
-interface UpdateFailureEvent {
-  type: 'UPDATE_FAILURE';
-  payload: string;
-}
-
-type UpdatePollerEvent = UpdateAvailableEvent | UpdateFailureEvent;
 
 interface UpdatePollerContext {
   error: string;
@@ -34,7 +30,7 @@ const initialContext: UpdatePollerContext = {
 const updatePollerMachine = Machine<
   UpdatePollerContext,
   UpdatePollerSchema,
-  UpdatePollerEvent
+  UpdatePollerCheckEvent
 >(
   {
     id: 'Update Poller',
@@ -43,33 +39,60 @@ const updatePollerMachine = Machine<
     states: {
       idle: {
         on: {
-          UPDATE_AVAILABLE: 'updateAvailable',
-          UPDATE_FAILURE: 'error',
+          CHECK_FOR_UPDATE: 'checkingForUpdate',
+        },
+      },
+      checkingForUpdate: {
+        invoke: {
+          src: (_, event) => event.checkForUpdate(),
+          onDone: {
+            target: 'success',
+            actions: 'setUpdateAvailable',
+          },
+          onError: {
+            target: 'failure',
+            actions: 'setErrorMessage',
+          },
+        },
+      },
+      success: {
+        on: {
+          '': [
+            {
+              cond: 'updateAvailable',
+              target: 'updateAvailable',
+            },
+            {
+              cond: 'updateNotAvailable',
+              target: 'idle',
+            },
+          ],
+        },
+      },
+      failure: {
+        on: {
+          CHECK_FOR_UPDATE: 'checkingForUpdate',
         },
       },
       updateAvailable: {
-        entry: 'enableUpdateAvailable',
         type: 'final',
-      },
-      error: {
-        entry: 'setErrorMessage',
-        on: {
-          UPDATE_AVAILABLE: 'updateAvailable',
-          UPDATE_FAILURE: 'error',
-        },
       },
     },
   },
   {
     actions: {
-      enableUpdateAvailable: assign<UpdatePollerContext>({
+      setUpdateAvailable: assign<UpdatePollerContext>({
         ...initialContext,
-        updateAvailable: true,
+        updateAvailable: (_, event) => event.data,
       }),
       setErrorMessage: assign<UpdatePollerContext>({
         ...initialContext,
-        error: (_, event) => event.payload,
+        error: (_, event) => event.data.message,
       }),
+    },
+    guards: {
+      updateAvailable: context => context.updateAvailable,
+      updateNotAvailable: context => !context.updateAvailable,
     },
   },
 );
@@ -93,33 +116,26 @@ const useUpdatePoller = (
   { checkImmediately }: UpdatePollerOptions = { checkImmediately: false },
 ): [boolean, string] => {
   const intervalRef = React.useRef<Interval>(null);
-
   const [current, send] = useMachine(updatePollerMachine);
   const { updateAvailable, error } = current.context;
 
-  const checkForUpdates = React.useCallback(async (): Promise<void> => {
-    try {
-      if (!updateAvailable && (await hasUpdate())) {
-        send({ type: 'UPDATE_AVAILABLE' });
-      }
-    } catch (err) {
-      send({ type: 'UPDATE_FAILURE', payload: err.message });
-    }
-  }, [hasUpdate, updateAvailable, send]);
+  const checkForUpdate = React.useCallback(() => {
+    send({ type: 'CHECK_FOR_UPDATE', checkForUpdate: hasUpdate });
+  }, [hasUpdate, send]);
 
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
       if (checkImmediately) {
-        checkForUpdates();
+        checkForUpdate();
       }
       intervalRef.current = window.setInterval(
-        checkForUpdates,
+        checkForUpdate,
         pollingIntervalMs,
       );
       return () => clearIntervalSafely(intervalRef.current);
     }
     return () => {};
-  }, [checkForUpdates, pollingIntervalMs, checkImmediately]);
+  }, [checkForUpdate, pollingIntervalMs, checkImmediately]);
 
   return [updateAvailable, error];
 };
