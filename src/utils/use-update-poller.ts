@@ -43,6 +43,7 @@ const updatePollerMachine = Machine<
         },
       },
       checkingForUpdate: {
+        entry: 'resetContext',
         invoke: {
           src: (_, event) => event.checkForUpdate(),
           onDone: {
@@ -81,6 +82,7 @@ const updatePollerMachine = Machine<
   },
   {
     actions: {
+      resetContext: assign<UpdatePollerContext>(initialContext),
       setUpdateAvailable: assign<UpdatePollerContext>({
         ...initialContext,
         updateAvailable: (_, event) => event.data,
