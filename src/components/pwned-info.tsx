@@ -93,13 +93,12 @@ const pwnedInfoMachine = Machine<
   },
   {
     actions: {
-      resetContext: assign<PwnedInfoContext, PwnedInfoEvent>(initialContext),
-      setNumPwns: assign<PwnedInfoContext, PwnedInfoEvent>({
+      resetContext: assign<PwnedInfoContext>(initialContext),
+      setNumPwns: assign<PwnedInfoContext, PwnedInfoPwnedPasswordSuccessEvent>({
         ...initialContext,
-        numPwns: (_, event) =>
-          (event as PwnedInfoPwnedPasswordSuccessEvent).data,
+        numPwns: (_, event) => event.data,
       }),
-      setError: assign<PwnedInfoContext, PwnedInfoEvent>({
+      setError: assign<PwnedInfoContext, PwnedInfoPwnedPasswordFailureEvent>({
         ...initialContext,
         error: true,
       }),

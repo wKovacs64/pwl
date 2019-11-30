@@ -89,18 +89,20 @@ const updatePollerMachine = Machine<
   },
   {
     actions: {
-      resetContext: assign<UpdatePollerContext, UpdatePollerEvent>(
-        initialContext,
-      ),
-      setUpdateAvailable: assign<UpdatePollerContext, UpdatePollerEvent>({
+      resetContext: assign<UpdatePollerContext>(initialContext),
+      setUpdateAvailable: assign<
+        UpdatePollerContext,
+        UpdatePollerCheckSuccessEvent
+      >({
         ...initialContext,
-        updateAvailable: (_, event) =>
-          (event as UpdatePollerCheckSuccessEvent).data,
+        updateAvailable: (_, event) => event.data,
       }),
-      setErrorMessage: assign<UpdatePollerContext, UpdatePollerEvent>({
+      setErrorMessage: assign<
+        UpdatePollerContext,
+        UpdatePollerCheckFailureEvent
+      >({
         ...initialContext,
-        error: (_, event) =>
-          (event as UpdatePollerCheckFailureEvent).data.message,
+        error: (_, event) => event.data.message,
       }),
     },
     guards: {
