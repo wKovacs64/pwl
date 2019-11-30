@@ -1,5 +1,5 @@
 import React from 'react';
-import { Machine, assign } from 'xstate';
+import { Machine, assign, DoneInvokeEvent } from 'xstate';
 import { useMachine } from '@xstate/react';
 
 interface UpdatePollerSchema {
@@ -17,6 +17,13 @@ interface UpdatePollerCheckEvent {
   checkForUpdate: () => Promise<boolean>;
 }
 
+type UpdatePollerCheckSuccessEvent = DoneInvokeEvent<boolean>;
+type UpdatePollerCheckFailureEvent = DoneInvokeEvent<Error>;
+type UpdatePollerEvent =
+  | UpdatePollerCheckEvent
+  | UpdatePollerCheckSuccessEvent
+  | UpdatePollerCheckFailureEvent;
+
 interface UpdatePollerContext {
   error: string;
   updateAvailable: boolean;
@@ -30,7 +37,7 @@ const initialContext: UpdatePollerContext = {
 const updatePollerMachine = Machine<
   UpdatePollerContext,
   UpdatePollerSchema,
-  UpdatePollerCheckEvent
+  UpdatePollerEvent
 >(
   {
     id: 'Update Poller',
@@ -45,7 +52,7 @@ const updatePollerMachine = Machine<
       checkingForUpdate: {
         entry: 'resetContext',
         invoke: {
-          src: (_, event) => event.checkForUpdate(),
+          src: (_, event) => (event as UpdatePollerCheckEvent).checkForUpdate(),
           onDone: {
             target: 'success',
             actions: 'setUpdateAvailable',
@@ -82,14 +89,18 @@ const updatePollerMachine = Machine<
   },
   {
     actions: {
-      resetContext: assign<UpdatePollerContext>(initialContext),
-      setUpdateAvailable: assign<UpdatePollerContext>({
+      resetContext: assign<UpdatePollerContext, UpdatePollerEvent>(
+        initialContext,
+      ),
+      setUpdateAvailable: assign<UpdatePollerContext, UpdatePollerEvent>({
         ...initialContext,
-        updateAvailable: (_, event) => event.data,
+        updateAvailable: (_, event) =>
+          (event as UpdatePollerCheckSuccessEvent).data,
       }),
-      setErrorMessage: assign<UpdatePollerContext>({
+      setErrorMessage: assign<UpdatePollerContext, UpdatePollerEvent>({
         ...initialContext,
-        error: (_, event) => event.data.message,
+        error: (_, event) =>
+          (event as UpdatePollerCheckFailureEvent).data.message,
       }),
     },
     guards: {

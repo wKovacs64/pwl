@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Machine, assign } from 'xstate';
+import { Machine, assign, DoneInvokeEvent } from 'xstate';
 import { useMachine } from '@xstate/react';
 import { pwnedPassword } from 'hibp';
 import { light, dark } from '../theme';
@@ -37,6 +37,13 @@ interface PwnedInfoRequestEvent {
   payload: string;
 }
 
+type PwnedInfoPwnedPasswordSuccessEvent = DoneInvokeEvent<number>;
+type PwnedInfoPwnedPasswordFailureEvent = DoneInvokeEvent<Error>;
+type PwnedInfoEvent =
+  | PwnedInfoRequestEvent
+  | PwnedInfoPwnedPasswordSuccessEvent
+  | PwnedInfoPwnedPasswordFailureEvent;
+
 interface PwnedInfoContext {
   numPwns: number;
   error: boolean;
@@ -50,7 +57,7 @@ const initialContext: PwnedInfoContext = {
 const pwnedInfoMachine = Machine<
   PwnedInfoContext,
   PwnedInfoSchema,
-  PwnedInfoRequestEvent
+  PwnedInfoEvent
 >(
   {
     id: 'Check Password Exposure',
@@ -63,7 +70,8 @@ const pwnedInfoMachine = Machine<
       loading: {
         entry: 'resetContext',
         invoke: {
-          src: (_, event) => pwnedPassword(event.payload),
+          src: (_, event) =>
+            pwnedPassword((event as PwnedInfoRequestEvent).payload),
           onDone: {
             target: 'success',
             actions: 'setNumPwns',
@@ -85,12 +93,13 @@ const pwnedInfoMachine = Machine<
   },
   {
     actions: {
-      resetContext: assign<PwnedInfoContext>(initialContext),
-      setNumPwns: assign<PwnedInfoContext>({
+      resetContext: assign<PwnedInfoContext, PwnedInfoEvent>(initialContext),
+      setNumPwns: assign<PwnedInfoContext, PwnedInfoEvent>({
         ...initialContext,
-        numPwns: (_, event) => event.data,
+        numPwns: (_, event) =>
+          (event as PwnedInfoPwnedPasswordSuccessEvent).data,
       }),
-      setError: assign<PwnedInfoContext>({
+      setError: assign<PwnedInfoContext, PwnedInfoEvent>({
         ...initialContext,
         error: true,
       }),
