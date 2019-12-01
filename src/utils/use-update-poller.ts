@@ -50,6 +50,7 @@ const updatePollerMachine = Machine<
         },
       },
       checkingForUpdate: {
+        id: 'checkForUpdate',
         entry: 'resetContext',
         invoke: {
           src: (_, event) => (event as UpdatePollerCheckEvent).checkForUpdate(),
@@ -131,7 +132,9 @@ const useUpdatePoller = (
   { checkImmediately }: UpdatePollerOptions = { checkImmediately: false },
 ): [boolean, string] => {
   const intervalRef = React.useRef<Interval>(null);
-  const [current, send] = useMachine(updatePollerMachine);
+  const [current, send] = useMachine<UpdatePollerContext, UpdatePollerEvent>(
+    updatePollerMachine,
+  );
   const { updateAvailable, error } = current.context;
 
   const checkForUpdate = React.useCallback(() => {

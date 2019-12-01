@@ -70,6 +70,7 @@ const pwnedInfoMachine = Machine<
       loading: {
         entry: 'resetContext',
         invoke: {
+          id: 'pwnedPassword',
           src: (_, event) =>
             pwnedPassword((event as PwnedInfoRequestEvent).payload),
           onDone: {
@@ -115,7 +116,9 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
   /* delayLoadingMs, */ password,
   ...props
 }) => {
-  const [current, send] = useMachine(pwnedInfoMachine);
+  const [current, send] = useMachine<PwnedInfoContext, PwnedInfoEvent>(
+    pwnedInfoMachine,
+  );
   const { numPwns, error } = current.context;
 
   React.useEffect(() => {
