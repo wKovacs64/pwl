@@ -1,5 +1,5 @@
 import React from 'react';
-import { Machine, assign } from 'xstate';
+import { Machine, assign, DoneInvokeEvent } from 'xstate';
 import { useMachine } from '@xstate/react';
 
 interface UpdatePollerSchema {
@@ -17,6 +17,11 @@ interface UpdatePollerCheckEvent {
   checkForUpdate: () => Promise<boolean>;
 }
 
+type UpdatePollerCheckSuccessEvent = DoneInvokeEvent<boolean>;
+type UpdatePollerCheckFailureEvent = DoneInvokeEvent<Error>;
+// incoming event types only (internal events will be added internally)
+type UpdatePollerEvent = UpdatePollerCheckEvent;
+
 interface UpdatePollerContext {
   error: string;
   updateAvailable: boolean;
@@ -30,7 +35,7 @@ const initialContext: UpdatePollerContext = {
 const updatePollerMachine = Machine<
   UpdatePollerContext,
   UpdatePollerSchema,
-  UpdatePollerCheckEvent
+  UpdatePollerEvent
 >(
   {
     id: 'Update Poller',
@@ -43,16 +48,27 @@ const updatePollerMachine = Machine<
         },
       },
       checkingForUpdate: {
-        entry: 'resetContext',
+        id: 'checkForUpdate',
+        entry: assign<UpdatePollerContext>(initialContext),
         invoke: {
-          src: (_, event) => event.checkForUpdate(),
+          src: (_, event) => (event as UpdatePollerCheckEvent).checkForUpdate(),
           onDone: {
             target: 'success',
-            actions: 'setUpdateAvailable',
+            actions: assign<UpdatePollerContext, UpdatePollerCheckSuccessEvent>(
+              {
+                ...initialContext,
+                updateAvailable: (_, event) => event.data,
+              },
+            ),
           },
           onError: {
             target: 'failure',
-            actions: 'setErrorMessage',
+            actions: assign<UpdatePollerContext, UpdatePollerCheckFailureEvent>(
+              {
+                ...initialContext,
+                error: (_, event) => event.data.message,
+              },
+            ),
           },
         },
       },
@@ -81,17 +97,6 @@ const updatePollerMachine = Machine<
     },
   },
   {
-    actions: {
-      resetContext: assign<UpdatePollerContext>(initialContext),
-      setUpdateAvailable: assign<UpdatePollerContext>({
-        ...initialContext,
-        updateAvailable: (_, event) => event.data,
-      }),
-      setErrorMessage: assign<UpdatePollerContext>({
-        ...initialContext,
-        error: (_, event) => event.data.message,
-      }),
-    },
     guards: {
       updateAvailable: context => context.updateAvailable,
       updateNotAvailable: context => !context.updateAvailable,
