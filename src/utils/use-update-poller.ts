@@ -19,9 +19,8 @@ interface UpdatePollerCheckEvent {
 
 type UpdatePollerCheckSuccessEvent = DoneInvokeEvent<boolean>;
 type UpdatePollerCheckFailureEvent = DoneInvokeEvent<Error>;
+// incoming event types only (internal events will be added internally)
 type UpdatePollerEvent = UpdatePollerCheckEvent;
-// | UpdatePollerCheckSuccessEvent
-// | UpdatePollerCheckFailureEvent;
 
 interface UpdatePollerContext {
   error: string;

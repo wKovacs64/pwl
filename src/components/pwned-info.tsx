@@ -39,9 +39,8 @@ interface PwnedInfoRequestEvent {
 
 type PwnedInfoPwnedPasswordSuccessEvent = DoneInvokeEvent<number>;
 type PwnedInfoPwnedPasswordFailureEvent = DoneInvokeEvent<Error>;
+// incoming event types only (internal events will be added internally)
 type PwnedInfoEvent = PwnedInfoRequestEvent;
-// | PwnedInfoPwnedPasswordSuccessEvent
-// | PwnedInfoPwnedPasswordFailureEvent;
 
 interface PwnedInfoContext {
   numPwns: number;
