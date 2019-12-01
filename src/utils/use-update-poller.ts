@@ -19,10 +19,9 @@ interface UpdatePollerCheckEvent {
 
 type UpdatePollerCheckSuccessEvent = DoneInvokeEvent<boolean>;
 type UpdatePollerCheckFailureEvent = DoneInvokeEvent<Error>;
-type UpdatePollerEvent =
-  | UpdatePollerCheckEvent
-  | UpdatePollerCheckSuccessEvent
-  | UpdatePollerCheckFailureEvent;
+type UpdatePollerEvent = UpdatePollerCheckEvent;
+// | UpdatePollerCheckSuccessEvent
+// | UpdatePollerCheckFailureEvent;
 
 interface UpdatePollerContext {
   error: string;
@@ -51,16 +50,26 @@ const updatePollerMachine = Machine<
       },
       checkingForUpdate: {
         id: 'checkForUpdate',
-        entry: 'resetContext',
+        entry: assign<UpdatePollerContext>(initialContext),
         invoke: {
           src: (_, event) => (event as UpdatePollerCheckEvent).checkForUpdate(),
           onDone: {
             target: 'success',
-            actions: 'setUpdateAvailable',
+            actions: assign<UpdatePollerContext, UpdatePollerCheckSuccessEvent>(
+              {
+                ...initialContext,
+                updateAvailable: (_, event) => event.data,
+              },
+            ),
           },
           onError: {
             target: 'failure',
-            actions: 'setErrorMessage',
+            actions: assign<UpdatePollerContext, UpdatePollerCheckFailureEvent>(
+              {
+                ...initialContext,
+                error: (_, event) => event.data.message,
+              },
+            ),
           },
         },
       },
@@ -89,23 +98,6 @@ const updatePollerMachine = Machine<
     },
   },
   {
-    actions: {
-      resetContext: assign<UpdatePollerContext>(initialContext),
-      setUpdateAvailable: assign<
-        UpdatePollerContext,
-        UpdatePollerCheckSuccessEvent
-      >({
-        ...initialContext,
-        updateAvailable: (_, event) => event.data,
-      }),
-      setErrorMessage: assign<
-        UpdatePollerContext,
-        UpdatePollerCheckFailureEvent
-      >({
-        ...initialContext,
-        error: (_, event) => event.data.message,
-      }),
-    },
     guards: {
       updateAvailable: context => context.updateAvailable,
       updateNotAvailable: context => !context.updateAvailable,
@@ -132,9 +124,7 @@ const useUpdatePoller = (
   { checkImmediately }: UpdatePollerOptions = { checkImmediately: false },
 ): [boolean, string] => {
   const intervalRef = React.useRef<Interval>(null);
-  const [current, send] = useMachine<UpdatePollerContext, UpdatePollerEvent>(
-    updatePollerMachine,
-  );
+  const [current, send] = useMachine(updatePollerMachine);
   const { updateAvailable, error } = current.context;
 
   const checkForUpdate = React.useCallback(() => {

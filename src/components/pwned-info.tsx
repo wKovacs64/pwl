@@ -39,10 +39,9 @@ interface PwnedInfoRequestEvent {
 
 type PwnedInfoPwnedPasswordSuccessEvent = DoneInvokeEvent<number>;
 type PwnedInfoPwnedPasswordFailureEvent = DoneInvokeEvent<Error>;
-type PwnedInfoEvent =
-  | PwnedInfoRequestEvent
-  | PwnedInfoPwnedPasswordSuccessEvent
-  | PwnedInfoPwnedPasswordFailureEvent;
+type PwnedInfoEvent = PwnedInfoRequestEvent;
+// | PwnedInfoPwnedPasswordSuccessEvent
+// | PwnedInfoPwnedPasswordFailureEvent;
 
 interface PwnedInfoContext {
   numPwns: number;
@@ -58,54 +57,49 @@ const pwnedInfoMachine = Machine<
   PwnedInfoContext,
   PwnedInfoSchema,
   PwnedInfoEvent
->(
-  {
-    id: 'Check Password Exposure',
-    initial: 'idle',
-    context: initialContext,
-    states: {
-      idle: {
-        on: { REQUEST: 'loading' },
-      },
-      loading: {
-        entry: 'resetContext',
-        invoke: {
-          id: 'pwnedPassword',
-          src: (_, event) =>
-            pwnedPassword((event as PwnedInfoRequestEvent).payload),
-          onDone: {
-            target: 'success',
-            actions: 'setNumPwns',
-          },
-          onError: {
-            target: 'failure',
-            actions: 'setError',
-          },
+>({
+  id: 'Check Password Exposure',
+  initial: 'idle',
+  context: initialContext,
+  states: {
+    idle: {
+      on: { REQUEST: 'loading' },
+    },
+    loading: {
+      entry: assign<PwnedInfoContext>(initialContext),
+      invoke: {
+        id: 'pwnedPassword',
+        src: (_, event) =>
+          pwnedPassword((event as PwnedInfoRequestEvent).payload),
+        onDone: {
+          target: 'success',
+          actions: assign<PwnedInfoContext, PwnedInfoPwnedPasswordSuccessEvent>(
+            {
+              ...initialContext,
+              numPwns: (_, event) => event.data,
+            },
+          ),
         },
-        on: { REQUEST: 'loading' },
+        onError: {
+          target: 'failure',
+          actions: assign<PwnedInfoContext, PwnedInfoPwnedPasswordFailureEvent>(
+            {
+              ...initialContext,
+              error: true,
+            },
+          ),
+        },
       },
-      success: {
-        on: { REQUEST: 'loading' },
-      },
-      failure: {
-        on: { REQUEST: 'loading' },
-      },
+      on: { REQUEST: 'loading' },
+    },
+    success: {
+      on: { REQUEST: 'loading' },
+    },
+    failure: {
+      on: { REQUEST: 'loading' },
     },
   },
-  {
-    actions: {
-      resetContext: assign<PwnedInfoContext>(initialContext),
-      setNumPwns: assign<PwnedInfoContext, PwnedInfoPwnedPasswordSuccessEvent>({
-        ...initialContext,
-        numPwns: (_, event) => event.data,
-      }),
-      setError: assign<PwnedInfoContext, PwnedInfoPwnedPasswordFailureEvent>({
-        ...initialContext,
-        error: true,
-      }),
-    },
-  },
-);
+});
 
 interface PwnedInfoProps {
   // delayLoadingMs: number;
@@ -116,9 +110,7 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
   /* delayLoadingMs, */ password,
   ...props
 }) => {
-  const [current, send] = useMachine<PwnedInfoContext, PwnedInfoEvent>(
-    pwnedInfoMachine,
-  );
+  const [current, send] = useMachine(pwnedInfoMachine);
   const { numPwns, error } = current.context;
 
   React.useEffect(() => {
