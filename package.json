@@ -89,7 +89,7 @@
     "color-string": "1.5.3",
     "commitizen": "4.0.3",
     "cypress": "3.7.0",
-    "cypress-axe": "0.5.1",
+    "cypress-axe": "0.5.3",
     "cz-conventional-changelog": "3.0.2",
     "eslint": "6.7.2",
     "eslint-plugin-cypress": "2.7.0",
