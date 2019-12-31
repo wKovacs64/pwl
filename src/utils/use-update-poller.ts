@@ -45,9 +45,9 @@ const updatePollerMachine = createMachine<
         },
       },
       checkingForUpdate: {
-        id: 'checkForUpdate',
         entry: assign<UpdatePollerContext>(initialContext),
         invoke: {
+          id: 'checkForUpdate',
           src: (_, event) => (event as UpdatePollerCheckEvent).checkForUpdate(),
           onDone: {
             target: 'success',
