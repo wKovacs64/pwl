@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Machine, assign, DoneInvokeEvent } from 'xstate';
+import { assign, createMachine, DoneInvokeEvent } from 'xstate';
 import { useMachine } from '@xstate/react';
 import { pwnedPassword } from 'hibp';
 import { light, dark } from '../theme';
@@ -23,15 +23,6 @@ const PwnedExclamation = styled.span`
   }
 `;
 
-interface PwnedInfoSchema {
-  states: {
-    idle: {};
-    loading: {};
-    success: {};
-    failure: {};
-  };
-}
-
 interface PwnedInfoRequestEvent {
   type: 'REQUEST';
   payload: string;
@@ -47,15 +38,21 @@ interface PwnedInfoContext {
   error: boolean;
 }
 
+type PwnedInfoState =
+  | { value: 'idle'; context: PwnedInfoContext }
+  | { value: 'loading'; context: PwnedInfoContext }
+  | { value: 'success'; context: PwnedInfoContext }
+  | { value: 'failure'; context: PwnedInfoContext };
+
 const initialContext: PwnedInfoContext = {
   numPwns: -1,
   error: false,
 };
 
-const pwnedInfoMachine = Machine<
+const pwnedInfoMachine = createMachine<
   PwnedInfoContext,
-  PwnedInfoSchema,
-  PwnedInfoEvent
+  PwnedInfoEvent,
+  PwnedInfoState
 >({
   id: 'Check Password Exposure',
   initial: 'idle',

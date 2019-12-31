@@ -1,16 +1,6 @@
 import React from 'react';
-import { Machine, assign, DoneInvokeEvent } from 'xstate';
+import { assign, createMachine, DoneInvokeEvent } from 'xstate';
 import { useMachine } from '@xstate/react';
-
-interface UpdatePollerSchema {
-  states: {
-    idle: {};
-    checkingForUpdate: {};
-    success: {};
-    failure: {};
-    updateAvailable: {};
-  };
-}
 
 interface UpdatePollerCheckEvent {
   type: 'CHECK_FOR_UPDATE';
@@ -27,15 +17,22 @@ interface UpdatePollerContext {
   updateAvailable: boolean;
 }
 
+type UpdatePollerState =
+  | { value: 'idle'; context: UpdatePollerContext }
+  | { value: 'checkingForUpdate'; context: UpdatePollerContext }
+  | { value: 'success'; context: UpdatePollerContext }
+  | { value: 'failure'; context: UpdatePollerContext }
+  | { value: 'updateAvailable'; context: UpdatePollerContext };
+
 const initialContext: UpdatePollerContext = {
   error: '',
   updateAvailable: false,
 };
 
-const updatePollerMachine = Machine<
+const updatePollerMachine = createMachine<
   UpdatePollerContext,
-  UpdatePollerSchema,
-  UpdatePollerEvent
+  UpdatePollerEvent,
+  UpdatePollerState
 >(
   {
     id: 'Update Poller',
