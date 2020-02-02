@@ -16,9 +16,8 @@ describe('Index Page', () => {
 
   it('has no detectable a11y violations on load', () => {
     // wait for the content to ensure the app has been rendered
-    cy.get('html[lang="en"]')
-      .findByLabelText('Password')
-      .checkA11y();
+    cy.get('html[lang="en"]');
+    cy.findByLabelText('Password').checkA11y();
     cy.findByLabelText(/toggle dark/i)
       .click()
       .checkA11y();
@@ -34,10 +33,9 @@ describe('Index Page', () => {
     cy.fixture('exposed-password.txt').then(exposedPassword => {
       cy.findByLabelText('Password')
         .click()
-        .type(exposedPassword)
-        .findByTestId('results')
-        .findByText(/Uh-oh/i)
-        .checkA11y();
+        .type(exposedPassword);
+      cy.findByTestId('results');
+      cy.findByText(/Uh-oh/i).checkA11y();
       cy.findByLabelText(/toggle dark/i)
         .click()
         .checkA11y();
