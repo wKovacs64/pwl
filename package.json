@@ -85,7 +85,7 @@
     "@types/react-dom": "16.9.5",
     "@types/react-helmet": "5.0.15",
     "@types/testing-library__cypress": "5.0.3",
-    "axe-core": "3.5.0",
+    "axe-core": "3.5.1",
     "color-string": "1.5.3",
     "commitizen": "4.0.3",
     "cypress": "4.0.1",
