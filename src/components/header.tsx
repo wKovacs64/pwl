@@ -4,7 +4,6 @@ import { FiSun } from 'react-icons/fi';
 import styled from '@emotion/styled';
 import mq from '../utils/mq';
 import { light, dark } from '../theme';
-import AlertOnUpdate from './alert-on-update';
 
 const HeaderContent = styled.section`
   position: relative;
@@ -80,7 +79,6 @@ const Header: React.FunctionComponent<HeaderProps> = ({ onThemeToggle }) => {
 
   return (
     <header>
-      <AlertOnUpdate />
       <HeaderContent>
         <H1>{siteMetadata.title}</H1>
         <ThemeToggleButton onClick={onThemeToggle}>
