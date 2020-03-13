@@ -51,13 +51,13 @@ describe('Index Page', () => {
     });
 
     cy.findByLabelText('Password').should('be.empty');
-    cy.queryByTestId('results', { timeout: 500 }).should('not.exist');
+    cy.findByTestId('results', { timeout: 500 }).should('not.exist');
 
     cy.findByLabelText('Password')
       .click()
       .type('password');
 
-    cy.queryByTestId('results').should('exist');
+    cy.findByTestId('results').should('exist');
   });
 
   it('includes link to source', () => {
