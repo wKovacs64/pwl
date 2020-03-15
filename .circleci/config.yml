@@ -16,16 +16,9 @@ jobs:
   validate:
     executor: node-lts
     steps:
-      - checkout
-      - node/install-yarn
-      - node/with-cache:
-          steps:
-            - run: yarn install --frozen-lockfile
-            - run: yarn validate
-            - persist_to_workspace:
-                root: ~/
-                paths:
-                  - project
+      - attach_workspace:
+          at: ~/
+      - run: yarn validate
   release:
     executor: node-lts
     steps:
@@ -36,17 +29,17 @@ jobs:
 workflows:
   build:
     jobs:
-      - validate
       - cypress/run:
           executor: cypress-on-node-12
           yarn: true
           start: yarn develop
           wait-on: '--timeout 40000 http://localhost:8000'
-          requires:
-            - validate
-      - release:
+      - validate:
           requires:
             - cypress/run
+      - release:
+          requires:
+            - validate
           filters:
             branches:
               only: master
