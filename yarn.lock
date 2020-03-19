@@ -2229,6 +2229,13 @@
     lodash.debounce "^4.0.8"
     react-dev-utils "^9.1.0"
 
+"@rckeller/cypress-unfetch@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@rckeller/cypress-unfetch/-/cypress-unfetch-1.0.1.tgz#f6263b1ef1c29d84aa7ec9a3a0a1e8641aec2972"
+  integrity sha512-/GQ1v7uGT7JOSfu6C0jYhxtZmCuABYmku4uAv4EZqJnnlQVswGsAnUotN2O7xDkAPl2LjcQ5GhIvjVdqIAvmww==
+  dependencies:
+    unfetch "^4.0.1"
+
 "@reach/router@^1.3.3":
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/@reach/router/-/router-1.3.3.tgz#58162860dce6c9449d49be86b0561b5ef46d80db"
@@ -5558,7 +5565,7 @@ cypress@*, cypress@4.2.0:
     ospath "1.2.2"
     pretty-bytes "5.3.0"
     ramda "0.26.1"
-    request "github:cypress-io/request#b5af0d1fa47eec97ba980cde90a13e69a2afcd16"
+    request cypress-io/request#b5af0d1fa47eec97ba980cde90a13e69a2afcd16
     request-progress "3.0.0"
     supports-color "7.1.0"
     tmp "0.1.0"
@@ -13855,7 +13862,6 @@ request@^2.87.0, request@^2.88.0:
 
 "request@github:cypress-io/request#b5af0d1fa47eec97ba980cde90a13e69a2afcd16":
   version "2.88.1"
-  uid b5af0d1fa47eec97ba980cde90a13e69a2afcd16
   resolved "https://codeload.github.com/cypress-io/request/tar.gz/b5af0d1fa47eec97ba980cde90a13e69a2afcd16"
   dependencies:
     aws-sign2 "~0.7.0"
@@ -15820,7 +15826,7 @@ undeclared-identifiers@^1.1.2:
     simple-concat "^1.0.0"
     xtend "^4.0.1"
 
-unfetch@^4.0.0:
+unfetch@^4.0.0, unfetch@^4.0.1:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/unfetch/-/unfetch-4.1.0.tgz#6ec2dd0de887e58a4dee83a050ded80ffc4137db"
   integrity sha512-crP/n3eAPUJxZXM9T80/yv0YhkTEx2K1D3h7D1AJM6fzsWZrxdyRuLN0JH/dkZh1LNH8LxCnBzoPFCPbb2iGpg==
