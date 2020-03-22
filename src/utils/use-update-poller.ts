@@ -95,8 +95,8 @@ const updatePollerMachine = createMachine<
   },
   {
     guards: {
-      updateAvailable: context => context.updateAvailable,
-      updateNotAvailable: context => !context.updateAvailable,
+      updateAvailable: (context) => context.updateAvailable,
+      updateNotAvailable: (context) => !context.updateAvailable,
     },
   },
 );

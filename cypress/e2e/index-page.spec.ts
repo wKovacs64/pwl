@@ -30,10 +30,8 @@ describe('Index Page', () => {
       response: 'fixture:exposed-password-response.txt',
     });
 
-    cy.fixture('exposed-password.txt').then(exposedPassword => {
-      cy.findByLabelText('Password')
-        .click()
-        .type(exposedPassword);
+    cy.fixture('exposed-password.txt').then((exposedPassword) => {
+      cy.findByLabelText('Password').click().type(exposedPassword);
       cy.findByTestId('results');
       cy.findByText(/Uh-oh/i).checkA11y();
       cy.findByLabelText(/toggle dark/i)
@@ -53,9 +51,7 @@ describe('Index Page', () => {
     cy.findByLabelText('Password').should('be.empty');
     cy.findByTestId('results', { timeout: 500 }).should('not.exist');
 
-    cy.findByLabelText('Password')
-      .click()
-      .type('password');
+    cy.findByLabelText('Password').click().type('password');
 
     cy.findByTestId('results').should('exist');
   });
@@ -76,9 +72,7 @@ describe('Index Page', () => {
       const password = ' P4ssw0rd! ';
       const classifiedCharacters = classifyCharacters(password, colors, labels);
 
-      cy.findByLabelText('Password')
-        .click()
-        .type(password);
+      cy.findByLabelText('Password').click().type(password);
 
       cy.findByTestId('password-through-lense')
         .children()
@@ -106,9 +100,7 @@ describe('Index Page', () => {
         status: 418,
       });
 
-      cy.findByLabelText('Password')
-        .click()
-        .type('P4ssw0rd!');
+      cy.findByLabelText('Password').click().type('P4ssw0rd!');
     });
 
     it('exists in results section', () => {
@@ -170,9 +162,7 @@ describe('Index Page', () => {
         status: 418,
       });
 
-      cy.findByLabelText('Password')
-        .click()
-        .type('P4ssw0rd!');
+      cy.findByLabelText('Password').click().type('P4ssw0rd!');
 
       cy.findByTestId('results').within(() => {
         cy.findByTestId('pwned-info').within(() => {
@@ -182,16 +172,14 @@ describe('Index Page', () => {
     });
 
     it('shows positive feedback for clean passwords', () => {
-      cy.fixture('clean-password.txt').then(cleanPassword => {
+      cy.fixture('clean-password.txt').then((cleanPassword) => {
         cy.route({
           method: 'GET',
           url: EXPOSURE_ROUTE,
           response: 'fixture:clean-password-response.txt',
         });
 
-        cy.findByLabelText('Password')
-          .click()
-          .type(cleanPassword);
+        cy.findByLabelText('Password').click().type(cleanPassword);
 
         cy.findByTestId('results').within(() => {
           cy.findByText(/Congratulations/).should('exist');
@@ -200,23 +188,23 @@ describe('Index Page', () => {
     });
 
     it('shows cautionary feedback for exposed passwords', () => {
-      cy.fixture('exposed-password.txt').then(exposedPassword => {
-        cy.fixture('exposed-password-count.txt').then(exposedPasswordCount => {
-          cy.route({
-            method: 'GET',
-            url: EXPOSURE_ROUTE,
-            response: 'fixture:exposed-password-response.txt',
-          });
+      cy.fixture('exposed-password.txt').then((exposedPassword) => {
+        cy.fixture('exposed-password-count.txt').then(
+          (exposedPasswordCount) => {
+            cy.route({
+              method: 'GET',
+              url: EXPOSURE_ROUTE,
+              response: 'fixture:exposed-password-response.txt',
+            });
 
-          cy.findByLabelText('Password')
-            .click()
-            .type(exposedPassword);
+            cy.findByLabelText('Password').click().type(exposedPassword);
 
-          cy.findByTestId('results').within(() => {
-            cy.findByText(/Uh-oh/).should('exist');
-            cy.findByText(exposedPasswordCount.trim()).should('exist');
-          });
-        });
+            cy.findByTestId('results').within(() => {
+              cy.findByText(/Uh-oh/).should('exist');
+              cy.findByText(exposedPasswordCount.trim()).should('exist');
+            });
+          },
+        );
       });
     });
 
@@ -228,9 +216,7 @@ describe('Index Page', () => {
         status: 500,
       });
 
-      cy.findByLabelText('Password')
-        .click()
-        .type('P4ssw0rd!');
+      cy.findByLabelText('Password').click().type('P4ssw0rd!');
 
       cy.findByTestId('results').within(() => {
         cy.findByText(/unavailable/).should('exist');

@@ -66,9 +66,11 @@ const Character = styled.span`
   }
 `;
 
-const PasswordThroughLense: React.FunctionComponent<
-  PasswordThroughLenseProps
-> = ({ colors, labels, password }) => (
+const PasswordThroughLense: React.FunctionComponent<PasswordThroughLenseProps> = ({
+  colors,
+  labels,
+  password,
+}) => (
   <Lense>
     <div
       data-testid="password-through-lense"

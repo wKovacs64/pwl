@@ -32,7 +32,7 @@ export default (
   colors: ColorMap,
   labels: LabelMap,
 ): ClassifiedCharacter[] =>
-  password.split('').map(character => {
+  password.split('').map((character) => {
     const { color, label } = getCharacterProperties(character, colors, labels);
     return {
       character,

@@ -8,7 +8,7 @@ const LegendRow = styled.div`
 
 const LegendColor = styled.div`
   display: inline-block;
-  background-color: ${props => props.color};
+  background-color: ${(props) => props.color};
   height: 1rem;
   width: 1rem;
   margin-right: 1rem;
