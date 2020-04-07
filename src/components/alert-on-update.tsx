@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import axios from 'axios';
+import fetch from 'unfetch';
 import ms from 'ms';
 import styled from '@emotion/styled';
 import isMobile from '../utils/is-mobile';
@@ -41,13 +41,15 @@ const UpdateAlertContainer = styled.div`
 const checkForUpdate = async (localCommit: string): Promise<boolean> => {
   if (typeof window !== 'undefined') {
     try {
-      const res = await axios.get('/index.html?no-cache=1', {
+      const res = await fetch('/index.html?no-cache=1', {
+        method: 'GET',
         headers: { Pragma: 'no-cache' },
       });
+      const data = await res.json();
 
-      if (res.data) {
+      if (data) {
         const remoteDocument = new DOMParser().parseFromString(
-          res.data,
+          data,
           'text/html',
         );
         const remoteCommit = remoteDocument.documentElement.getAttribute(
