@@ -8,19 +8,21 @@ executors:
   cypress-on-node-12:
     docker:
       - image: 'cypress/base:12.16.1'
-  node-lts:
-    docker:
-      - image: 'node:lts'
+
+use-node-executor: &use-node-executor
+  executor:
+    name: 'node/default'
+    tag: '12.16.1'
 
 jobs:
   validate:
-    executor: node-lts
+    <<: *use-node-executor
     steps:
       - attach_workspace:
           at: ~/
       - run: yarn validate
   release:
-    executor: node-lts
+    <<: *use-node-executor
     steps:
       - attach_workspace:
           at: ~/
