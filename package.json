@@ -66,7 +66,7 @@
     "typeface-source-sans-pro": "1.1.5",
     "unfetch": "4.1.0",
     "use-dark-mode": "2.3.1",
-    "xstate": "4.9.0"
+    "xstate": "4.9.1"
   },
   "devDependencies": {
     "@babel/core": "7.9.0",
