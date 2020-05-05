@@ -2,27 +2,16 @@ version: 2.1
 
 orbs:
   cypress: cypress-io/cypress@1.20.0
-  node: circleci/node@2.0.3
-
-executors:
-  cypress-on-node-12:
-    docker:
-      - image: 'cypress/base:12.16.1'
-
-use-node-executor: &use-node-executor
-  executor:
-    name: 'node/default'
-    tag: '12.16.1'
 
 jobs:
   validate:
-    <<: *use-node-executor
+    executor: cypress/base-12-16-1
     steps:
       - attach_workspace:
           at: ~/
       - run: yarn validate
   release:
-    <<: *use-node-executor
+    executor: cypress/base-12-16-1
     steps:
       - attach_workspace:
           at: ~/
@@ -32,7 +21,7 @@ workflows:
   build:
     jobs:
       - cypress/run:
-          executor: cypress-on-node-12
+          executor: cypress/base-12-16-1
           yarn: true
           start: yarn develop
           wait-on: '--timeout 40000 http://localhost:8000'
