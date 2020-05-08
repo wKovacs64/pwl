@@ -73,7 +73,7 @@
     "@babel/parser": "7.9.6",
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
-    "@cypress/browserify-preprocessor": "2.2.2",
+    "@cypress/browserify-preprocessor": "2.2.3",
     "@hot-loader/react-dom": "16.13.0",
     "@rckeller/cypress-unfetch": "1.0.1",
     "@testing-library/cypress": "6.0.0",
