@@ -1,7 +1,7 @@
 import MobileDetect from 'mobile-detect';
 
 export default (
-  userAgent: string | undefined = typeof window !== 'undefined'
+  userAgent = typeof window !== 'undefined'
     ? window.navigator.userAgent
     : undefined,
 ): boolean =>

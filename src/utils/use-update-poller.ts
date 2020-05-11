@@ -103,7 +103,7 @@ const updatePollerMachine = createMachine<
 
 type Interval = number | null;
 
-const clearIntervalSafely = (interval: Interval): void => {
+const clearIntervalSafely = (interval: Interval) => {
   if (typeof window !== 'undefined' && interval) {
     window.clearInterval(interval);
   }
