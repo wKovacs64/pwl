@@ -84,7 +84,7 @@
     "@types/ms": "0.7.31",
     "@types/node": "12.12.38",
     "@types/node-fetch": "2.5.7",
-    "@types/react": "16.9.34",
+    "@types/react": "16.9.35",
     "@types/react-dom": "16.9.7",
     "@types/react-helmet": "5.0.15",
     "@types/testing-library__cypress": "5.0.5",
@@ -110,7 +110,7 @@
     "typescript": "3.8.3"
   },
   "resolutions": {
-    "**/@types/react": "16.9.34",
+    "**/@types/react": "16.9.35",
     "@typescript-eslint/eslint-plugin": "^2.31.0",
     "@typescript-eslint/parser": "^2.31.0",
     "cypress": "4.5.0"
