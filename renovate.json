@@ -10,9 +10,13 @@
   "major": {
     "automerge": false
   },
-  "node": {
-    "enabled": false
-  },
+  "packageRules": [
+    {
+      "packageNames": ["eslint"],
+      "updateTypes": ["major"],
+      "enabled": false
+    }
+  ],
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0
 }
