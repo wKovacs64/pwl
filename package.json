@@ -78,7 +78,7 @@
     "@rckeller/cypress-unfetch": "1.0.1",
     "@testing-library/cypress": "6.0.0",
     "@types/color-string": "1.5.0",
-    "@types/cypress-axe": "0.4.0",
+    "@types/cypress-axe": "0.8.0",
     "@types/lodash": "4.14.150",
     "@types/memoize-one": "5.1.2",
     "@types/ms": "0.7.31",
