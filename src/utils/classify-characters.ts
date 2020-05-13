@@ -29,11 +29,13 @@ interface ClassifiedCharacter {
   label: string;
 }
 
-export default (
+type ClassifyCharsFn = (
   password: string,
   colors: ColorMap,
   labels: LabelMap,
-): ClassifiedCharacter[] =>
+) => ClassifiedCharacter[];
+
+export const classifyCharacters: ClassifyCharsFn = (password, colors, labels) =>
   password.split('').map((character) => {
     const { color, label } = getCharacterProperties(character, colors, labels);
     return {

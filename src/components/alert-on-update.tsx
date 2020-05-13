@@ -3,9 +3,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 import fetch from 'unfetch';
 import ms from 'ms';
 import styled from '@emotion/styled';
-import isMobile from '../utils/is-mobile';
 import { light, dark } from '../theme';
-import useUpdatePoller from '../utils/use-update-poller';
+import { isMobile, useUpdatePoller } from '../utils';
 import UpdateAlert from './update-alert';
 
 const UpdateAlertContainer = styled.div`

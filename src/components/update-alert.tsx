@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import mq from '../utils/mq';
+import { mq } from '../utils';
 
 const Alert = styled.div`
   display: flex;

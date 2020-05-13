@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import mq from '../utils/mq';
 import { light, dark } from '../theme';
+import { mq } from '../utils';
 
 const Input = styled.input`
   font-family: 'Courier New', Courier, monospace;

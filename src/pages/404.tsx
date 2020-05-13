@@ -2,9 +2,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { FaChevronLeft } from 'react-icons/fa';
 import styled from '@emotion/styled';
-import mq from '../utils/mq';
 import Layout from '../components/layout';
 import { light, dark } from '../theme';
+import { mq } from '../utils';
 
 const Content = styled.article`
   display: flex;
