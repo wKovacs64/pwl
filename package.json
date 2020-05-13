@@ -16,7 +16,9 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "check-types": "tsc",
+    "check-types": "npm-run-all --silent --parallel check-types:*",
+    "check-types:src": "tsc",
+    "check-types:cypress": "tsc --project cypress/tsconfig.json",
     "clean": "gatsby clean",
     "cm": "git-cz",
     "cy:open": "cypress open",
@@ -73,7 +75,6 @@
     "@babel/parser": "7.9.6",
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
-    "@cypress/browserify-preprocessor": "2.2.4",
     "@hot-loader/react-dom": "16.13.0",
     "@rckeller/cypress-unfetch": "1.0.1",
     "@testing-library/cypress": "6.0.0",
@@ -106,7 +107,6 @@
     "prettier": "2.0.5",
     "semantic-release": "17.0.7",
     "start-server-and-test": "1.11.0",
-    "tsify": "4.0.1",
     "typescript": "3.9.2"
   },
   "resolutions": {
