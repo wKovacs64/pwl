@@ -5,9 +5,7 @@ import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ColorMap } from '../legend/colors';
 import { LabelMap } from '../legend/labels';
-import classifyCharacters, {
-  ClassifiedCharacter,
-} from '../utils/classify-characters';
+import classifyCharacters from '../utils/classify-characters';
 import mq from '../utils/mq';
 import { light, dark } from '../theme';
 
@@ -81,11 +79,7 @@ const PasswordThroughLense: React.FunctionComponent<PasswordThroughLenseProps> =
       `}
     >
       {classifyCharacters(password, colors, labels).map(
-        (
-          classifiedCharacter: ClassifiedCharacter,
-          index: number,
-          chars: ClassifiedCharacter[],
-        ) => (
+        (classifiedCharacter, index, chars) => (
           <Character
             title={classifiedCharacter.label}
             css={css`

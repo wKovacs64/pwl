@@ -62,11 +62,10 @@ const pwnedInfoMachine = createMachine<
       on: { REQUEST: 'loading' },
     },
     loading: {
-      entry: assign<PwnedInfoContext>(initialContext),
+      entry: assign(initialContext),
       invoke: {
         id: 'pwnedPassword',
-        src: (_, event) =>
-          pwnedPassword((event as PwnedInfoRequestEvent).payload),
+        src: (_, event) => pwnedPassword(event.payload),
         onDone: {
           target: 'success',
           actions: assign<PwnedInfoContext, PwnedInfoPwnedPasswordSuccessEvent>(

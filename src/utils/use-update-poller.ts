@@ -45,10 +45,10 @@ const updatePollerMachine = createMachine<
         },
       },
       checkingForUpdate: {
-        entry: assign<UpdatePollerContext>(initialContext),
+        entry: assign(initialContext),
         invoke: {
           id: 'checkForUpdate',
-          src: (_, event) => (event as UpdatePollerCheckEvent).checkForUpdate(),
+          src: (_, event) => event.checkForUpdate(),
           onDone: {
             target: 'success',
             actions: assign<UpdatePollerContext, UpdatePollerCheckSuccessEvent>(

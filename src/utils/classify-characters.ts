@@ -23,7 +23,7 @@ const getCharProps: GetCharPropsFn = (character, colors, labels) => {
 
 const getCharacterProperties = memoizeOne(getCharProps);
 
-export interface ClassifiedCharacter {
+interface ClassifiedCharacter {
   character: string;
   color: string;
   label: string;

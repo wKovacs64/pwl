@@ -38,7 +38,7 @@ const UpdateAlertContainer = styled.div`
   }
 `;
 
-const checkForUpdate = async (localCommit: string): Promise<boolean> => {
+const checkForUpdate = async (localCommit: string) => {
   if (typeof window !== 'undefined') {
     try {
       const res = await fetch('/index.html?no-cache=1', {
