@@ -10,11 +10,9 @@ type Breakpoints = typeof breakpointMap;
 type BreakpointLabel = keyof Breakpoints;
 type MediaQueries = { [BL in BreakpointLabel]: string };
 
-const mq: MediaQueries = (Object.entries(breakpointMap) as Array<
+export const mq: MediaQueries = (Object.entries(breakpointMap) as Array<
   [BreakpointLabel, Breakpoints[BreakpointLabel]]
 >).reduce<Partial<MediaQueries>>((accumulator, [label, bp]) => {
   accumulator[label] = `@media (min-width: ${bp}px)`;
   return accumulator;
 }, {}) as MediaQueries;
-
-export default mq;

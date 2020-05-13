@@ -1,6 +1,5 @@
 import React from 'react';
-import { ColorMap } from '../legend/colors';
-import { LabelMap } from '../legend/labels';
+import { ColorMap, LabelMap } from '../legend';
 import LegendItem from './legend-item';
 
 interface LegendProps {

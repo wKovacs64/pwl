@@ -3,11 +3,9 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { ColorMap } from '../legend/colors';
-import { LabelMap } from '../legend/labels';
-import classifyCharacters from '../utils/classify-characters';
-import mq from '../utils/mq';
+import { ColorMap, LabelMap } from '../legend';
 import { light, dark } from '../theme';
+import { classifyCharacters, mq } from '../utils';
 
 const Lense = styled.div`
   border-width: 2px;

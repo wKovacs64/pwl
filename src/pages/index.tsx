@@ -5,14 +5,13 @@ import styled from '@emotion/styled';
 import { useStaticQuery, graphql } from 'gatsby';
 import useEventListener from '@use-it/event-listener';
 import debounce from 'lodash/debounce';
-import colors from '../legend/colors';
-import labels from '../legend/labels';
-import mq from '../utils/mq';
 import NoScriptMessage from '../components/noscript-message';
 import Layout from '../components/layout';
 import PasswordInput from '../components/password-input';
 import Results from '../components/results';
+import { colors, labels } from '../legend';
 import { light, dark } from '../theme';
+import { mq } from '../utils';
 
 const Content = styled.article`
   display: flex;

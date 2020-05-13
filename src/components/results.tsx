@@ -1,8 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { ColorMap } from '../legend/colors';
-import { LabelMap } from '../legend/labels';
+import { ColorMap, LabelMap } from '../legend';
 import PasswordThroughLense from './password-through-lense';
 import Legend from './legend';
 import PwnedInfo from './pwned-info';

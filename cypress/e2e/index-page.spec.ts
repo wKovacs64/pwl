@@ -1,7 +1,6 @@
 import colorString from 'color-string';
-import classifyCharacters from '../../src/utils/classify-characters';
-import colors from '../../src/legend/colors';
-import labels from '../../src/legend/labels';
+import { colors, labels } from '../../src/legend';
+import { classifyCharacters } from '../../src/utils';
 
 const colorToRGB = (cssColor: string): string =>
   colorString.to.rgb(colorString.get.rgb(cssColor) || []);

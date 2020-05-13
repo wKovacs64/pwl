@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import mq from '../utils/mq';
 import { light } from '../theme';
+import { mq } from '../utils';
 
 // N.B. You cannot use @emotion/styled in here.
 

@@ -114,11 +114,17 @@ interface UpdatePollerOptions {
   checkImmediately: boolean;
 }
 
-const useUpdatePoller = (
+type UseUpdatePollerFn = (
   hasUpdate: () => Promise<boolean>,
   pollingIntervalMs: number,
-  { checkImmediately }: UpdatePollerOptions = { checkImmediately: false },
-): [boolean, string] => {
+  options?: UpdatePollerOptions,
+) => readonly [boolean, string];
+
+export const useUpdatePoller: UseUpdatePollerFn = (
+  hasUpdate,
+  pollingIntervalMs,
+  { checkImmediately } = { checkImmediately: false },
+) => {
   const intervalRef = React.useRef<Interval>(null);
   const [current, send] = useMachine(updatePollerMachine);
   const { updateAvailable, error } = current.context;
@@ -143,5 +149,3 @@ const useUpdatePoller = (
 
   return [updateAvailable, error];
 };
-
-export default useUpdatePoller;

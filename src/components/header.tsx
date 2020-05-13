@@ -2,8 +2,8 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { FiSun } from 'react-icons/fi';
 import styled from '@emotion/styled';
-import mq from '../utils/mq';
 import { light, dark } from '../theme';
+import { mq } from '../utils';
 import AlertOnUpdate from './alert-on-update';
 
 const HeaderContent = styled.section`
