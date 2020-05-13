@@ -16,7 +16,9 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "check-types": "tsc",
+    "check-types": "npm-run-all --silent --parallel check-types:*",
+    "check-types:src": "tsc",
+    "check-types:cypress": "tsc --project cypress/tsconfig.json",
     "clean": "gatsby clean",
     "cm": "git-cz",
     "cy:open": "cypress open",

@@ -5,9 +5,7 @@
     "jsx": "react",
     "esModuleInterop": true,
     "noEmit": true,
-    "strict": true,
-    "types": ["cypress", "@testing-library/cypress", "cypress-axe"],
-    "typeRoots": ["node_modules/@types", "./src/@types"]
+    "strict": true
   },
-  "exclude": [".cache", "public"]
+  "exclude": [".cache", "cypress", "public"]
 }
