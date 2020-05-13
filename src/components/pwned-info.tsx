@@ -53,48 +53,55 @@ const pwnedInfoMachine = createMachine<
   PwnedInfoContext,
   PwnedInfoEvent,
   PwnedInfoState
->({
-  id: 'Check Password Exposure',
-  initial: 'idle',
-  context: initialContext,
-  states: {
-    idle: {
-      on: { REQUEST: 'loading' },
-    },
-    loading: {
-      entry: assign(initialContext),
-      invoke: {
-        id: 'pwnedPassword',
-        src: (_, event) => pwnedPassword(event.payload),
-        onDone: {
-          target: 'success',
-          actions: assign<PwnedInfoContext, PwnedInfoPwnedPasswordSuccessEvent>(
-            {
-              ...initialContext,
-              numPwns: (_, event) => event.data,
-            },
-          ),
-        },
-        onError: {
-          target: 'failure',
-          actions: assign<PwnedInfoContext, PwnedInfoPwnedPasswordFailureEvent>(
-            {
-              ...initialContext,
-              error: true,
-            },
-          ),
-        },
+>(
+  {
+    id: 'pwnedInfo',
+    initial: 'idle',
+    context: initialContext,
+    states: {
+      idle: {
+        on: { REQUEST: 'loading' },
       },
-      on: { REQUEST: 'loading' },
-    },
-    success: {
-      on: { REQUEST: 'loading' },
-    },
-    failure: {
-      on: { REQUEST: 'loading' },
+      loading: {
+        entry: 'reset',
+        invoke: {
+          id: 'pwnedPassword',
+          src: (_, event) => pwnedPassword(event.payload),
+          onDone: {
+            target: 'success',
+            actions: [
+              'reset',
+              assign<PwnedInfoContext, PwnedInfoPwnedPasswordSuccessEvent>({
+                numPwns: (_, event) => event.data,
+              }),
+            ],
+          },
+          onError: {
+            target: 'failure',
+            actions: [
+              'reset',
+              assign<PwnedInfoContext, PwnedInfoPwnedPasswordFailureEvent>({
+                error: true,
+              }),
+            ],
+          },
+        },
+        on: { REQUEST: 'loading' },
+      },
+      success: {
+        on: { REQUEST: 'loading' },
+      },
+      failure: {
+        on: { REQUEST: 'loading' },
+      },
     },
   },
-});
+  {
+    actions: {
+      reset: assign(initialContext),
+    },
+  },
+);
 
 interface PwnedInfoProps {
   // delayLoadingMs: number;
