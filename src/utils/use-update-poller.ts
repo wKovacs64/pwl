@@ -35,7 +35,7 @@ const updatePollerMachine = createMachine<
   UpdatePollerState
 >(
   {
-    id: 'Update Poller',
+    id: 'updatePoller',
     initial: 'idle',
     context: initialContext,
     states: {
@@ -45,27 +45,27 @@ const updatePollerMachine = createMachine<
         },
       },
       checkingForUpdate: {
-        entry: assign(initialContext),
+        entry: 'reset',
         invoke: {
           id: 'checkForUpdate',
           src: (_, event) => event.checkForUpdate(),
           onDone: {
             target: 'success',
-            actions: assign<UpdatePollerContext, UpdatePollerCheckSuccessEvent>(
-              {
-                ...initialContext,
+            actions: [
+              'reset',
+              assign<UpdatePollerContext, UpdatePollerCheckSuccessEvent>({
                 updateAvailable: (_, event) => event.data,
-              },
-            ),
+              }),
+            ],
           },
           onError: {
             target: 'failure',
-            actions: assign<UpdatePollerContext, UpdatePollerCheckFailureEvent>(
-              {
-                ...initialContext,
+            actions: [
+              'reset',
+              assign<UpdatePollerContext, UpdatePollerCheckFailureEvent>({
                 error: (_, event) => event.data.message,
-              },
-            ),
+              }),
+            ],
           },
         },
       },
@@ -94,6 +94,9 @@ const updatePollerMachine = createMachine<
     },
   },
   {
+    actions: {
+      reset: assign(initialContext),
+    },
     guards: {
       updateAvailable: (context) => context.updateAvailable,
       updateNotAvailable: (context) => !context.updateAvailable,
