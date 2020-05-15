@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -70,9 +70,9 @@ const IndexPage: React.FunctionComponent = () => {
       }
     }
   `);
-  const [passwordInput, setPasswordInput] = useState('');
-  const [passwordToCheck, setPasswordToCheck] = useState('');
-  const setPasswordToCheckDebounced = useCallback(
+  const [passwordInput, setPasswordInput] = React.useState('');
+  const [passwordToCheck, setPasswordToCheck] = React.useState('');
+  const setPasswordToCheckDebounced = React.useCallback(
     debounce(setPasswordToCheck, 250, { leading: true }),
     [],
   );

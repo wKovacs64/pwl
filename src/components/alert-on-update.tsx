@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import fetch from 'unfetch';
 import ms from 'ms';
@@ -80,7 +80,7 @@ const AlertOnUpdate: React.FunctionComponent = () => {
       }
     }
   `);
-  const [userHasDismissed, setUserHasDismissed] = useState(false);
+  const [userHasDismissed, setUserHasDismissed] = React.useState(false);
   const [updateAvailable] = useUpdatePoller(
     React.useCallback(() => checkForUpdate(siteMetadata.buildInfo.commit), [
       siteMetadata.buildInfo.commit,

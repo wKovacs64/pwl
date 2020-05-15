@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { FiSun } from 'react-icons/fi';
 import styled from '@emotion/styled';

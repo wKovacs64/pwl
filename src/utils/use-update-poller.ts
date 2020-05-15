@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { assign, createMachine, DoneInvokeEvent } from 'xstate';
 import { useMachine } from '@xstate/react';
 

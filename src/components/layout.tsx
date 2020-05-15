@@ -1,7 +1,7 @@
 import '@wkovacs64/normalize.css';
 import 'typeface-nunito';
 import 'typeface-source-sans-pro';
-import React from 'react';
+import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { css, Global, ClassNames } from '@emotion/core';
 import styled from '@emotion/styled';
