@@ -5,7 +5,8 @@
     "jsx": "react",
     "esModuleInterop": true,
     "noEmit": true,
-    "strict": true
+    "strict": true,
+    "skipLibCheck": true
   },
   "exclude": [".cache", "cypress", "public"]
 }
