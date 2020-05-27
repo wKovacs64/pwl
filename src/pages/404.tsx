@@ -96,19 +96,9 @@ const ButtonText = styled.span`
   border-width: 0 0 1px;
   border-style: solid;
   transition: box-shadow 0.3s ease;
-  body.light-mode & {
-    border-color: ${light.colors.headline};
-    button:hover &, /* inside a focused <button> */
-    button:focus & /* inside a hovered <button> */ {
-      box-shadow: inset 0 -2px 0 0 ${light.colors.headline};
-    }
-  }
-  body.dark-mode & {
-    border-color: ${dark.colors.headline};
-    button:hover &, /* inside a focused <button> */
-    button:focus & /* inside a hovered <button> */ {
-      box-shadow: inset 0 -2px 0 0 ${dark.colors.headline};
-    }
+  button:hover &, /* inside a focused <button> */
+  button:focus & /* inside a hovered <button> */ {
+    box-shadow: inset 0 -2px 0 0 currentColor;
   }
 `;
 
