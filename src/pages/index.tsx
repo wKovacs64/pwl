@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { Helmet } from 'react-helmet';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { useStaticQuery, graphql } from 'gatsby';
 import useEventListener from '@use-it/event-listener';
 import debounce from 'lodash/debounce';
 import NoScriptMessage from '../components/noscript-message';
@@ -59,17 +57,6 @@ const InputAndResults = styled.section`
 `;
 
 const IndexPage: React.FunctionComponent = () => {
-  const {
-    site: { siteMetadata },
-  } = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          description
-        }
-      }
-    }
-  `);
   const [passwordInput, setPasswordInput] = React.useState('');
   const [passwordToCheck, setPasswordToCheck] = React.useState('');
   const setPasswordToCheckDebounced = React.useCallback(
@@ -103,9 +90,6 @@ const IndexPage: React.FunctionComponent = () => {
 
   return (
     <Layout>
-      <Helmet
-        meta={[{ name: 'description', content: siteMetadata.description }]}
-      />
       <noscript>
         <style>{'.js { display: none !important; }'}</style>
         <NoScriptMessage />
