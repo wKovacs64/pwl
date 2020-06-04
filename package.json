@@ -107,7 +107,7 @@
     "prettier": "2.0.5",
     "semantic-release": "17.0.8",
     "start-server-and-test": "1.11.0",
-    "typescript": "3.9.3"
+    "typescript": "3.9.5"
   },
   "resolutions": {
     "**/@types/react": "16.9.35",
