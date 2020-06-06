@@ -2,11 +2,9 @@ import '@wkovacs64/normalize.css';
 import 'typeface-nunito';
 import 'typeface-source-sans-pro';
 import * as React from 'react';
-import { Helmet } from 'react-helmet';
 import { css, Global, ClassNames } from '@emotion/core';
 import styled from '@emotion/styled';
 import { IconContext } from 'react-icons';
-import { useStaticQuery, graphql } from 'gatsby';
 import useDarkMode from 'use-dark-mode';
 import Header from './header';
 import Main from './main';
@@ -18,22 +16,6 @@ const FullHeightContainer = styled.div`
 `;
 
 const Layout: React.FunctionComponent = ({ children }) => {
-  const {
-    site: { siteMetadata },
-  } = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          title
-          description
-          socialImageUrl
-          buildInfo {
-            commit
-          }
-        }
-      }
-    }
-  `);
   const darkMode = useDarkMode(false);
 
   return (
@@ -42,8 +24,8 @@ const Layout: React.FunctionComponent = ({ children }) => {
         <IconContext.Provider
           value={{
             className: classNameFromCss`
-                vertical-align: middle;
-              `,
+              vertical-align: middle;
+            `,
           }}
         >
           <Global
@@ -65,38 +47,6 @@ const Layout: React.FunctionComponent = ({ children }) => {
                 display: none;
               }
             `}
-          />
-          <Helmet
-            htmlAttributes={{
-              lang: 'en',
-              'data-commit': siteMetadata.buildInfo.commit,
-            }}
-            title={siteMetadata.title}
-            meta={[
-              { name: 'description', content: siteMetadata.description },
-              { property: 'og:type', content: 'website' },
-              { property: 'og:title', content: siteMetadata.title },
-              {
-                property: 'og:description',
-                content: siteMetadata.description,
-              },
-              {
-                property: 'og:image',
-                content: siteMetadata.socialImageUrl,
-              },
-              { property: 'og:image:alt', content: siteMetadata.title },
-              { name: 'twitter:card', content: 'summary_large_image' },
-              { name: 'twitter:title', content: siteMetadata.title },
-              {
-                name: 'twitter:description',
-                content: siteMetadata.description,
-              },
-              {
-                name: 'twitter:image',
-                content: siteMetadata.socialImageUrl,
-              },
-              { name: 'twitter:image:alt', content: siteMetadata.title },
-            ]}
           />
           <FullHeightContainer>
             <Header onThemeToggle={darkMode.toggle} />

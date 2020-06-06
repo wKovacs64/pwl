@@ -3,6 +3,7 @@ import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import useEventListener from '@use-it/event-listener';
 import debounce from 'lodash/debounce';
+import SEO from '../components/seo';
 import NoScriptMessage from '../components/noscript-message';
 import Layout from '../components/layout';
 import PasswordInput from '../components/password-input';
@@ -94,6 +95,7 @@ const IndexPage: React.FunctionComponent = () => {
         <style>{'.js { display: none !important; }'}</style>
         <NoScriptMessage />
       </noscript>
+      <SEO />
       <Content className="js">
         <P>
           Is that an &apos;O&apos; or a &apos;0&apos;? An &apos;I&apos; or an
