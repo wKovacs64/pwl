@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Helmet } from 'react-helmet';
 import { FaChevronLeft } from 'react-icons/fa';
 import styled from '@emotion/styled';
+import SEO from '../components/seo';
 import Layout from '../components/layout';
 import { light, dark } from '../theme';
 import { mq } from '../utils';
@@ -104,10 +104,7 @@ const ButtonText = styled.span`
 
 const NotFoundPage: React.FunctionComponent = () => (
   <Layout>
-    <Helmet
-      title="Dead Link"
-      meta={[{ name: 'description', content: 'Nothing here.' }]}
-    />
+    <SEO title="Dead Link" description="Nothing here." />
     <Content>
       <Section>
         <H2>404</H2>
