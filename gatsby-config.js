@@ -38,6 +38,7 @@ module.exports = {
         theme_color: '#1c304a',
         display: 'standalone',
         icon: 'src/images/icon.png',
+        cache_busting_mode: 'none',
       },
     },
     'gatsby-plugin-offline',
