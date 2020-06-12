@@ -30,14 +30,6 @@ const Layout: React.FunctionComponent = ({ children }) => {
         >
           <Global
             styles={css`
-              @font-face {
-                font-family: 'Nunito';
-                src: local('Nunito');
-              }
-              @font-face {
-                font-family: 'Source Sans Pro';
-                src: local('Source Sans Pro');
-              }
               body {
                 font-family: 'Source Sans Pro', -apple-system,
                   BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue',
