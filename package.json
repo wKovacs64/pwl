@@ -71,8 +71,8 @@
     "xstate": "4.10.0"
   },
   "devDependencies": {
-    "@babel/core": "7.10.3",
-    "@babel/parser": "7.10.3",
+    "@babel/core": "7.10.4",
+    "@babel/parser": "7.10.4",
     "@commitlint/cli": "9.0.1",
     "@commitlint/config-conventional": "9.0.1",
     "@rckeller/cypress-unfetch": "1.0.1",
