@@ -73,8 +73,8 @@
   "devDependencies": {
     "@babel/core": "7.10.4",
     "@babel/parser": "7.10.4",
-    "@commitlint/cli": "9.0.1",
-    "@commitlint/config-conventional": "9.0.1",
+    "@commitlint/cli": "9.1.1",
+    "@commitlint/config-conventional": "9.1.1",
     "@rckeller/cypress-unfetch": "1.0.1",
     "@testing-library/cypress": "6.0.0",
     "@types/color-string": "1.5.0",
