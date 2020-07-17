@@ -70,18 +70,16 @@ const updatePollerMachine = createMachine<
         },
       },
       success: {
-        on: {
-          '': [
-            {
-              cond: 'updateAvailable',
-              target: 'updateAvailable',
-            },
-            {
-              cond: 'updateNotAvailable',
-              target: 'idle',
-            },
-          ],
-        },
+        always: [
+          {
+            cond: 'updateAvailable',
+            target: 'updateAvailable',
+          },
+          {
+            cond: 'updateNotAvailable',
+            target: 'idle',
+          },
+        ],
       },
       failure: {
         on: {
