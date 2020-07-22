@@ -9,12 +9,12 @@ interface SEOProps {
   socialImageAlt?: string;
 }
 
-const SEO: React.FunctionComponent<SEOProps> = ({
+function SEO({
   title: pageTitle,
   description: pageDescription,
   socialImageUrl,
   socialImageAlt,
-}) => {
+}: SEOProps): JSX.Element {
   const {
     site: { siteMetadata },
   } = useStaticQuery(graphql`
@@ -59,6 +59,6 @@ const SEO: React.FunctionComponent<SEOProps> = ({
       ]}
     />
   );
-};
+}
 
 export default SEO;

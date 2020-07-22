@@ -15,7 +15,11 @@ const FullHeightContainer = styled.div`
   padding-bottom: 2rem;
 `;
 
-const Layout: React.FunctionComponent = ({ children }) => {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+function Layout({ children }: LayoutProps): JSX.Element {
   const darkMode = useDarkMode(false);
 
   return (
@@ -49,6 +53,6 @@ const Layout: React.FunctionComponent = ({ children }) => {
       )}
     </ClassNames>
   );
-};
+}
 
 export default Layout;

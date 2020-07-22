@@ -37,7 +37,7 @@ const UpdateAlertContainer = styled.div`
   }
 `;
 
-const checkForUpdate = async (localCommit: string) => {
+async function checkForUpdate(localCommit: string) {
   if (typeof window !== 'undefined') {
     try {
       const res = await fetch('/index.html?no-cache=1', {
@@ -63,9 +63,9 @@ const checkForUpdate = async (localCommit: string) => {
     }
   }
   return false;
-};
+}
 
-const AlertOnUpdate: React.FunctionComponent = () => {
+function AlertOnUpdate(): JSX.Element | null {
   const {
     site: { siteMetadata },
   } = useStaticQuery(graphql`
@@ -107,6 +107,6 @@ const AlertOnUpdate: React.FunctionComponent = () => {
   }
 
   return null;
-};
+}
 
 export default AlertOnUpdate;

@@ -7,18 +7,16 @@ interface LegendProps {
   labels: LabelMap;
 }
 
-const Legend: React.FunctionComponent<LegendProps> = ({
-  colors,
-  labels,
-  ...props
-}) => (
-  <section data-testid="legend" {...props}>
-    <p>Legend:</p>
-    <LegendItem color={colors.number} label={labels.number} />
-    <LegendItem color={colors.uppercase} label={labels.uppercase} />
-    <LegendItem color={colors.lowercase} label={labels.lowercase} />
-    <LegendItem color={colors.special} label={labels.special} />
-  </section>
-);
+function Legend({ colors, labels, ...props }: LegendProps): JSX.Element {
+  return (
+    <section data-testid="legend" {...props}>
+      <p>Legend:</p>
+      <LegendItem color={colors.number} label={labels.number} />
+      <LegendItem color={colors.uppercase} label={labels.uppercase} />
+      <LegendItem color={colors.lowercase} label={labels.lowercase} />
+      <LegendItem color={colors.special} label={labels.special} />
+    </section>
+  );
+}
 
 export default Legend;

@@ -2,8 +2,9 @@ import colorString from 'color-string';
 import { colors, labels } from '../../src/legend';
 import { classifyCharacters } from '../../src/utils';
 
-const colorToRGB = (cssColor: string): string =>
-  colorString.to.rgb(colorString.get.rgb(cssColor) || []);
+function colorToRGB(cssColor: string): string {
+  return colorString.to.rgb(colorString.get.rgb(cssColor) || []);
+}
 
 describe('Index Page', () => {
   const EXPOSURE_ROUTE = 'https://api.pwnedpasswords.com/range/*';

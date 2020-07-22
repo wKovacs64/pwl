@@ -22,20 +22,22 @@ const SourceLinkIcon = styled(FaGithub)`
   }
 `;
 
-const Footer: React.FunctionComponent = () => (
-  <footer
-    css={css`
-      display: flex;
-      justify-content: center;
-    `}
-  >
-    <SourceLink
-      href="https://github.com/wKovacs64/pwl"
-      rel="noopener noreferrer"
+function Footer(): JSX.Element {
+  return (
+    <footer
+      css={css`
+        display: flex;
+        justify-content: center;
+      `}
     >
-      <SourceLinkIcon aria-label="View source on GitHub" size={32} />
-    </SourceLink>
-  </footer>
-);
+      <SourceLink
+        href="https://github.com/wKovacs64/pwl"
+        rel="noopener noreferrer"
+      >
+        <SourceLinkIcon aria-label="View source on GitHub" size={32} />
+      </SourceLink>
+    </footer>
+  );
+}
 
 export default Footer;

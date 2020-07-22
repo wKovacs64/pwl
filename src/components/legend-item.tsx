@@ -19,14 +19,13 @@ interface LegendItemProps {
   label: string;
 }
 
-const LegendItem: React.FunctionComponent<LegendItemProps> = ({
-  color,
-  label,
-}) => (
-  <LegendRow data-testid={`legend-row--${label}`}>
-    <LegendColor data-testid="color" color={color} />
-    <span>{label}</span>
-  </LegendRow>
-);
+function LegendItem({ color, label }: LegendItemProps): JSX.Element {
+  return (
+    <LegendRow data-testid={`legend-row--${label}`}>
+      <LegendColor data-testid="color" color={color} />
+      <span>{label}</span>
+    </LegendRow>
+  );
+}
 
 export default LegendItem;

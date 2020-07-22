@@ -18,37 +18,39 @@ interface ResultsProps {
   passwordToCheck: string;
 }
 
-const Results: React.FunctionComponent<ResultsProps> = ({
+function Results({
   colors,
   labels,
   passwordInput,
   passwordToCheck,
   ...props
-}) => (
-  <section data-testid="results" {...props}>
-    <PasswordThroughLense
-      colors={colors}
-      labels={labels}
-      password={passwordInput}
-    />
-    <AdditionalInfo>
-      <Legend
-        css={css`
-          flex: 1;
-          margin-top: 2rem;
-        `}
+}: ResultsProps): JSX.Element {
+  return (
+    <section data-testid="results" {...props}>
+      <PasswordThroughLense
         colors={colors}
         labels={labels}
+        password={passwordInput}
       />
-      <PwnedInfo
-        css={css`
-          flex: 1;
-          margin-top: 2rem;
-        `}
-        password={passwordToCheck}
-      />
-    </AdditionalInfo>
-  </section>
-);
+      <AdditionalInfo>
+        <Legend
+          css={css`
+            flex: 1;
+            margin-top: 2rem;
+          `}
+          colors={colors}
+          labels={labels}
+        />
+        <PwnedInfo
+          css={css`
+            flex: 1;
+            margin-top: 2rem;
+          `}
+          password={passwordToCheck}
+        />
+      </AdditionalInfo>
+    </section>
+  );
+}
 
 export default Results;

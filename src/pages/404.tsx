@@ -102,21 +102,23 @@ const ButtonText = styled.span`
   }
 `;
 
-const NotFoundPage: React.FunctionComponent = () => (
-  <Layout>
-    <SEO title="Dead Link" description="Nothing here." />
-    <Content>
-      <Section>
-        <H2>404</H2>
-        <P>Sorry, but the page you requested could not be found.</P>
-        <Nav>
-          <Button onClick={() => window.history.back()} type="button">
-            <ButtonIcon /> <ButtonText>Go Back</ButtonText>
-          </Button>
-        </Nav>
-      </Section>
-    </Content>
-  </Layout>
-);
+function NotFoundPage(): JSX.Element {
+  return (
+    <Layout>
+      <SEO title="Dead Link" description="Nothing here." />
+      <Content>
+        <Section>
+          <H2>404</H2>
+          <P>Sorry, but the page you requested could not be found.</P>
+          <Nav>
+            <Button onClick={() => window.history.back()} type="button">
+              <ButtonIcon /> <ButtonText>Go Back</ButtonText>
+            </Button>
+          </Nav>
+        </Section>
+      </Content>
+    </Layout>
+  );
+}
 
 export default NotFoundPage;

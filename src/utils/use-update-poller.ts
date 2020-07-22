@@ -104,28 +104,24 @@ const updatePollerMachine = createMachine<
 
 type Interval = number | null;
 
-const clearIntervalSafely = (interval: Interval) => {
+function clearIntervalSafely(interval: Interval) {
   if (typeof window !== 'undefined' && interval) {
     window.clearInterval(interval);
   }
-};
+}
 
 interface UpdatePollerOptions {
   // whether or not to poll immediately (in addition to the interval)
   checkImmediately: boolean;
 }
 
-type UseUpdatePollerFn = (
+export function useUpdatePoller(
   hasUpdate: () => Promise<boolean>,
   pollingIntervalMs: number,
-  options?: UpdatePollerOptions,
-) => readonly [boolean, string];
-
-export const useUpdatePoller: UseUpdatePollerFn = (
-  hasUpdate,
-  pollingIntervalMs,
-  { checkImmediately } = { checkImmediately: false },
-) => {
+  { checkImmediately }: UpdatePollerOptions | undefined = {
+    checkImmediately: false,
+  },
+): readonly [boolean, string] {
   const intervalRef = React.useRef<Interval>(null);
   const [current, send] = useMachine(updatePollerMachine);
   const { updateAvailable, error } = current.context;
@@ -149,4 +145,4 @@ export const useUpdatePoller: UseUpdatePollerFn = (
   }, [checkForUpdate, pollingIntervalMs, checkImmediately]);
 
   return [updateAvailable, error];
-};
+}

@@ -12,9 +12,11 @@ const hydrateThemeCss = `
   }
 `.replace(/\s+/g, '');
 
-const ThemeHydrationStyleTag: React.FunctionComponent = () => (
-  // eslint-disable-next-line react/no-danger
-  <style dangerouslySetInnerHTML={{ __html: hydrateThemeCss }} />
-);
+function ThemeHydrationStyleTag(): JSX.Element {
+  return (
+    // eslint-disable-next-line react/no-danger
+    <style dangerouslySetInnerHTML={{ __html: hydrateThemeCss }} />
+  );
+}
 
 export default ThemeHydrationStyleTag;
