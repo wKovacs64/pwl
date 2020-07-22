@@ -2,13 +2,11 @@ import memoizeOne from 'memoize-one';
 import { ColorMap } from '../legend/colors';
 import { LabelMap } from '../legend/labels';
 
-type GetCharPropsFn = (
+function getCharProps(
   character: string,
   colors: ColorMap,
   labels: LabelMap,
-) => { color: string; label: string };
-
-const getCharProps: GetCharPropsFn = (character, colors, labels) => {
+): { color: string; label: string } {
   if (/[0-9]/.test(character)) {
     return { color: colors.number, label: labels.number };
   }
@@ -19,7 +17,7 @@ const getCharProps: GetCharPropsFn = (character, colors, labels) => {
     return { color: colors.lowercase, label: labels.lowercase };
   }
   return { color: colors.special, label: labels.special };
-};
+}
 
 const getCharacterProperties = memoizeOne(getCharProps);
 
@@ -29,14 +27,12 @@ interface ClassifiedCharacter {
   label: string;
 }
 
-type ClassifyCharsFn = (
+export function classifyCharacters(
   password: string,
   colors: ColorMap,
   labels: LabelMap,
-) => ClassifiedCharacter[];
-
-export const classifyCharacters: ClassifyCharsFn = (password, colors, labels) =>
-  password.split('').map((character) => {
+): ClassifiedCharacter[] {
+  return password.split('').map((character) => {
     const { color, label } = getCharacterProperties(character, colors, labels);
     return {
       character,
@@ -44,3 +40,4 @@ export const classifyCharacters: ClassifyCharsFn = (password, colors, labels) =>
       label,
     };
   });
+}

@@ -57,7 +57,7 @@ const InputAndResults = styled.section`
   max-width: 32rem;
 `;
 
-const IndexPage: React.FunctionComponent = () => {
+function IndexPage(): JSX.Element {
   const [passwordInput, setPasswordInput] = React.useState('');
   const [passwordToCheck, setPasswordToCheck] = React.useState('');
   const setPasswordToCheckDebounced = React.useCallback(
@@ -125,6 +125,6 @@ const IndexPage: React.FunctionComponent = () => {
       </Content>
     </Layout>
   );
-};
+}
 
 export default IndexPage;

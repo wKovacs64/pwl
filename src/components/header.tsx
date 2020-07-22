@@ -65,7 +65,7 @@ interface HeaderProps {
   onThemeToggle: () => void;
 }
 
-const Header: React.FunctionComponent<HeaderProps> = ({ onThemeToggle }) => {
+function Header({ onThemeToggle }: HeaderProps): JSX.Element {
   const {
     site: { siteMetadata },
   } = useStaticQuery(graphql`
@@ -89,6 +89,6 @@ const Header: React.FunctionComponent<HeaderProps> = ({ onThemeToggle }) => {
       </HeaderContent>
     </header>
   );
-};
+}
 
 export default Header;

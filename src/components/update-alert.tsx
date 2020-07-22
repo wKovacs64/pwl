@@ -42,22 +42,24 @@ interface UpdateAlertProps {
   onDismiss: () => void;
 }
 
-const UpdateAlert: React.FunctionComponent<UpdateAlertProps> = ({
+function UpdateAlert({
   siteTitle,
   onReload,
   onDismiss,
-}) => (
-  <Alert aria-live="polite" role="alert">
-    <AlertMessage>A new version of {siteTitle} is available!</AlertMessage>
-    <AlertButtonContainer>
-      <AlertButton type="button" onClick={onReload}>
-        <AlertButtonLabel>Reload</AlertButtonLabel>
-      </AlertButton>
-      <AlertButton type="button" onClick={onDismiss}>
-        <AlertButtonLabel>Dismiss</AlertButtonLabel>
-      </AlertButton>
-    </AlertButtonContainer>
-  </Alert>
-);
+}: UpdateAlertProps): JSX.Element {
+  return (
+    <Alert aria-live="polite" role="alert">
+      <AlertMessage>A new version of {siteTitle} is available!</AlertMessage>
+      <AlertButtonContainer>
+        <AlertButton type="button" onClick={onReload}>
+          <AlertButtonLabel>Reload</AlertButtonLabel>
+        </AlertButton>
+        <AlertButton type="button" onClick={onDismiss}>
+          <AlertButtonLabel>Dismiss</AlertButtonLabel>
+        </AlertButton>
+      </AlertButtonContainer>
+    </Alert>
+  );
+}
 
 export default UpdateAlert;

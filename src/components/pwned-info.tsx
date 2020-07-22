@@ -108,10 +108,10 @@ interface PwnedInfoProps {
   password: string;
 }
 
-const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
+function PwnedInfo({
   /* delayLoadingMs, */ password,
   ...props
-}) => {
+}: PwnedInfoProps): JSX.Element {
   const [current, send] = useMachine(pwnedInfoMachine);
   const { numPwns, error } = current.context;
 
@@ -143,7 +143,7 @@ const PwnedInfo: React.FunctionComponent<PwnedInfoProps> = ({
       )}
     </section>
   );
-};
+}
 
 // PwnedInfo.defaultProps = {
 //   delayLoadingMs: 750,

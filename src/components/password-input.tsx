@@ -44,27 +44,29 @@ interface PasswordInputProps {
   onKeyDown: React.KeyboardEventHandler;
 }
 
-const PasswordInput: React.FunctionComponent<PasswordInputProps> = ({
+function PasswordInput({
   password,
   onChange,
   onKeyDown,
   ...props
-}) => (
-  <div {...props}>
-    <Input
-      aria-label="Password"
-      placeholder="Paste Here"
-      type="text"
-      autoCapitalize="off"
-      autoComplete="off"
-      autoCorrect="off"
-      spellCheck={false}
-      onChange={onChange}
-      onKeyDown={onKeyDown}
-      value={password}
-    />
-  </div>
-);
+}: PasswordInputProps): JSX.Element {
+  return (
+    <div {...props}>
+      <Input
+        aria-label="Password"
+        placeholder="Paste Here"
+        type="text"
+        autoCapitalize="off"
+        autoComplete="off"
+        autoCorrect="off"
+        spellCheck={false}
+        onChange={onChange}
+        onKeyDown={onKeyDown}
+        value={password}
+      />
+    </div>
+  );
+}
 
 PasswordInput.defaultProps = {
   password: '',

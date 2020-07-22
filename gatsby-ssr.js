@@ -6,12 +6,9 @@
 import * as React from 'react';
 import ThemeHydrationStyleTag from './src/components/theme-hydration-style-tag';
 
-export const onPreRenderHTML = ({
-  getHeadComponents,
-  replaceHeadComponents,
-}) => {
+export function onPreRenderHTML({ getHeadComponents, replaceHeadComponents }) {
   replaceHeadComponents([
     ...getHeadComponents(),
     <ThemeHydrationStyleTag key="theme-hydration-style-tag" />,
   ]);
-};
+}
