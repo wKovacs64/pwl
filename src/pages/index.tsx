@@ -83,7 +83,7 @@ function IndexPage(): JSX.Element {
     setPasswordToCheckDebounced(value);
   };
 
-  useEventListener<React.KeyboardEvent>('keydown', ({ key }) => {
+  useEventListener<'keydown'>('keydown', ({ key }) => {
     if (key === 'Esc') {
       handleEscape();
     }
