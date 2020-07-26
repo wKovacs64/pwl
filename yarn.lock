@@ -2906,10 +2906,10 @@
   dependencies:
     wonka "^4.0.14"
 
-"@use-it/event-listener@0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@use-it/event-listener/-/event-listener-0.1.4.tgz#b329783592f03f9751736f614712bdd6ab7ba4f7"
-  integrity sha512-P8pWyMUcBXVRVcCUq9xO6t5AypmQ34KVmGaRdYHRFu3iUr5Ysfk/7pykZtGjyWdk33mMvhkzcmU0iauDL3fteQ==
+"@use-it/event-listener@0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@use-it/event-listener/-/event-listener-0.1.5.tgz#870456241bfef66acea6395c69b66fe516bee3cd"
+  integrity sha512-SWbhB0iFcoNL1BEldApGTqfB9aoGpU82iZUVTBtZaTFNrVKAGwuQTF15N9MzRvTgyuOASWf1pCKXbdVtKZgeRg==
 
 "@use-it/event-listener@^0.1.2":
   version "0.1.3"
