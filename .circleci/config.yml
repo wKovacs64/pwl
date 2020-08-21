@@ -5,13 +5,13 @@ orbs:
 
 jobs:
   validate:
-    executor: cypress/base-12-16-1
+    executor: cypress/base-14-7-0
     steps:
       - attach_workspace:
           at: ~/
       - run: yarn validate
   release:
-    executor: cypress/base-12-16-1
+    executor: cypress/base-14-7-0
     steps:
       - attach_workspace:
           at: ~/
@@ -21,7 +21,7 @@ workflows:
   build:
     jobs:
       - cypress/run:
-          executor: cypress/base-12-16-1
+          executor: cypress/base-14-7-0
           yarn: true
           start: yarn develop
           wait-on: '--timeout 40000 http://localhost:8000'
