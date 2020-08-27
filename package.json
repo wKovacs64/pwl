@@ -111,8 +111,8 @@
   },
   "resolutions": {
     "**/@types/react": "16.9.48",
-    "@typescript-eslint/eslint-plugin": "^3.4.0",
-    "@typescript-eslint/parser": "^3.4.0",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
     "cypress": "5.0.0"
   }
 }
