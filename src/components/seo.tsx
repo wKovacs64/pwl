@@ -61,4 +61,11 @@ function SEO({
   );
 }
 
+SEO.defaultProps = {
+  title: '',
+  description: '',
+  socialImageUrl: '',
+  socialImageAlt: '',
+};
+
 export default SEO;

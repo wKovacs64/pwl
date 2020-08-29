@@ -68,9 +68,4 @@ function PasswordInput({
   );
 }
 
-PasswordInput.defaultProps = {
-  password: '',
-  onKeyDown: () => {},
-};
-
 export default PasswordInput;
