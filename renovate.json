@@ -15,6 +15,11 @@
       "packageNames": ["eslint"],
       "updateTypes": ["major"],
       "enabled": false
+    },
+    {
+      "packagePatterns": ["^@typescript-eslint"],
+      "updateTypes": ["major"],
+      "enabled": false
     }
   ],
   "prConcurrentLimit": 0,
