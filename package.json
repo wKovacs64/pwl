@@ -89,7 +89,7 @@
     "@types/react-helmet": "6.1.0",
     "@types/testing-library__cypress": "5.0.6",
     "@wkovacs64/prettier-config": "3.0.0",
-    "axe-core": "4.0.1",
+    "axe-core": "4.0.2",
     "color-string": "1.5.3",
     "commitizen": "4.2.1",
     "cross-env": "7.0.2",
