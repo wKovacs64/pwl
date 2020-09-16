@@ -139,9 +139,8 @@ export function useUpdatePoller(
         checkForUpdate,
         pollingIntervalMs,
       );
-      return () => clearIntervalSafely(intervalRef.current);
     }
-    return () => {};
+    return () => clearIntervalSafely(intervalRef.current);
   }, [checkForUpdate, pollingIntervalMs, checkImmediately]);
 
   return [updateAvailable, error];
