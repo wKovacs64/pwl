@@ -15804,10 +15804,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typeface-nunito@1.1.12:
-  version "1.1.12"
-  resolved "https://registry.yarnpkg.com/typeface-nunito/-/typeface-nunito-1.1.12.tgz#aa0c73cdbdfb4a3e80ed63396b462d01ba2a499f"
-  integrity sha512-BsOJHxXIbXSOM8YrGSuavDIJ1+5rWprr1rXwlacqIvuKxcnoxAbfppovQt9/yZXq14jBixut+pjiuoigdkhtzA==
+typeface-nunito@1.1.13:
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/typeface-nunito/-/typeface-nunito-1.1.13.tgz#a57cbd7ff3e74ed99fe60d3361971c61747d130c"
+  integrity sha512-S7tN6pMnJapUxRDNa/RPXtcsxJC0KkBNPFOfGpHCkatVLm+6ltMedgeGtr1lPZsGFXGN890TZmE18bq2pdsmKw==
 
 typeface-source-sans-pro@0.0.75:
   version "0.0.75"
