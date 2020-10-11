@@ -79,7 +79,7 @@
     "@testing-library/cypress": "7.0.1",
     "@types/color-string": "1.5.0",
     "@types/cypress-axe": "0.8.0",
-    "@types/lodash": "4.14.161",
+    "@types/lodash": "4.14.162",
     "@types/memoize-one": "5.1.2",
     "@types/ms": "0.7.31",
     "@types/node": "12.12.67",
