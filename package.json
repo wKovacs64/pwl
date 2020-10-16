@@ -72,7 +72,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.12.1",
-    "@babel/parser": "7.12.1",
+    "@babel/parser": "7.12.2",
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "11.0.0",
     "@rckeller/cypress-unfetch": "1.0.1",
