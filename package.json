@@ -95,7 +95,7 @@
     "cypress": "5.4.0",
     "cypress-axe": "0.8.1",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "7.11.0",
+    "eslint": "7.12.0",
     "eslint-plugin-cypress": "2.11.2",
     "eslint-plugin-emotion": "10.0.27",
     "eslint-plugin-wkovacs64": "9.0.0",
