@@ -46,7 +46,7 @@
     "@wkovacs64/normalize.css": "8.0.1",
     "@xstate/react": "1.0.1",
     "dotenv": "8.2.0",
-    "gatsby": "2.24.85",
+    "gatsby": "2.24.86",
     "gatsby-plugin-emotion": "4.3.14",
     "gatsby-plugin-manifest": "2.4.35",
     "gatsby-plugin-netlify": "2.3.24",
