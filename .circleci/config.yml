@@ -29,6 +29,8 @@ workflows:
           requires:
             - cypress/run
       - release:
+          context:
+            - release
           requires:
             - validate
           filters:
