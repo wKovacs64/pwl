@@ -97,7 +97,7 @@
     "cz-conventional-changelog": "3.3.0",
     "eslint": "7.13.0",
     "eslint-plugin-cypress": "2.11.2",
-    "eslint-plugin-emotion": "10.0.27",
+    "eslint-plugin-emotion": "11.0.0",
     "eslint-plugin-wkovacs64": "10.0.0",
     "gatsby-plugin-typescript": "2.6.0",
     "husky": "4.3.0",
