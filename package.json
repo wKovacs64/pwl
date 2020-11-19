@@ -42,7 +42,7 @@
   "dependencies": {
     "@emotion/core": "10.1.1",
     "@emotion/styled": "10.0.27",
-    "@use-it/event-listener": "0.1.5",
+    "@use-it/event-listener": "0.1.6",
     "@wkovacs64/normalize.css": "8.0.1",
     "@xstate/react": "1.0.3",
     "dotenv": "8.2.0",
