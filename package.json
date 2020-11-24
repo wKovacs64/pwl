@@ -92,7 +92,7 @@
     "color-string": "1.5.4",
     "commitizen": "4.2.2",
     "cross-env": "7.0.2",
-    "cypress": "5.6.0",
+    "cypress": "6.0.0",
     "cypress-axe": "0.11.0",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "7.14.0",
