@@ -13,6 +13,5 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-import '@rckeller/cypress-unfetch';
 import 'cypress-axe';
 import './commands';

@@ -10,7 +10,6 @@ describe('Index Page', () => {
   const EXPOSURE_ROUTE = 'https://api.pwnedpasswords.com/range/*';
 
   beforeEach(() => {
-    cy.server();
     cy.visit('/').injectAxe();
   });
 
@@ -24,10 +23,8 @@ describe('Index Page', () => {
   });
 
   it('has no detectable a11y violations when showing results', () => {
-    cy.route({
-      method: 'GET',
-      url: EXPOSURE_ROUTE,
-      response: 'fixture:exposed-password-response.txt',
+    cy.intercept('GET', EXPOSURE_ROUTE, {
+      fixture: 'exposed-password-response.txt',
     });
 
     cy.fixture('exposed-password.txt').then((exposedPassword) => {
@@ -41,12 +38,7 @@ describe('Index Page', () => {
   });
 
   it('only shows results section with input', () => {
-    cy.route({
-      method: 'GET',
-      url: EXPOSURE_ROUTE,
-      response: {},
-      status: 418,
-    });
+    cy.intercept('GET', EXPOSURE_ROUTE, { statusCode: 418 });
 
     cy.findByLabelText('Password').should('be.empty');
     cy.findByTestId('results', { timeout: 500 }).should('not.exist');
@@ -62,12 +54,7 @@ describe('Index Page', () => {
 
   describe('Password Through Lense', () => {
     it('contains classified characters matching the input', () => {
-      cy.route({
-        method: 'GET',
-        url: EXPOSURE_ROUTE,
-        response: {},
-        status: 418,
-      });
+      cy.intercept('GET', EXPOSURE_ROUTE, { statusCode: 418 });
 
       const password = ' P4ssw0rd! ';
       const classifiedCharacters = classifyCharacters(password, colors, labels);
@@ -93,12 +80,7 @@ describe('Index Page', () => {
 
   describe('Legend', () => {
     beforeEach(() => {
-      cy.route({
-        method: 'GET',
-        url: EXPOSURE_ROUTE,
-        response: {},
-        status: 418,
-      });
+      cy.intercept('GET', EXPOSURE_ROUTE, { statusCode: 418 });
 
       cy.findByLabelText('Password').click().type('P4ssw0rd!');
     });
@@ -153,13 +135,10 @@ describe('Index Page', () => {
 
   describe('Public Exposure', () => {
     it('shows loading state', () => {
-      cy.route({
-        // delay must be longer than PwnedInfo's delayLoadingMs prop value
-        delay: 1000,
-        method: 'GET',
-        url: EXPOSURE_ROUTE,
-        response: {},
-        status: 418,
+      cy.intercept('GET', EXPOSURE_ROUTE, {
+        // delayMs must be longer than PwnedInfo's delayLoadingMs prop value
+        delayMs: 1000,
+        statusCode: 418,
       });
 
       cy.findByLabelText('Password').click().type('P4ssw0rd!');
@@ -173,10 +152,8 @@ describe('Index Page', () => {
 
     it('shows positive feedback for clean passwords', () => {
       cy.fixture('clean-password.txt').then((cleanPassword) => {
-        cy.route({
-          method: 'GET',
-          url: EXPOSURE_ROUTE,
-          response: 'fixture:clean-password-response.txt',
+        cy.intercept('GET', EXPOSURE_ROUTE, {
+          fixture: 'clean-password-response.txt',
         });
 
         cy.findByLabelText('Password').click().type(cleanPassword);
@@ -191,10 +168,8 @@ describe('Index Page', () => {
       cy.fixture('exposed-password.txt').then((exposedPassword) => {
         cy.fixture('exposed-password-count.txt').then(
           (exposedPasswordCount) => {
-            cy.route({
-              method: 'GET',
-              url: EXPOSURE_ROUTE,
-              response: 'fixture:exposed-password-response.txt',
+            cy.intercept('GET', EXPOSURE_ROUTE, {
+              fixture: 'exposed-password-response.txt',
             });
 
             cy.findByLabelText('Password').click().type(exposedPassword);
@@ -209,11 +184,9 @@ describe('Index Page', () => {
     });
 
     it('indicates when public exposure information is unavailable', () => {
-      cy.route({
-        method: 'GET',
-        url: EXPOSURE_ROUTE,
-        response: 'API Unavailable',
-        status: 500,
+      cy.intercept('GET', EXPOSURE_ROUTE, {
+        statusCode: 500,
+        body: 'API Unavailable',
       });
 
       cy.findByLabelText('Password').click().type('P4ssw0rd!');
