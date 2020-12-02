@@ -104,11 +104,13 @@ const pwnedInfoMachine = createMachine<
 );
 
 interface PwnedInfoProps {
+  className?: string;
   // delayLoadingMs: number;
   password: string;
 }
 
 function PwnedInfo({
+  className,
   /* delayLoadingMs, */ password,
   ...props
 }: PwnedInfoProps): JSX.Element {
@@ -120,7 +122,7 @@ function PwnedInfo({
   }, [send, password]);
 
   return (
-    <section data-testid="pwned-info" {...props}>
+    <section data-testid="pwned-info" className={className} {...props}>
       <p>Public Exposure:</p>
       {error ? (
         <p>
@@ -145,8 +147,9 @@ function PwnedInfo({
   );
 }
 
-// PwnedInfo.defaultProps = {
-//   delayLoadingMs: 750,
-// };
+PwnedInfo.defaultProps = {
+  className: '',
+  // delayLoadingMs: 750,
+};
 
 export default PwnedInfo;

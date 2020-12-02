@@ -12,6 +12,7 @@ const AdditionalInfo = styled.section`
 `;
 
 interface ResultsProps {
+  className?: string;
   colors: ColorMap;
   labels: LabelMap;
   passwordInput: string;
@@ -19,6 +20,7 @@ interface ResultsProps {
 }
 
 function Results({
+  className,
   colors,
   labels,
   passwordInput,
@@ -26,7 +28,7 @@ function Results({
   ...props
 }: ResultsProps): JSX.Element {
   return (
-    <section data-testid="results" {...props}>
+    <section data-testid="results" className={className} {...props}>
       <PasswordThroughLense
         colors={colors}
         labels={labels}
@@ -52,5 +54,9 @@ function Results({
     </section>
   );
 }
+
+Results.defaultProps = {
+  className: '',
+};
 
 export default Results;

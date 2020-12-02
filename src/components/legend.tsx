@@ -3,13 +3,19 @@ import { ColorMap, LabelMap } from '../legend';
 import LegendItem from './legend-item';
 
 interface LegendProps {
+  className?: string;
   colors: ColorMap;
   labels: LabelMap;
 }
 
-function Legend({ colors, labels, ...props }: LegendProps): JSX.Element {
+function Legend({
+  className,
+  colors,
+  labels,
+  ...props
+}: LegendProps): JSX.Element {
   return (
-    <section data-testid="legend" {...props}>
+    <section data-testid="legend" className={className} {...props}>
       <p>Legend:</p>
       <LegendItem color={colors.number} label={labels.number} />
       <LegendItem color={colors.uppercase} label={labels.uppercase} />
@@ -18,5 +24,9 @@ function Legend({ colors, labels, ...props }: LegendProps): JSX.Element {
     </section>
   );
 }
+
+Legend.defaultProps = {
+  className: '',
+};
 
 export default Legend;
