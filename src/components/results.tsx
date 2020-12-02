@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { ColorMap, LabelMap } from '../legend';
 import PasswordThroughLense from './password-through-lense';
@@ -9,6 +8,11 @@ import PwnedInfo from './pwned-info';
 const AdditionalInfo = styled.section`
   display: flex;
   flex-wrap: wrap;
+
+  > * {
+    flex: 1;
+    margin-top: 2rem;
+  }
 `;
 
 interface ResultsProps {
@@ -35,21 +39,8 @@ function Results({
         password={passwordInput}
       />
       <AdditionalInfo>
-        <Legend
-          css={css`
-            flex: 1;
-            margin-top: 2rem;
-          `}
-          colors={colors}
-          labels={labels}
-        />
-        <PwnedInfo
-          css={css`
-            flex: 1;
-            margin-top: 2rem;
-          `}
-          password={passwordToCheck}
-        />
+        <Legend colors={colors} labels={labels} />
+        <PwnedInfo password={passwordToCheck} />
       </AdditionalInfo>
     </section>
   );
