@@ -29,7 +29,7 @@ const Lense = styled.div`
   body.light-mode & {
     background-color: ${light.colors.lenseBackground};
     border-color: ${light.colors.lenseBorder};
-    scrollbar-color: ${`${light.colors.lenseScrollThumb} ${light.colors.lenseScrollTrack}}`};
+    scrollbar-color: ${`${light.colors.lenseScrollThumb} ${light.colors.lenseScrollTrack}`};
     &::-webkit-scrollbar-thumb {
       background-color: ${light.colors.lenseScrollThumb};
     }
@@ -40,7 +40,7 @@ const Lense = styled.div`
   body.dark-mode & {
     background-color: ${dark.colors.lenseBackground};
     border-color: ${dark.colors.lenseBorder};
-    scrollbar-color: ${`${dark.colors.lenseScrollThumb} ${dark.colors.lenseScrollTrack}}`};
+    scrollbar-color: ${`${dark.colors.lenseScrollThumb} ${dark.colors.lenseScrollTrack}`};
     &::-webkit-scrollbar-thumb {
       background-color: ${dark.colors.lenseScrollThumb};
     }
