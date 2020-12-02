@@ -2,7 +2,8 @@
   "compilerOptions": {
     "target": "esnext",
     "moduleResolution": "node",
-    "jsx": "react",
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
     "esModuleInterop": true,
     "noEmit": true,
     "strict": true,
