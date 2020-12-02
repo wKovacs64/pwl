@@ -1,5 +1,3 @@
-// TODO: remove next line once typescript-eslint/typescript-eslint#643 is fixed
-/* eslint-disable react/no-array-index-key */
 import * as React from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
