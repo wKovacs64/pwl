@@ -44,7 +44,7 @@
     "@emotion/styled": "11.0.0",
     "@use-it/event-listener": "0.1.6",
     "@wkovacs64/normalize.css": "8.0.1",
-    "@xstate/react": "1.0.3",
+    "@xstate/react": "1.1.0",
     "dotenv": "8.2.0",
     "gatsby": "2.28.0",
     "gatsby-plugin-emotion": "5.0.0",
