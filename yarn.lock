@@ -8462,13 +8462,13 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
-hibp@9.0.3:
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/hibp/-/hibp-9.0.3.tgz#2f3bed6c644431b8edd73ca969f0253169d76f30"
-  integrity sha512-aO1djsqM8uQCzy3SIITWVTJDHx928w4ELzINNzqn5bYwwPvKdSyiKAVkLtMtW9i3d/kz1QNt2Mltz63wsEBb1Q==
+hibp@10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/hibp/-/hibp-10.0.0.tgz#2336623d67ede315d9d6a30dcb6feb92b78da643"
+  integrity sha512-2IDgLQD7k0/u69+X/jsXWaA1aWz5E4eRbWPRf4++DsEJxrPOgK+CA4Vb3PZ46BRdR1Kv/y5ffEYkBvuPHdUsfw==
   dependencies:
     isomorphic-unfetch "^3.1.0"
-    jssha "^3.1.2"
+    jssha "^3.2.0"
 
 hicat@^0.7.0:
   version "0.7.0"
@@ -9816,10 +9816,10 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-jssha@^3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/jssha/-/jssha-3.1.2.tgz#e7b6daae8ae353a38da8e5b6afc106688fd24a59"
-  integrity sha512-6fEObA9he4vcCpz+dt9b5DjqhqvSsz9XMfNPU6/IyKHDQpCHsYayPRkWmAZG61lZC9XVJcjsQNAiUUd0NpskeQ==
+jssha@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/jssha/-/jssha-3.2.0.tgz#88ec50b866dd1411deaddbe6b3e3692e4c710f16"
+  integrity sha512-QuruyBENDWdN4tZwJbQq7/eAK85FqrI4oDbXjy5IBhYD+2pTJyBUWZe8ctWaCkrV0gy6AaelgOZZBMeswEa/6Q==
 
 jsx-ast-utils@^2.4.1:
   version "2.4.1"
