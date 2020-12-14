@@ -46,6 +46,8 @@
     "@wkovacs64/normalize.css": "8.0.1",
     "@xstate/react": "1.1.0",
     "dotenv": "8.2.0",
+    "fontsource-nunito": "3.1.5",
+    "fontsource-source-sans-pro": "3.1.5",
     "gatsby": "2.28.2",
     "gatsby-plugin-emotion": "5.0.0",
     "gatsby-plugin-manifest": "2.8.0",
@@ -64,8 +66,6 @@
     "react-dom": "17.0.1",
     "react-helmet": "6.1.0",
     "react-icons": "4.1.0",
-    "typeface-nunito": "1.1.13",
-    "typeface-source-sans-pro": "0.0.75",
     "unfetch": "4.2.0",
     "use-dark-mode": "2.3.1",
     "xstate": "4.15.1"
