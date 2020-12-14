@@ -7301,6 +7301,16 @@ follow-redirects@^1.0.0, follow-redirects@^1.10.0:
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.0.tgz#b42e8d93a2a7eea5ed88633676d6597bc8e384db"
   integrity sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA==
 
+fontsource-nunito@3.1.5:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/fontsource-nunito/-/fontsource-nunito-3.1.5.tgz#fd1cd90a4e7d291f1e1969848339e15470888788"
+  integrity sha512-/Z8KLstZsKA5ySEJfaaEdhgUN2cnqE/RSLksqdjRR3vxIMKn2E6LFh1by+WfNa2nGhCCqX7GfiLwyOwJ8Wx/ug==
+
+fontsource-source-sans-pro@3.1.5:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/fontsource-source-sans-pro/-/fontsource-source-sans-pro-3.1.5.tgz#575edceadf0e68603c1c74b087f4423738cce2f9"
+  integrity sha512-DQDvGj/txs8wcXoym1Ji4EropFphA9mfAP4CgYPOIGvZ3OieP8QQjUlZv9Razy7CmWVvAa6GbOXKbahYfjVs+w==
+
 for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -15713,16 +15723,6 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
-
-typeface-nunito@1.1.13:
-  version "1.1.13"
-  resolved "https://registry.yarnpkg.com/typeface-nunito/-/typeface-nunito-1.1.13.tgz#a57cbd7ff3e74ed99fe60d3361971c61747d130c"
-  integrity sha512-S7tN6pMnJapUxRDNa/RPXtcsxJC0KkBNPFOfGpHCkatVLm+6ltMedgeGtr1lPZsGFXGN890TZmE18bq2pdsmKw==
-
-typeface-source-sans-pro@0.0.75:
-  version "0.0.75"
-  resolved "https://registry.yarnpkg.com/typeface-source-sans-pro/-/typeface-source-sans-pro-0.0.75.tgz#33e60ea079738c2dbdb2d0aa28f899f565e1646e"
-  integrity sha512-8aI6ywe+5py1MoMQjdnuQKepOATSLpFoyatVMweF6JNUD8cu+sWaVEfZBN08CRxPrSC4KYTArf6prrQzcqpyQA==
 
 typescript@4.1.3:
   version "4.1.3"

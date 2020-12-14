@@ -3,6 +3,6 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
-import 'typeface-nunito';
-import 'typeface-source-sans-pro';
+import 'fontsource-nunito/latin.css';
+import 'fontsource-source-sans-pro/latin.css';
 import '@wkovacs64/normalize.css';
