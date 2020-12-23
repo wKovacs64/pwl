@@ -7306,10 +7306,10 @@ follow-redirects@^1.0.0, follow-redirects@^1.10.0:
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.0.tgz#b42e8d93a2a7eea5ed88633676d6597bc8e384db"
   integrity sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA==
 
-fontsource-nunito@3.1.5:
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/fontsource-nunito/-/fontsource-nunito-3.1.5.tgz#fd1cd90a4e7d291f1e1969848339e15470888788"
-  integrity sha512-/Z8KLstZsKA5ySEJfaaEdhgUN2cnqE/RSLksqdjRR3vxIMKn2E6LFh1by+WfNa2nGhCCqX7GfiLwyOwJ8Wx/ug==
+fontsource-nunito@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/fontsource-nunito/-/fontsource-nunito-4.0.0.tgz#a0d865859f2f3d64c854533714ec37cdac4a8e0c"
+  integrity sha512-FuEypqCgJ72Hj7FTyulPU5OhjJH2AIse/bXHjS5QRf19AvmYF0sPSPC8tldKhXVVO5CUSNIw6W4P/YVklIGAVw==
 
 fontsource-source-sans-pro@3.1.5:
   version "3.1.5"
