@@ -47,7 +47,7 @@
     "@xstate/react": "1.2.1",
     "dotenv": "8.2.0",
     "fontsource-nunito": "3.1.5",
-    "fontsource-source-sans-pro": "3.1.5",
+    "fontsource-source-sans-pro": "4.0.0",
     "gatsby": "2.29.2",
     "gatsby-plugin-emotion": "5.1.0",
     "gatsby-plugin-manifest": "2.9.1",

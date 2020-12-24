@@ -7311,10 +7311,10 @@ fontsource-nunito@3.1.5:
   resolved "https://registry.yarnpkg.com/fontsource-nunito/-/fontsource-nunito-3.1.5.tgz#fd1cd90a4e7d291f1e1969848339e15470888788"
   integrity sha512-/Z8KLstZsKA5ySEJfaaEdhgUN2cnqE/RSLksqdjRR3vxIMKn2E6LFh1by+WfNa2nGhCCqX7GfiLwyOwJ8Wx/ug==
 
-fontsource-source-sans-pro@3.1.5:
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/fontsource-source-sans-pro/-/fontsource-source-sans-pro-3.1.5.tgz#575edceadf0e68603c1c74b087f4423738cce2f9"
-  integrity sha512-DQDvGj/txs8wcXoym1Ji4EropFphA9mfAP4CgYPOIGvZ3OieP8QQjUlZv9Razy7CmWVvAa6GbOXKbahYfjVs+w==
+fontsource-source-sans-pro@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/fontsource-source-sans-pro/-/fontsource-source-sans-pro-4.0.0.tgz#aa2dcdc178f4d6ba08815449431d78fb4a78fe65"
+  integrity sha512-1PHVhsemInovKS6TJ2voUzo4akMov2bJB5KkVxdymXkZZ8KVLsz6p1ku4TPQBJjiHFfSG71K8oLty44unmhMiw==
 
 for-in@^1.0.2:
   version "1.0.2"
