@@ -56,7 +56,7 @@
     "gatsby-plugin-react-helmet": "3.7.0",
     "gatsby-plugin-use-dark-mode": "1.2.0",
     "git-current-commit": "1.1.0",
-    "hibp": "10.0.0",
+    "hibp": "10.0.1",
     "lodash": "4.17.20",
     "memoize-one": "5.1.1",
     "mobile-detect": "1.4.4",

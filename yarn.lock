@@ -8501,10 +8501,10 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
-hibp@10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/hibp/-/hibp-10.0.0.tgz#2336623d67ede315d9d6a30dcb6feb92b78da643"
-  integrity sha512-2IDgLQD7k0/u69+X/jsXWaA1aWz5E4eRbWPRf4++DsEJxrPOgK+CA4Vb3PZ46BRdR1Kv/y5ffEYkBvuPHdUsfw==
+hibp@10.0.1:
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/hibp/-/hibp-10.0.1.tgz#d27eb0d50a1edc3624784697bd211271ba3d51f0"
+  integrity sha512-ol2/tyOf/8fr9i+8BR8uLXCIgaXUN0EpTeY3uBRyN/6jrAvpa91P8pvsiJ8XxNXDEscjNQTY5clxlcroLxHjhA==
   dependencies:
     isomorphic-unfetch "^3.1.0"
     jssha "^3.2.0"
