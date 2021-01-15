@@ -89,7 +89,7 @@
     "@wkovacs64/prettier-config": "3.0.0",
     "axe-core": "4.1.1",
     "color-string": "1.5.4",
-    "commitizen": "4.2.2",
+    "commitizen": "4.2.3",
     "cypress": "6.2.1",
     "cypress-axe": "0.12.0",
     "cz-conventional-changelog": "3.3.0",
