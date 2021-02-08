@@ -12,13 +12,13 @@
   },
   "packageRules": [
     {
-      "packageNames": ["eslint"],
-      "updateTypes": ["major"],
+      "matchPackageNames": ["eslint"],
+      "matchUpdateTypes": ["major"],
       "enabled": false
     },
     {
-      "packagePatterns": ["^@typescript-eslint"],
-      "updateTypes": ["major"],
+      "matchPackagePatterns": ["^@typescript-eslint"],
+      "matchUpdateTypes": ["major"],
       "enabled": false
     }
   ],
