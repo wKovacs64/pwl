@@ -1,8 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { assign, createMachine, DoneInvokeEvent } from 'xstate';
 import { useMachine } from '@xstate/react';
-import { pwnedPassword } from 'hibp';
+import { pwnedInfoMachine } from '../machines/pwned-info.machine';
 import { light, dark } from '../theme';
 
 const CleanExclamation = styled.span`
@@ -22,91 +21,6 @@ const PwnedExclamation = styled.span`
     color: ${dark.colors.pwnedExclamation};
   }
 `;
-
-interface PwnedInfoRequestEvent {
-  type: 'REQUEST';
-  payload: string;
-}
-
-type PwnedInfoPwnedPasswordSuccessEvent = DoneInvokeEvent<number>;
-type PwnedInfoPwnedPasswordFailureEvent = DoneInvokeEvent<Error>;
-// incoming event types only (internal events will be added internally)
-type PwnedInfoEvent = PwnedInfoRequestEvent;
-
-interface PwnedInfoContext {
-  numPwns: number;
-  error: boolean;
-}
-
-type PwnedInfoState =
-  | { value: 'idle'; context: PwnedInfoContext }
-  | { value: 'loading'; context: PwnedInfoContext }
-  | { value: 'success'; context: PwnedInfoContext }
-  | { value: 'failure'; context: PwnedInfoContext };
-
-const initialContext: PwnedInfoContext = {
-  numPwns: -1,
-  error: false,
-};
-
-const pwnedInfoMachine = createMachine<
-  PwnedInfoContext,
-  PwnedInfoEvent,
-  PwnedInfoState
->(
-  {
-    id: 'pwnedInfo',
-    initial: 'idle',
-    context: initialContext,
-    states: {
-      idle: {
-        on: { REQUEST: 'loading' },
-      },
-      loading: {
-        entry: 'reset',
-        invoke: {
-          id: 'pwnedPassword',
-          src: (_, event) => pwnedPassword(event.payload),
-          onDone: {
-            target: 'success',
-            actions: [
-              'reset',
-              assign<PwnedInfoContext, PwnedInfoPwnedPasswordSuccessEvent>({
-                numPwns: (_, event) => event.data,
-              }),
-            ],
-          },
-          onError: {
-            target: 'failure',
-            actions: [
-              'reset',
-              assign<PwnedInfoContext, PwnedInfoPwnedPasswordFailureEvent>({
-                error: true,
-              }),
-            ],
-          },
-        },
-        on: { REQUEST: 'loading' },
-      },
-      success: {
-        on: { REQUEST: 'loading' },
-      },
-      failure: {
-        on: { REQUEST: 'loading' },
-      },
-    },
-  },
-  {
-    actions: {
-      reset: assign(initialContext),
-    },
-  },
-);
-
-interface PwnedInfoProps {
-  // delayLoadingMs: number;
-  password: string;
-}
 
 function PwnedInfo({
   /* delayLoadingMs, */ password,
@@ -148,5 +62,10 @@ function PwnedInfo({
 // PwnedInfo.defaultProps = {
 //   delayLoadingMs: 750,
 // };
+
+interface PwnedInfoProps {
+  // delayLoadingMs: number;
+  password: string;
+}
 
 export default PwnedInfo;
