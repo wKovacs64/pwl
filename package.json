@@ -88,7 +88,7 @@
     "@types/react-dom": "17.0.0",
     "@types/react-helmet": "6.1.0",
     "@wkovacs64/prettier-config": "3.0.0",
-    "axe-core": "4.1.1",
+    "axe-core": "4.1.2",
     "color-string": "1.5.4",
     "commitizen": "4.2.3",
     "cypress": "6.4.0",
