@@ -41,8 +41,8 @@
   },
   "private": true,
   "dependencies": {
-    "@emotion/react": "11.1.4",
-    "@emotion/styled": "11.0.0",
+    "@emotion/react": "11.1.5",
+    "@emotion/styled": "11.1.5",
     "@fontsource/nunito": "4.2.0",
     "@fontsource/source-sans-pro": "4.2.0",
     "@use-it/event-listener": "0.1.6",
