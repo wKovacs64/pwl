@@ -44,7 +44,7 @@
     "@emotion/react": "11.1.5",
     "@emotion/styled": "11.1.5",
     "@fontsource/nunito": "4.2.1",
-    "@fontsource/source-sans-pro": "4.2.0",
+    "@fontsource/source-sans-pro": "4.2.1",
     "@use-it/event-listener": "0.1.6",
     "@wkovacs64/normalize.css": "8.0.1",
     "@xstate/react": "1.2.2",
