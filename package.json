@@ -91,7 +91,7 @@
     "axe-core": "4.1.2",
     "color-string": "1.5.4",
     "commitizen": "4.2.3",
-    "cypress": "6.5.0",
+    "cypress": "6.6.0",
     "cypress-axe": "0.12.2",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "7.21.0",
