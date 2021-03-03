@@ -1816,10 +1816,10 @@
   resolved "https://registry.yarnpkg.com/@fontsource/nunito/-/nunito-4.2.2.tgz#91b6e569bd96571829db9a596bae7c24cccdb93d"
   integrity sha512-egsZtwKQRWWUbj7mg/YJjBNtk3g89MKIv3TqioswOb9qr4BBU8BoiycrlqL0/VSpqIlLfqxQ49D0M4+NztNO4Q==
 
-"@fontsource/source-sans-pro@4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@fontsource/source-sans-pro/-/source-sans-pro-4.2.1.tgz#ffd5a5edd57ece16fdb16e8769d40aabc0138b86"
-  integrity sha512-YnW2Ceadfy0GkQDm5Sm6RUcpms6JYS2sy+9DVDldZO4asARFSWS2dDG6isG4xNrs1S+JgUhaeYoalzX+gHXwJQ==
+"@fontsource/source-sans-pro@4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/source-sans-pro/-/source-sans-pro-4.2.2.tgz#db231e349ed4b3594ccdd9163b2cbf3bfb94b040"
+  integrity sha512-ApmV5F1D32nmBspCJuijDNBV7TtazFC4L7BIilHj3e6IAW/ndQMXl1+4DUjOGVO/83tF/WXjOEMxROE0QxYDwQ==
 
 "@graphql-tools/delegate@^6.2.4":
   version "6.2.4"
