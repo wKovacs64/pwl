@@ -1811,10 +1811,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/nunito@4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@fontsource/nunito/-/nunito-4.2.1.tgz#44cf0d69fc14534eb530d9497a70bd80b3c669ab"
-  integrity sha512-O0TnwAO+od4zeArAb00KBzR8HuE9tyg+51LUk5kiOOqZKsht9AZnP1V23cRE0oWM0twP5ViiuHJVx+pxIjmdcQ==
+"@fontsource/nunito@4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/nunito/-/nunito-4.2.2.tgz#91b6e569bd96571829db9a596bae7c24cccdb93d"
+  integrity sha512-egsZtwKQRWWUbj7mg/YJjBNtk3g89MKIv3TqioswOb9qr4BBU8BoiycrlqL0/VSpqIlLfqxQ49D0M4+NztNO4Q==
 
 "@fontsource/source-sans-pro@4.2.1":
   version "4.2.1"
