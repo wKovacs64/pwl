@@ -55,7 +55,7 @@
     "gatsby-plugin-netlify": "2.11.0",
     "gatsby-plugin-offline": "3.10.2",
     "gatsby-plugin-react-helmet": "3.10.0",
-    "gatsby-plugin-use-dark-mode": "1.2.0",
+    "gatsby-plugin-use-dark-mode": "1.3.0",
     "git-current-commit": "1.1.0",
     "hibp": "10.0.1",
     "lodash": "4.17.21",
