@@ -26,7 +26,7 @@ export const pwnedInfoMachine = createMachine<
   states: {
     idle: {},
     loading: {
-      entry: 'reset',
+      entry: reset,
       invoke: {
         id: 'pwnedPassword',
         src: (_, event) => pwnedPassword(event.payload),

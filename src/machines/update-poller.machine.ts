@@ -35,7 +35,7 @@ export const updatePollerMachine = createMachine<
         },
       },
       checkingForUpdate: {
-        entry: 'reset',
+        entry: reset,
         invoke: {
           id: 'checkForUpdate',
           src: (_, event) => event.checkForUpdate(),
