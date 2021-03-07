@@ -60,10 +60,9 @@ const InputAndResults = styled.section`
 function IndexPage(): JSX.Element {
   const [passwordInput, setPasswordInput] = React.useState('');
   const [passwordToCheck, setPasswordToCheck] = React.useState('');
-  const setPasswordToCheckDebounced = React.useCallback(
+  const setPasswordToCheckDebounced = React.useRef(
     debounce(setPasswordToCheck, 250, { leading: true }),
-    [],
-  );
+  ).current;
 
   const handleEscape = (): void => {
     setPasswordInput('');
