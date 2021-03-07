@@ -70,8 +70,8 @@ function IndexPage(): JSX.Element {
     setPasswordToCheck('');
   };
 
-  const handleInputKeyDown: React.KeyboardEventHandler = ({ keyCode }) => {
-    if (keyCode === 27 /* ESC */) {
+  const handleInputKeyDown: React.KeyboardEventHandler = ({ key }) => {
+    if (/Esc(ape)?/.test(key)) {
       handleEscape();
     }
   };
@@ -84,7 +84,7 @@ function IndexPage(): JSX.Element {
   };
 
   useEventListener<'keydown'>('keydown', ({ key }) => {
-    if (key === 'Esc') {
+    if (/Esc(ape)?/.test(key)) {
       handleEscape();
     }
   });
