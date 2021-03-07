@@ -56,7 +56,7 @@ function PasswordInput({
         aria-label="Password"
         placeholder="Paste Here"
         type="text"
-        autoCapitalize="off"
+        autoCapitalize="none"
         autoComplete="off"
         autoCorrect="off"
         spellCheck={false}
