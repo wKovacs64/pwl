@@ -93,7 +93,7 @@
     "color-string": "1.5.5",
     "commitizen": "4.2.3",
     "core-js": "3.9.1",
-    "cypress": "6.6.0",
+    "cypress": "6.7.1",
     "cypress-axe": "0.12.2",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "7.22.0",
