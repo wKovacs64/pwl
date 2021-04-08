@@ -43,7 +43,7 @@
   "private": true,
   "dependencies": {
     "@emotion/react": "11.1.5",
-    "@emotion/styled": "11.1.5",
+    "@emotion/styled": "11.3.0",
     "@fontsource/nunito": "4.2.2",
     "@fontsource/source-sans-pro": "4.2.2",
     "@use-it/event-listener": "0.1.6",
