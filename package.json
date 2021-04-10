@@ -87,7 +87,7 @@
     "@types/node-fetch": "2.5.10",
     "@types/react": "17.0.3",
     "@types/react-dom": "17.0.3",
-    "@types/react-helmet": "6.1.0",
+    "@types/react-helmet": "6.1.1",
     "@wkovacs64/prettier-config": "3.0.0",
     "axe-core": "4.1.4",
     "babel-preset-gatsby": "1.2.0",
