@@ -99,7 +99,7 @@
     "cz-conventional-changelog": "3.3.0",
     "eslint": "7.24.0",
     "eslint-plugin-cypress": "2.11.2",
-    "eslint-plugin-wkovacs64": "13.0.0",
+    "eslint-plugin-wkovacs64": "13.0.1",
     "gatsby-plugin-typescript": "3.2.0",
     "husky": "6.0.0",
     "lint-staged": "10.5.4",
