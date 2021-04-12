@@ -62,6 +62,7 @@ describe('Index Page', () => {
       cy.findByLabelText('Password').click().type(password);
 
       cy.findByTestId('password-through-lense')
+        // eslint-disable-next-line testing-library/no-node-access
         .children()
         .should('have.length', password.length);
 
