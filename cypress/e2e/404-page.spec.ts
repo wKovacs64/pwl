@@ -6,7 +6,7 @@ describe('404 Page', () => {
   it('has no detectable a11y violations', () => {
     // wait for the content to ensure the app has been rendered
     cy.get('html[lang="en"]').findByText('404').checkA11y();
-    cy.findByLabelText(/toggle dark/i)
+    cy.findByRole('img', { name: /toggle dark/i })
       .click()
       .checkA11y();
   });

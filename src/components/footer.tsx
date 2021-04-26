@@ -34,7 +34,7 @@ function Footer(): JSX.Element {
         href="https://github.com/wKovacs64/pwl"
         rel="noopener noreferrer"
       >
-        <SourceLinkIcon aria-label="View source on GitHub" size={32} />
+        <SourceLinkIcon role="img" title="View source on GitHub" size={32} />
       </SourceLink>
     </footer>
   );

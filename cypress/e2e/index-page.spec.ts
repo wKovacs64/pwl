@@ -17,7 +17,7 @@ describe('Index Page', () => {
     // wait for the content to ensure the app has been rendered
     cy.get('html[lang="en"]');
     cy.findByLabelText('Password').checkA11y();
-    cy.findByLabelText(/toggle dark/i)
+    cy.findByRole('img', { name: /toggle dark/i })
       .click()
       .checkA11y();
   });
@@ -31,7 +31,7 @@ describe('Index Page', () => {
       cy.findByLabelText('Password').click().type(exposedPassword);
       cy.findByTestId('results');
       cy.findByText(/Uh-oh/i).checkA11y();
-      cy.findByLabelText(/toggle dark/i)
+      cy.findByRole('img', { name: /toggle dark/i })
         .click()
         .checkA11y();
     });
@@ -49,7 +49,7 @@ describe('Index Page', () => {
   });
 
   it('includes link to source', () => {
-    cy.findByLabelText(/View source/);
+    cy.findByRole('img', { name: /view source/i });
   });
 
   describe('Password Through Lense', () => {
