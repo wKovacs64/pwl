@@ -84,7 +84,11 @@ function Header({ onThemeToggle }: HeaderProps): JSX.Element {
       <HeaderContent>
         <H1>{siteMetadata.title}</H1>
         <ThemeToggleButton onClick={onThemeToggle}>
-          <ThemeToggleButtonIcon aria-label="Toggle Dark Theme" size={32} />
+          <ThemeToggleButtonIcon
+            role="img"
+            title="Toggle Dark Theme"
+            size={32}
+          />
         </ThemeToggleButton>
       </HeaderContent>
     </header>
