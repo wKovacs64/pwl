@@ -98,7 +98,7 @@
     "cypress-axe": "0.12.2",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "7.25.0",
-    "eslint-plugin-cypress": "2.11.2",
+    "eslint-plugin-cypress": "2.11.3",
     "eslint-plugin-wkovacs64": "13.1.0",
     "gatsby-plugin-typescript": "3.4.0",
     "husky": "6.0.0",
