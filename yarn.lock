@@ -2008,10 +2008,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/nunito@4.2.2":
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/@fontsource/nunito/-/nunito-4.2.2.tgz#91b6e569bd96571829db9a596bae7c24cccdb93d"
-  integrity sha512-egsZtwKQRWWUbj7mg/YJjBNtk3g89MKIv3TqioswOb9qr4BBU8BoiycrlqL0/VSpqIlLfqxQ49D0M4+NztNO4Q==
+"@fontsource/nunito@4.3.0":
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/nunito/-/nunito-4.3.0.tgz#8115d855c1d01f07b616a12de1732a6b750de9cc"
+  integrity sha512-LPFiLiBGpRzC20h0QkRJg/S8iQ7C4MQ537YJ7pXcDa9koYuS/5MAdm/lYlg/yWAdJjo7Aeusv5zv2w5X/V4okQ==
 
 "@fontsource/source-sans-pro@4.2.2":
   version "4.2.2"

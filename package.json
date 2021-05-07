@@ -44,7 +44,7 @@
   "dependencies": {
     "@emotion/react": "11.4.0",
     "@emotion/styled": "11.3.0",
-    "@fontsource/nunito": "4.2.2",
+    "@fontsource/nunito": "4.3.0",
     "@fontsource/source-sans-pro": "4.2.2",
     "@use-it/event-listener": "0.1.6",
     "@wkovacs64/normalize.css": "8.0.3",
