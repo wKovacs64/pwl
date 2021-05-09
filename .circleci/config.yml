@@ -24,7 +24,7 @@ workflows:
           executor: cypress/base-14-7-0
           yarn: true
           start: yarn serve
-          wait-on: '--timeout 60000 http://localhost:8000'
+          wait-on: '--timeout 120000 http://localhost:8000'
       - validate:
           requires:
             - cypress/run
