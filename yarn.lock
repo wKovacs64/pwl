@@ -1961,10 +1961,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/nunito@4.3.0":
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/@fontsource/nunito/-/nunito-4.3.0.tgz#8115d855c1d01f07b616a12de1732a6b750de9cc"
-  integrity sha512-LPFiLiBGpRzC20h0QkRJg/S8iQ7C4MQ537YJ7pXcDa9koYuS/5MAdm/lYlg/yWAdJjo7Aeusv5zv2w5X/V4okQ==
+"@fontsource/nunito@4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/nunito/-/nunito-4.4.0.tgz#7c7d9de7c56a80c1ff27b04cf36b524e09eb5922"
+  integrity sha512-ZDOOO40EWCM0Gqchw2yTORGNKDq1NJw3iJxDFy5wdJnVJD3kSeU/YfX1uOVxZ2kdCbsWK+C0ezvu/4dI74csjQ==
 
 "@fontsource/source-sans-pro@4.3.0":
   version "4.3.0"
