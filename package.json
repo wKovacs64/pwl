@@ -74,7 +74,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.14.3",
-    "@babel/parser": "7.14.3",
+    "@babel/parser": "7.14.4",
     "@commitlint/cli": "12.1.4",
     "@commitlint/config-conventional": "12.1.4",
     "@testing-library/cypress": "7.0.6",
