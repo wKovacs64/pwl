@@ -1971,10 +1971,10 @@
   resolved "https://registry.yarnpkg.com/@fontsource/nunito/-/nunito-4.4.2.tgz#6dd1259f8b6be641f84d49e9ac985d8f647b6b72"
   integrity sha512-+qI7X44f9sK3aGky4z9jbE0x4QL8R7O6xz93mBD4hp4HpcsYQ+dstAzoVCrP9R/uTFrfGXkmufodMpkmT3lxUQ==
 
-"@fontsource/source-sans-pro@4.4.0":
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@fontsource/source-sans-pro/-/source-sans-pro-4.4.0.tgz#6f24f62cceef952781f72bf384725061312cf02d"
-  integrity sha512-i0AcC/bgGIG7469POxG+DTfWiqvvCMranhSzRkRFST5S6UrdTKtwhOEpu89q5zfPU8rajrhkZjfuQS2uuLvqLg==
+"@fontsource/source-sans-pro@4.4.2":
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/source-sans-pro/-/source-sans-pro-4.4.2.tgz#3fc42b2512c12f2e305a807804f8e194f205ea33"
+  integrity sha512-tvC3so7mWEoNeIxJbcGOpc5Gdhr30Fip056mRBmBO/F96AfleP8CjLiKRRjoMpzq9XExUB9TDKF8ayCbdsFYFw==
 
 "@gatsbyjs/reach-router@^1.3.6":
   version "1.3.6"
