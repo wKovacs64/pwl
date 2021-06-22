@@ -93,7 +93,7 @@
     "babel-preset-gatsby": "1.7.1",
     "color-string": "1.5.5",
     "commitizen": "4.2.4",
-    "core-js": "3.15.0",
+    "core-js": "3.15.1",
     "cypress": "7.5.0",
     "cypress-axe": "0.12.2",
     "cz-conventional-changelog": "3.3.0",
