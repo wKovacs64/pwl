@@ -48,7 +48,7 @@
     "@fontsource/source-sans-pro": "4.4.5",
     "@use-it/event-listener": "0.1.6",
     "@wkovacs64/normalize.css": "8.0.3",
-    "@xstate/react": "1.4.0",
+    "@xstate/react": "1.5.1",
     "dotenv": "10.0.0",
     "gatsby": "3.8.1",
     "gatsby-plugin-emotion": "6.8.0",
