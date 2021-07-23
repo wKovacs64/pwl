@@ -1,7 +1,10 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import { useMachine } from '@xstate/react';
-import { pwnedInfoMachine } from '../machines/pwned-info.machine';
+import {
+  pwnedInfoModel,
+  pwnedInfoMachine,
+} from '../machines/pwned-info.machine';
 import { light, dark } from '../theme';
 
 const CleanExclamation = styled.span`
@@ -30,7 +33,7 @@ function PwnedInfo({
   const { numPwns, error } = current.context;
 
   React.useEffect(() => {
-    send({ type: 'REQUEST', payload: password });
+    send(pwnedInfoModel.events.getPwnedInfo(password));
   }, [send, password]);
 
   return (
