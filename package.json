@@ -70,7 +70,7 @@
     "react-icons": "4.2.0",
     "unfetch": "4.2.0",
     "use-dark-mode": "2.3.1",
-    "xstate": "4.23.0"
+    "xstate": "4.23.1"
   },
   "devDependencies": {
     "@babel/core": "7.14.8",
