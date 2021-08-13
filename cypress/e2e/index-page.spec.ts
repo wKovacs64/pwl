@@ -29,7 +29,7 @@ describe('Index Page', () => {
 
     cy.fixture('exposed-password.txt').then((exposedPassword) => {
       cy.findByLabelText('Password').click().type(exposedPassword);
-      cy.findByTestId('results');
+      cy.findByTestId('results').should('exist');
       cy.findByText(/Uh-oh/i).checkA11y();
       cy.findByRole('img', { name: /toggle dark/i })
         .click()
@@ -49,7 +49,7 @@ describe('Index Page', () => {
   });
 
   it('includes link to source', () => {
-    cy.findByRole('img', { name: /view source/i });
+    cy.findByRole('img', { name: /view source/i }).should('exist');
   });
 
   describe('Password Through Lense', () => {
