@@ -51,9 +51,8 @@ async function checkForUpdate(localCommit: string) {
           data,
           'text/html',
         );
-        const remoteCommit = remoteDocument.documentElement.getAttribute(
-          'data-commit',
-        );
+        const remoteCommit =
+          remoteDocument.documentElement.getAttribute('data-commit');
         return Boolean(remoteCommit && remoteCommit !== localCommit);
       }
       return false;
@@ -82,9 +81,10 @@ function AlertOnUpdate(): JSX.Element | null {
   `);
   const [userHasDismissed, setUserHasDismissed] = React.useState(false);
   const [updateAvailable] = useUpdatePoller(
-    React.useCallback(() => checkForUpdate(siteMetadata.buildInfo.commit), [
-      siteMetadata.buildInfo.commit,
-    ]),
+    React.useCallback(
+      () => checkForUpdate(siteMetadata.buildInfo.commit),
+      [siteMetadata.buildInfo.commit],
+    ),
     isMobile() ? ms('1 day') : ms('1 hour'),
   );
 
@@ -95,7 +95,7 @@ function AlertOnUpdate(): JSX.Element | null {
           siteTitle={siteMetadata.title}
           onReload={() => {
             if (typeof window !== 'undefined') {
-              window.location.reload(true);
+              window.location.reload();
             }
           }}
           onDismiss={() => {
