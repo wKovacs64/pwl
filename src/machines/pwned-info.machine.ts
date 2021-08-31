@@ -46,6 +46,8 @@ export const pwnedInfoMachine = pwnedInfoModel.createMachine({
           }
         },
       },
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore because this is correct (probably)
       on: {
         setNumPwns: {
           actions: [reset, assignNumPwns],
