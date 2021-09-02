@@ -73,8 +73,8 @@
     "xstate": "4.23.3"
   },
   "devDependencies": {
-    "@babel/core": "7.15.0",
-    "@babel/parser": "7.15.3",
+    "@babel/core": "7.15.4",
+    "@babel/parser": "7.15.4",
     "@commitlint/cli": "13.1.0",
     "@commitlint/config-conventional": "13.1.0",
     "@testing-library/cypress": "8.0.1",
