@@ -85,7 +85,7 @@
     "@types/ms": "0.7.31",
     "@types/node": "14.17.27",
     "@types/react": "17.0.30",
-    "@types/react-dom": "17.0.9",
+    "@types/react-dom": "17.0.10",
     "@types/react-helmet": "6.1.4",
     "@wkovacs64/prettier-config": "3.0.0",
     "axe-core": "4.3.3",
