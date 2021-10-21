@@ -3630,10 +3630,10 @@
     "@webassemblyjs/ast" "1.11.0"
     "@xtuc/long" "4.2.2"
 
-"@wkovacs64/normalize.css@8.0.3":
-  version "8.0.3"
-  resolved "https://registry.yarnpkg.com/@wkovacs64/normalize.css/-/normalize.css-8.0.3.tgz#0ea39080985fe3986a50d069d41892a9e254c85a"
-  integrity sha512-9ZYVaJZBllz5aon/aViIlYwGh+TNL8S1Yn9Ar1LcPv/f7QSP3oIJ9I5lmAlbwYYFtALmmVsI/xJhJjtkBtBdpA==
+"@wkovacs64/normalize.css@8.0.4":
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/@wkovacs64/normalize.css/-/normalize.css-8.0.4.tgz#1618a307d150a3b6d6c269c8d4b76a436d7ccbba"
+  integrity sha512-L7aXHqjDdq33xEJSe/bDceq81Hx+o2eFgkIOR96XNYC0JRdyKoXued4zEiQX8nycyobZaiiwPxHMbZbGpvheEw==
   dependencies:
     normalize.css "8.0.1"
 

@@ -47,7 +47,7 @@
     "@fontsource/nunito": "4.5.0",
     "@fontsource/source-sans-pro": "4.5.0",
     "@use-it/event-listener": "0.1.6",
-    "@wkovacs64/normalize.css": "8.0.3",
+    "@wkovacs64/normalize.css": "8.0.4",
     "@xstate/react": "1.6.1",
     "dotenv": "10.0.0",
     "gatsby": "3.14.3",
