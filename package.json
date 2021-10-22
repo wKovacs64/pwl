@@ -83,7 +83,7 @@
     "@types/lodash": "4.14.176",
     "@types/memoize-one": "5.1.2",
     "@types/ms": "0.7.31",
-    "@types/node": "14.17.27",
+    "@types/node": "14.17.28",
     "@types/react": "17.0.31",
     "@types/react-dom": "17.0.10",
     "@types/react-helmet": "6.1.4",
