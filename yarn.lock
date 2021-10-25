@@ -4136,10 +4136,10 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.10.1.tgz#e1e82e4f3e999e2cfd61b161280d16a111f86428"
   integrity sha512-zg7Hz2k5lI8kb7U32998pRRFin7zJlkfezGJjUc2heaD4Pw2wObakCDVzkKztTm/Ln7eiVvYsjqak0Ed4LkMDA==
 
-axe-core@4.3.3:
-  version "4.3.3"
-  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.3.3.tgz#b55cd8e8ddf659fe89b064680e1c6a4dceab0325"
-  integrity sha512-/lqqLAmuIPi79WYfRpy2i8z+x+vxU3zX2uAm0gs1q52qTuKwolOj1P8XbufpXcsydrpKx2yGn2wzAnxCMV86QA==
+axe-core@4.3.4:
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.3.4.tgz#4f54afff45415b5dec220dec19505beb79c5fb2f"
+  integrity sha512-4Hk6iSA/H90rtiPoCpSkeJxNWCPBf7szwVvaUqrPdxo0j2Y04suHK9jPKXaE3WI7OET6wBSwsWw7FDc1DBq7iQ==
 
 axe-core@^3.4.1:
   version "3.5.5"
