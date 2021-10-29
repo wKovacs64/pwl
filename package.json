@@ -88,7 +88,7 @@
     "@types/react-dom": "17.0.10",
     "@types/react-helmet": "6.1.4",
     "@wkovacs64/prettier-config": "3.0.0",
-    "axe-core": "4.3.4",
+    "axe-core": "4.3.5",
     "babel-preset-gatsby": "1.14.0",
     "color-string": "1.6.0",
     "commitizen": "4.2.4",
