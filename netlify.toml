@@ -1,3 +1,19 @@
 [build]
   command = "npm run build"
-  publish = "public"
+  publish = "dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Content-Security-Policy = "default-src 'self'; connect-src 'self' https://api.pwnedpasswords.com; img-src data: https:; script-src 'self' 'unsafe-inline'; style-src 'self'; worker-src 'self'; object-src 'none'"
+    Permissions-Policy = "geolocation=(), camera=(), microphone=(), payment=(), usb=()"
+    Referrer-Policy = "no-referrer-when-downgrade"
+    Expect-CT = "enforce, max-age=3600"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"

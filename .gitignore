@@ -73,7 +73,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+.env.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -153,8 +153,9 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/osx,node,linux,windows,visualstudiocode
 
-# Build directory
-/public
+# Build output
+/dist
+/dist-ssr
 
 # npm
 package-lock.json
@@ -164,3 +165,4 @@ package-lock.json
 
 # Cypress
 cypress/screenshots
+cypress/videos

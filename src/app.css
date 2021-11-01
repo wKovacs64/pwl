@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .small-caps {
+    font-variant-caps: small-caps;
+  }
+
+  .text-shadow-medium {
+    text-shadow: 1px 1px 1px #046b99;
+  }
+
+  .text-shadow-bright {
+    text-shadow: 1px 1px 1px #00cfff;
+  }
+
+  .scrollbar-width-4::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  .scrollbar-light {
+    scrollbar-color: #cdcdcd #f0f0f0;
+  }
+
+  .scrollbar-light::-webkit-scrollbar-thumb {
+    background-color: #cdcdcd;
+  }
+
+  .scrollbar-light::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+  }
+
+  .scrollbar-dark {
+    scrollbar-color: #32445c #49596e;
+  }
+
+  .scrollbar-dark::-webkit-scrollbar-thumb {
+    background-color: #32445c;
+  }
+
+  .scrollbar-dark::-webkit-scrollbar-track {
+    background-color: #49596e;
+  }
+}

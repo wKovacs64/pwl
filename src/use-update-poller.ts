@@ -3,7 +3,7 @@ import { useMachine } from '@xstate/react';
 import {
   updatePollerModel,
   updatePollerMachine,
-} from '../machines/update-poller.machine';
+} from './update-poller.machine';
 
 function clearIntervalSafely(interval: Interval) {
   if (typeof window !== 'undefined' && interval) {

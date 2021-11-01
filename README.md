@@ -25,22 +25,9 @@ way to get a more informative view of your password.
 
 [![Deploy to Netlify][deploy-image]][deploy-link]
 
-## FAQ
+## Why?
 
-<details>
-  <summary>Why?</summary>
-  <p>Because a co-worker asked for it.</p>
-</details>
-
-<details>
-  <summary>Isn't Gatsby overkill for this?</summary>
-  <p>
-    <a href="https://twitter.com/jlengstorf/status/1043237435675557888">No</a>,
-    it's <a href="https://twitter.com/kylemathews/status/1043226318978998272">awesome</a>
-    for <a href="https://www.gatsbyjs.org/blog/2018-11-07-gatsby-for-apps/">building
-    apps</a>.
-  </p>
-</details>
+Because a co-worker asked for it.
 
 [demo-image]: ./demo.gif
 [deploy-image]: https://www.netlify.com/img/deploy/button.svg
