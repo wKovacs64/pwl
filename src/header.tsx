@@ -20,7 +20,7 @@ function Header() {
           Password Lense
         </h1>
         <button
-          className="group absolute top-4 right-4 p-2 dark:text-gray-100"
+          className="group absolute top-4 right-4 p-2"
           type="button"
           onClick={handleThemeToggle}
         >

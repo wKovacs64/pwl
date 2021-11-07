@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="flex justify-center">
       <a
-        className="group p-2 dark:text-gray-100"
+        className="group p-2"
         href="https://github.com/wKovacs64/pwl"
         rel="noopener noreferrer"
       >
