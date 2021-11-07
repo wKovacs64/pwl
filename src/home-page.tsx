@@ -12,17 +12,6 @@ function HomePage() {
     debounce(setPasswordToCheck, 250, { leading: true }),
   ).current;
 
-  const handleEscape = (): void => {
-    setPasswordInput('');
-    setPasswordToCheck('');
-  };
-
-  const handleInputKeyDown: React.KeyboardEventHandler = ({ key }) => {
-    if (/Esc(ape)?/.test(key)) {
-      handleEscape();
-    }
-  };
-
   const handlePasswordChange: React.ChangeEventHandler<HTMLInputElement> = ({
     target: { value },
   }) => {
@@ -33,7 +22,8 @@ function HomePage() {
   React.useEffect(() => {
     function handler({ key }: KeyboardEvent) {
       if (/Esc(ape)?/.test(key)) {
-        handleEscape();
+        setPasswordInput('');
+        setPasswordToCheck('');
       }
     }
 
@@ -69,7 +59,6 @@ function HomePage() {
           autoCorrect="off"
           spellCheck={false}
           onChange={handlePasswordChange}
-          onKeyDown={handleInputKeyDown}
           value={passwordInput}
         />
         {passwordInput && (
