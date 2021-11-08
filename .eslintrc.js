@@ -7,7 +7,5 @@ module.exports = {
   ],
   rules: {
     'react/react-in-jsx-scope': 'off',
-    '@typescript-eslint/ban-ts-comment': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
 };
