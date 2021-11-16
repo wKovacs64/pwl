@@ -30,7 +30,7 @@
     "preserve": "yarn build",
     "serve": "vite preview --port 3000",
     "test": "yarn test:e2e",
-    "test:e2e": "start-server-and-test develop 3000 cy:open",
+    "test:e2e": "start-server-and-test dev http-get://localhost:3000 cy:open",
     "test:e2e:ci": "start-server-and-test serve 3000 cy:run",
     "validate": "npm-run-all --silent --parallel lint check-types build"
   },
