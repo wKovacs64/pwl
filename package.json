@@ -93,8 +93,8 @@
     "unfetch": "4.2.0",
     "vite": "2.6.14",
     "vite-plugin-pwa": "0.11.5",
-    "workbox-build": "6.3.0",
-    "workbox-window": "6.3.0",
+    "workbox-build": "6.4.1",
+    "workbox-window": "6.4.1",
     "xstate": "4.26.0"
   }
 }
