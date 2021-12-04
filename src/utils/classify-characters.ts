@@ -1,6 +1,6 @@
 import memoizeOne from 'memoize-one';
-import { ColorMap } from '../legend/colors';
-import { LabelMap } from '../legend/labels';
+import type { ColorMap } from '../legend/colors';
+import type { LabelMap } from '../legend/labels';
 
 function getCharProps(
   character: string,
