@@ -91,7 +91,7 @@
     "tailwindcss": "2.2.19",
     "typescript": "4.5.2",
     "unfetch": "4.2.0",
-    "vite": "2.7.0",
+    "vite": "2.7.1",
     "vite-plugin-pwa": "0.11.10",
     "workbox-build": "6.4.2",
     "workbox-window": "6.4.2",
