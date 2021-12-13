@@ -2029,10 +2029,10 @@
     "@typescript-eslint/types" "5.4.0"
     eslint-visitor-keys "^3.0.0"
 
-"@vitejs/plugin-react@1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@vitejs/plugin-react/-/plugin-react-1.1.1.tgz#5a242c64fa0a588e5b203938e5bd6d05fa25edf2"
-  integrity sha512-IJSRD4culdwQ6cRK0D1mstV1vdvYSb2HK1JQ1FDo6Hr7j5ppWJEwBC2v/Gy0h/A1lMmi4AnXACY/d10EgbQNEA==
+"@vitejs/plugin-react@1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@vitejs/plugin-react/-/plugin-react-1.1.2.tgz#104b97580b29cae03884b9bfaa2af62da762b1c7"
+  integrity sha512-VCA1yTbZiAV5Om2smp3z/8lhXN72lWdROIs6IVnGupcDUFVzEMP05jE2rEawMuiEjLB6H175NTxhefOFRUeytg==
   dependencies:
     "@babel/core" "^7.16.0"
     "@babel/plugin-transform-react-jsx" "^7.16.0"
