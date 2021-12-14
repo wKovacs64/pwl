@@ -41,8 +41,8 @@
   },
   "private": true,
   "dependencies": {
-    "@babel/core": "7.16.0",
-    "@babel/parser": "7.16.4",
+    "@babel/core": "7.16.5",
+    "@babel/parser": "7.16.5",
     "@commitlint/cli": "15.0.0",
     "@commitlint/config-conventional": "15.0.0",
     "@fontsource/nunito": "4.5.1",
