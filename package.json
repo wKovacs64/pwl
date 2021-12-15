@@ -42,7 +42,7 @@
   "private": true,
   "dependencies": {
     "@babel/core": "7.16.5",
-    "@babel/parser": "7.16.5",
+    "@babel/parser": "7.16.6",
     "@babel/plugin-syntax-jsx": "7.16.5",
     "@commitlint/cli": "15.0.0",
     "@commitlint/config-conventional": "15.0.0",
