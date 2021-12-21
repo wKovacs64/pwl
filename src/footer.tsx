@@ -9,7 +9,7 @@ function Footer() {
         rel="noopener noreferrer"
       >
         <FaGithub
-          className="transform transition-transform duration-500 ease-in-out group-hover:rotate-[1turn]"
+          className="transition-transform duration-500 ease-in-out group-hover:rotate-[1turn]"
           role="img"
           title="View source on GitHub"
           size={32}

@@ -25,7 +25,7 @@ function Header() {
           onClick={handleThemeToggle}
         >
           <FiSun
-            className="transform transition-transform duration-500 ease-in-out group-hover:rotate-180"
+            className="transition-transform duration-500 ease-in-out group-hover:rotate-180"
             role="img"
             title="Toggle Dark Theme"
             size={32}

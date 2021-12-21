@@ -174,7 +174,7 @@ function PwnedInfo({ /* delayLoadingMs, */ password }: PwnedInfoProps) {
         </p>
       ) : (
         <p>
-          <span className="text-green-800 dark:text-green-600">
+          <span className="text-emerald-800 dark:text-emerald-600">
             Congratulations!
           </span>{' '}
           This password has not been publicly exposed in any data breaches.
