@@ -69,14 +69,11 @@ function HomePage() {
                 className="m-4 inline-block font-mono"
               >
                 {classifyCharacters(passwordInput, colors, labels).map(
-                  (classifiedCharacter, index, chars) => (
+                  (classifiedCharacter, index) => (
                     <span
                       title={classifiedCharacter.label}
-                      className="border-b border-dotted whitespace-pre border-gray-100"
-                      style={{
-                        color: classifiedCharacter.color,
-                        marginRight: index < chars.length - 1 ? '0.25rem' : 0,
-                      }}
+                      className="border-b border-b-gray-100 border-dotted whitespace-pre mr-1 last:mr-0"
+                      style={{ color: classifiedCharacter.color }}
                       // N.B. Generally, using an array index as a key is ill advised, but
                       // in this particular case, it is acceptable as we don't have a
                       // unique ID for each character in the string that we are
