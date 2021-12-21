@@ -1,10 +1,7 @@
-import colorString from 'color-string';
-import { colors, labels } from '../../src/legend';
-import { classifyCharacters } from '../../src/utils';
-
-function colorToRGB(cssColor: string): string {
-  return colorString.to.rgb(colorString.get.rgb(cssColor) || []);
-}
+import {
+  characterClassificationLabels,
+  classifyCharacters,
+} from '../../src/utils';
 
 describe('Index Page', () => {
   const EXPOSURE_ROUTE = 'https://api.pwnedpasswords.com/range/*';
@@ -57,7 +54,7 @@ describe('Index Page', () => {
       cy.intercept('GET', EXPOSURE_ROUTE, { statusCode: 418 });
 
       const password = ' P4ssw0rd! ';
-      const classifiedCharacters = classifyCharacters(password, colors, labels);
+      const classifiedCharacters = classifyCharacters(password);
 
       cy.findByLabelText('Password').click().type(password);
 
@@ -67,12 +64,12 @@ describe('Index Page', () => {
         .should('have.length', password.length);
 
       cy.findByTestId('password-through-lense').within(() => {
-        classifiedCharacters.forEach(({ character, color, label }) => {
+        classifiedCharacters.forEach(({ character, type, label }) => {
           cy.findAllByText(character, {
             trim: false,
             collapseWhitespace: false,
           })
-            .should('have.css', 'color', colorToRGB(color))
+            .should('have.class', `text-${type}`)
             .and('have.attr', 'title', label);
         });
       });
@@ -94,40 +91,44 @@ describe('Index Page', () => {
       cy.findByTestId('results').within(() => {
         cy.findByTestId('legend').within(() => {
           // Number
-          cy.findByTestId(`legend-row--${labels.number}`).within(() => {
-            cy.findByTestId('color').should(
-              'have.css',
-              'background-color',
-              colorToRGB(colors.number),
+          cy.findByTestId('legend-row--number').within(() => {
+            cy.findByTestId('number-color').should(
+              'have.class',
+              'bg-pwl-number',
             );
-            cy.findByText(labels.number).should('exist');
+            cy.findByText(characterClassificationLabels['pwl-number']).should(
+              'exist',
+            );
           });
           // Uppercase Letter
-          cy.findByTestId(`legend-row--${labels.uppercase}`).within(() => {
-            cy.findByTestId('color').should(
-              'have.css',
-              'background-color',
-              colorToRGB(colors.uppercase),
+          cy.findByTestId('legend-row--uppercase').within(() => {
+            cy.findByTestId('uppercase-color').should(
+              'have.class',
+              'bg-pwl-uppercase',
             );
-            cy.findByText(labels.uppercase).should('exist');
+            cy.findByText(
+              characterClassificationLabels['pwl-uppercase'],
+            ).should('exist');
           });
           // Lowercase Letter
-          cy.findByTestId(`legend-row--${labels.lowercase}`).within(() => {
-            cy.findByTestId('color').should(
-              'have.css',
-              'background-color',
-              colorToRGB(colors.lowercase),
+          cy.findByTestId('legend-row--lowercase').within(() => {
+            cy.findByTestId('lowercase-color').should(
+              'have.class',
+              'bg-pwl-lowercase',
             );
-            cy.findByText(labels.lowercase).should('exist');
+            cy.findByText(
+              characterClassificationLabels['pwl-lowercase'],
+            ).should('exist');
           });
           // Special
-          cy.findByTestId(`legend-row--${labels.special}`).within(() => {
-            cy.findByTestId('color').should(
-              'have.css',
-              'background-color',
-              colorToRGB(colors.special),
+          cy.findByTestId('legend-row--special').within(() => {
+            cy.findByTestId('special-color').should(
+              'have.class',
+              'bg-pwl-special',
             );
-            cy.findByText(labels.special).should('exist');
+            cy.findByText(characterClassificationLabels['pwl-special']).should(
+              'exist',
+            );
           });
         });
       });

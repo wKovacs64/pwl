@@ -1,42 +1,54 @@
 import memoizeOne from 'memoize-one';
-import type { ColorMap } from '../legend/colors';
-import type { LabelMap } from '../legend/labels';
 
-function getCharProps(
-  character: string,
-  colors: ColorMap,
-  labels: LabelMap,
-): { color: string; label: string } {
+export const characterClassificationLabels = {
+  'pwl-number': 'Number',
+  'pwl-uppercase': 'Uppercase Letter',
+  'pwl-lowercase': 'Lowercase Letter',
+  'pwl-special': 'Special',
+} as const;
+
+function getCharProps(character: string): {
+  type: keyof typeof characterClassificationLabels;
+  label: typeof characterClassificationLabels[keyof typeof characterClassificationLabels];
+} {
   if (/[0-9]/.test(character)) {
-    return { color: colors.number, label: labels.number };
+    return {
+      type: 'pwl-number',
+      label: characterClassificationLabels['pwl-number'],
+    };
   }
   if (/[A-Z]/.test(character)) {
-    return { color: colors.uppercase, label: labels.uppercase };
+    return {
+      type: 'pwl-uppercase',
+      label: characterClassificationLabels['pwl-uppercase'],
+    };
   }
   if (/[a-z]/.test(character)) {
-    return { color: colors.lowercase, label: labels.lowercase };
+    return {
+      type: 'pwl-lowercase',
+      label: characterClassificationLabels['pwl-lowercase'],
+    };
   }
-  return { color: colors.special, label: labels.special };
+  return {
+    type: 'pwl-special',
+    label: characterClassificationLabels['pwl-special'],
+  };
 }
 
 const getCharacterProperties = memoizeOne(getCharProps);
 
 interface ClassifiedCharacter {
   character: string;
-  color: string;
-  label: string;
+  type: keyof typeof characterClassificationLabels;
+  label: typeof characterClassificationLabels[keyof typeof characterClassificationLabels];
 }
 
-export function classifyCharacters(
-  password: string,
-  colors: ColorMap,
-  labels: LabelMap,
-): ClassifiedCharacter[] {
+export function classifyCharacters(password: string): ClassifiedCharacter[] {
   return password.split('').map((character) => {
-    const { color, label } = getCharacterProperties(character, colors, labels);
+    const { type, label } = getCharacterProperties(character);
     return {
       character,
-      color,
+      type,
       label,
     };
   });

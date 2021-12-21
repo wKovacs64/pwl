@@ -16,6 +16,11 @@ module.exports = {
         bright: '#00cfff',
         medium: '#046b99',
         dark: '#1c304a',
+        // character classifications
+        'pwl-number': '#f1f227', // yellow
+        'pwl-uppercase': '#00CFFF', // blue
+        'pwl-lowercase': '#4add8c', // green
+        'pwl-special': '#ff6347', // red
       },
       boxShadow: {
         light: '4px 4px 8px 0px rgba(0, 0, 0, 0.2)',
