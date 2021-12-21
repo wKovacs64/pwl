@@ -1,9 +1,12 @@
 import * as React from 'react';
+import clsx from 'clsx';
 import debounce from 'lodash/debounce';
 import { useMachine } from '@xstate/react';
 import { pwnedInfoModel, pwnedInfoMachine } from './pwned-info.machine';
-import { colors, labels } from './legend';
-import { classifyCharacters } from './utils';
+import {
+  classifyCharacters,
+  characterClassificationLabels,
+} from './character-classification';
 
 function HomePage() {
   const [passwordInput, setPasswordInput] = React.useState('');
@@ -68,15 +71,29 @@ function HomePage() {
                 data-testid="password-through-lense"
                 className="m-4 inline-block font-mono"
               >
-                {classifyCharacters(passwordInput, colors, labels).map(
-                  (classifiedCharacter, index, chars) => (
+                {classifyCharacters(passwordInput).map(
+                  (classifiedCharacter, index) => (
                     <span
                       title={classifiedCharacter.label}
-                      className="border-b border-dotted whitespace-pre border-gray-100"
-                      style={{
-                        color: classifiedCharacter.color,
-                        marginRight: index < chars.length - 1 ? '0.25rem' : 0,
-                      }}
+                      className={clsx(
+                        'border-b border-b-gray-100 border-dotted whitespace-pre mr-1 last:mr-0',
+                        {
+                          'text-pwl-number':
+                            classifiedCharacter.type === 'pwl-number',
+                        },
+                        {
+                          'text-pwl-uppercase':
+                            classifiedCharacter.type === 'pwl-uppercase',
+                        },
+                        {
+                          'text-pwl-lowercase':
+                            classifiedCharacter.type === 'pwl-lowercase',
+                        },
+                        {
+                          'text-pwl-special':
+                            classifiedCharacter.type === 'pwl-special',
+                        },
+                      )}
                       // N.B. Generally, using an array index as a key is ill advised, but
                       // in this particular case, it is acceptable as we don't have a
                       // unique ID for each character in the string that we are
@@ -96,47 +113,43 @@ function HomePage() {
                 <p className="py-4">Legend:</p>
                 <div
                   className="flex items-center"
-                  data-testid={`legend-row--${labels.number}`}
+                  data-testid="legend-row--number"
                 >
                   <div
-                    className="inline-block w-4 h-4 mr-4"
-                    style={{ backgroundColor: colors.number }}
-                    data-testid="color"
+                    className="inline-block w-4 h-4 mr-4 bg-pwl-number"
+                    data-testid="number-color"
                   />
-                  <span>{labels.number}</span>
+                  <span>{characterClassificationLabels['pwl-number']}</span>
                 </div>
                 <div
                   className="flex items-center"
-                  data-testid={`legend-row--${labels.uppercase}`}
+                  data-testid="legend-row--uppercase"
                 >
                   <div
-                    className="inline-block w-4 h-4 mr-4"
-                    style={{ backgroundColor: colors.uppercase }}
-                    data-testid="color"
+                    className="inline-block w-4 h-4 mr-4 bg-pwl-uppercase"
+                    data-testid="uppercase-color"
                   />
-                  <span>{labels.uppercase}</span>
+                  <span>{characterClassificationLabels['pwl-uppercase']}</span>
                 </div>
                 <div
                   className="flex items-center"
-                  data-testid={`legend-row--${labels.lowercase}`}
+                  data-testid="legend-row--lowercase"
                 >
                   <div
-                    className="inline-block w-4 h-4 mr-4"
-                    style={{ backgroundColor: colors.lowercase }}
-                    data-testid="color"
+                    className="inline-block w-4 h-4 mr-4 bg-pwl-lowercase"
+                    data-testid="lowercase-color"
                   />
-                  <span>{labels.lowercase}</span>
+                  <span>{characterClassificationLabels['pwl-lowercase']}</span>
                 </div>
                 <div
                   className="flex items-center"
-                  data-testid={`legend-row--${labels.special}`}
+                  data-testid="legend-row--special"
                 >
                   <div
-                    className="inline-block w-4 h-4 mr-4"
-                    style={{ backgroundColor: colors.special }}
-                    data-testid="color"
+                    className="inline-block w-4 h-4 mr-4 bg-pwl-special"
+                    data-testid="special-color"
                   />
-                  <span>{labels.special}</span>
+                  <span>{characterClassificationLabels['pwl-special']}</span>
                 </div>
               </section>
               <PwnedInfo password={passwordToCheck} />
