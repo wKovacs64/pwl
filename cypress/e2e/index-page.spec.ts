@@ -1,7 +1,7 @@
 import {
   characterClassificationLabels,
   classifyCharacters,
-} from '../../src/utils';
+} from '../../src/character-classification';
 
 describe('Index Page', () => {
   const EXPOSURE_ROUTE = 'https://api.pwnedpasswords.com/range/*';

@@ -3,7 +3,10 @@ import clsx from 'clsx';
 import debounce from 'lodash/debounce';
 import { useMachine } from '@xstate/react';
 import { pwnedInfoModel, pwnedInfoMachine } from './pwned-info.machine';
-import { classifyCharacters, characterClassificationLabels } from './utils';
+import {
+  classifyCharacters,
+  characterClassificationLabels,
+} from './character-classification';
 
 function HomePage() {
   const [passwordInput, setPasswordInput] = React.useState('');
