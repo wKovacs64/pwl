@@ -92,7 +92,7 @@
     "typescript": "4.5.4",
     "unfetch": "4.2.0",
     "vite": "2.7.10",
-    "vite-plugin-pwa": "0.11.12",
+    "vite-plugin-pwa": "0.11.13",
     "workbox-build": "6.4.2",
     "workbox-window": "6.4.2",
     "xstate": "4.27.0"
