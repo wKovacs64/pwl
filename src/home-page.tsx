@@ -39,7 +39,7 @@ function HomePage() {
 
   return (
     <article className="flex flex-col items-center">
-      <p className="mb-8 md:mb-16 max-w-md md:max-w-lg lg:max-w-3xl font-light text-xl md:text-2xl lg:text-4xl md:text-center text-medium dark:text-bright">
+      <p className="mb-8 max-w-md text-xl font-light text-medium dark:text-bright md:mb-16 md:max-w-lg md:text-center md:text-2xl lg:max-w-3xl lg:text-4xl">
         Is that an &apos;O&apos; or a &apos;0&apos;? An &apos;I&apos; or an
         &apos;l&apos; - or maybe a &apos;1&apos;? Sometimes, it&apos;s hard to
         tell. Paste your password in the box below for a{' '}
@@ -51,9 +51,9 @@ function HomePage() {
         </span>
         , color-coded revelation.
       </p>
-      <section className="max-w-lg w-full">
+      <section className="w-full max-w-lg">
         <input
-          className="p-4 font-mono text-center text-xl md:text-2xl lg:text-4xl tracking-[0.25rem] whitespace-pre bg-white dark:bg-dark border-2 border-opacity-30 border-black dark:border-opacity-30 dark:border-light placeholder-opacity-90 placeholder-gray-500 dark:placeholder-opacity-90 dark:placeholder-gray-400 w-full"
+          className="w-full whitespace-pre border-2 border-black border-opacity-30 bg-white p-4 text-center font-mono text-xl tracking-[0.25rem] placeholder-gray-500 placeholder-opacity-90 dark:border-light dark:border-opacity-30 dark:bg-dark dark:placeholder-gray-400 dark:placeholder-opacity-90 md:text-2xl lg:text-4xl"
           aria-label="Password"
           placeholder="Paste Here"
           type="text"
@@ -66,7 +66,7 @@ function HomePage() {
         />
         {passwordInput && (
           <section data-testid="results" className="mt-8">
-            <div className="mb-8 text-xl md:text-2xl lg:text-4xl text-center whitespace-nowrap overflow-x-scroll overflow-y-hidden border-2 border-white dark:border-opacity-30 dark:border-light bg-dark scrollbar-width-4 scrollbar-light dark:scrollbar-dark">
+            <div className="scrollbar-width-4 scrollbar-light dark:scrollbar-dark mb-8 overflow-y-hidden overflow-x-scroll whitespace-nowrap border-2 border-white bg-dark text-center text-xl dark:border-light dark:border-opacity-30 md:text-2xl lg:text-4xl">
               <div
                 data-testid="password-through-lense"
                 className="m-4 inline-block font-mono"
@@ -76,7 +76,7 @@ function HomePage() {
                     <span
                       title={classifiedCharacter.label}
                       className={clsx(
-                        'border-b border-b-gray-100 border-dotted whitespace-pre mr-1 last:mr-0',
+                        'mr-1 whitespace-pre border-b border-dotted border-b-gray-100 last:mr-0',
                         {
                           'text-pwl-number':
                             classifiedCharacter.type === 'pwl-number',
@@ -116,7 +116,7 @@ function HomePage() {
                   data-testid="legend-row--number"
                 >
                   <div
-                    className="inline-block w-4 h-4 mr-4 bg-pwl-number"
+                    className="mr-4 inline-block h-4 w-4 bg-pwl-number"
                     data-testid="number-color"
                   />
                   <span>{characterClassificationLabels['pwl-number']}</span>
@@ -126,7 +126,7 @@ function HomePage() {
                   data-testid="legend-row--uppercase"
                 >
                   <div
-                    className="inline-block w-4 h-4 mr-4 bg-pwl-uppercase"
+                    className="mr-4 inline-block h-4 w-4 bg-pwl-uppercase"
                     data-testid="uppercase-color"
                   />
                   <span>{characterClassificationLabels['pwl-uppercase']}</span>
@@ -136,7 +136,7 @@ function HomePage() {
                   data-testid="legend-row--lowercase"
                 >
                   <div
-                    className="inline-block w-4 h-4 mr-4 bg-pwl-lowercase"
+                    className="mr-4 inline-block h-4 w-4 bg-pwl-lowercase"
                     data-testid="lowercase-color"
                   />
                   <span>{characterClassificationLabels['pwl-lowercase']}</span>
@@ -146,7 +146,7 @@ function HomePage() {
                   data-testid="legend-row--special"
                 >
                   <div
-                    className="inline-block w-4 h-4 mr-4 bg-pwl-special"
+                    className="mr-4 inline-block h-4 w-4 bg-pwl-special"
                     data-testid="special-color"
                   />
                   <span>{characterClassificationLabels['pwl-special']}</span>

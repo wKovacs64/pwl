@@ -15,8 +15,8 @@ function Header() {
   return (
     <header>
       <AlertOnUpdate />
-      <section className="relative flex md:justify-center pt-4 px-4 md:p-0">
-        <h1 className="font-heading font-bold text-4xl m-0 md:text-5xl md:mt-16 lg:text-[5rem] text-dark dark:text-light small-caps text-shadow-medium dark:text-shadow-bright">
+      <section className="relative flex px-4 pt-4 md:justify-center md:p-0">
+        <h1 className="small-caps text-shadow-medium dark:text-shadow-bright m-0 font-heading text-4xl font-bold text-dark dark:text-light md:mt-16 md:text-5xl lg:text-[5rem]">
           Password Lense
         </h1>
         <button

@@ -6,11 +6,11 @@ function UpdateAlert({ siteTitle, onReload, onDismiss }: UpdateAlertProps) {
       role="alert"
     >
       <span className="px-2">A new version of {siteTitle} is available!</span>
-      <section className="inline-flex justify-around w-full md:w-auto">
-        <button className="uppercase p-2" type="button" onClick={onReload}>
+      <section className="inline-flex w-full justify-around md:w-auto">
+        <button className="p-2 uppercase" type="button" onClick={onReload}>
           <span className="border-b">Reload</span>
         </button>
-        <button className="uppercase p-2" type="button" onClick={onDismiss}>
+        <button className="p-2 uppercase" type="button" onClick={onDismiss}>
           <span className="border-b">Dismiss</span>
         </button>
       </section>

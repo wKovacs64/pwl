@@ -18,7 +18,7 @@ function AlertOnUpdate() {
 
   if (updateAvailable && !userHasDismissed) {
     return (
-      <div className="flex justify-center border-b transition-colors duration-300 border-dark dark:border-light shadow-light dark:shadow-dark text-light hover:text-dark focus-within:text-dark bg-dark hover:bg-light focus-within:bg-light">
+      <div className="flex justify-center border-b border-dark bg-dark text-light shadow-light transition-colors duration-300 focus-within:bg-light focus-within:text-dark hover:bg-light hover:text-dark dark:border-light dark:shadow-dark">
         <UpdateAlert
           siteTitle="Password Lense"
           onReload={() => {
