@@ -1,9 +1,6 @@
 import * as React from 'react';
 import { useMachine } from '@xstate/react';
-import {
-  updatePollerModel,
-  updatePollerMachine,
-} from './update-poller.machine';
+import { updatePollerMachine } from './update-poller.machine';
 
 function clearIntervalSafely(interval: Interval) {
   if (typeof window !== 'undefined' && interval) {
@@ -23,7 +20,7 @@ export function useUpdatePoller(
   const { updateAvailable, error } = current.context;
 
   const checkForUpdate = React.useCallback(() => {
-    send(updatePollerModel.events.checkForUpdate(hasUpdate));
+    send({ type: 'CHECK_FOR_UPDATE', checkForUpdate: hasUpdate });
   }, [hasUpdate, send]);
 
   React.useEffect(() => {

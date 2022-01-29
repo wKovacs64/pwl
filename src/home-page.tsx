@@ -2,7 +2,7 @@ import * as React from 'react';
 import clsx from 'clsx';
 import debounce from 'lodash/debounce';
 import { useMachine } from '@xstate/react';
-import { pwnedInfoModel, pwnedInfoMachine } from './pwned-info.machine';
+import { pwnedInfoMachine } from './pwned-info.machine';
 import {
   classifyCharacters,
   characterClassificationLabels,
@@ -166,7 +166,7 @@ function PwnedInfo({ /* delayLoadingMs, */ password }: PwnedInfoProps) {
   const { numPwns, error } = state.context;
 
   React.useEffect(() => {
-    send(pwnedInfoModel.events.getPwnedInfo(password));
+    send({ type: 'GET_PWNED_INFO', password });
   }, [send, password]);
 
   return (
@@ -176,7 +176,7 @@ function PwnedInfo({ /* delayLoadingMs, */ password }: PwnedInfoProps) {
         <p>
           <em>Public exposure information is currently unavailable.</em>
         </p>
-      ) : state.matches('loading') ? (
+      ) : state.matches('gettingNumPwns') ? (
         <p>Loading...</p>
       ) : numPwns > 0 ? (
         <p>

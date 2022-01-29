@@ -1,74 +1,51 @@
-import { createModel } from 'xstate/lib/model';
+/* eslint-disable @typescript-eslint/consistent-type-imports */
+/* eslint-disable @typescript-eslint/consistent-type-assertions */
+import { assign, createMachine } from 'xstate';
 
-const initialContext = {
+interface UpdatePollerContext {
+  error: string;
+  updateAvailable: boolean;
+}
+
+const initialContext: UpdatePollerContext = {
   error: '',
   updateAvailable: false,
 };
 
-const creators = {
-  events: {
-    checkForUpdate: (checkForUpdate: () => Promise<boolean>) => ({
-      checkForUpdate,
-    }),
-    setUpdateAvailable: (updateAvailable: boolean) => ({ updateAvailable }),
-    setErrorMessage: (message: string) => ({ message }),
-  },
-};
+type UpdatePollerEvent =
+  | { type: 'CHECK_FOR_UPDATE'; checkForUpdate: () => Promise<boolean> }
+  | { type: 'SET_UPDATE_AVAILABLE'; updateAvailable: boolean }
+  | { type: 'SET_ERROR_MESSAGE'; message: string };
 
-export const updatePollerModel = createModel(initialContext, creators);
-
-const assignUpdateAvailable = updatePollerModel.assign(
+export const updatePollerMachine = createMachine(
   {
-    updateAvailable: (_, event) => event.updateAvailable,
-  },
-  'setUpdateAvailable',
-);
-
-const assignError = updatePollerModel.assign(
-  { error: (_, event) => event.message },
-  'setErrorMessage',
-);
-
-const reset = updatePollerModel.reset();
-
-export const updatePollerMachine = updatePollerModel.createMachine(
-  {
+    tsTypes: {} as import('./update-poller.machine.typegen').Typegen0,
+    schema: {
+      context: {} as UpdatePollerContext,
+      events: {} as UpdatePollerEvent,
+    },
     id: 'updatePoller',
     initial: 'idle',
-    context: updatePollerModel.initialContext,
+    context: initialContext,
     states: {
       idle: {
         on: {
-          checkForUpdate: 'checkingForUpdate',
+          CHECK_FOR_UPDATE: 'checkingForUpdate',
         },
       },
       checkingForUpdate: {
-        entry: reset,
+        entry: 'reset',
         invoke: {
           id: 'checkForUpdate',
-          src: (_, event) => async (send) => {
-            if (event.type !== 'checkForUpdate') return;
-            try {
-              const updateAvailable = await event.checkForUpdate();
-              send(
-                updatePollerModel.events.setUpdateAvailable(updateAvailable),
-              );
-            } catch (err: unknown) {
-              send(
-                updatePollerModel.events.setErrorMessage(
-                  err instanceof Error ? err.message : 'Update check failed.',
-                ),
-              );
-            }
-          },
+          src: 'checkForUpdate',
         },
         on: {
-          setUpdateAvailable: {
-            actions: [reset, assignUpdateAvailable],
+          SET_UPDATE_AVAILABLE: {
+            actions: ['reset', 'assignUpdateAvailable'],
             target: 'success',
           },
-          setErrorMessage: {
-            actions: [reset, assignError],
+          SET_ERROR_MESSAGE: {
+            actions: ['reset', 'assignError'],
             target: 'failure',
           },
         },
@@ -87,7 +64,7 @@ export const updatePollerMachine = updatePollerModel.createMachine(
       },
       failure: {
         on: {
-          checkForUpdate: 'checkingForUpdate',
+          CHECK_FOR_UPDATE: 'checkingForUpdate',
         },
       },
       updateAvailable: {
@@ -96,9 +73,41 @@ export const updatePollerMachine = updatePollerModel.createMachine(
     },
   },
   {
+    actions: {
+      assignUpdateAvailable: assign({
+        updateAvailable: (_, event) => event.updateAvailable,
+      }),
+      assignError: assign({ error: (_, event) => event.message }),
+      reset: assign(initialContext),
+    },
     guards: {
       updateAvailable: (context) => context.updateAvailable,
       updateNotAvailable: (context) => !context.updateAvailable,
+    },
+    services: {
+      checkForUpdate: (_, event) => async (sendBack) => {
+        let isCancelled = false;
+        try {
+          const updateAvailable = await event.checkForUpdate();
+          if (!isCancelled) {
+            sendBack({
+              type: 'SET_UPDATE_AVAILABLE',
+              updateAvailable,
+            });
+          }
+        } catch (err: unknown) {
+          if (!isCancelled) {
+            sendBack({
+              type: 'SET_ERROR_MESSAGE',
+              message:
+                err instanceof Error ? err.message : 'Update check failed.',
+            });
+          }
+        }
+        return () => {
+          isCancelled = true;
+        };
+      },
     },
   },
 );
