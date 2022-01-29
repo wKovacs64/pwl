@@ -17,7 +17,7 @@ export function useUpdatePoller(
 ): readonly [boolean, string] {
   const intervalRef = React.useRef<Interval>(null);
   const [current, send] = useMachine(updatePollerMachine);
-  const { updateAvailable, error } = current.context;
+  const { updateAvailable, errorMessage } = current.context;
 
   const checkForUpdate = React.useCallback(() => {
     send({ type: 'CHECK_FOR_UPDATE', checkForUpdate: hasUpdate });
@@ -36,7 +36,7 @@ export function useUpdatePoller(
     return () => clearIntervalSafely(intervalRef.current);
   }, [checkForUpdate, pollingIntervalMs, checkImmediately]);
 
-  return [updateAvailable, error];
+  return [updateAvailable, errorMessage];
 }
 
 type Interval = number | null;

@@ -3,13 +3,14 @@
 export interface Typegen0 {
   '@@xstate/typegen': true;
   eventsCausingActions: {
-    reset: 'SET_UPDATE_AVAILABLE' | 'SET_ERROR_MESSAGE' | 'CHECK_FOR_UPDATE';
-    assignUpdateAvailable: 'SET_UPDATE_AVAILABLE';
-    assignError: 'SET_ERROR_MESSAGE';
+    reset:
+      | 'done.invoke.checkForUpdate'
+      | 'error.platform.checkForUpdate'
+      | 'CHECK_FOR_UPDATE';
+    assignUpdateAvailable: 'done.invoke.checkForUpdate';
+    assignErrorMessage: 'error.platform.checkForUpdate';
   };
   internalEvents: {
-    '': { type: '' };
-    'xstate.init': { type: 'xstate.init' };
     'done.invoke.checkForUpdate': {
       type: 'done.invoke.checkForUpdate';
       data: unknown;
@@ -19,6 +20,8 @@ export interface Typegen0 {
       type: 'error.platform.checkForUpdate';
       data: unknown;
     };
+    '': { type: '' };
+    'xstate.init': { type: 'xstate.init' };
   };
   invokeSrcNameMap: {
     checkForUpdate: 'done.invoke.checkForUpdate';

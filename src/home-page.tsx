@@ -163,7 +163,7 @@ function HomePage() {
 
 function PwnedInfo({ /* delayLoadingMs, */ password }: PwnedInfoProps) {
   const [state, send] = useMachine(pwnedInfoMachine);
-  const { numPwns, error } = state.context;
+  const { numPwns, hasFailed } = state.context;
 
   React.useEffect(() => {
     send({ type: 'GET_PWNED_INFO', password });
@@ -172,7 +172,7 @@ function PwnedInfo({ /* delayLoadingMs, */ password }: PwnedInfoProps) {
   return (
     <section className="flex-1" data-testid="pwned-info">
       <p className="py-4">Public Exposure:</p>
-      {error ? (
+      {hasFailed ? (
         <p>
           <em>Public exposure information is currently unavailable.</em>
         </p>

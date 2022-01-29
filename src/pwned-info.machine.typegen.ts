@@ -3,12 +3,14 @@
 export interface Typegen0 {
   '@@xstate/typegen': true;
   eventsCausingActions: {
-    reset: 'SET_NUM_PWNS' | 'SET_ERROR' | 'GET_PWNED_INFO';
-    assignNumPwns: 'SET_NUM_PWNS';
-    assignError: 'SET_ERROR';
+    reset:
+      | 'done.invoke.pwnedPassword'
+      | 'error.platform.pwnedPassword'
+      | 'GET_PWNED_INFO';
+    assignNumPwns: 'done.invoke.pwnedPassword';
+    assignError: 'error.platform.pwnedPassword';
   };
   internalEvents: {
-    'xstate.init': { type: 'xstate.init' };
     'done.invoke.pwnedPassword': {
       type: 'done.invoke.pwnedPassword';
       data: unknown;
@@ -18,6 +20,7 @@ export interface Typegen0 {
       type: 'error.platform.pwnedPassword';
       data: unknown;
     };
+    'xstate.init': { type: 'xstate.init' };
   };
   invokeSrcNameMap: {
     getNumPwns: 'done.invoke.pwnedPassword';

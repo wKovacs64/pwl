@@ -3,26 +3,27 @@
 import { assign, createMachine } from 'xstate';
 
 interface UpdatePollerContext {
-  error: string;
+  errorMessage: string;
   updateAvailable: boolean;
 }
 
 const initialContext: UpdatePollerContext = {
-  error: '',
+  errorMessage: '',
   updateAvailable: false,
 };
-
-type UpdatePollerEvent =
-  | { type: 'CHECK_FOR_UPDATE'; checkForUpdate: () => Promise<boolean> }
-  | { type: 'SET_UPDATE_AVAILABLE'; updateAvailable: boolean }
-  | { type: 'SET_ERROR_MESSAGE'; message: string };
 
 export const updatePollerMachine = createMachine(
   {
     tsTypes: {} as import('./update-poller.machine.typegen').Typegen0,
     schema: {
       context: {} as UpdatePollerContext,
-      events: {} as UpdatePollerEvent,
+      events: {} as {
+        type: 'CHECK_FOR_UPDATE';
+        checkForUpdate: () => Promise<boolean>;
+      },
+      services: {} as {
+        checkForUpdate: { data: boolean };
+      },
     },
     id: 'updatePoller',
     initial: 'idle',
@@ -38,14 +39,12 @@ export const updatePollerMachine = createMachine(
         invoke: {
           id: 'checkForUpdate',
           src: 'checkForUpdate',
-        },
-        on: {
-          SET_UPDATE_AVAILABLE: {
+          onDone: {
             actions: ['reset', 'assignUpdateAvailable'],
             target: 'success',
           },
-          SET_ERROR_MESSAGE: {
-            actions: ['reset', 'assignError'],
+          onError: {
+            actions: ['reset', 'assignErrorMessage'],
             target: 'failure',
           },
         },
@@ -75,9 +74,12 @@ export const updatePollerMachine = createMachine(
   {
     actions: {
       assignUpdateAvailable: assign({
-        updateAvailable: (_, event) => event.updateAvailable,
+        updateAvailable: (_, event) => event.data,
       }),
-      assignError: assign({ error: (_, event) => event.message }),
+      assignErrorMessage: assign({
+        errorMessage: (_, event) =>
+          typeof event.data === 'string' ? event.data : 'Update check failed.',
+      }),
       reset: assign(initialContext),
     },
     guards: {
@@ -85,29 +87,7 @@ export const updatePollerMachine = createMachine(
       updateNotAvailable: (context) => !context.updateAvailable,
     },
     services: {
-      checkForUpdate: (_, event) => async (sendBack) => {
-        let isCancelled = false;
-        try {
-          const updateAvailable = await event.checkForUpdate();
-          if (!isCancelled) {
-            sendBack({
-              type: 'SET_UPDATE_AVAILABLE',
-              updateAvailable,
-            });
-          }
-        } catch (err: unknown) {
-          if (!isCancelled) {
-            sendBack({
-              type: 'SET_ERROR_MESSAGE',
-              message:
-                err instanceof Error ? err.message : 'Update check failed.',
-            });
-          }
-        }
-        return () => {
-          isCancelled = true;
-        };
-      },
+      checkForUpdate: (_, event) => event.checkForUpdate(),
     },
   },
 );
