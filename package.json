@@ -59,7 +59,7 @@
     "@wkovacs64/prettier-config": "3.0.0",
     "@xstate/react": "2.0.0",
     "autoprefixer": "10.4.2",
-    "axe-core": "4.4.0",
+    "axe-core": "4.4.1",
     "clsx": "1.1.1",
     "commitizen": "4.2.4",
     "cypress": "9.4.1",
