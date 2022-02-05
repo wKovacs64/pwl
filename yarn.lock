@@ -1548,15 +1548,15 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/nunito@4.5.2":
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/@fontsource/nunito/-/nunito-4.5.2.tgz#ddf3dba9ed1943c664da338fea6b24ac4b8f1256"
-  integrity sha512-GnMO+OqjJqRPT/PLQGN8dEopp1tDD6+8p9Y+A7ED65YDjnv/f56LfbG+DoBBjEdaJ2Z4CBMioM9x+8n9oFIRVg==
+"@fontsource/nunito@4.5.3":
+  version "4.5.3"
+  resolved "https://registry.yarnpkg.com/@fontsource/nunito/-/nunito-4.5.3.tgz#875deb1b968999c82f06f616013b96465b30a3eb"
+  integrity sha512-23mSC2KPaq6TDCqTgaKonCMT432L2AZ7VG5OawEyCfnb8qVP3iruHtnx2lTWSTr4MvI4lp7yH+3hw+oGOSPVNw==
 
-"@fontsource/source-sans-pro@4.5.2":
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/@fontsource/source-sans-pro/-/source-sans-pro-4.5.2.tgz#3c6cccb29e24d784b851cc6914cd9a5f967f8f3b"
-  integrity sha512-uN2iIKDbpHpGZjUT+/kkwS67MPDn2tfFXBCkHjzu7JQPA6kIHZeOyKseshvZ/pyrCYqnAL9cAot5Nygt08/HRQ==
+"@fontsource/source-sans-pro@4.5.3":
+  version "4.5.3"
+  resolved "https://registry.yarnpkg.com/@fontsource/source-sans-pro/-/source-sans-pro-4.5.3.tgz#bdb1eeed5db70bcd1f68cd1e8c859834f0e6bc67"
+  integrity sha512-9xWGu3ArKsjf6+WVrNoCUywybTB3rIidpvOI2tByQpzYVOupFUv6qohyrjDrVvPb6XHJQTD0NIzisR7RKhiP7A==
 
 "@gar/promisify@^1.0.1":
   version "1.1.2"
