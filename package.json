@@ -46,7 +46,7 @@
     "@babel/plugin-syntax-jsx": "7.16.7",
     "@commitlint/cli": "16.1.0",
     "@commitlint/config-conventional": "16.0.0",
-    "@fontsource/nunito": "4.5.3",
+    "@fontsource/nunito": "4.5.4",
     "@fontsource/source-sans-pro": "4.5.3",
     "@testing-library/cypress": "8.0.2",
     "@types/lodash": "4.14.178",
