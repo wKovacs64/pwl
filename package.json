@@ -62,7 +62,7 @@
     "axe-core": "4.4.1",
     "clsx": "1.1.1",
     "commitizen": "4.2.4",
-    "cypress": "9.4.1",
+    "cypress": "9.5.0",
     "cypress-axe": "0.14.0",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "7.32.0",
