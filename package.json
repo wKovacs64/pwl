@@ -96,6 +96,6 @@
     "vite-plugin-pwa": "0.11.13",
     "workbox-build": "6.4.2",
     "workbox-window": "6.4.2",
-    "xstate": "4.30.1"
+    "xstate": "4.30.2"
   }
 }
