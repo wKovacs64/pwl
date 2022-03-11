@@ -47,7 +47,7 @@
     "@commitlint/cli": "16.2.1",
     "@commitlint/config-conventional": "16.2.1",
     "@fontsource/nunito": "4.5.4",
-    "@fontsource/source-sans-pro": "4.5.3",
+    "@fontsource/source-sans-pro": "4.5.4",
     "@testing-library/cypress": "8.0.2",
     "@types/lodash": "4.14.179",
     "@types/ms": "0.7.31",

@@ -1582,10 +1582,10 @@
   resolved "https://registry.yarnpkg.com/@fontsource/nunito/-/nunito-4.5.4.tgz#9d267c1b7c157014d96f622cebdcc45229690d5c"
   integrity sha512-pD5tXcQ7SM2oHvZuYOypOD/kfs76HPTBHUGa/7lARkpW6K3LJckycwr8gz9ykmmQACEwFYjcxJt/kM9qaAwnYQ==
 
-"@fontsource/source-sans-pro@4.5.3":
-  version "4.5.3"
-  resolved "https://registry.yarnpkg.com/@fontsource/source-sans-pro/-/source-sans-pro-4.5.3.tgz#bdb1eeed5db70bcd1f68cd1e8c859834f0e6bc67"
-  integrity sha512-9xWGu3ArKsjf6+WVrNoCUywybTB3rIidpvOI2tByQpzYVOupFUv6qohyrjDrVvPb6XHJQTD0NIzisR7RKhiP7A==
+"@fontsource/source-sans-pro@4.5.4":
+  version "4.5.4"
+  resolved "https://registry.yarnpkg.com/@fontsource/source-sans-pro/-/source-sans-pro-4.5.4.tgz#51510723ff40f446c7800f133e9ae604ae2f38d7"
+  integrity sha512-+YYw6HRvH9wYE+U2Hvxyossg+MHPApAj7VIjEqaXenNeNQa4U3uPD0e7pc+1Gic3srCQATN15O3S9WSFLXTmwQ==
 
 "@gar/promisify@^1.0.1":
   version "1.1.2"
