@@ -1574,10 +1574,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/nunito@4.5.6":
-  version "4.5.6"
-  resolved "https://registry.yarnpkg.com/@fontsource/nunito/-/nunito-4.5.6.tgz#274d95ae6a869307d73cd2624cf31baec984cf53"
-  integrity sha512-ZvKj7LtDhOJnWMkenXfkka27gQMXGcpwczQ2p9UCJl+VaQwv3ahBj5boDJdgZIPUiQhNXVb0T1vZoTKWZoPYDA==
+"@fontsource/nunito@4.5.8":
+  version "4.5.8"
+  resolved "https://registry.yarnpkg.com/@fontsource/nunito/-/nunito-4.5.8.tgz#3eb1abc3256d1c533363cbff6dc458c5ca9c4ea2"
+  integrity sha512-JrXmYKyrhM+80808hk85+ieuXOvZqVdAyAA9Xsqz4L+dwGpfJ08e+4vjVNcfVn4YLkgpC57WW2GTn3Xwkv3NIQ==
 
 "@fontsource/source-sans-pro@4.5.6":
   version "4.5.6"
