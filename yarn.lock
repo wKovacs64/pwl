@@ -2565,10 +2565,10 @@
     react-refresh "^0.11.0"
     resolve "^1.22.0"
 
-"@wkovacs64/prettier-config@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@wkovacs64/prettier-config/-/prettier-config-3.0.0.tgz#e56992085ea1896a88adf36f8a279ffd6b0fc467"
-  integrity sha512-lYDMjueauVIMcSRVlf7b/kqaQIUf3FexXpv0vwFG84NSJb6QhAW8cf7AutMkiG5Wlmq0Er96tNjszQel5gHEdQ==
+"@wkovacs64/prettier-config@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@wkovacs64/prettier-config/-/prettier-config-3.0.1.tgz#3df47817076cf132ac7b9cbc98fb0b93d5c10961"
+  integrity sha512-dV2wNoAEOjmKRWlEc8FbBkJ9Oypitw+RnO1q1zNT7KkKdfz+xkWEzK+G37IznOqSAeBZcw5vRJWn6e49dDZSbg==
 
 "@xstate/react@2.0.1":
   version "2.0.1"
