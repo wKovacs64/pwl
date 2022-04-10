@@ -157,8 +157,8 @@ $RECYCLE.BIN/
 /dist
 /dist-ssr
 
-# npm
-package-lock.json
+# yarn
+yarn.lock
 
 # Netlify
 .netlify

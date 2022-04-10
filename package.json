@@ -27,9 +27,9 @@
     "lint": "eslint --ext \".js,.jsx,.ts,.tsx\" .",
     "husky:install": "husky install",
     "prepare": "npm run --silent husky:install",
-    "preserve": "yarn build",
+    "preserve": "npm run build",
     "serve": "vite preview --port 3000",
-    "test": "yarn test:e2e",
+    "test": "npm run test:e2e",
     "test:e2e": "start-server-and-test dev http-get://localhost:3000 cy:open",
     "test:e2e:ci": "start-server-and-test serve 3000 cy:run",
     "validate": "npm-run-all --silent --parallel lint check-types build"

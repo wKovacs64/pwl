@@ -14,13 +14,13 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run: yarn validate
+      - run: npm run validate
   release:
     executor: my-cypress-executor
     steps:
       - attach_workspace:
           at: ~/
-      - run: yarn semantic-release
+      - run: npx semantic-release
 
 workflows:
   build:
@@ -28,7 +28,7 @@ workflows:
       - cypress/run:
           executor: my-cypress-executor
           yarn: true
-          start: yarn serve
+          start: npm run serve
           wait-on: '--timeout 120000 http://localhost:3000'
       - validate:
           requires:
