@@ -97,5 +97,8 @@
     "workbox-build": "6.5.2",
     "workbox-window": "6.5.2",
     "xstate": "4.31.0"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "2.6.1"
   }
 }
