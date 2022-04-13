@@ -52,6 +52,7 @@
     "@types/lodash": "4.14.181",
     "@types/ms": "0.7.31",
     "@types/node": "16.11.26",
+    "@types/node-fetch": "2.6.1",
     "@types/react": "17.0.44",
     "@types/react-dom": "17.0.15",
     "@types/react-helmet": "6.1.5",
@@ -97,8 +98,5 @@
     "workbox-build": "6.5.2",
     "workbox-window": "6.5.2",
     "xstate": "4.31.0"
-  },
-  "devDependencies": {
-    "@types/node-fetch": "2.6.1"
   }
 }
