@@ -164,5 +164,6 @@ yarn.lock
 .netlify
 
 # Cypress
+cypress/downloads
 cypress/screenshots
 cypress/videos
