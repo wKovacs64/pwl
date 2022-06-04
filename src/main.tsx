@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import App from './app';
 import AppProviders from './app-providers';
 
-if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined' && !('Cypress' in window)) {
   import('./pwa');
 }
 
