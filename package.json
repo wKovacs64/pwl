@@ -24,7 +24,7 @@
     "cy:run": "cypress run",
     "dev": "vite",
     "format": "prettier --write .",
-    "lint": "eslint --ext \".js,.jsx,.ts,.tsx\" .",
+    "lint": "eslint .",
     "husky:install": "husky install",
     "prepare": "npm run --silent husky:install",
     "preserve": "npm run build",
