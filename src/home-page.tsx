@@ -64,7 +64,7 @@ function HomePage() {
           onChange={handlePasswordChange}
           value={passwordInput}
         />
-        {passwordInput && (
+        {passwordInput ? (
           <section data-testid="results" className="mt-8">
             <div className="scrollbar-width-4 scrollbar-light dark:scrollbar-dark mb-8 overflow-y-hidden overflow-x-scroll whitespace-nowrap border-2 border-white bg-dark text-center text-xl dark:border-light dark:border-opacity-30 md:text-2xl lg:text-4xl">
               <div
@@ -155,7 +155,7 @@ function HomePage() {
               <PwnedInfo password={passwordToCheck} />
             </div>
           </section>
-        )}
+        ) : null}
       </section>
     </article>
   );
