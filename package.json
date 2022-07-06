@@ -61,7 +61,7 @@
     "@xstate/react": "3.0.0",
     "autoprefixer": "10.4.7",
     "axe-core": "4.4.2",
-    "clsx": "1.2.0",
+    "clsx": "1.2.1",
     "commitizen": "4.2.4",
     "cypress": "10.3.0",
     "cypress-axe": "1.0.0",
