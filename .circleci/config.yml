@@ -28,7 +28,7 @@ workflows:
       - cypress/run:
           executor: my-cypress-executor
           start: npm run serve
-          wait-on: '--timeout 120000 http://localhost:3000'
+          wait-on: '--timeout 120000 http://localhost:4173'
       - validate:
           requires:
             - cypress/run
