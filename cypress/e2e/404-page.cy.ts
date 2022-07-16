@@ -1,6 +1,6 @@
 describe('404 Page', () => {
   beforeEach(() => {
-    cy.visit('/404/').injectAxe();
+    cy.visit('/404').injectAxe();
   });
 
   it('has no detectable a11y violations', () => {
