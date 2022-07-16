@@ -6,7 +6,8 @@ orbs:
 executors:
   my-cypress-executor:
     docker:
-      - image: cypress/base:17.8.0
+      # don't need browsers, but the browser images include git
+      - image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
 
 jobs:
   validate:
