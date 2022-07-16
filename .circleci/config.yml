@@ -6,7 +6,6 @@ orbs:
 executors:
   my-cypress-executor:
     docker:
-      # don't need browsers, but the browser images include git
       - image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
 
 jobs:
@@ -28,8 +27,9 @@ workflows:
     jobs:
       - cypress/run:
           executor: my-cypress-executor
+          browser: chrome
           start: npm run serve
-          wait-on: '--timeout 120000 http://localhost:4173'
+          wait-on: 'http://localhost:4173'
       - validate:
           requires:
             - cypress/run
