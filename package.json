@@ -60,7 +60,7 @@
     "autoprefixer": "10.4.7",
     "axe-core": "4.4.3",
     "clsx": "1.2.1",
-    "commitizen": "4.2.4",
+    "commitizen": "4.2.5",
     "cypress": "10.3.0",
     "cypress-axe": "1.0.0",
     "cz-conventional-changelog": "3.3.0",
