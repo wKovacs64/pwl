@@ -72,6 +72,7 @@ jobs:
       - name: 🌳 Cypress Run
         uses: cypress-io/github-action@v4
         with:
+          install: false
           start: npm run preview
           wait-on: 'http://localhost:4173'
           config: baseUrl=http://localhost:4173
