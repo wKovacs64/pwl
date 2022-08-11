@@ -54,7 +54,7 @@
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
     "@types/react-helmet": "6.1.5",
-    "@vitejs/plugin-react": "2.0.0",
+    "@vitejs/plugin-react": "2.0.1",
     "@wkovacs64/prettier-config": "3.0.2",
     "@xstate/react": "3.0.1",
     "autoprefixer": "10.4.8",
