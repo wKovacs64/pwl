@@ -57,7 +57,7 @@
     "@vitejs/plugin-react": "2.1.0",
     "@wkovacs64/prettier-config": "3.0.2",
     "@xstate/react": "3.0.1",
-    "autoprefixer": "10.4.11",
+    "autoprefixer": "10.4.12",
     "axe-core": "4.4.3",
     "clsx": "1.2.1",
     "commitizen": "4.2.5",
