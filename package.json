@@ -64,7 +64,7 @@
     "cypress": "10.9.0",
     "cypress-axe": "1.0.0",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "8.24.0",
+    "eslint": "8.25.0",
     "eslint-plugin-cypress": "2.12.1",
     "eslint-plugin-wkovacs64": "13.16.0",
     "git-current-commit": "1.1.0",
