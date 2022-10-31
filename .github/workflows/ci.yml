@@ -74,8 +74,8 @@ jobs:
         with:
           install: false
           start: npm run preview
-          wait-on: 'http://localhost:4173'
-          config: baseUrl=http://localhost:4173
+          wait-on: 'http://127.0.0.1:4173'
+          config: baseUrl=http://127.0.0.1:4173
 
   release:
     name: 🚀 Release
