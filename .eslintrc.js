@@ -11,5 +11,5 @@ module.exports = {
   parserOptions: {
     project: 'tsconfig.json',
   },
-  ignorePatterns: ['cypress.config.ts'],
+  ignorePatterns: ['cypress.config.ts', 'vite.config.ts'],
 };
