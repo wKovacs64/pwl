@@ -40,7 +40,7 @@ async function checkForUpdate(localCommit: string) {
         method: 'GET',
         headers: { Pragma: 'no-cache' },
       });
-      const data = await res.json();
+      const data = await res.text();
 
       if (data) {
         const remoteDocument = new DOMParser().parseFromString(
