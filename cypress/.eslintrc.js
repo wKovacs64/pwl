@@ -9,4 +9,7 @@ module.exports = {
     'testing-library/await-async-query': 'off',
     'testing-library/prefer-screen-queries': 'off',
   },
+  parserOptions: {
+    project: 'cypress/tsconfig.json',
+  },
 };

@@ -24,7 +24,7 @@ describe('Index Page', () => {
       fixture: 'exposed-password-response.txt',
     });
 
-    cy.fixture('exposed-password.txt').then((exposedPassword) => {
+    cy.fixture('exposed-password.txt').then((exposedPassword: string) => {
       cy.findByLabelText('Password').click().type(exposedPassword);
       cy.findByTestId('results').should('exist');
       cy.findByText(/Uh-oh/i).checkA11y();
@@ -153,7 +153,7 @@ describe('Index Page', () => {
     });
 
     it('shows positive feedback for clean passwords', () => {
-      cy.fixture('clean-password.txt').then((cleanPassword) => {
+      cy.fixture('clean-password.txt').then((cleanPassword: string) => {
         cy.intercept('GET', EXPOSURE_ROUTE, {
           fixture: 'clean-password-response.txt',
         });
@@ -167,9 +167,9 @@ describe('Index Page', () => {
     });
 
     it('shows cautionary feedback for exposed passwords', () => {
-      cy.fixture('exposed-password.txt').then((exposedPassword) => {
+      cy.fixture('exposed-password.txt').then((exposedPassword: string) => {
         cy.fixture('exposed-password-count.txt').then(
-          (exposedPasswordCount) => {
+          (exposedPasswordCount: string) => {
             cy.intercept('GET', EXPOSURE_ROUTE, {
               fixture: 'exposed-password-response.txt',
             });

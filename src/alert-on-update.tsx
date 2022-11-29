@@ -8,11 +8,7 @@ import UpdateAlert from './update-alert';
 function AlertOnUpdate() {
   const [userHasDismissed, setUserHasDismissed] = React.useState(false);
   const [updateAvailable] = useUpdatePoller(
-    React.useCallback(
-      // @ts-ignore as __COMMIT__ will be statically replaced by Vite
-      () => checkForUpdate(__COMMIT__),
-      [],
-    ),
+    React.useCallback(() => checkForUpdate(__COMMIT__), []),
     isMobile() ? ms('1 day') : ms('1 hour'),
   );
 

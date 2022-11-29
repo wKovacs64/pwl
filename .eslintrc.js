@@ -7,15 +7,9 @@ module.exports = {
   ],
   rules: {
     'react/react-in-jsx-scope': 'off',
-    // TODO: remove for eslint-plugin-wkovacs64@13.11.0
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      {
-        vars: 'all',
-        args: 'after-used',
-        argsIgnorePattern: '^_',
-        ignoreRestSiblings: true,
-      },
-    ],
   },
+  parserOptions: {
+    project: 'tsconfig.json',
+  },
+  ignorePatterns: ['cypress.config.ts'],
 };

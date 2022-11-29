@@ -12,7 +12,6 @@ import './app.css';
 function App() {
   return (
     <React.Fragment>
-      {/* @ts-ignore as __COMMIT__ will be statically replaced by Vite */}
       <Helmet htmlAttributes={{ 'data-commit': __COMMIT__ }} />
       <Routes>
         <Route path="/" element={<Layout />}>
