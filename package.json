@@ -51,7 +51,7 @@
     "autoprefixer": "10.4.13",
     "axe-core": "4.6.1",
     "clsx": "1.2.1",
-    "cypress": "12.1.0",
+    "cypress": "12.2.0",
     "cypress-axe": "1.2.0",
     "eslint": "8.30.0",
     "eslint-plugin-cypress": "2.12.1",
