@@ -9,7 +9,7 @@ export const characterClassificationLabels = {
 
 function getCharProps(character: string): {
   type: keyof typeof characterClassificationLabels;
-  label: typeof characterClassificationLabels[keyof typeof characterClassificationLabels];
+  label: (typeof characterClassificationLabels)[keyof typeof characterClassificationLabels];
 } {
   if (/[0-9]/.test(character)) {
     return {
@@ -40,7 +40,7 @@ const getCharacterProperties = memoizeOne(getCharProps);
 interface ClassifiedCharacter {
   character: string;
   type: keyof typeof characterClassificationLabels;
-  label: typeof characterClassificationLabels[keyof typeof characterClassificationLabels];
+  label: (typeof characterClassificationLabels)[keyof typeof characterClassificationLabels];
 }
 
 export function classifyCharacters(password: string): ClassifiedCharacter[] {
