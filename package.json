@@ -47,7 +47,7 @@
     "@types/react-helmet": "6.1.6",
     "@vitejs/plugin-react-swc": "3.0.1",
     "@wkovacs64/prettier-config": "3.0.3",
-    "@xstate/react": "3.0.2",
+    "@xstate/react": "3.1.0",
     "autoprefixer": "10.4.13",
     "axe-core": "4.6.3",
     "clsx": "1.2.1",
