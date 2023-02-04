@@ -1,5 +1,4 @@
 import * as React from 'react';
-import fetch from 'unfetch';
 import ms from 'ms';
 import { isMobile } from './is-mobile';
 import { useUpdatePoller } from './use-update-poller';
