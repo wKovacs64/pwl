@@ -23,7 +23,7 @@
     "cy:open": "cypress open --config baseUrl=http://127.0.0.1:5173",
     "cy:run": "cypress run --config baseUrl=http://127.0.0.1:4173",
     "dev": "vite",
-    "format": "prettier --write .",
+    "format": "prettier --cache --write .",
     "lint": "eslint .",
     "preview": "vite --host 127.0.0.1 preview",
     "test": "npm run test:e2e:open",
