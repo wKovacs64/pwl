@@ -27,8 +27,8 @@
     "lint": "eslint .",
     "preview": "vite --host 127.0.0.1 preview",
     "test": "npm run test:e2e:open",
-    "test:e2e:open": "start-server-and-test dev http-get://127.0.0.1:5173 cy:open",
-    "test:e2e:run": "start-server-and-test preview http-get://127.0.0.1:4173 cy:run"
+    "test:e2e:open": "start-server-and-test dev 5173 cy:open",
+    "test:e2e:run": "start-server-and-test preview 4173 cy:run"
   },
   "private": true,
   "dependencies": {
