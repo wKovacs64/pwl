@@ -29,7 +29,7 @@ function NotFoundPage() {
   return (
     <article className="flex md:justify-center">
       <section className="w-[48rem] border-l-8 border-dark pl-8 dark:border-light">
-        <h2 className="mt-0 mb-16 text-4xl font-bold italic text-gray-500 dark:text-gray-400 lg:text-5xl">
+        <h2 className="mb-16 mt-0 text-4xl font-bold italic text-gray-500 dark:text-gray-400 lg:text-5xl">
           404
         </h2>
         <p className="my-16 text-xl font-light text-medium dark:text-bright lg:text-2xl">
