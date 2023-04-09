@@ -17,3 +17,6 @@
   for = "/manifest.webmanifest"
   [headers.values]
     Content-Type = "application/manifest+json"
+
+[template.environment]
+  PWL_SOCIAL_IMAGE_URL = "your social image url"
