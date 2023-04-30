@@ -7,7 +7,7 @@
     "skipLibCheck": false,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
-    "importsNotUsedAsValues": "error",
+    "verbatimModuleSyntax": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
