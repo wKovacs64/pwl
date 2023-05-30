@@ -36,7 +36,7 @@
     "@babel/parser": "7.22.4",
     "@babel/plugin-syntax-jsx": "7.21.4",
     "@fontsource/nunito": "5.0.2",
-    "@fontsource/source-sans-pro": "5.0.1",
+    "@fontsource/source-sans-pro": "5.0.2",
     "@testing-library/cypress": "9.0.0",
     "@types/lodash": "4.14.195",
     "@types/ms": "0.7.31",
