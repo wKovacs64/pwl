@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Source Sans Pro', ...defaultTheme.fontFamily.sans],
+        body: ['"Source Sans 3"', ...defaultTheme.fontFamily.sans],
         heading: ['Nunito', ...defaultTheme.fontFamily.sans],
         mono: ['Courier New', 'Courier', 'monospace'],
       },
