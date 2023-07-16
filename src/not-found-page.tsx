@@ -2,15 +2,15 @@ import * as React from 'react';
 import { FaChevronLeft } from 'react-icons/fa';
 
 function NotFoundPage() {
-  const originalTitleRef = React.useRef(document?.title ?? null);
+  const originalTitleRef = React.useRef(document.title);
   const originalDescriptionRef = React.useRef(
     document
-      ?.querySelector('meta[name="description"]')
+      .querySelector('meta[name="description"]')
       ?.getAttribute('content') ?? null,
   );
 
   React.useEffect(() => {
-    const originalTitle = originalTitleRef.current ?? '';
+    const originalTitle = originalTitleRef.current;
     const originalDescription = originalDescriptionRef.current ?? '';
 
     document.title = 'Dead Link';
