@@ -52,7 +52,7 @@
     "clsx": "2.0.0",
     "cypress": "12.17.3",
     "cypress-axe": "1.4.0",
-    "eslint": "8.46.0",
+    "eslint": "8.47.0",
     "eslint-plugin-cypress": "2.14.0",
     "eslint-plugin-wkovacs64": "15.0.1",
     "git-current-commit": "1.1.0",
