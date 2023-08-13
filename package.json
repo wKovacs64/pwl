@@ -47,7 +47,7 @@
     "@vitejs/plugin-react-swc": "3.3.2",
     "@wkovacs64/prettier-config": "3.0.3",
     "@xstate/react": "3.2.2",
-    "autoprefixer": "10.4.14",
+    "autoprefixer": "10.4.15",
     "axe-core": "4.7.2",
     "clsx": "2.0.0",
     "cypress": "12.17.3",
