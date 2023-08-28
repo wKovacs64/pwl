@@ -33,7 +33,7 @@
   "private": true,
   "dependencies": {
     "@babel/core": "7.22.11",
-    "@babel/parser": "7.22.11",
+    "@babel/parser": "7.22.13",
     "@babel/plugin-syntax-jsx": "7.22.5",
     "@fontsource/nunito": "5.0.8",
     "@fontsource/source-sans-3": "5.0.9",
