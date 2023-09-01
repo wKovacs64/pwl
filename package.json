@@ -51,7 +51,7 @@
     "axe-core": "4.7.2",
     "clsx": "2.0.0",
     "cypress": "12.17.4",
-    "cypress-axe": "1.4.0",
+    "cypress-axe": "1.5.0",
     "eslint": "8.48.0",
     "eslint-plugin-cypress": "2.14.0",
     "eslint-plugin-wkovacs64": "15.0.1",
