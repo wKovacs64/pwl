@@ -163,7 +163,7 @@ yarn.lock
 # Netlify
 .netlify
 
-# Cypress
-cypress/downloads
-cypress/screenshots
-cypress/videos
+# Playwright
+/playwright/results/
+/playwright/report/
+/playwright/.cache/
