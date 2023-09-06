@@ -3,6 +3,7 @@ module.exports = {
     'plugin:wkovacs64/react',
     'plugin:wkovacs64/testing-library',
     'plugin:wkovacs64/typescript',
+    'plugin:playwright/playwright-test',
     'prettier',
   ],
   rules: {
@@ -11,5 +12,5 @@ module.exports = {
   parserOptions: {
     project: 'tsconfig.json',
   },
-  ignorePatterns: ['cypress.config.ts', 'vite.config.ts'],
+  ignorePatterns: ['vite.config.ts'],
 };
