@@ -1,3 +1,5 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable no-await-in-loop */
 import { test, expect } from '../utils';
 import {
   EXPOSURE_ROUTE,
@@ -13,6 +15,7 @@ import {
 } from '../../src/character-classification';
 
 test.describe('Index Page', () => {
+  // eslint-disable-next-line playwright/expect-expect
   test('has no detectable a11y violations on load', async ({
     page,
     axePage,
@@ -26,7 +29,7 @@ test.describe('Index Page', () => {
     axePage,
   }) => {
     await page.route(EXPOSURE_ROUTE, (route) => {
-      route.fulfill({
+      return route.fulfill({
         status: 200,
         body: EXPOSED_PASSWORD_RESPONSE_BODY,
       });
@@ -41,7 +44,7 @@ test.describe('Index Page', () => {
 
   test('only shows results section with input', async ({ page }) => {
     await page.route(EXPOSURE_ROUTE, (route) => {
-      route.fulfill({
+      return route.fulfill({
         status: 418,
       });
     });
@@ -90,7 +93,7 @@ test.describe('Index Page', () => {
   test.describe('Legend', () => {
     test.beforeEach(async ({ page }) => {
       await page.route(EXPOSURE_ROUTE, (route) => {
-        route.fulfill({ status: 418 });
+        return route.fulfill({ status: 418 });
       });
 
       await page.goto('/');
@@ -154,8 +157,10 @@ test.describe('Index Page', () => {
     test('shows loading state', async ({ page }) => {
       await page.route(EXPOSURE_ROUTE, async (route) => {
         // delay must be longer than PwnedInfo's delayLoadingMs prop value
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        route.fulfill({ status: 418 });
+        await new Promise((resolve) => {
+          setTimeout(resolve, 1000);
+        });
+        return route.fulfill({ status: 418 });
       });
 
       await page.goto('/');
@@ -170,7 +175,10 @@ test.describe('Index Page', () => {
 
     test('shows positive feedback for clean passwords', async ({ page }) => {
       await page.route(EXPOSURE_ROUTE, (route) => {
-        route.fulfill({ status: 200, body: CLEAN_PASSWORD_RESPONSE_BODY });
+        return route.fulfill({
+          status: 200,
+          body: CLEAN_PASSWORD_RESPONSE_BODY,
+        });
       });
 
       await page.goto('/');
@@ -184,7 +192,10 @@ test.describe('Index Page', () => {
       page,
     }) => {
       await page.route(EXPOSURE_ROUTE, (route) => {
-        route.fulfill({ status: 200, body: EXPOSED_PASSWORD_RESPONSE_BODY });
+        return route.fulfill({
+          status: 200,
+          body: EXPOSED_PASSWORD_RESPONSE_BODY,
+        });
       });
 
       await page.goto('/');
@@ -200,7 +211,7 @@ test.describe('Index Page', () => {
       page,
     }) => {
       await page.route(EXPOSURE_ROUTE, (route) => {
-        route.fulfill({ status: 500, body: 'API Unavailable' });
+        return route.fulfill({ status: 500, body: 'API Unavailable' });
       });
 
       await page.goto('/');

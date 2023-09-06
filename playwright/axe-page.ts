@@ -1,4 +1,4 @@
-import { test, expect, type Page } from '@playwright/test';
+import { expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 export class AxePage {

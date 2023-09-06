@@ -1,6 +1,7 @@
 import { test, expect } from '../utils';
 
 test.describe('404 Page', () => {
+  // eslint-disable-next-line playwright/expect-expect
   test('has no detectable a11y violations', async ({ page, axePage }) => {
     await page.goto('/404/');
     await axePage.checkA11y();
@@ -13,6 +14,6 @@ test.describe('404 Page', () => {
 
   test('contains a way to go back', async ({ page }) => {
     await page.goto('/404/');
-    await expect(await page.textContent('main')).toMatch(/back/i);
+    expect(await page.textContent('main')).toMatch(/back/i);
   });
 });
