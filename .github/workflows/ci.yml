@@ -84,6 +84,9 @@ jobs:
       - name: 📥 Install deps
         run: npm install
 
+      - name: ⚙️ Build
+        run: npm run build
+
       - name: 🔢 Get Playwright version
         run: echo "PLAYWRIGHT_VERSION=$(npx playwright --version | tr ' ' '-')" >> $GITHUB_ENV
 
