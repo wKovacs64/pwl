@@ -68,7 +68,7 @@
     "react-router-dom": "6.15.0",
     "semantic-release": "21.1.1",
     "tailwindcss": "3.3.3",
-    "typescript": "5.1.6",
+    "typescript": "5.2.2",
     "vite": "4.4.9",
     "vite-plugin-pwa": "0.16.4",
     "workbox-build": "7.0.0",
