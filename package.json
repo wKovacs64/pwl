@@ -28,7 +28,7 @@
   "private": true,
   "dependencies": {
     "@axe-core/playwright": "4.7.3",
-    "@babel/core": "7.22.19",
+    "@babel/core": "7.22.20",
     "@babel/parser": "7.22.16",
     "@babel/plugin-syntax-jsx": "7.22.5",
     "@fontsource/nunito": "5.0.8",
