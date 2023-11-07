@@ -34,7 +34,7 @@
     "@fontsource/nunito": "5.0.15",
     "@fontsource/source-sans-3": "5.0.17",
     "@playwright/test": "1.39.0",
-    "@types/lodash": "4.14.200",
+    "@types/lodash": "4.14.201",
     "@types/ms": "0.7.34",
     "@types/node": "20.8.10",
     "@types/node-fetch": "2.6.9",
