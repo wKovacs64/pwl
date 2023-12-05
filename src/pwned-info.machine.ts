@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/consistent-type-imports */
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
-import { assign, createMachine } from 'xstate';
+import { assign, fromPromise, setup } from 'xstate';
 import { pwnedPassword } from 'hibp';
 
 interface PwnedInfoContext {
@@ -13,55 +12,56 @@ const initialContext: PwnedInfoContext = {
   hasFailed: false,
 };
 
-/** @xstate-layout N4IgpgJg5mDOIC5QAcDuA7SBJdAzA9gMQDiAogCoD6ACgOoBypAIpVvQGIDyA2gAwC6iFPlgBLAC6j86ISAAeiACwAmADQgAnogCMAZkUA6AKy6AbIoAciowE5lu7UYDsugL6v1aTBBwEDMcUl0KHoAVwBbagxYQghpMANRdAA3fABrBK9IagBDWFhUfAAnCD5BJBBkEQkpGQqFBCNTJwMLbWUjI21LU14nU211LQQ2415xpytebt6u908MbDx8fzBApJCIqPQYsCKi4oNkABsc8QIi8KPFiFz8wpKy2SqxSWlZBqaWto6unr6BkNEMpxgYbLxTA4jCDbIonE53B4QOh8BA4M8br58M9qm86qAGgBaUxAhCEoxgmxU6k06luJFZHzLRIQY5gHGvWofRCTAxObS8GyQ7QWMw2XROIyk7Q2Cm8MxGCzKUymIWC+kLbxY1brYJhSLRDk1d71YG6GwGFQy5RKiy9Fxw0k2CzGBX2bo2EVOZQIhmY5mwUIAYyDcHgFRexvx8h5vIskt4HUFvHjil00u0pktJhBHT0SvsNnmlX9flwOVEx1CRXZEdxXNNCHhLvjRkTbfBqfTmjNFIssJsighTj6ilMykRriAA */
-export const pwnedInfoMachine = createMachine(
-  {
-    predictableActionArguments: true,
-    context: initialContext,
-    tsTypes: {} as import('./pwned-info.machine.typegen').Typegen0,
-    schema: {
-      context: {} as PwnedInfoContext,
-      events: {} as { type: 'GET_PWNED_INFO'; password: string },
-      services: {} as {
-        getNumPwns: { data: number };
-      },
+/** @xstate-layout N4IgpgJg5mDOIC5QAcDuA7SBJdAzA9gMQDiAogCoD6ACgOoBypAIpVvQGIDyA2gAwC6iFPlgBLAC6j86ISAAeiAEwBWADQgAnogCMAZmUA6XroBsy5aZMmA7GYAsAXwfq0mCDgIGY4yeij0AVwBbagxYQghpMANRdAA3fABraNdIagBDWFhUfAAnCD5BJBBkEQkpGWKFBGVrbQMADm0VZW07BpNeW211LQRteuVeYesGu142ztbdJxcMbDx8LzAfWP9g0PRwsFzcvINkABt08QJcoIP5iAysnPzC2VKxSWlZatrFA3a7O0UTds63V6OgAnPVxiZTCDeDYunYTE5nCB0PgIHBHlcPPhHmUXpVQNUALT-AyKBrQ0xNSEwlTAhCE6yGEHMkGKbTKEENCwguwg2YlTGLGIQQ5gHHPCpvRCE7QmUnk4wmKm6GlqTRKaxGUzKBp-EwgzqshoNfmpdxC7y+dYhMLi8qvKpKXQgr5so1kwG6OzWOmcgwWMyKXRtMENayKaymwWeWABADGcbg8GKT3t+PkiGsIM1YaGKl40LDdl0dLsTIsimM40mvFaUbcWIMuHSokOAVyYpTuMljoQWZzjN4+cL1mLdMUKkaHN5EOscJMikRDiAA */
+export const pwnedInfoMachine = setup({
+  types: {
+    context: {} as PwnedInfoContext,
+    events: {} as { type: 'GET_PWNED_INFO'; password: string },
+    children: {} as {
+      pwnCountFetcher: 'getNumPwns';
     },
-    id: 'pwnedInfo',
-    initial: 'idle',
-    states: {
-      idle: {},
-      gettingNumPwns: {
-        entry: 'reset',
-        invoke: {
-          id: 'pwnedPassword',
-          src: 'getNumPwns',
-          onDone: {
-            actions: ['reset', 'assignNumPwns'],
-            target: 'success',
-          },
-          onError: {
-            actions: ['reset', 'assignError'],
-            target: 'failure',
-          },
+  },
+  actions: {
+    assignNumPwns: assign({ numPwns: (_, numPwns: number) => numPwns }),
+    assignError: assign({ hasFailed: () => true }),
+    reset: assign(initialContext),
+  },
+  actors: {
+    getNumPwns: fromPromise(({ input }: { input: { password: string } }) =>
+      pwnedPassword(input.password),
+    ),
+  },
+}).createMachine({
+  context: initialContext,
+  id: 'pwnedInfo',
+  initial: 'idle',
+  states: {
+    idle: {},
+    gettingNumPwns: {
+      entry: 'reset',
+      invoke: {
+        id: 'pwnCountFetcher',
+        src: 'getNumPwns',
+        input: ({ event }) => ({ password: event.password }),
+        onDone: {
+          actions: [
+            'reset',
+            { type: 'assignNumPwns', params: ({ event }) => event.output },
+          ],
+          target: 'success',
+        },
+        onError: {
+          actions: ['reset', 'assignError'],
+          target: 'failure',
         },
       },
-      success: {},
-      failure: {},
     },
-    on: {
-      GET_PWNED_INFO: {
-        target: 'gettingNumPwns',
-      },
+    success: {},
+    failure: {},
+  },
+  on: {
+    GET_PWNED_INFO: {
+      target: '.gettingNumPwns',
     },
   },
-  {
-    actions: {
-      assignNumPwns: assign({ numPwns: (_, event) => event.data }),
-      assignError: assign({ hasFailed: (_) => true }),
-      reset: assign(initialContext),
-    },
-    services: {
-      getNumPwns: (_, event) => pwnedPassword(event.password),
-    },
-  },
-);
+});
