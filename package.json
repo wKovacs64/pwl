@@ -45,7 +45,7 @@
     "@xstate/react": "4.0.2",
     "autoprefixer": "10.4.16",
     "axe-core": "4.8.3",
-    "clsx": "2.0.0",
+    "clsx": "2.1.0",
     "cross-env": "7.0.3",
     "eslint": "8.56.0",
     "eslint-plugin-playwright": "0.20.0",
