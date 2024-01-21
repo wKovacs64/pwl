@@ -16,7 +16,7 @@
     "url": "https://github.com/wKovacs64/pwl/issues"
   },
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "vite build",
     "dev": "vite",
     "format": "prettier --cache --write .",
     "format:check": "prettier --cache --check .",
