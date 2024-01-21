@@ -2,6 +2,7 @@
   "name": "pwl",
   "version": "0.0.0-semantically-released",
   "description": "Static web application to reveal character types in a password",
+  "type": "module",
   "author": {
     "name": "Justin Hall",
     "email": "justin.r.hall@gmail.com"
@@ -18,6 +19,7 @@
     "build": "tsc && vite build",
     "dev": "vite",
     "format": "prettier --cache --write .",
+    "format:check": "prettier --cache --check .",
     "lint": "eslint .",
     "preview": "vite --host 127.0.0.1 preview",
     "test": "npm run test:e2e:open",
