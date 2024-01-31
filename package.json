@@ -42,7 +42,7 @@
     "@types/node-fetch": "2.6.11",
     "@types/react": "18.2.48",
     "@types/react-dom": "18.2.18",
-    "@vitejs/plugin-react-swc": "3.5.0",
+    "@vitejs/plugin-react-swc": "3.6.0",
     "@wkovacs64/prettier-config": "3.0.3",
     "@xstate/react": "4.0.3",
     "autoprefixer": "10.4.17",
