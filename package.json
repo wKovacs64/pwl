@@ -44,7 +44,7 @@
     "@types/react-dom": "18.2.19",
     "@vitejs/plugin-react-swc": "3.6.0",
     "@wkovacs64/prettier-config": "3.0.3",
-    "@xstate/react": "4.0.3",
+    "@xstate/react": "4.1.0",
     "autoprefixer": "10.4.17",
     "axe-core": "4.8.4",
     "clsx": "2.1.0",
