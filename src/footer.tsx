@@ -12,6 +12,7 @@ function Footer() {
           className="transition-transform duration-500 ease-in-out group-hover:rotate-[1turn]"
           role="img"
           title="View source on GitHub"
+          aria-label="View source on GitHub"
           size={32}
         />
       </a>
