@@ -28,6 +28,7 @@ function Header() {
             className="transition-transform duration-500 ease-in-out group-hover:rotate-180"
             role="img"
             title="Toggle Dark Theme"
+            aria-label="Toggle Dark Theme"
             size={32}
           />
         </button>
