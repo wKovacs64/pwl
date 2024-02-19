@@ -20,7 +20,7 @@
     "dev": "vite",
     "format": "prettier --cache --write .",
     "format:check": "prettier --cache --check .",
-    "lint": "eslint .",
+    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "preview": "vite --host 127.0.0.1 preview",
     "test": "npm run test:e2e:open",
     "test:e2e:open": "playwright test --ui",

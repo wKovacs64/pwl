@@ -2,7 +2,6 @@ module.exports = {
   extends: [
     'plugin:wkovacs64/react',
     'plugin:wkovacs64/typescript',
-    'plugin:playwright/playwright-test',
     'prettier',
   ],
   rules: {
@@ -12,4 +11,10 @@ module.exports = {
     project: 'tsconfig.json',
   },
   ignorePatterns: ['vite.config.ts'],
+  overrides: [
+    {
+      files: ['playwright/tests/*.spec.ts'],
+      extends: ['plugin:playwright/playwright-test'],
+    },
+  ],
 };
