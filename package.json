@@ -40,7 +40,7 @@
     "@types/ms": "0.7.34",
     "@types/node": "20.11.30",
     "@types/node-fetch": "2.6.11",
-    "@types/react": "18.2.67",
+    "@types/react": "18.2.69",
     "@types/react-dom": "18.2.22",
     "@vitejs/plugin-react-swc": "3.6.0",
     "@wkovacs64/prettier-config": "3.0.3",
