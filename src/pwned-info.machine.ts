@@ -44,10 +44,7 @@ export const pwnedInfoMachine = setup({
         src: 'getNumPwns',
         input: ({ event }) => ({ password: event.password }),
         onDone: {
-          actions: [
-            'reset',
-            { type: 'assignNumPwns', params: ({ event }) => event.output },
-          ],
+          actions: ['reset', { type: 'assignNumPwns', params: ({ event }) => event.output }],
           target: 'success',
         },
         onError: {

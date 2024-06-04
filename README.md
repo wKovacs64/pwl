@@ -2,10 +2,9 @@
 
 ## What is this?
 
-Certain characters in passwords ('O' and '0', 'I' and 'l', etc.) can be hard to
-identify when you need to type them in (and copy-paste is unavailable).
-**Password Lense** is a small web application that provides a quick and secure
-way to get a more informative view of your password.
+Certain characters in passwords ('O' and '0', 'I' and 'l', etc.) can be hard to identify when you
+need to type them in (and copy-paste is unavailable). **Password Lense** is a small web application
+that provides a quick and secure way to get a more informative view of your password.
 
 ## Features
 
@@ -17,8 +16,8 @@ way to get a more informative view of your password.
 - Core functionality works even when offline
 - Secure (your password never leaves your browser)
 - Pressing `ESC` clears the password (in case someone walks in unexpectedly)
-- Checks your password against those available in publicly disclosed data
-  breaches _(requires Internet connectivity)_
+- Checks your password against those available in publicly disclosed data breaches _(requires
+  Internet connectivity)_
 - Automatically checks for updates _(requires Internet connectivity)_
 
 ## Run your own
@@ -31,5 +30,4 @@ Because a co-worker asked for it.
 
 [demo-image]: ./demo.gif
 [deploy-image]: https://www.netlify.com/img/deploy/button.svg
-[deploy-link]:
-  https://app.netlify.com/start/deploy?repository=https://github.com/wKovacs64/pwl
+[deploy-link]: https://app.netlify.com/start/deploy?repository=https://github.com/wKovacs64/pwl

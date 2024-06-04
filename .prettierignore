@@ -1,4 +1,5 @@
-/dist
-/dist-ssr
+# .gitignore and...
+
 package.json
+package-lock.json
 **/*.typegen.ts

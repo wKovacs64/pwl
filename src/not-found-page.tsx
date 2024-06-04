@@ -4,9 +4,7 @@ import { FaChevronLeft } from 'react-icons/fa';
 function NotFoundPage() {
   const originalTitleRef = React.useRef(document.title);
   const originalDescriptionRef = React.useRef(
-    document
-      .querySelector('meta[name="description"]')
-      ?.getAttribute('content') ?? null,
+    document.querySelector('meta[name="description"]')?.getAttribute('content') ?? null,
   );
 
   React.useEffect(() => {
@@ -14,9 +12,7 @@ function NotFoundPage() {
     const originalDescription = originalDescriptionRef.current ?? '';
 
     document.title = 'Dead Link';
-    document
-      .querySelector('meta[name="description"]')
-      ?.setAttribute('content', 'Nothing here.');
+    document.querySelector('meta[name="description"]')?.setAttribute('content', 'Nothing here.');
 
     return () => {
       document.title = originalTitle;

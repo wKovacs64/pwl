@@ -32,11 +32,7 @@ export default defineConfig({
         background_color: '#ffffff',
       },
       workbox: {
-        globPatterns: [
-          'icon-*.png',
-          '**/**.{js,css,html,ico,webmanifest}',
-          'assets/*.woff?(2)',
-        ],
+        globPatterns: ['icon-*.png', '**/**.{js,css,html,ico,webmanifest}', 'assets/*.woff?(2)'],
       },
     }),
   ],
