@@ -42,12 +42,8 @@ async function checkForUpdate(localCommit: string) {
       const data = await res.text();
 
       if (data) {
-        const remoteDocument = new DOMParser().parseFromString(
-          data,
-          'text/html',
-        );
-        const remoteCommit =
-          remoteDocument.documentElement.getAttribute('data-commit');
+        const remoteDocument = new DOMParser().parseFromString(data, 'text/html');
+        const remoteCommit = remoteDocument.documentElement.getAttribute('data-commit');
         return Boolean(remoteCommit && remoteCommit !== localCommit);
       }
       return false;

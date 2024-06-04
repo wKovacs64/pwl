@@ -28,10 +28,7 @@ export function useUpdatePoller(
       if (checkImmediately) {
         checkForUpdate();
       }
-      intervalRef.current = window.setInterval(
-        checkForUpdate,
-        pollingIntervalMs,
-      );
+      intervalRef.current = window.setInterval(checkForUpdate, pollingIntervalMs);
     }
     return () => clearIntervalSafely(intervalRef.current);
   }, [checkForUpdate, pollingIntervalMs, checkImmediately]);

@@ -30,8 +30,7 @@ export const updatePollerMachine = setup({
       updateAvailable: (_, isUpdateAvailable: boolean) => isUpdateAvailable,
     }),
     assignErrorMessage: assign({
-      errorMessage: (_, error) =>
-        typeof error === 'string' ? error : 'Update check failed.',
+      errorMessage: (_, error) => (typeof error === 'string' ? error : 'Update check failed.'),
     }),
     reset: assign(initialContext),
   },
@@ -40,11 +39,9 @@ export const updatePollerMachine = setup({
     updateNotAvailable: ({ context }) => !context.updateAvailable,
   },
   actors: {
-    checkForUpdate: fromPromise(
-      ({ input }: { input: { checkForUpdate: CheckForUpdateFn } }) => {
-        return input.checkForUpdate();
-      },
-    ),
+    checkForUpdate: fromPromise(({ input }: { input: { checkForUpdate: CheckForUpdateFn } }) => {
+      return input.checkForUpdate();
+    }),
   },
 }).createMachine({
   schema: {},
