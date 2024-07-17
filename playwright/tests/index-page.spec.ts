@@ -1,5 +1,3 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable no-await-in-loop */
 import { test, expect } from '../utils';
 import {
   EXPOSURE_ROUTE,
