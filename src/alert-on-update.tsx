@@ -47,7 +47,7 @@ async function checkForUpdate(localCommit: string) {
         return Boolean(remoteCommit && remoteCommit !== localCommit);
       }
       return false;
-    } catch (err: unknown) {
+    } catch {
       // no-op: we don't really care if the update checks fail
       return false;
     }

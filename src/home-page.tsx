@@ -83,12 +83,6 @@ function HomePage() {
                         'text-pwl-special': classifiedCharacter.type === 'pwl-special',
                       },
                     )}
-                    // N.B. Generally, using an array index as a key is ill advised, but
-                    // in this particular case, it is acceptable as we don't have a
-                    // unique ID for each character in the string that we are
-                    // processing, and the order of the array elements will not change.
-                    //
-                    // eslint-disable-next-line react/no-array-index-key
                     key={index}
                   >
                     {classifiedCharacter.character}

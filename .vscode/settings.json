@@ -1,0 +1,5 @@
+{
+  "cSpell.words": ["Chainable", "Nunito", "callbag", "cond", "noflash", "onclickoutside", "tsify"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.useFlatConfig": true
+}
