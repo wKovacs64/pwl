@@ -46,7 +46,7 @@
     "@wkovacs64/eslint-config": "7.2.5",
     "@wkovacs64/prettier-config": "4.1.1",
     "@xstate/react": "4.1.1",
-    "autoprefixer": "10.4.19",
+    "autoprefixer": "10.4.20",
     "axe-core": "4.10.0",
     "clsx": "2.1.1",
     "cross-env": "7.0.3",
