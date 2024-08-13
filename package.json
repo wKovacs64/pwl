@@ -75,6 +75,6 @@
     "vite-plugin-pwa": "0.20.1",
     "workbox-build": "7.1.1",
     "workbox-window": "7.1.0",
-    "xstate": "5.17.1"
+    "xstate": "5.17.2"
   }
 }
