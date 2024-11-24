@@ -1,5 +1,5 @@
 declare global {
-  // eslint-disable-next-line vars-on-top, no-var, no-underscore-dangle
+  // eslint-disable-next-line no-var
   var __COMMIT__: string; // statically replaced by Vite define config
 }
 
