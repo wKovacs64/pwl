@@ -2,7 +2,7 @@ import * as React from 'react';
 import '@fontsource/nunito/latin-700.css';
 import '@fontsource/source-sans-3/latin-300.css';
 import '@fontsource/source-sans-3/latin-400.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router';
 import Layout from './layout';
 import HomePage from './home-page';
 import NotFoundPage from './not-found-page';
