@@ -45,7 +45,7 @@
     "@vitejs/plugin-react-swc": "3.7.2",
     "@wkovacs64/eslint-config": "7.5.0",
     "@wkovacs64/prettier-config": "4.1.1",
-    "@xstate/react": "5.0.1",
+    "@xstate/react": "5.0.2",
     "autoprefixer": "10.4.20",
     "axe-core": "4.10.2",
     "clsx": "2.1.1",
@@ -73,6 +73,6 @@
     "vite-plugin-pwa": "0.21.1",
     "workbox-build": "7.3.0",
     "workbox-window": "7.3.0",
-    "xstate": "5.19.1"
+    "xstate": "5.19.2"
   }
 }
