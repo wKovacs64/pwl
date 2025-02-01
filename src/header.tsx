@@ -16,11 +16,11 @@ function Header() {
     <header>
       <AlertOnUpdate />
       <section className="relative flex px-4 pt-4 md:justify-center md:p-0">
-        <h1 className="small-caps text-shadow-medium dark:text-shadow-bright m-0 font-heading text-4xl font-bold text-dark dark:text-light md:mt-16 md:text-5xl lg:text-[5rem]">
+        <h1 className="small-caps text-shadow-medium dark:text-shadow-bright font-heading text-dark dark:text-light m-0 text-4xl font-bold md:mt-16 md:text-5xl lg:text-[5rem]">
           Password Lense
         </h1>
         <button
-          className="group absolute right-4 top-4 p-2"
+          className="group absolute top-4 right-4 p-2"
           type="button"
           onClick={handleThemeToggle}
         >

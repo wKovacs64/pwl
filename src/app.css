@@ -1,45 +1,66 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@layer utilities {
-  .small-caps {
-    font-variant-caps: small-caps;
-  }
+@custom-variant dark (&:is(.dark *));
 
-  .text-shadow-medium {
-    text-shadow: 1px 1px 1px #046b99;
-  }
+@theme {
+  --font-body: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-heading: Nunito, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono: Courier New, Courier, monospace;
 
-  .text-shadow-bright {
-    text-shadow: 1px 1px 1px #00cfff;
-  }
+  --color-light: #b3efff;
+  --color-bright: #00cfff;
+  --color-medium: #046b99;
+  --color-dark: #1c304a;
+  --color-pwl-number: #f1f227;
+  --color-pwl-uppercase: #00cfff;
+  --color-pwl-lowercase: #4add8c;
+  --color-pwl-special: #ff6347;
 
-  .scrollbar-width-4::-webkit-scrollbar {
+  --shadow-light: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
+  --shadow-dark: 4px 4px 8px 0px rgba(179, 239, 255, 0.15);
+  --shadow-growing-underline: inset 0 -2px 0 0 currentColor;
+}
+
+@utility small-caps {
+  font-variant-caps: small-caps;
+}
+
+@utility text-shadow-medium {
+  text-shadow: 1px 1px 1px #046b99;
+}
+
+@utility text-shadow-bright {
+  text-shadow: 1px 1px 1px #00cfff;
+}
+
+@utility scrollbar-width-4 {
+  &::-webkit-scrollbar {
     width: 1rem;
   }
+}
 
-  .scrollbar-light {
-    scrollbar-color: #cdcdcd #f0f0f0;
-  }
+@utility scrollbar-light {
+  scrollbar-color: #cdcdcd #f0f0f0;
 
-  .scrollbar-light::-webkit-scrollbar-thumb {
+  &::-webkit-scrollbar-thumb {
     background-color: #cdcdcd;
   }
 
-  .scrollbar-light::-webkit-scrollbar-track {
+  &::-webkit-scrollbar-track {
     background-color: #f0f0f0;
   }
+}
 
-  .scrollbar-dark {
-    scrollbar-color: #32445c #49596e;
-  }
+@utility scrollbar-dark {
+  scrollbar-color: #32445c #49596e;
 
-  .scrollbar-dark::-webkit-scrollbar-thumb {
+  &::-webkit-scrollbar-thumb {
     background-color: #32445c;
   }
 
-  .scrollbar-dark::-webkit-scrollbar-track {
+  &::-webkit-scrollbar-track {
     background-color: #49596e;
   }
 }

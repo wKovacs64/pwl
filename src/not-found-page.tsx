@@ -24,21 +24,21 @@ function NotFoundPage() {
 
   return (
     <article className="flex md:justify-center">
-      <section className="w-[48rem] border-l-8 border-dark pl-8 dark:border-light">
-        <h2 className="mb-16 mt-0 text-4xl font-bold italic text-gray-500 dark:text-gray-400 lg:text-5xl">
+      <section className="border-dark dark:border-light w-[48rem] border-l-8 pl-8">
+        <h2 className="mt-0 mb-16 text-4xl font-bold text-gray-500 italic lg:text-5xl dark:text-gray-400">
           404
         </h2>
-        <p className="my-16 text-xl font-light text-medium dark:text-bright lg:text-2xl">
+        <p className="text-medium dark:text-bright my-16 text-xl font-light lg:text-2xl">
           Sorry, but the page you requested could not be found.
         </p>
         <nav className="mt-16 text-right">
           <button
-            className="group inline-flex items-center justify-between px-1 py-px text-dark dark:text-light"
+            className="group text-dark dark:text-light inline-flex items-center justify-between px-1 py-px"
             type="button"
             onClick={() => window.history.back()}
           >
             <FaChevronLeft className="text-xl lg:text-[1.625rem]" />{' '}
-            <span className="ml-2 border-b border-current font-sans text-base transition-shadow duration-300 group-hover:shadow-growing-underline group-focus:shadow-growing-underline lg:ml-4 lg:text-xl">
+            <span className="group-hover:shadow-growing-underline group-focus:shadow-growing-underline ml-2 border-b border-current font-sans text-base transition-shadow duration-300 lg:ml-4 lg:text-xl">
               Go Back
             </span>
           </button>

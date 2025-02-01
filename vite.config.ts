@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react-swc';
 import { VitePWA } from 'vite-plugin-pwa';
 import gitCommit from 'git-current-commit';
@@ -8,6 +9,7 @@ export default defineConfig({
     __COMMIT__: JSON.stringify(gitCommit.sync()),
   },
   plugins: [
+    tailwindcss(),
     react(),
     VitePWA({
       registerType: 'autoUpdate',
