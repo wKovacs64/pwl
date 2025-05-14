@@ -39,7 +39,7 @@
     "@tailwindcss/vite": "4.1.6",
     "@types/lodash": "4.17.16",
     "@types/ms": "2.1.0",
-    "@types/node": "22.15.17",
+    "@types/node": "22.15.18",
     "@types/node-fetch": "2.6.12",
     "@types/react": "19.1.4",
     "@types/react-dom": "19.1.5",
