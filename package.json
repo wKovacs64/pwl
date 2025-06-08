@@ -33,7 +33,7 @@
     "@babel/core": "7.27.4",
     "@babel/parser": "7.27.5",
     "@babel/plugin-syntax-jsx": "7.27.1",
-    "@fontsource/nunito": "5.2.5",
+    "@fontsource/nunito": "5.2.6",
     "@fontsource/source-sans-3": "5.2.8",
     "@playwright/test": "1.52.0",
     "@tailwindcss/vite": "4.1.8",
