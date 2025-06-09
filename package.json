@@ -41,7 +41,7 @@
     "@types/ms": "2.1.0",
     "@types/node": "22.15.30",
     "@types/node-fetch": "2.6.12",
-    "@types/react": "19.1.6",
+    "@types/react": "19.1.7",
     "@types/react-dom": "19.1.6",
     "@vitejs/plugin-react-swc": "3.10.1",
     "@wkovacs64/eslint-config": "7.7.0",
