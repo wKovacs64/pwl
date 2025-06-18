@@ -35,7 +35,7 @@
     "@babel/plugin-syntax-jsx": "7.27.1",
     "@fontsource/nunito": "5.2.6",
     "@fontsource/source-sans-3": "5.2.8",
-    "@playwright/test": "1.53.0",
+    "@playwright/test": "1.53.1",
     "@tailwindcss/vite": "4.1.10",
     "@types/lodash": "4.17.18",
     "@types/ms": "2.1.0",
