@@ -37,7 +37,7 @@
     "@fontsource/source-sans-3": "5.2.8",
     "@playwright/test": "1.53.2",
     "@tailwindcss/vite": "4.1.11",
-    "@types/lodash": "4.17.19",
+    "@types/lodash": "4.17.20",
     "@types/ms": "2.1.0",
     "@types/node": "22.15.34",
     "@types/node-fetch": "2.6.12",
