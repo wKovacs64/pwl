@@ -43,7 +43,7 @@
     "@types/node-fetch": "2.6.12",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
-    "@vitejs/plugin-react-swc": "3.10.2",
+    "@vitejs/plugin-react-swc": "3.11.0",
     "@wkovacs64/eslint-config": "7.8.0",
     "@wkovacs64/prettier-config": "4.2.1",
     "@xstate/react": "6.0.0",
