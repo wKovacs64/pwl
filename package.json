@@ -68,7 +68,7 @@
     "semantic-release": "24.2.7",
     "tailwindcss": "4.1.11",
     "typescript": "5.9.2",
-    "vite": "7.1.1",
+    "vite": "7.1.2",
     "vite-plugin-pwa": "1.0.2",
     "workbox-build": "7.3.0",
     "workbox-window": "7.3.0",
