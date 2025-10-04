@@ -45,7 +45,7 @@
     "@types/react-dom": "19.2.0",
     "@vitejs/plugin-react-swc": "4.1.0",
     "@wkovacs64/eslint-config": "7.9.1",
-    "@wkovacs64/prettier-config": "4.2.1",
+    "@wkovacs64/prettier-config": "4.2.2",
     "@xstate/react": "6.0.0",
     "axe-core": "4.10.3",
     "clsx": "2.1.1",
