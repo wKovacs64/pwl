@@ -47,7 +47,7 @@
     "@wkovacs64/eslint-config": "7.10.0",
     "@wkovacs64/prettier-config": "4.2.2",
     "@xstate/react": "6.0.0",
-    "axe-core": "4.10.3",
+    "axe-core": "4.11.0",
     "clsx": "2.1.1",
     "cross-env": "10.1.0",
     "eslint": "9.37.0",
