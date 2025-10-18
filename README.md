@@ -1,3 +1,7 @@
+<!-- prettier-ignore -->
+> [!WARNING]
+> This app is no longer maintained.
+
 ![Password Lense Demo][demo-image]
 
 ## What is this?
